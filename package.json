@@ -1,5 +1,25 @@
 {
   "devDependencies": {
     "cypress": "^12.13.0"
+  },
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.5.0"
+  },
+  "scripts": {
+    "mocha-report": "yarn cypress run --spec \"cypress/e2e/**/test-e2e.spec.js\"",
+    "adminservicetests": "yarn cypress run --spec \"cypress/e2e/admin-service/**/*.spec.js\",CYPRESS_BASE_URL=https://s181d01-as-fh-sd-admin-ui-dev.azurewebsites.net/",
+    "referralservicetests": "yarn cypress run --spec \"cypress/e2e/referral-service/**/*.spec.js\",CYPRESS_BASE_URL=https://s181d01-as-fh-referral-ui-dev.azurewebsites.net/",
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "pretests": "yarn run clean:reports",
+    "scripts": "yarn cypress run",
+    "alltests": "yarn cypress run",
+    "combine-reports": "mochawesome-merge ./cypress/reports/mocha > ./mochareports/report.json",
+    "generate-report": "marge mochareports/*.json --reportDir mochawesome --assetDir mochawesome/assets --reportPageTitle index.html",
+    "posttests": "yarn run combine-reports && npm run generate-report",
+    "test": "yarn run scripts || npm run posttest",
+    "tests": "yarn run pretests && (npm run alltests || npm run posttests)",
+    "open:admin-dev": "CYPRESS_BASE_URL=https://s181d01-as-fh-sd-admin-ui-dev.azurewebsites.net/ npx cypress open",
+    "open:admin-test": "CYPRESS_BASE_URL=https://test.manage-family-support-services-and-accounts.education.gov.uk/ npx cypress open",
+    "open:local": "CYPRESS_BASE_URL=https://localhost:7216/ npx cypress open"
   }
 }

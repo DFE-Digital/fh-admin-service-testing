@@ -11,6 +11,10 @@ beforeEach(() => {
             return false
         })
     });
+  // stub login
+  Cypress.Commands.add('stubLogin',()=>{
+    cy.contains('button', 'dfeAdmin.user@stub.com').click();
+  })
   // start page - admin-ui
   Cypress.Commands.add('startPage',()=>{
     cy.contains('Add a service to the local support directory')
