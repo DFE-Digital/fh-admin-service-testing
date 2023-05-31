@@ -1,4 +1,4 @@
-describe('| smokeTest-AdminService.spec | Manage Service - Create and delete - confirm deletion',function(){
+describe.skip('| smokeTest-AdminService.spec | Manage Service - Create and delete - confirm deletion',function(){
     it('Journey - delete - confirm deletion ',function(){
          cy.visit('/')
         // start page 

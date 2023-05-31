@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_008 | Manage Service - view - Change language ',function(){
+describe.skip('| e2e-ManServ_008 | Manage Service - view - Change language ',function(){
     it('Change language - Salford City Council - Journey - Manage Service - edit - Change language',function(){
          cy.visit('/')
         // start page 

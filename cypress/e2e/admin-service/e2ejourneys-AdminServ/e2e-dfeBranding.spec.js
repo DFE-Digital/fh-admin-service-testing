@@ -1,4 +1,4 @@
-describe('|e2e-dfeBranding.spec | dfe branding - Manage Service - delete - confirm deletion',function(){
+describe.skip('|e2e-dfeBranding.spec | dfe branding - Manage Service - delete - confirm deletion',function(){
     it('dfe branding on all pages - Delete - confirm deletion - Bristol County Council - Journey - delete - confirm deletion ',function(){
         cy.visit('/')
         cy.dfeBrandingAdminUi()

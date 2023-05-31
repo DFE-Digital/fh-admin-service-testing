@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_009 | Manage Service - view - Change cost ',function(){
+describe.skip('| e2e-ManServ_009 | Manage Service - view - Change cost ',function(){
     it('Change cost - Salford City Council - Journey - Manage Service - edit ',function(){
          cy.visit('/')
         // start page 

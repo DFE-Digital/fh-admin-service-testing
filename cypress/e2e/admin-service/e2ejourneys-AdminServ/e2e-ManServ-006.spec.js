@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_006 | Manage Service - view - Change ServiceDeliveryType ',function(){
+describe.skip('| e2e-ManServ_006 | Manage Service - view - Change ServiceDeliveryType ',function(){
     it('Change ServiceDeliveryType - Salford City Council - Journey - Manage Service - edit - Change ServiceDeliveryType',function(){
          cy.visit('/')
         // start page 

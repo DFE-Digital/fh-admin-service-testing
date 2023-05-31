@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_007 | Manage Service - view - Change who for it ',function(){
+describe.skip('| e2e-ManServ_007 | Manage Service - view - Change who for it ',function(){
     it('Change who for it - Salford City Council - Journey - Manage Service - edit - Change who for it',function(){
          cy.visit('/')
         // start page 

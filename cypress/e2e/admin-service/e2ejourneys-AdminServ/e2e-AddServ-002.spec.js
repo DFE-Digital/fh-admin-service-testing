@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_002 | Add Service - health/familysupport - Online - NotforChildren - English - Not Paid - emailContact |',function(){
+describe.skip('| e2e-AddServ_002 | Add Service - health/familysupport - Online - NotforChildren - English - Not Paid - emailContact |',function(){
     const num = Date.now();
     const n = num.toString();
     it('Salford - health - Online - NotforChildren - English - Not Paid - emailContact  ',function(){

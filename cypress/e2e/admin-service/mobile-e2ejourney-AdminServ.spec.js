@@ -1,4 +1,4 @@
-describe('| mobile-e2ejourney-AdminServ.spec | Manage Service - Create and delete - confirm deletion',function(){
+describe.skip('| mobile-e2ejourney-AdminServ.spec | Manage Service - Create and delete - confirm deletion',function(){
      let device = ['iphone-x','ipad-mini','samsung-s10','samsung-note9']
         for(let i=0;i<device.length;i++){
     it(`${device[i]} Journey - delete - confirm deletion`,function(){

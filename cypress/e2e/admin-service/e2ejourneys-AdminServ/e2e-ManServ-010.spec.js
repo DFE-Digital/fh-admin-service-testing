@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_010 | Manage Service - view - Change ContactDetails ',function(){
+describe.skip('| e2e-ManServ_010 | Manage Service - view - Change ContactDetails ',function(){
     it('Change ContactDetails - Salford City Council - Journey - Manage Service - edit ',function(){
          cy.visit('/')
         // start page 

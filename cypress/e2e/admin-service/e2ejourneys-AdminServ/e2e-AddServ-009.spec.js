@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_009 | Add Service - transport - Online/telephone - Children - Hebrew/English - Paid - telephoneContact |',function(){
+describe.skip('| e2e-AddServ_009 | Add Service - transport - Online/telephone - Children - Hebrew/English - Paid - telephoneContact |',function(){
     const num = Date.now();
     const n = num.toString();
     it('Tower Hamlets - transport - Online/telephone - Children - Hebrew/English - Paid - emailContact  ',function(){

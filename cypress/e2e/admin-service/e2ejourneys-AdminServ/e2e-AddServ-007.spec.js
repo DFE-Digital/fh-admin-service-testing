@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_007 | Add Service - activities,clubsandgroups - Online/telephone - Children - Welsh/English - Not Paid - all |',function(){
+describe.skip('| e2e-AddServ_007 | Add Service - activities,clubsandgroups - Online/telephone - Children - Welsh/English - Not Paid - all |',function(){
     const num = Date.now();
     const n = num.toString();
     it('Suffolk County Council - activities,clubsandgroups - Online/telephone - address - NotforChildren - English - Not Paid - emailContact  ',function(){

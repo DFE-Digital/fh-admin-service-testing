@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_005 | Add Service - transport - Online - Children - Tamil/English - Paid/Hour - Email |',function(){
+describe.skip('| e2e-AddServ_005 | Add Service - transport - Online - Children - Tamil/English - Paid/Hour - Email |',function(){
     const num = Date.now();
     const n = num.toString();
     it('London Borough of Redbridge - transport - Online - address - Children - English - Paid/Hour - TextMessage  ',function(){

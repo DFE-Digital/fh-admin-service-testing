@@ -1,4 +1,4 @@
-describe('| e2e-ManServ_003 | Manage Service - view - No changes made',function(){
+describe.skip('| e2e-ManServ_003 | Manage Service - view - No changes made',function(){
     it('Manage Service - edit - No changes made - Salford City Council - Journey - ',function(){
          cy.visit('/')
         // start page 

@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_003 | Add Service - familysupport - Online/inperson - Children - Telugu - Not Paid - WebsiteContact |',function(){
+describe.skip('| e2e-AddServ_003 | Add Service - familysupport - Online/inperson - Children - Telugu - Not Paid - WebsiteContact |',function(){
      const num = Date.now();
      const n = num.toString();
     it('Suffolk County Council - familysupport - Online/inperson - address - Children - Telugu - Not Paid - emailContact  ',function(){

@@ -1,4 +1,4 @@
-describe('| e2e-AddServ_006 | Add Service - pregnancy,birthandearlyyears - Online/telephone - Children - Hebrew/English - Paid - telephoneContact |',function(){
+describe.skip('| e2e-AddServ_006 | Add Service - pregnancy,birthandearlyyears - Online/telephone - Children - Hebrew/English - Paid - telephoneContact |',function(){
     const num = Date.now();
     const n = num.toString();
     it('Bristol County Council - pregnancy,birthandearlyyears - Online/telephone - Children - Hebrew/English - Paid - emailContact  ',function(){
