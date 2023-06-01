@@ -25,6 +25,14 @@ beforeEach(() => {
     cy.contains('Sign in to your account')
     cy.get('.govuk-button').click()
   })
+  // Select add permissions
+  Cypress.Commands.add('addPermissions',()=>{
+    cy.get('#add-permission').click()
+  })
+  // Page headings 
+  Cypress.Commands.add('pageHeadings',()=>{
+    cy.get('.govuk-fieldset__heading')
+  })
   // Choose Organisation
   Cypress.Commands.add('chooseOrganisation',(selection)=>{
     cy.contains('Which type of organisation')
