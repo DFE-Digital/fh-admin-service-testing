@@ -2,14 +2,13 @@ describe('FHG-1599 DFE Admin Homepage',()=>{
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()
-        cy.stubLogin()
+        cy.stubLogin('dfeAdmin')
 	})
     it('AC1 - dfe admin logged in homepage validate content',()=>{
        
         // validate page content 
-        cy.title()
         // name of person logged in 
-        cy.get('.govuk-heading-l').contains('Dfe Admin User')
+        cy.welcomePage('Dfe Admin User')
         // Accounts 
         cy.contains('Accounts')
         cy.contains('Add permissions')
@@ -42,9 +41,6 @@ describe('FHG-1599 DFE Admin Homepage',()=>{
     })
     it('AC 2 - User logged in and selects add permissions',()=>{
         cy.addPermissions()
-        cy.title()
-        cy.pageHeadings().contains('Who are you adding permissions for?')
-
-
+        cy.typeOfUserPage()
     })
 })
