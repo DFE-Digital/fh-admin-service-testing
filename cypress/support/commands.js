@@ -11,24 +11,121 @@ beforeEach(() => {
             return false
         })
     });
-  // stub login
-  Cypress.Commands.add('stubLogin',()=>{
-    cy.contains('button', 'dfeAdmin.user@stub.com').click();
-  })
   // start page - admin-ui
   Cypress.Commands.add('startPage',()=>{
     cy.contains('Add a service to the local support directory')
     cy.get('.govuk-button--start').click()
   })
+  // stub login
+  Cypress.Commands.add('stubLogin',(userType)=>{
+    cy.contains('button', `${userType}.user@stub.com`).click();
+  })
+// Welcome page 
+Cypress.Commands.add('welcomePage',(userType)=>{
+    cy.get('.govuk-heading-l govuk-!-margin-bottom-1').contains(`${userType}`)
+    cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
+    cy.contains('Accounts')
+    cy.contains('Local authorities (LAs)')
+  })
+   // Select add permissions
+  Cypress.Commands.add('addPermissions',()=>{
+    cy.get('#add-permission').click()
+  })
+  // Type of user page 
+Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
+    cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('Who are you adding permissions for?')
+    cy.contains('Someone who works for a local authority')
+    cy.contains('Someone who works for a voluntary and community sector organisation')
+    
+    // select persmission type
+    if (permissionType === 'la') {
+    cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+  } else if (permissionType === 'vcs'){
+     cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+  }
+  })
+
+  // what do they need to do - LA
+  Cypress.Commands.add('typeOfUserLA',(selection)=>{
+     cy.title().should('eq','Type of User La - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('What do they need to do?')
+    cy.contains('Add and manage services, family hubs and accounts')
+    cy.contains('Make connection requests to voluntary and community sector services')
+
+    // user selects checkboxes 1 , 2 or both
+    if (selection === '1') {
+      cy.get('[data-testid="LaManager"]').check();
+  } else if (selection === '2'){
+      cy.get('#LaProfessional').check();
+  }
+  else if (selection == 'both') {
+      cy.get('[data-testid="LaManager"]').check();
+      cy.get('#LaProfessional').check();
+  }
+  })
+ // what do they need to do - VCS
+  Cypress.Commands.add('typeOfUserVCS',(selection)=>{
+    cy.title().should('eq','Type of User La - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('What do they need to do?')
+    cy.contains('An organisation should only have one person with permissions to view and manage connection requests.')
+    cy.contains('Add and manage services')
+    cy.contains('View and respond to connection requests')
+
+    // user selects checkboxes 1 , 2 or both
+    if (selection === '1') {
+      cy.get('[data-testid="VcsManager"]').check();
+  } else if (selection === '2'){
+      cy.get('#VcsProfessional').check();
+  }
+  else if (selection == 'both') {
+      cy.get('[data-testid="VcsManager"]').check();
+      cy.get('#VcsProfessional').check();
+  }
+  })
+  // which local authority do they work for ?
+  Cypress.Commands.add('whichLA',(selection)=>{
+    cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('Which local authority is the account for?')
+    // cy.contains('An organisation should only have one person with permissions to view and manage connection requests.')
+    // cy.contains('Add and manage services')
+    // cy.contains('View and respond to connection requests')
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   // Sign in page
   Cypress.Commands.add('signInPage',()=>{
     cy.contains('Sign in to your account')
     cy.get('.govuk-button').click()
   })
-  // Select add permissions
-  Cypress.Commands.add('addPermissions',()=>{
-    cy.get('#add-permission').click()
-  })
+ 
   // Page headings 
   Cypress.Commands.add('pageHeadings',()=>{
     cy.get('.govuk-fieldset__heading')
