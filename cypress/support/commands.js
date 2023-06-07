@@ -37,13 +37,13 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
     cy.pageHeadings().contains('Who are you adding permissions for?')
     cy.contains('Someone who works for a local authority')
     cy.contains('Someone who works for a voluntary and community sector organisation')
-    
     // select persmission type
     if (permissionType === 'la') {
     cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
   } else if (permissionType === 'vcs'){
      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
   }
+  cy.get('.govuk-button').click()
   })
 
   // what do they need to do - LA
@@ -63,10 +63,11 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
       cy.get('[data-testid="LaManager"]').check();
       cy.get('#LaProfessional').check();
   }
+  cy.get('.govuk-button').click()
   })
  // what do they need to do - VCS
   Cypress.Commands.add('typeOfUserVCS',(selection)=>{
-    cy.title().should('eq','Type of User La - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Type of user VCS - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('What do they need to do?')
     cy.contains('An organisation should only have one person with permissions to view and manage connection requests.')
     cy.contains('Add and manage services')
@@ -82,14 +83,17 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
       cy.get('[data-testid="VcsManager"]').check();
       cy.get('#VcsProfessional').check();
   }
+  cy.get('.govuk-button').click()
   })
   // which local authority do they work for ?
-  Cypress.Commands.add('whichLA',(selection)=>{
+  Cypress.Commands.add('whichLA',(searchString)=>{
     cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Which local authority is the account for?')
-    // cy.contains('An organisation should only have one person with permissions to view and manage connection requests.')
-    // cy.contains('Add and manage services')
-    // cy.contains('View and respond to connection requests')
+    
+    cy.get('#LaOrganisationName').click()
+    cy.get('#LaOrganisationName').type(searchString)
+    cy.get('#LaOrganisationName__option--0').click()
+    cy.get('.govuk-button').click()
 
   })
 
