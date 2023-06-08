@@ -94,7 +94,14 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
     cy.get('#LaOrganisationName').type(searchString)
     cy.get('#LaOrganisationName__option--0').click()
     cy.get('.govuk-button').click()
-
+  })
+  // What's their email address?
+  Cypress.Commands.add('email',(emailAdd)=>{
+    cy.title().should('eq','User Name - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains("What's their email address?")
+    cy.contains('They will use this to sign in to their account.')
+    cy.get('#emailAddress').click().clear().type(emailAdd)
+    cy.get('.govuk-button').click()
   })
 
 
