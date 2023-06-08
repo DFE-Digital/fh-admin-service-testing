@@ -38,6 +38,7 @@ describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains('Select a local authority')
         cy.get('.govuk-error-summary').contains('Select a local authority')
+        cy.pageHeadings().contains('Which local authority is the account for?')
        
 
     })

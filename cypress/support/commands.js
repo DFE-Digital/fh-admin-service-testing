@@ -97,12 +97,20 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   })
   // What's their email address?
   Cypress.Commands.add('email',(emailAdd)=>{
-    cy.title().should('eq','User Name - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','User Email - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains("What's their email address?")
     cy.contains('They will use this to sign in to their account.')
     cy.get('#emailAddress').click().clear().type(emailAdd)
     cy.get('.govuk-button').click()
   })
+  // What's the user's full name?
+  Cypress.Commands.add('fullName',(fullName)=>{
+    cy.title().should('eq','User Name - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains("What is the user's full name?")
+    cy.get('#fullName').click().clear().type(fullName)
+    cy.get('.govuk-button').click()
+  })
+
 
 
 
