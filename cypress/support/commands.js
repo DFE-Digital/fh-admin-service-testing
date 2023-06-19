@@ -88,7 +88,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   // which local authority do they work for ?
   Cypress.Commands.add('whichLA',(searchString)=>{
     cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
-    cy.pageHeadings().contains('Which local authority is the account for?')
+    cy.pageHeadings().contains('Which local authority do they work for?')
     
     cy.get('#LaOrganisationName').click()
     cy.get('#LaOrganisationName').type(searchString)
@@ -106,9 +106,13 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   // What's the user's full name?
   Cypress.Commands.add('fullName',(fullName)=>{
     cy.title().should('eq','User Name - Manage family support services and accounts - GOV.UK')
-    cy.pageHeadings().contains("What is the user's full name?")
+    cy.pageHeadings().contains("What's their full name?")
     cy.get('#fullName').click().clear().type(fullName)
     cy.get('.govuk-button').click()
+  })
+  // Check account details page
+  Cypress.Commands.add('checkAnswerPage',()=>{
+
   })
 
 
