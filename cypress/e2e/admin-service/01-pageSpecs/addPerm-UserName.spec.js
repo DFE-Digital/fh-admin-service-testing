@@ -1,4 +1,4 @@
-describe("addPerm-UserName - FHG-3389 DFE - add permissions - What is the user's full name?", {tags: ['addPerOnly']},()=>{
+describe("addPerm-UserName - FHG-3389 DFE - add permissions - What's their full name?", {tags: ['addPerOnly']},()=>{
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
