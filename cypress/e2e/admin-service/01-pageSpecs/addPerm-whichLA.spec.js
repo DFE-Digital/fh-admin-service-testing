@@ -11,7 +11,7 @@ describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local 
 
 	})
     it('AC 1,3,5 - recognised text - list of valid LAs displayed in dropdown,back button',()=>{
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
         cy.whichLA('bristol')
         cy.contains("What's their email address?")
         // back button - takes user to LA page
@@ -21,7 +21,7 @@ describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local 
         cy.contains('What do they need to do?')
     })
     it('AC 2 - unrecognised text /blank - no result found displayed in dropdown , error message',()=>{
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
         // user tries to contiue without making selection 
         cy.get('.govuk-button').click()
         // error message 
@@ -38,12 +38,12 @@ describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains('Select a local authority')
         cy.get('.govuk-error-summary').contains('Select a local authority')
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
        
 
     })
     it('error page back link',()=>{
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
         // user tries to contiue without making selection 
         cy.get('.govuk-button').click()
         // error message 

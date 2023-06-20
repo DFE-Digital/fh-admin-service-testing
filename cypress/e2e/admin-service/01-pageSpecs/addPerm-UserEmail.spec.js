@@ -13,7 +13,7 @@ describe('addPerm-UserEmail - FHG-3387 DFE - add permissions - What is their ema
 	})
     it('AC 1,4 Page content ,valid email address,back button',()=>{
         cy.email('abc@def.com')
-        cy.contains("What is the user's full name?")
+        cy.contains("What's their full name?")
         // back button - takes user to email page
         cy.get('.govuk-back-link').click()
         // back button - takes user to LA page
