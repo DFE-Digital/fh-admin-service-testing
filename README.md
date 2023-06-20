@@ -1,6 +1,8 @@
-# fh-admin-service-testing
+# fh-admin-service-testing - Manage family support services and accounts
 
 This repository is responsible for validating / testing various applications on family-hubs project
+
+https://github.com/github/docs/actions/workflows/test-adminUi-regression.yml/badge.svg
 
 Applications:
 - Admin / Manage service
