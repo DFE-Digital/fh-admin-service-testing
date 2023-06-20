@@ -2,7 +2,8 @@
 
 This repository is responsible for validating / testing manage family support services and accounts applications on family-hubs project
 
-https://github.com/DFE-Digital/fh-admin-service-testing/actions/workflows/test-adminUi-regression.yml/badge.svg
+
+![alt text](https://github.com/DFE-Digital/fh-admin-service-testing/actions/workflows/test-adminUi-regression.yml/badge.svg)
 
 Applications:
 - Admin / Manage service
