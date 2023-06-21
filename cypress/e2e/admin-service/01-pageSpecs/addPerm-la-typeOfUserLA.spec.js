@@ -11,7 +11,7 @@ describe('addPerm-typeOfUserLA - FHG-3382 DFE - What do they need to do? page',(
         // What do they need to do? page 
         cy.typeOfUserLA('1')
         // which LA page
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
         // back link
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
@@ -26,7 +26,7 @@ describe('addPerm-typeOfUserLA - FHG-3382 DFE - What do they need to do? page',(
         // What do they need to do? page 
         cy.typeOfUserLA('2')
        // which LA page
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
         // back link
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
@@ -46,7 +46,7 @@ describe('addPerm-typeOfUserLA - FHG-3382 DFE - What do they need to do? page',(
        // What do they need to do? page 
         cy.typeOfUserLA('2')
         // which LA page
-        cy.pageHeadings().contains('Which local authority is the account for?')
+        cy.pageHeadings().contains('Which local authority do they work for?')
 
     })
 })
