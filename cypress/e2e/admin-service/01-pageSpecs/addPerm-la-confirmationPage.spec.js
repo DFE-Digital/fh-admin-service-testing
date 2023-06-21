@@ -1,4 +1,6 @@
 describe("addPerm-la-confirmationPage - FHG-3392 DFE - add permissions - confirmation page", {tags: ['addPerOnly']},()=>{
+        const num = Date.now();
+        const n = num.toString();
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
@@ -9,7 +11,7 @@ describe("addPerm-la-confirmationPage - FHG-3392 DFE - add permissions - confirm
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.whichLA('redbridge')
-        cy.email('abcdef@def.com')
+        cy.email(n +'abcdef@def.com')
         cy.fullName('John Paul Smith')
         cy.checkAnswerPage()
 	})
