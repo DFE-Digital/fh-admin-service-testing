@@ -1,4 +1,4 @@
-describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local authority is the account for?',()=>{
+describe('addPerm-la-whichLA.spec - FHG-3386 DFE - add permissions -Which local authority do they work for?',()=>{
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
