@@ -1,4 +1,4 @@
-describe("addPerm-checkAnswerPage - FHG-3391 DFE - add permissions - check account details page", {tags: ['addPerOnly']},()=>{
+describe("addPerm-la-checkAnswerPage - FHG-3391 DFE - add permissions - check account details page", {tags: ['addPerOnly']},()=>{
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')

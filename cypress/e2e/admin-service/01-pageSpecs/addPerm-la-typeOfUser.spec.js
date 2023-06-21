@@ -1,4 +1,4 @@
-describe('addPerm-typeOfUser - FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
+describe('addPerm-la-typeOfUser - FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()

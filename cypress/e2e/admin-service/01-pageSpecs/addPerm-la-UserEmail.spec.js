@@ -1,4 +1,4 @@
-describe('addPerm-UserEmail - FHG-3387 DFE - add permissions - What is their email address?', {tags: ['addPerOnly']},()=>{
+describe('addPerm-la-UserEmail - FHG-3387 DFE - add permissions - What is their email address?', {tags: ['addPerOnly']},()=>{
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
