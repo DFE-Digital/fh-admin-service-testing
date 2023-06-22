@@ -1,4 +1,4 @@
-describe('addPerm-la-typeOfUser - FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
+describe('addPerm-la-typeOfRole - FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()
@@ -45,7 +45,7 @@ describe('addPerm-la-typeOfUser - FHG-1065 DFE - add permissions - who are you a
 
 })
 describe('User not logged in - access page without logging in - error page',()=>{
-    it('AC 6 - error page - *** not implemented ***',()=>{
+    it.skip('AC 6 - error page - *** not implemented ***',()=>{
         cy.visit('/AccountAdmin/TypeOfRole')
     })
    
