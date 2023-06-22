@@ -85,10 +85,20 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   }
   cy.get('.govuk-button').click()
   })
-  // which local authority do they work for ?
-  Cypress.Commands.add('whichLA',(searchString)=>{
+  //la route - which local authority do they work for ?
+  Cypress.Commands.add('laWhichLA',(searchString)=>{
     cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Which local authority do they work for?')
+    
+    cy.get('#LaOrganisationName').click()
+    cy.get('#LaOrganisationName').type(searchString)
+    cy.get('#LaOrganisationName__option--0').click()
+    cy.get('.govuk-button').click()
+  })
+  //vcs route - which local authority do they work for ?
+  Cypress.Commands.add('vcsWhichLA',(searchString)=>{
+    cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('Which local authority area do they work in?')
     
     cy.get('#LaOrganisationName').click()
     cy.get('#LaOrganisationName').type(searchString)
