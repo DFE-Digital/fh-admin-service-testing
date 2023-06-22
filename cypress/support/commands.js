@@ -148,7 +148,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
     cy.contains('a link to the service, where they can create their password and set up two-factor authentication')
     //
     cy.contains('Go to homepage').click()
-    cy.welcomePage()
+    cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
  })
 
