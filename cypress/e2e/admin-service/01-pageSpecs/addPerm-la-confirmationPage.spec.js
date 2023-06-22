@@ -10,7 +10,7 @@ describe("addPerm-la-confirmationPage - FHG-3392 DFE - add permissions - confirm
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
-        cy.whichLA('redbridge')
+        cy.laWhichLA('redbridge')
         cy.email(n +'abcdef@def.com')
         cy.fullName('John Paul Smith')
         cy.checkAnswerPage()

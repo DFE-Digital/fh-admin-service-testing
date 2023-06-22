@@ -11,7 +11,7 @@ describe("addPerm-la-checkAnswerPage - FHG-3391 DFE - add permissions - check ac
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
-        cy.whichLA('bristol')
+        cy.laWhichLA('bristol')
         cy.email(n +'abcdef@def.com')
         cy.fullName('John Smith')
 	})
@@ -41,7 +41,7 @@ describe("addPerm-la-checkAnswerPage - FHG-3391 DFE - add permissions - check ac
     cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
-    cy.whichLA('bristol')
+    cy.laWhichLA('bristol')
     cy.email(n +'abcdef@def.com')
     cy.fullName('John Smith')
    
@@ -49,13 +49,13 @@ describe("addPerm-la-checkAnswerPage - FHG-3391 DFE - add permissions - check ac
   it('AC 3 - Change link - Type of permission',()=>{
     cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
     cy.typeOfUserLA('1')
-    cy.whichLA('redbridge')
+    cy.laWhichLA('redbridge')
     cy.email(n +'abcdef@def.com')
     cy.fullName('John Smith')
   })
   it('AC 3 - Change link - Local authority',()=>{
     cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click()
-    cy.whichLA('redbridge')
+    cy.laWhichLA('redbridge')
     cy.email(n +'abcdef@def.com')
     cy.fullName('John Smith')
   })
