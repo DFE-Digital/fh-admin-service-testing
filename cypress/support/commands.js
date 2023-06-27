@@ -170,7 +170,20 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
     cy.get('#VcsOrganisationName__option--0').click()
     cy.get('.govuk-button').click()
  })
+ // Add organisation link 
+ Cypress.Commands.add('addOrgLink',()=>{
+  cy.get('#add-organisation').click()
+  cy.contains('What is the organisations name?')
+ })
+// Add organisaion - What is the organisations name?
+ Cypress.Commands.add('addOrgVcs',(orgName)=>{
+  cy.contains('What is the organisations name?')
+ // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
+ cy.get('#organisationName').click().clear().type(orgName)
+ cy.get('.govuk-button').click()
+ cy.contains('Check details')
 
+ })
 
 
 
