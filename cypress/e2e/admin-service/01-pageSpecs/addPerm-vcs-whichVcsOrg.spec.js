@@ -46,6 +46,7 @@ describe('addPerm-vcs-whichVcsOrg - FHG-3416 DFE - add permissions - Which organ
     it('AC 5 - add organisation link - FHG-3443 - validate link exists and takes user to correct page',()=>{
         cy.pageHeadings().contains('Which organisation do they work for?')
         cy.get('.govuk-hint > a').click()
+        cy.contains('What is the organisations name?')
     })
     it('Error page back link',()=>{
        cy.pageHeadings().contains('Which organisation do they work for?')

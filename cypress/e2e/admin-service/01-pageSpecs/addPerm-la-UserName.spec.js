@@ -1,5 +1,7 @@
 describe("addPerm-la-UserName - FHG-3389 DFE - add permissions - What's their full name?", {tags: ['addPerOnly']},()=>{
-    // As a DFE Admin  creating an LA account
+    const num = Date.now();
+    const n = num.toString();  
+  // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()
@@ -9,7 +11,7 @@ describe("addPerm-la-UserName - FHG-3389 DFE - add permissions - What's their fu
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('bristol')
-        cy.email('abc@def.com')
+        cy.email(n +'abcdef@def.com')
 	})
   it('AC 1, 3 - validate page content , back link ',()=>{
     cy.fullName('John Smith')

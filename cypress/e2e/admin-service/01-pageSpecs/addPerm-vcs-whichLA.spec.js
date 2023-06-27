@@ -1,4 +1,4 @@
-describe('addPerm-vcs-whichLA.spec - FHG-3414 DFE - add permissions - Which local authority area do they work in?',()=>{
+describe('addPerm-vcs-whichLA - FHG-3414 DFE - add permissions - Which local authority area do they work in?',()=>{
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
@@ -42,7 +42,7 @@ describe('addPerm-vcs-whichLA.spec - FHG-3414 DFE - add permissions - Which loca
        
 
     })
-    it.only('error page back link',()=>{
+    it('error page back link',()=>{
         cy.pageHeadings().contains('Which local authority area do they work in?')
         // user tries to contiue without making selection 
         cy.get('.govuk-button').click()
