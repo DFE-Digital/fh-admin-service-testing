@@ -1,4 +1,6 @@
 describe('addPerm-la-UserEmail - FHG-3387 DFE - add permissions - What is their email address?', {tags: ['addPerOnly']},()=>{
+    const num = Date.now();
+    const n = num.toString();
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
@@ -12,7 +14,7 @@ describe('addPerm-la-UserEmail - FHG-3387 DFE - add permissions - What is their 
 
 	})
     it('AC 1,4 Page content ,valid email address,back button',()=>{
-        cy.email('abc@def.com')
+        cy.email(n +'abcdef@def.com')
         cy.contains("What's their full name?")
         // back button - takes user to email page
         cy.get('.govuk-back-link').click()
@@ -33,7 +35,7 @@ describe('addPerm-la-UserEmail - FHG-3387 DFE - add permissions - What is their 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
         // after error message , user is able to continue with entering correct details
-        cy.email('abc@dfe.com')
+        cy.email(n +'abcdef@def.com')
         // back button - takes user to LA page
         cy.get('.govuk-back-link').click()
         }
