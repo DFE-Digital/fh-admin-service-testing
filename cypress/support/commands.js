@@ -100,7 +100,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
     cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Which local authority area do they work in?')
     
-    cy.get('#LaOrganisationName').click()
+    cy.get('#LaOrganisationName').click().clear()
     cy.get('#LaOrganisationName').type(searchString)
     cy.get('#LaOrganisationName__option--0').click()
     cy.get('.govuk-button').click()
@@ -160,6 +160,15 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
     cy.contains('Go to homepage').click()
     cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
+ })
+ // which organisation do they work for ?
+ Cypress.Commands.add('whichOrgVcs',(searchString)=>{
+    cy.contains('Which organisation do they work for?')
+    cy.contains("Their organisation must be in the directory for it to appear here. If it's not, you can add an organisation.")
+    cy.title().should('eq','Which organisation - Manage family support services and accounts - GOV.UK')
+    cy.get('#VcsOrganisationName').click().clear().type(searchString)
+    cy.get('#VcsOrganisationName__option--0').click()
+    cy.get('.govuk-button').click()
  })
 
 
