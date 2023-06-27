@@ -150,7 +150,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
     .click();
 })
  // Check confirmation page 
- Cypress.Commands.add('confirmationPageLA',(name)=>{
+ Cypress.Commands.add('confirmationPage',(name)=>{
     cy.get('.govuk-panel.govuk-panel--confirmation').contains('Permissions added')
     cy.contains('What happens next')
     cy.contains(`We've emailed ${name}:`)
