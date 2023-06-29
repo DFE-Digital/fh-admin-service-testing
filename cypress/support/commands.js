@@ -184,7 +184,12 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
  cy.contains('Check details')
 
  })
-
+// Add organisation VCS - check details page 
+Cypress.Commands.add('checkDetailsPage',()=>{
+  cy.contains('Check details')
+  cy.title().should('eq','Check details - Manage family support services and accounts - GOV.UK')
+  cy.get('.govuk-button').click()
+})
 
 
 
