@@ -18,11 +18,11 @@ describe('addPerm-vcs-addOrgCheckDetailsPage - FGH-3445 VCS Add Org Check detail
         // add org link
         cy.addOrgLink()
         // add organisation name page
-        cy.addOrgVcs(n + ' VCS Organisation name')
-        cy.contains(n + ' VCS Organisation name')
+        cy.addOrgVcs(n + '+VCS Organisation name')
+        cy.contains(n + '+VCS Organisation name')
         // back link
         cy.get('.govuk-back-link').click()
-        cy.addOrgVcs(n + ' VCS Organisation name')
+        cy.addOrgVcs(n + '  VCS Organisation name')
         // continue
         cy.checkDetailsPage()
     })
@@ -31,8 +31,8 @@ describe('addPerm-vcs-addOrgCheckDetailsPage - FGH-3445 VCS Add Org Check detail
         // add org link
         cy.addOrgLink()
         // add organisation name page
-        cy.addOrgVcs(n + ' VCS Organisation name')
-        cy.contains(n + ' VCS Organisation name')
+        cy.addOrgVcs(n + ' -VCS Organisation name')
+        cy.contains(n + ' -VCS Organisation name')
         // // continue
         // cy.checkDetailsPage()
         cy.get('.govuk-button').click()
