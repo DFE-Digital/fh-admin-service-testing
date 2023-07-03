@@ -190,7 +190,14 @@ Cypress.Commands.add('checkDetailsPage',()=>{
   cy.title().should('eq','Check details - Manage family support services and accounts - GOV.UK')
   cy.get('.govuk-button').click()
 })
-
+// mobile menu
+Cypress.Commands.add('mobileMenu',()=>{
+  cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
+  cy.get('.govuk-header__menu-button').click()
+  cy.get('.govuk-header__container').contains('Sign out')
+  cy.get('.govuk-header__container').contains('My account')
+  cy.get('.govuk-header__menu-button').click()
+})
 
 
 

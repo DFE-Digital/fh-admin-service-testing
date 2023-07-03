@@ -44,9 +44,3 @@ describe('addPerm-la-typeOfRole - FHG-1065 DFE - add permissions - who are you a
     })
 
 })
-describe('User not logged in - access page without logging in - error page',()=>{
-    it.skip('AC 6 - error page - *** not implemented ***',()=>{
-        cy.visit('/AccountAdmin/TypeOfRole')
-    })
-   
-})
