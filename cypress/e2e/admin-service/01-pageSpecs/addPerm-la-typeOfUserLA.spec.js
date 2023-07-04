@@ -1,4 +1,4 @@
-describe('addPerm-la-typeOfUserLA - FHG-3382 DFE - What do they need to do? page',()=>{
+describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page',()=>{
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()

@@ -1,4 +1,4 @@
-describe('addPerm-vcs-UserEmail - FHG-3577 DFE - add permissions - What is their email address?', {tags: ['addPerOnly']},()=>{
+describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is their email address?', {tags: ['addPerOnly']},()=>{
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an VCS account
