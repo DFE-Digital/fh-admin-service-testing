@@ -1,4 +1,4 @@
-describe('addPerm-dfeAdminHomepage - FHG-1599 DFE Admin Homepage - add permissions',()=>{
+describe('| addPerm-dfeAdminHomepage |- FHG-1599 DFE Admin Homepage - add permissions',()=>{
     beforeEach(()=> {
 		cy.visit('/')
         cy.startPage()

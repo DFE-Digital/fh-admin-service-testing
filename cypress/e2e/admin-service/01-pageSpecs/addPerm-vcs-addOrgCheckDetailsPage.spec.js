@@ -1,4 +1,4 @@
-describe('addPerm-vcs-addOrgCheckDetailsPage - FGH-3445 VCS Add Org Check details page',()=>{
+describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page',()=>{
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an VCS account

@@ -1,4 +1,4 @@
-describe.skip('addPerm-errorPages - all error pages 404,500 ',()=>{
+describe.skip('| addPerm-errorPages | - all error pages 404,500 ',()=>{
     it('When user logs in with insufficient credentials - error page - *** not implemented ***',()=>{
          cy.visit('/AccountAdmin/TypeOfRole', {failOnStatusCode: false})
 

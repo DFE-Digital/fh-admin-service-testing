@@ -1,4 +1,4 @@
-describe('addPerm-vcs-whichLA - FHG-3414 DFE - add permissions - Which local authority area do they work in?',()=>{
+describe('| addPerm-vcs-whichLA | FHG-3414 DFE - add permissions - Which local authority area do they work in?',()=>{
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
