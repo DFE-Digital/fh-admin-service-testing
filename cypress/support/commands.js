@@ -190,6 +190,17 @@ Cypress.Commands.add('checkDetailsPage',()=>{
   cy.title().should('eq','Check details - Manage family support services and accounts - GOV.UK')
   cy.get('.govuk-button').click()
 })
+// Add organisation VCS - confirmation page 
+Cypress.Commands.add('addVcsOrgConfirmation',()=>{
+  cy.contains('Voluntary community organisation added')
+  cy.title().should('eq','Voluntary community organisation added - Manage family support services and accounts - GOV.UK')
+  cy.contains('What happens next')
+  cy.contains('You can now create user accounts for the organisation.')
+  cy.contains('You can do this from your homepage.')
+  cy.get('.govuk-button').click()
+  cy.contains('Add account permissions to manage family support services and manage connection requests.')
+
+})
 // mobile menu
 Cypress.Commands.add('mobileMenu',()=>{
   cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
@@ -242,8 +253,8 @@ Cypress.Commands.add('mobileMenu',()=>{
   })
   // Welcome page - landing
   Cypress.Commands.add('welcomePage',(serviceType,councilName)=>{
-    cy.contains('Add a service')
-    cy.contains('Manage your services')
+    cy.contains('Add account permissions to manage family support services and manage connection requests.')
+    cy.contains('View and remove account permissions to manage family support services or manage connection requests.')
     // cy.contains(`${councilName}`)
     if (serviceType === 'add') {
     cy.get('div:nth-of-type(1) > .govuk-heading-m > a').click();
