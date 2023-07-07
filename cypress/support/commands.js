@@ -202,14 +202,18 @@ Cypress.Commands.add('addVcsOrgConfirmation',()=>{
 
 })
 // mobile menu
-Cypress.Commands.add('mobileMenu',()=>{
+Cypress.Commands.add('myaccountMob',()=>{
   cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
   cy.get('.govuk-header__menu-button').click()
   cy.get('.govuk-header__container').contains('Sign out')
   cy.get('.govuk-header__container').contains('My account')
   cy.get('.govuk-header__menu-button').click()
+  cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
 })
+// my account 
+Cypress.Commands.add('myaccountPage',()=>{
 
+})
 
 
 
