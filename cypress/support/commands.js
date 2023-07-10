@@ -212,6 +212,10 @@ Cypress.Commands.add('myaccountMob',()=>{
 })
 // my account 
 Cypress.Commands.add('myaccountPage',()=>{
+  cy.contains('Manage your account')
+  cy.contains('Manage your GOV.UK One Login details')
+  cy.contains('To delete your account, contact your administrator.')
+  cy.title().should('eq','Manage your account - Manage family support services and accounts - GOV.UK')
 
 })
 
