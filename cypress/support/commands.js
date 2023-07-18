@@ -218,6 +218,29 @@ Cypress.Commands.add('myaccountPage',()=>{
   cy.title().should('eq','Manage your account - Manage family support services and accounts - GOV.UK')
 
 })
+  Cypress.Commands.add('integrationLogin',()=>{
+
+        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
+     
+        cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
+        // cy.get('a#linkStart.govuk-button.govuk-button--start').click()
+        cy.get('.govuk-button').click()
+
+       
+    
+})
+Cypress.Commands.add('OneLogin',()=>{
+  cy.get('#sign-in-button').click()
+  // login email
+  cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+  cy.get('form > .govuk-button').click()
+  // login password
+   cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+  cy.get('form > .govuk-button').click()
+
+
+
+})
 
 
 
