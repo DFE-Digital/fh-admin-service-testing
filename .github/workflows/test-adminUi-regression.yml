@@ -38,10 +38,10 @@ jobs:
           ref: reports
           path: reports_repo
         env:
-          username: ${{ secrets.INTEGRATION_ID }}
-          password: ${{ secrets.INTEGRATION_PASSWORD }} 
-          oneloginusername: ${{ secrets.ONELOGIN_ID }}
-          oneloginpassword: ${{ secrets.ONELOGIN_PASSWORD }}
+          username: ${{ secrets.CYPRESS_ENV.username }}
+          password: ${{ secrets.CYPRESS_ENV.password }} 
+          oneloginusername: ${{ secrets.CYPRESS_ENV.oneloginusername }}
+          oneloginpassword: ${{ secrets.CYPRESS_ENV.oneloginpassword }}
 
       - name: Copy report into reports repo
         run: |
