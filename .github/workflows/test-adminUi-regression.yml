@@ -38,8 +38,12 @@ jobs:
           ref: reports
           path: reports_repo
         env:
-          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
-          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
+          username: ${{ secrets.INTEGRATION_ID }}
+          password: ${{ secrets.INTEGRATION_PASSWORD }}
+          oneloginusername: ${{ secrets.ONELOGIN_ID }}
+          oneloginpassword: ${{ secrets.ONELOGIN_PASSWORD }}
+          
+
           
 
       - name: Copy report into reports repo
