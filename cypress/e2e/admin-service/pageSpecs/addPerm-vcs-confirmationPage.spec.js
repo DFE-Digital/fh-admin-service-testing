@@ -4,9 +4,9 @@ describe("| addPerm-vcs-confirmationPage | FHG-3579 DFE - add permissions - conf
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

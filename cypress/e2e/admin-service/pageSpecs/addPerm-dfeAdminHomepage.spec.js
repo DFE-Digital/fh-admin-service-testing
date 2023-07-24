@@ -1,14 +1,16 @@
 describe('| addPerm-dfeAdminHomepage | FHG-1599 DFE Admin Homepage - add permissions',()=>{
-    beforeEach(()=> {
-		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
+     before(()=> {
+        // integration login
+        cy.integrationLogin()
+        // onelogin 
+        // cy.OneLogin()
+		// cy.visit('/')
 	})
     it('AC1 - dfe admin logged in homepage validate content',()=>{
-       
+       cy.visit('/')
         // validate page content 
         // name of person logged in 
-        cy.welcomePage('Dfe Admin User')
+        cy.welcomePage()
         // Accounts 
         cy.contains('Accounts')
         cy.contains('Add permissions')
@@ -40,6 +42,7 @@ describe('| addPerm-dfeAdminHomepage | FHG-1599 DFE Admin Homepage - add permiss
         cy.contains('View, change or delete existing organisations.')
     })
     it('AC 2 - User logged in and selects add permissions',()=>{
+        cy.visit('/')
         cy.addPermissions()
         cy.typeOfUserPage()
     })

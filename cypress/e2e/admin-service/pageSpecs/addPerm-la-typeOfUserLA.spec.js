@@ -1,11 +1,11 @@
 describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page',()=>{
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
 	})
     it('AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button',()=>{
-        cy.welcomePage('Dfe Admin User')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
         // What do they need to do? page 
@@ -20,7 +20,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
 
     })
     it('AC 3 - LA -  Make connection requests to voluntary and community sector services - option',()=>{
-         cy.welcomePage('Dfe Admin User')
+         cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
         // What do they need to do? page 
@@ -35,7 +35,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
 
     })
     it('AC 4 - LA - no selection - error message',()=>{
-        cy.welcomePage('Dfe Admin User')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
        

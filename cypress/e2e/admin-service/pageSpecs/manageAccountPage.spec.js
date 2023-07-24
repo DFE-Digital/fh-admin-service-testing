@@ -1,11 +1,11 @@
 describe('| manageAccountPage | FHG-2106 My account - Manage your account page ',()=>{
      beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
 	})
-    it.skip('AC 1,4, Page content , Change name , back button ',function(){
-         cy.welcomePage('Dfe Admin User')
+    it('AC 1,4, Page content , Change name , back button ',function(){
+         cy.welcomePage( )
          cy.get('.govuk-header__container').contains('My account').click()
          cy.myaccountPage()
          // click on change name
@@ -16,7 +16,7 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
          cy.contains('Manage your account')     
     })
     it('AC 2 - manage your gov.uk one login link',()=>{
-         cy.welcomePage('Dfe Admin User')
+         cy.welcomePage( )
          cy.get('.govuk-header__container').contains('My account').click()
          cy.myaccountPage()
         // check href contains gov uk integration link

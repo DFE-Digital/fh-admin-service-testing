@@ -1,11 +1,12 @@
 describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
-    beforeEach(()=> {
-		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-	})
+    // beforeEach(()=> {
+	// 	cy.visit('/')
+    //    // cy.startPage()
+    //     // cy.stubLogin('dfeAdmin')
+	// })
     it('AC 1,5 -  validate content',()=>{
-        cy.welcomePage('Dfe Admin User')
+         cy.visit('/')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
         cy.pageHeadings().contains('Who are you adding permissions for?')
@@ -19,19 +20,22 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
 
     })
     it('AC 2  -  LA option',()=>{
-        cy.welcomePage('Dfe Admin User')
+         cy.visit('/')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA()
     })
     it('AC 3  -  VCS option',()=>{
-        cy.welcomePage('Dfe Admin User')
+         cy.visit('/')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS()
     })
     it('AC 4  -  error message',()=>{
-        cy.welcomePage('Dfe Admin User')
+         cy.visit('/')
+        cy.welcomePage( )
         cy.addPermissions()
        // error message when user does not select one of the options
         cy.get('.govuk-button').click()

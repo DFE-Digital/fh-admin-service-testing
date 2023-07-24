@@ -4,9 +4,9 @@ describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is the
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

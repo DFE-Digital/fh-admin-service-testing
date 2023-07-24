@@ -4,9 +4,9 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
@@ -21,7 +21,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
         cy.addOrgVcs(n + ' VCS Organisation name')
         // back button - takes user to add organisation page
         cy.get('.govuk-back-link').click()
-        cy.contains('What is the organisations name?')
+        cy.contains("What is the organisation's name?")
         // back button - takes user to which organisation page
          cy.get('.govuk-back-link').click()
          cy.contains('Which organisation do they work for?')
