@@ -40,7 +40,7 @@ jobs:
     env:
       username: ${{ secrets.CYPRESS_ENV.username }}
       password: ${{ secrets.CYPRESS_ENV.password }} 
-      oneloginusername: ${{ secrets.CYPRESS_ENV.onelogiusername }}
+      oneloginusername: ${{ secrets.CYPRESS_ENV.oneloginusername }}
       oneloginpassword: ${{ secrets.CYPRESS_ENV.oneloginpassword }}
 
       - name: Copy report into reports repo
