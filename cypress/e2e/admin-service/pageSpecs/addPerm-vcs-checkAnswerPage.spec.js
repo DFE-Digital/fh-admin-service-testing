@@ -5,9 +5,9 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     beforeEach(()=> {
 		    cy.visit('/')
         
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

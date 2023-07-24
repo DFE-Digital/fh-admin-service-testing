@@ -2,9 +2,9 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
@@ -51,7 +51,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
     it('AC 5 - add organisation link - FHG-3443 - validate link exists and takes user to correct page',()=>{
         cy.pageHeadings().contains('Which organisation do they work for?')
         cy.get('.govuk-hint > a').click()
-        cy.contains('What is the organisations name?')
+        cy.contains("What is the organisation's name?")
     })
     it('Error page back link',()=>{
        cy.pageHeadings().contains('Which organisation do they work for?')

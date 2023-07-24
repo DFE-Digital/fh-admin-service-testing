@@ -1,9 +1,9 @@
 describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page',()=>{
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
 	})

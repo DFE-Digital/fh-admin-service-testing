@@ -4,9 +4,9 @@ describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confi
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')

@@ -4,9 +4,9 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
   // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
-        cy.startPage()
-        cy.stubLogin('dfeAdmin')
-        cy.welcomePage('Dfe Admin User')
+       // cy.startPage()
+        // cy.stubLogin('dfeAdmin')
+        cy.welcomePage( )
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')

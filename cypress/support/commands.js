@@ -9,11 +9,34 @@ beforeEach(() => {
             // returning false here prevents Cypress from
             // failing the test
             return false
-        })
+        }),
+    cy.session('userlogin',()=>{
+     cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
+        
+          cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
+          cy.get('.govuk-button').click()
+          //
+          cy.get('#sign-in-button').click()
+
+          // login email
+          cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+          cy.get('form > .govuk-button').click()
+          // login password
+          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+          cy.get('form > .govuk-button').click()
+          // check if the user is signed in
+          cy.get('.govuk-header__navigation-item').contains('Sign out')
+
+   },
+   {
+     cacheAcrossSpecs: true
+   }
+  )
+     
     });
   // start page - admin-ui
   Cypress.Commands.add('startPage',()=>{
-    cy.contains('Add a service to the local support directory')
+    cy.contains('Manage family support services and accounts')
     cy.get('.govuk-button--start').click()
   })
   // stub login
@@ -173,11 +196,11 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
  // Add organisation link 
  Cypress.Commands.add('addOrgLink',()=>{
   cy.get('#add-organisation').click()
-  cy.contains('What is the organisations name?')
+  cy.contains("What is the organisation's name?")
  })
 // Add organisaion - What is the organisations name?
  Cypress.Commands.add('addOrgVcs',(orgName)=>{
-  cy.contains('What is the organisations name?')
+  cy.contains("What is the organisation's name?")
  // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
  cy.get('#organisationName').click().clear().type(orgName)
  cy.get('.govuk-button').click()
@@ -218,6 +241,32 @@ Cypress.Commands.add('myaccountPage',()=>{
   cy.title().should('eq','Manage your account - Manage family support services and accounts - GOV.UK')
 
 })
+  Cypress.Commands.add('integrationLogin',()=>{
+
+  cy.session('userlogin',()=>{
+     cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
+        
+          cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
+          cy.get('.govuk-button').click()
+          //
+          cy.get('#sign-in-button').click()
+
+          // login email
+          cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+          cy.get('form > .govuk-button').click()
+          // login password
+          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+          cy.get('form > .govuk-button').click()
+          // check if the user is signed in
+          cy.get('.govuk-header__navigation-item').contains('Sign out')
+
+   },
+   {
+     cacheAcrossSpecs: true
+   }
+  )
+     
+   })
 
 
 
@@ -421,9 +470,71 @@ Cypress.Commands.add('dfeBrandingAdminUi',()=>{
     cy.contains('Go to home page').click()
     cy.contains('Add a service')
    })
+
+   // ************* Manage Permissions **************************************
+   // Select manage permissions link
+  Cypress.Commands.add('managePermissionsLink',()=>{
+   cy.get(':nth-child(5) > :nth-child(2) > .govuk-heading-s > a').click()
+  })
+   //Manage permissions
+   Cypress.Commands.add('managePermissionsPage',()=>{
+    cy.contains('Manage user permissions')
+    cy.contains('Edit or delete user permissions.')
+    cy.contains('Filter users')
+   })
+   // Edit  permissions 
+  Cypress.Commands.add('editPermissionsLink',()=>{
+    cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Edit').click()
+    cy.contains('Back to manage user accounts')
+  })
+  // Delete permissions 
+  Cypress.Commands.add('deletePermissionsLink',()=>{
+    cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Delete').click()
+    cy.contains('This will remove all permissions that have been given to')
+  })
+  // Filters check box - Type of user
+  Cypress.Commands.add('typeOfUserFilter',(selection)=>{
+
+        // user selects checkboxes 1 , 2 or both
+        if (selection === 'la') {
+          cy.get('#isLaUser').check();
+      } else if (selection === 'vcs'){
+         cy.get('#isVcsUser').check();
+      }
+      else if (selection == 'both') {
+          cy.get('#isLaUser').check();
+          cy.get('#isVcsUser').check();
+      }
+      cy.get('#filters-component > .govuk-button').click()
+  })
+// Clear filters 
+  Cypress.Commands.add('clearFilters',()=>{
+    cy.get('p > a').click()
+  })
+  //email filter 
+  Cypress.Commands.add('emailFilter',(email)=>{
+    cy.get(':nth-child(2) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${email}`)
+    cy.get('#filters-component > .govuk-button').click()
+    
+
+  })
+  //name filter 
+  Cypress.Commands.add('nameFilter',(name)=>{
+    cy.get(':nth-child(1) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${name}`)
+    cy.get('#filters-component > .govuk-button').click()
+    
+  })
+  //organisation filter 
+  Cypress.Commands.add('organisationFilter',(org)=>{
+    cy.get(':nth-child(3) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${org}`)
+    cy.get('#filters-component > .govuk-button').click()
+  })
+
    
 
-  //******* manage services ******
+ 
+
+  //******************************* OLD  manage services ******************************
 
 //view services
   Cypress.Commands.add('ViewServices',(serviceName)=>{

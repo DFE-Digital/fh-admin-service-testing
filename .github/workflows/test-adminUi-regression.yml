@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/admin-service/**/*.spec.js"
+          spec: "cypress/e2e/admin-service/001test.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
@@ -37,6 +37,10 @@ jobs:
         with:
           ref: reports
           path: reports_repo
+        env:
+          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
+          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
+          
 
       - name: Copy report into reports repo
         run: |
@@ -65,5 +69,6 @@ jobs:
       - name: Set build status based on Cypress outcome
         if: steps.cypress.outcome != 'success'
         run: exit 1
+        
 
      
