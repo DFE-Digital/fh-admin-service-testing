@@ -27,6 +27,11 @@ jobs:
           browser: chrome
           headless: true
           spec: "cypress/e2e/admin-service/001test.spec.js"
+        env:
+          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
+          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
+          username: "test1"
+          password: "test2"
       - uses: actions/upload-artifact@v2
         with:
           name: report
