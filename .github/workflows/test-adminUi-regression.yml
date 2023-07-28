@@ -28,6 +28,7 @@ jobs:
           headless: true
           spec: "cypress/e2e/admin-service/001test.spec.js"
         env:
+          DEBUG: '@cypress/github-action'
           INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
           INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
           username: "test1"
