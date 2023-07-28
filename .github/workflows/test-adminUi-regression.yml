@@ -27,6 +27,12 @@ jobs:
           browser: chrome
           headless: true
           spec: "cypress/e2e/admin-service/001test.spec.js"
+        env:
+          DEBUG: '@cypress/github-action'
+          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
+          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
+          CYPRESS_username:  ${{ secrets.INTEGRATION_ID }}
+          CYPRESS_password:  ${{ secrets.INTEGRATION_PASSWORD }}
       - uses: actions/upload-artifact@v2
         with:
           name: report
@@ -37,10 +43,6 @@ jobs:
         with:
           ref: reports
           path: reports_repo
-        env:
-          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
-          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
-          
 
       - name: Copy report into reports repo
         run: |
@@ -51,6 +53,7 @@ jobs:
           pushd docs/adminui/$DATE
           rm -rf assets
           rm -rf screenshots
+          rm -rf videos
           ln -s ../../assets/
           popd
           git add docs .
