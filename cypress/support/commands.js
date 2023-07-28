@@ -244,6 +244,8 @@ Cypress.Commands.add('myaccountPage',()=>{
   Cypress.Commands.add('integrationLogin',()=>{
 
   cy.session('userlogin',()=>{
+     cy.log("username")
+     cy.log(Cypress.env('username')) 
      cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
         
           cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
