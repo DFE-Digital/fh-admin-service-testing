@@ -31,8 +31,8 @@ jobs:
           DEBUG: '@cypress/github-action'
           INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
           INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
-          username: "test1"
-          password: "test2"
+          CYPRESS_username: "test1"
+          CYPRESS_password: "test2"
       - uses: actions/upload-artifact@v2
         with:
           name: report
