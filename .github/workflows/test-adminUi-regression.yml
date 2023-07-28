@@ -29,8 +29,8 @@ jobs:
           spec: "cypress/e2e/admin-service/001test.spec.js"
         env:
           DEBUG: '@cypress/github-action'
-          INTEGRATION_PASSWORD: ${{ secrets.INTEGRATION_PASSWORD }}
-          INTEGRATION_ID: ${{ secrets.INTEGRATION_ID }}
+          CYPRESS_oneloginpassword: ${{ secrets.ONELOGIN_PASSWORD }}
+          CYPRESS_oneloginusername: ${{ secrets.ONELOGIN_ID }}
           CYPRESS_username:  ${{ secrets.INTEGRATION_ID }}
           CYPRESS_password:  ${{ secrets.INTEGRATION_PASSWORD }}
       - uses: actions/upload-artifact@v2
