@@ -20,10 +20,11 @@ beforeEach(() => {
           //
           cy.get('#sign-in-button').click()
           // login email
+          cy.get('#email').blur({ force: true })
           cy.get('#email').type(`${Cypress.env('oneloginusername')}`, { log: false })
           cy.get('form > .govuk-button').click()
           // login password
-          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`, { log: false })
+          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`, { log: false }).blur()
           cy.get('form > .govuk-button').click()
           // check if the user is signed in
           cy.get('.govuk-header__navigation-item').contains('Sign out')
@@ -52,6 +53,7 @@ Cypress.Commands.add('welcomePage',(userType)=>{
     cy.contains('Accounts')
     cy.contains('Local authorities (LAs)')
   })
+  // ********************** Accounts *************************
    // Select add permissions
   Cypress.Commands.add('addPermissions',()=>{
     cy.get('#add-permission').click()
@@ -151,7 +153,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
     cy.get('.govuk-button').click()
 
   })
-  //----------------------------Check details page ------------------------
+  //Check details page 
 Cypress.Commands.add('checkAnswerDetails', (expectedContent)=> {
 // Iterate over the elements with class "govuk-summary-list__row"
     cy.get('div.govuk-summary-list__row').each(($row) => {
@@ -269,9 +271,63 @@ Cypress.Commands.add('myaccountPage',()=>{
   )
      
    })
+// Sort ascending / descending 
+Cypress.Commands.add('checkSortOrder', (value, sortOrder)=> {
+    cy.get('th.govuk-table__header').eq(value).invoke('attr', 'aria-sort').then((ariasort) => {
+    expect(ariasort).to.equal(sortOrder);
+	});
+})
+
+// pagination
+Cypress.Commands.add('checkPaginationSelection', (value)=> {
+    cy.contains('li.govuk-pagination__item a', value).should('have.attr', 'aria-current', '"page"');
+})
 
 
+// ********************** Voluntary community organisations (VCSs) *************************
+// manage VCS Organisation link
+Cypress.Commands.add('manVcsLink',()=>{
+  cy.contains('Manage VCS organisations').click()
+  cy.contains('Manage organisations')
+  cy.contains('View, change or delete existing organisations.')
+  cy.title().should('eq','Manage organisations - Manage family support services and accounts - GOV.UK')
+})
+// View VCS Organisation link
+Cypress.Commands.add('manVcsView',()=>{
+  cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
+  cy.contains('Back to manage local authorities and organisations')
 
+
+})
+// Delete VCS Organisation link
+Cypress.Commands.add('manVcsDel',()=>{
+  cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Delete').click()
+})
+// view vcs organisation 
+Cypress.Commands.add('manVcsViewPage',(orgName,LA)=>{
+  cy.get('.govuk-heading-l').contains(`${orgName}`)
+  cy.get('#OrganisationName').contains(`${orgName}`)
+  cy.get('#LocalAuthority').contains(`${LA}`)
+  cy.get('#OrganisationType').contains('Voluntary community organisation')
+  cy.title().should('eq',`${orgName} - Manage family support services and accounts - GOV.UK`)
+ 
+
+})
+// Edit VCS Org Name 
+Cypress.Commands.add('editVcsName',(orgName)=>{
+  cy.get('.govuk-link').contains('Change').click()
+  cy.contains("What is the organisation's name?")
+  cy.get('#organisationName').click().clear().type(orgName)
+})
+// add VCS Org confirmation page 
+Cypress.Commands.add('addVcsOrgConfirm',()=>{
+  cy.get('.govuk-button').click()
+  cy.contains('You have saved these details')
+  cy.contains('Any changes will show in the directory straight away.')
+  cy.title().should('eq',`You have saved these details - Manage family support services and accounts - GOV.UK`)
+  cy.get('.govuk-button').click()
+
+})
 
 
 
@@ -350,6 +406,39 @@ Cypress.Commands.add('dfeBrandingAdminUi',()=>{
   
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
