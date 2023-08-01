@@ -19,7 +19,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
          cy.contains('Manage organisations')
     })
 
-    it.only('AC 2 Add VCS Org name',()=>{
+    it('AC 2 Add VCS Org name',()=>{
         cy.visit('/')
         cy.welcomePage( )
          //manage VCS link
