@@ -29,10 +29,10 @@ jobs:
           spec: "cypress/e2e/admin-service/001test.spec.js"
         env:
           DEBUG: '@cypress/github-action'
-          CYPRESS_oneloginpassword: :add-mask::${{ secrets.ONELOGIN_PASSWORD }}
-          CYPRESS_oneloginusername: :add-mask::${{ secrets.ONELOGIN_ID }}
-          CYPRESS_username::add-mask: :add-mask::${{ secrets.INTEGRATION_ID }}
-          CYPRESS_password::add-mask: :add-mask::${{ secrets.INTEGRATION_PASSWORD }}
+          CYPRESS_oneloginpassword: :${{ secrets.ONELOGIN_PASSWORD }}
+          CYPRESS_oneloginusername: :${{ secrets.ONELOGIN_ID }}
+          CYPRESS_username::add-mask: :${{ secrets.INTEGRATION_ID }}
+          CYPRESS_password::add-mask: :${{ secrets.INTEGRATION_PASSWORD }}
       - uses: actions/upload-artifact@v2
         with:
           name: report
