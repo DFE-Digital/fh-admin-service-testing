@@ -1,4 +1,4 @@
-describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for?',()=>{
+describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for?',{tags: ['dfeAdmin']},()=>{
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')

@@ -1,4 +1,4 @@
-describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name?", {tags: ['addPerOnly']},()=>{
+describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name?", {tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();  
   // As a DFE Admin  creating an VCS account

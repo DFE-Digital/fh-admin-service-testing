@@ -1,4 +1,4 @@
-describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ',()=>{
+describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ',{tags: ['dfeAdmin']},()=>{
     // beforeEach(()=> {
 	// 	cy.visit('/')
     //    // cy.startPage()
@@ -6,7 +6,7 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
 	// })
     it('AC 1,5 -  validate content',()=>{
          cy.visit('/')
-       y.ddminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
         cy.pageHeadings().contains('Who are you adding permissions for?')
@@ -21,14 +21,14 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
     })
     it('AC 2  -  LA option',()=>{
          cy.visit('/')
-       y.ddminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA()
     })
     it('AC 3  -  VCS option',()=>{
          cy.visit('/')
-       y.ddminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS()

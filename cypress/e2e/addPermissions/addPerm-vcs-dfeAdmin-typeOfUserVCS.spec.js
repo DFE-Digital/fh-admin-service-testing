@@ -1,4 +1,4 @@
-describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page',()=>{
+describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page',{tags: ['dfeAdmin']},()=>{
     beforeEach(()=> {
 		cy.visit('/')
        // cy.startPage()

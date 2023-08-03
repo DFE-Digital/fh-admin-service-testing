@@ -1,4 +1,4 @@
-describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage ',()=>{
+describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage ',{tags: ['dfeAdmin']},()=>{
         const num = Date.now();
         const n = num.toString();
     

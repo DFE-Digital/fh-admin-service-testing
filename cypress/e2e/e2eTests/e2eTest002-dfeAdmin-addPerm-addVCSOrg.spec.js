@@ -1,4 +1,4 @@
-describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',()=>{
+describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
     //  before(()=> {
