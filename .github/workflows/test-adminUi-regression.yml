@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/admin-service/001test.spec.js"
+          spec: "cypress/e2e/001test.spec.js"
         env:
           DEBUG: '@cypress/github-action'
           CYPRESS_oneloginpassword: :${{ secrets.ONELOGIN_PASSWORD }}
