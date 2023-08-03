@@ -41,14 +41,19 @@ beforeEach(() => {
   Cypress.Commands.add('startPage',()=>{
     cy.contains('Manage family support services and accounts')
     cy.get('.govuk-button--start').click()
+    cy.contains('This is to manage family support services.')
+    cy.contains('Use this to:')
+    cy.contains('add local authorities')
+    cy.contains('add VCS organisations to the directory')
+    cy.contains('view organisations you have added to the directory')
   })
   // stub login
   Cypress.Commands.add('stubLogin',(userType)=>{
     cy.contains('button', `${userType}.user@stub.com`).click();
   })
 // Welcome page 
-Cypress.Commands.add('welcomePage',(userType)=>{
-    cy.get('.govuk-heading-l govuk-!-margin-bottom-1').contains(`${userType}`)
+Cypress.Commands.add('dfeAdminWelcomePage',()=>{
+    cy.get('.govuk-grid-column-two-thirds').contains('Department for Education')
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
     cy.contains('Accounts')
     cy.contains('Local authorities (LAs)')
@@ -365,7 +370,7 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
 
   })
   // Welcome page - landing
-  Cypress.Commands.add('welcomePage',(serviceType,councilName)=>{
+  Cypress.Commands.add('LAwelcomePage',(serviceType,councilName)=>{
     cy.contains('Add account permissions to manage family support services and manage connection requests.')
     cy.contains('View and remove account permissions to manage family support services or manage connection requests.')
     // cy.contains(`${councilName}`)
