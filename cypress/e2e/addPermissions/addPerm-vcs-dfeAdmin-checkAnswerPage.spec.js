@@ -1,4 +1,4 @@
-describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page", {tags: ['addPerOnly']},()=>{
+describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page", {tags: ['dfeAdmin']},()=>{
         const num = Date.now();
         const n = num.toString();
     // As a DFE Admin  creating an VCS account

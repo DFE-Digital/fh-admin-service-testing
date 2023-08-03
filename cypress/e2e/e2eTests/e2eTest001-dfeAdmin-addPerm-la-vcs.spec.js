@@ -1,4 +1,4 @@
-describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey ',function(){
+describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey ',{tags: ['dfeAdmin']},function(){
     const num = Date.now();
     const n = num.toString();
 

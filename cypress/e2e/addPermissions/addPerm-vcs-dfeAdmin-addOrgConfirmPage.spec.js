@@ -1,4 +1,4 @@
-describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation page',()=>{
+describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation page',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an VCS account

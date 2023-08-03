@@ -1,4 +1,4 @@
-describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for?',()=>{
+describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for?',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an LA account

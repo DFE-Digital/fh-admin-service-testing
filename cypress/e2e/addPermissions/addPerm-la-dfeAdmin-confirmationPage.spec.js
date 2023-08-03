@@ -1,4 +1,4 @@
-describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page", {tags: ['addPerOnly']},()=>{
+describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page", {tags: ['dfeAdmin']},()=>{
         const num = Date.now();
         const n = num.toString();
     // As a DFE Admin  creating an LA account

@@ -1,4 +1,4 @@
-describe('| manageAccountPage | FHG-2106 My account - Manage your account page ',()=>{
+describe('| manageAccountPage | FHG-2106 My account - Manage your account page ',{tags: ['dfeAdmin']},()=>{
      beforeEach(()=> {
 		cy.visit('/')
        // cy.startPage()

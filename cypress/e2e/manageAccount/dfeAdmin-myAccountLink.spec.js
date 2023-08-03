@@ -1,4 +1,4 @@
-describe('| myaccountMobPage | FHG-2101 My account page header ',()=>{
+describe('| myaccountMobPage | FHG-2101 My account page header ',{tags: ['dfeAdmin']},()=>{
      beforeEach(()=> {
 		cy.visit('/')
        // cy.startPage()

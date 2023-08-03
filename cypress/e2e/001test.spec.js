@@ -1,4 +1,4 @@
-describe('Login - Integration + One login',()=>{
+describe('Login - Integration + One login',{tags: ['dfeAdmin']},()=>{
     
     it('test ',()=>{
         cy.visit('/') 
