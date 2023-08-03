@@ -29,10 +29,10 @@ jobs:
           spec: "cypress/e2e/001test.spec.js"
         env:
           DEBUG: '@cypress/github-action'
-          CYPRESS_oneloginpassword: :${{ secrets.ONELOGIN_PASSWORD }}
-          CYPRESS_oneloginusername: :${{ secrets.ONELOGIN_ID }}
-          CYPRESS_username: :${{ secrets.INTEGRATION_ID }}
-          CYPRESS_password: :${{ secrets.INTEGRATION_PASSWORD }}
+          CYPRESS_oneloginpassword: ${{ secrets.ONELOGIN_PASSWORD }}
+          CYPRESS_oneloginusername: ${{ secrets.ONELOGIN_ID }}
+          CYPRESS_username: ${{ secrets.INTEGRATION_ID }}
+          CYPRESS_password: ${{ secrets.INTEGRATION_PASSWORD }}
       - uses: actions/upload-artifact@v2
         with:
           name: report
