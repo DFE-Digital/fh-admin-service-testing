@@ -69,22 +69,26 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
   })
 
 // LA Manager - Welcome page 
-Cypress.Commands.add('LAManWelcomePage',()=>{
-    cy.get('.govuk-grid-column-two-thirds').contains('Department for Education')
+Cypress.Commands.add('LAManWelcomePage',(LA)=>{
+    cy.get('.govuk-grid-column-two-thirds').contains(`${LA}`)
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
-    cy.contains('Add account permissions to manage family support services and manage connection requests.')
-    cy.contains('View and remove account permissions to manage family support services or manage connection requests.')
-    cy.contains('Add a service to the directory.')
-    cy.contains('View, change or delete services shown in the directory.')
-    cy.contains('Add a family hub to the directory.')
-    cy.contains('View, change or delete family hubs shown in the directory.')
 
-    cy.contains('Activate an LA before you create its accounts, services and family hubs.').should('not.be.visible')
-    cy.contains('Add a service to the directory.').should('not.be.visible')
-    cy.contains('View, change or delete services shown in the directory.').should('not.be.visible')
+    cy.contains('Add permissions')
+    cy.contains('Manage permissions')
+    cy.contains('Add an LA service')
+    cy.contains('Manage LA services')
+    cy.contains('Add a family hub')
+    cy.contains('Manage family hubs')
 
-    cy.contains('Add an organisation before adding permissions for its users.')
-    cy.contains('View, change or delete existing organisations.')
+    cy.contains('Activate a local authority')
+      .should('not.exist');
+    cy.contains('Add a VCS service')
+      .should('not.exist');
+    cy.contains('Manage VCS services')
+      .should('not.exist');
+
+    cy.contains('Add an organisation')
+    cy.contains('Manage organisations')
   })
 
 
@@ -109,6 +113,22 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   }
   cy.get('.govuk-button').click()
   })
+
+  // LA manager -  Type of user page 
+Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
+    cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
+    cy.pageHeadings().contains('Who are you adding permissions for?')
+    cy.contains(`Someone who works for ${LA}`)
+    cy.contains(`Someone who works for a voluntary and community sector organisation ${LA}`)
+    // select persmission type
+      if (permissionType === 'la') {
+      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+    } else if (permissionType === 'vcs'){
+      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+    }
+    cy.get('.govuk-button').click()
+  })
+
 
   // what do they need to do - LA
   Cypress.Commands.add('typeOfUserLA',(selection)=>{
