@@ -6,7 +6,7 @@ describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation pa
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-        cy.cy.dfeAdminWelcomePageWelcomePage( )
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')

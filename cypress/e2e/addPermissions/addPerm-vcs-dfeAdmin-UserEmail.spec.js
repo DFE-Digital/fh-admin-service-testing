@@ -6,7 +6,7 @@ describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is the
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

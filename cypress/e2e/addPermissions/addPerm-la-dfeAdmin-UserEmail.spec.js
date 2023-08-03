@@ -6,7 +6,7 @@ describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is thei
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')

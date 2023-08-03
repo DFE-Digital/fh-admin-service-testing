@@ -6,7 +6,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-        cy.cy.dfeAdmin cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')

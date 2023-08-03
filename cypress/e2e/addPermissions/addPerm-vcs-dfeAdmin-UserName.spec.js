@@ -3,10 +3,10 @@ describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their
     const n = num.toString();  
   // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
-		cy.visit('/')
+		    cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

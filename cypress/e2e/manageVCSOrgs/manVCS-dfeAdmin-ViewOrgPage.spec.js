@@ -4,7 +4,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     
     it('AC 1,5,6 - page content , back link , title ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
          //manage VCS link
         cy.manVcsLink()
         cy.manVcsView()
@@ -21,7 +21,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
 
     it('AC 2 Add VCS Org name',()=>{
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
          //manage VCS link
         cy.manVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
@@ -34,7 +34,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
 
      it('AC 3 - view VCS Org ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         //manage VCS link
         cy.manVcsLink()
         // View VCS Org
@@ -42,7 +42,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     })
     it('AC 4 - delete VCS Org ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         //manage VCS link
         cy.manVcsLink()
         // Delete VCS Org
@@ -51,7 +51,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     })
     it('AC 8 , sort by Organisation name',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         //manage VCS link
         cy.manVcsLink()
         //check initial sort order on contact name
@@ -68,7 +68,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     })
     it('AC 9 , sort by Local authority',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         //manage VCS link
         cy.manVcsLink()
         //check initial sort order on contact name

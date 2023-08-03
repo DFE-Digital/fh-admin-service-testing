@@ -6,7 +6,7 @@ describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local a
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-        cy.cy.dfeAdmin cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')

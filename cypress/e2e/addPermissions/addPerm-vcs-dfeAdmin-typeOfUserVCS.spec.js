@@ -3,7 +3,7 @@ describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? 
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
 	})

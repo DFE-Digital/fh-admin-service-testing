@@ -5,7 +5,7 @@ describe('| myaccountMobPage | FHG-2101 My account page header ',()=>{
         // cy.stubLogin('dfeAdmin')
 	})
     it('AC 1,2,3 - Header - my account and signout links',function(){
-         cy.dfeAdminWelcomePage('Department for Education')
+        cy.dfeAdminWelcomePage()
          //my account link
         cy.get('.govuk-header__content').contains('My account').click()
         cy.contains('Manage your account')

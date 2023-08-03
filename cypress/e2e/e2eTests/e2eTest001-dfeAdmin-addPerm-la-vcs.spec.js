@@ -12,7 +12,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
 		cy.visit('/')
         //// cy.startPage()
         // // cy.stubLogin('dfeAdmin')
-        
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
