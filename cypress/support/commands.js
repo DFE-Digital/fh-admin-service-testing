@@ -134,7 +134,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   })
   // What's their email address?
   Cypress.Commands.add('email',(emailAdd)=>{
-    cy.title().should('eq','User Email - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq',"What's their email address? - Manage family support services and accounts - GOV.UK")
     cy.pageHeadings().contains("What's their email address?")
     cy.contains('They will use this to sign in to their account.')
     cy.get('#emailAddress').click().clear().type(emailAdd)
@@ -328,8 +328,6 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
   cy.get('.govuk-button').click()
 
 })
-
-
 
 
 
