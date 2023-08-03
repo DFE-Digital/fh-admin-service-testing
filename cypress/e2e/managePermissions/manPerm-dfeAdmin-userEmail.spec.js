@@ -4,7 +4,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     const n = num.toString();
     it('AC 1 , 4 - page content , back link ',function(){
         cy.visit('/')
-        cy.dfeAdminWelcomePagecomePage( )
+         cy.dfeAdminWelcomePage()
          //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -21,7 +21,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     })
     it.only('AC 1,4 Page content ,valid email address,back button',()=>{
         cy.visit('/')
-        cy.dfeAdminWelcomePagecomePage( )
+         cy.dfeAdminWelcomePage()
          //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()

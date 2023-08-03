@@ -2,7 +2,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     
     it('AC 1 , 4 - page content , back link ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -13,7 +13,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
      it('AC 2 - edit permissions link ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -22,7 +22,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('AC 3 - delete permissions link ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -32,7 +32,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('AC 5 - Type of user filters - Both LA and VCS ',()=>{
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -59,7 +59,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 6 - Name , Email , Organisation filter',()=>{
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -85,7 +85,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('AC 8 , 9 - no result found  + Clear filter',()=>{
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -102,7 +102,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('AC 11 , 12 Pagination',()=>{
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -122,7 +122,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
      it(' Name - sort by Organisation name',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -140,7 +140,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('Email address , sort by Email address',function(){
        cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -159,7 +159,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
      it('Works for , sort by Works for',function(){
        cy.visit('/')
-         cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()

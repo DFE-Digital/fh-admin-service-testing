@@ -5,7 +5,7 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
         // cy.stubLogin('dfeAdmin')
 	})
     it('AC 1,4, Page content , Change name , back button ',function(){
-          cy.dfeAdminWelcomePage('Department for Education')
+         cy.dfeAdminWelcomePage()
          cy.get('.govuk-header__container').contains('My account').click()
          cy.myaccountPage()
          // click on change name

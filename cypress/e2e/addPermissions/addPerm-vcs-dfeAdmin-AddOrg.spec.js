@@ -6,7 +6,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
 		cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       y.ddminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
