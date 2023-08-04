@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
+  // baseUrl pointing to test environment
   e2e: {
        'baseUrl': 'https://test.manage-family-support-services-and-accounts.education.gov.uk/',
 
