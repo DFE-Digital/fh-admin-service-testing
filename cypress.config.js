@@ -8,6 +8,10 @@ module.exports = defineConfig({
     'specPattern': ['**/*.spec.js', '**/*.feature','**/*.cy'],
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+
+      on('after:run', async () => {
+        console.log('override after:run');
+      });
        return config;
   // implement node event listeners here
     },
