@@ -12,7 +12,7 @@ beforeEach(() => {
             return false
         }),
     cy.session('userlogin',()=>{
-     cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { log: false ,failOnStatusCode: false})
+     cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { log: true ,failOnStatusCode: false})
      
         
           cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/', { log: false }) 
