@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-04T14:09:26.310Z",
+    "end": "2023-08-04T14:10:28.047Z",
+    "duration": 61737,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6af45e8d-2a75-44fb-aff4-10ff97d1a121",
+      "title": "",
+      "fullFile": "cypress/e2e/managePermissions/manPerm-dfeAdmin-userPermissions.spec.js",
+      "file": "cypress/e2e/managePermissions/manPerm-dfeAdmin-userPermissions.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c5efe26-8e37-4b3c-bbda-9f6c015eab1d",
+          "title": "| manPerm-userPermissions | FHG-1617 Manage permissions ( Manage User Permissions) Page ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1 ",
+              "fullTitle": "| manPerm-userPermissions | FHG-1617 Manage permissions ( Manage User Permissions) Page  AC 1 ",
+              "timedOut": null,
+              "duration": 61673,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/managePermissions/manPerm-dfeAdmin-userPermissions.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/managePermissions/manPerm-dfeAdmin-userPermissions.spec.js/ manPerm-userPermissions  FHG-1617 Manage permissions ( Manage User Permissions) Page -- AC 1 (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage('Department for Education');\n//my account link\ncy.get('.govuk-header__content').contains('My account').click();\ncy.contains('Manage your account');\n//signout link\ncy.get('.govuk-header__content').contains('Sign out').click();\ncy.contains('You have signed out');",
+              "err": {
+                "message": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `home/runner/work/fh-admin-service-testing/fh-admin-service-testing/cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.",
+                "estack": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `home/runner/work/fh-admin-service-testing/fh-admin-service-testing/cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n    at timedOutWaitingForPageLoad (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:146876:72)\n    at <unknown> (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:147174:16)\n    at tryCatcher (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:18744:23)\n    at <unknown> (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:13866:41)\n    at tryCatcher (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:16857:18)\n    at _drainQueueStep (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:13451:12)\n    at _drainQueue (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:13444:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:13460:5)\n    at Async.drainQueues (https://test.manage-family-support-services-and-accounts.education.gov.uk/__cypress/runner/cypress_runner.js:13330:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/managePermissions/manPerm-dfeAdmin-userPermissions.spec.js:11:11)",
+                "diff": null
+              },
+              "uuid": "c2f98161-d954-483e-8995-1926b9760b96",
+              "parentUUID": "8c5efe26-8e37-4b3c-bbda-9f6c015eab1d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c2f98161-d954-483e-8995-1926b9760b96"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 61673,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

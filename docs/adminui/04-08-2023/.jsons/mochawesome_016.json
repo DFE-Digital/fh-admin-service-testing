@@ -1,0 +1,225 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-04T14:04:05.815Z",
+    "end": "2023-08-04T14:04:37.217Z",
+    "duration": 31402,
+    "testsRegistered": 7,
+    "passPercent": 14.285714285714285,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 5,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "a817d4d4-6492-40b6-bdac-254afa43428c",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-checkAnswerPage.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-checkAnswerPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+          "title": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4 - validate page content , back link ",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 1,4 - validate page content , back link ",
+              "timedOut": null,
+              "duration": 10693,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-checkAnswerPage.spec.js\"\n}",
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services',\n  'Local authority': 'London Borough of Redbridge',\n  'Voluntary and community organisation': 'Cranbrook Baptist Church',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Paul Smith'\n};\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);\n// back button - takes user to user name page\ncy.get('.govuk-back-link').click();\ncy.fullName(n + 'John Smith');\n//next page \ncy.checkAnswerPage();\ncy.contains('Permissions added');",
+              "err": {},
+              "uuid": "9431056e-d88d-42b9-b5c6-88a51a740dc8",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - Change link - who for",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - who for",
+              "timedOut": null,
+              "duration": 20305,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-checkAnswerPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-vcs-dfeAdmin-checkAnswerPage.spec.js/ addPerm-vcs-checkAnswerPage  FHG-3418 DFE - add permissions - check account details page -- AC 3 - Change link - who for -- before each hook (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services, View and respond to connection requests',\n  'Local authority': 'Bristol County Council',\n  'Voluntary and community organisation': 'Hartcliffe Club for Young People',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Steven Smith'\n};\ncy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click();\ncy.typeOfUserPage('vcs');\ncy.typeOfUserVCS('both');\ncy.vcsWhichLA('bristol');\ncy.whichOrgVcs('Hartcliffe Club for Young People');\ncy.email(n + 'abcdef@def.com');\ncy.fullName(n + 'John Steven Smith');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'This email address is already linked to another account - Manage family support services and accounts - GOV.UK' to equal 'What\\'s their full name? - Manage family support services and accounts - GOV.UK'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `| addPerm-vcs-checkAnswerPa...`",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'This email address is already linked to another account - Manage family support services and accounts - GOV.UK' to equal 'What\\'s their full name? - Manage family support services and accounts - GOV.UK'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `| addPerm-vcs-checkAnswerPa...`\n    at Context.eval (webpack:///./cypress/support/commands.js:202:15)",
+                "diff": "- '\\'This email address is already linked to another account - Manage family support services and accounts - GOV.UK\\''\n+ '\\'What\\\\\\'s their full name? - Manage family support services and accounts - GOV.UK\\''\n"
+              },
+              "uuid": "1cbf88ac-d5e9-43e4-948c-c188d346b9e3",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - Change link - Type of permission",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - Type of permission",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services, View and respond to connection requests',\n  'Local authority': 'Bristol County Council',\n  'Voluntary and community organisation': 'Hartcliffe Club for Young People',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Steven Smith'\n};\ncy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click();\ncy.typeOfUserVCS('both');\ncy.vcsWhichLA('bristol');\ncy.whichOrgVcs('Hartcliffe Club for Young People');\ncy.email(n + 'abcdef@def.com');\ncy.fullName(n + 'John Steven Smith');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {},
+              "uuid": "2ab9dd2e-6a28-406b-a336-91283dd264e8",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Local authority",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - Local authority",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services',\n  'Local authority': 'Bristol County Council',\n  'Voluntary and community organisation': 'Hartcliffe Club for Young People',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Steven Smith'\n};\ncy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click();\ncy.vcsWhichLA('bristol');\ncy.whichOrgVcs('Hartcliffe Club for Young People');\ncy.email(n + 'abcdef@def.com');\ncy.fullName(n + 'John Steven Smith');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {},
+              "uuid": "8774a7c2-412e-4fa2-8fc5-024447dbf98d",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Which VCS Organisation",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - Which VCS Organisation",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services',\n  'Local authority': 'London Borough of Redbridge',\n  'Voluntary and community organisation': 'Jubilee Church Ilford',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Steven Smith'\n};\ncy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click();\ncy.whichOrgVcs('Jubilee Church Ilford');\ncy.email(n + 'abcdef@def.com');\ncy.fullName(n + 'John Steven Smith');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {},
+              "uuid": "c446a9ba-905c-4f60-a253-aa281776cb74",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Email address",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - Email address",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services',\n  'Local authority': 'London Borough of Redbridge',\n  'Voluntary and community organisation': 'Cranbrook Baptist Church',\n  'Email address': n + 'new.email@def.com',\n  'Name': n + 'John Steven Smith'\n};\ncy.get(':nth-child(5) > .govuk-summary-list__actions > .govuk-link').click();\ncy.email(n + 'new.email@def.com');\ncy.fullName(n + 'John Steven Smith');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {},
+              "uuid": "11467f51-73c8-42cf-b715-fb8151d1f6a4",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Name",
+              "fullTitle": "| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page AC 3 - Change link - Name",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a voluntary and community sector organisation',\n  'Type of permission': 'Add and manage services',\n  'Local authority': 'London Borough of Redbridge',\n  'Voluntary and community organisation': 'Cranbrook Baptist Church',\n  'Email address': n + 'abcdef@def.com',\n  'Name': n + 'John Paul Smith Jr'\n};\ncy.get(':nth-child(6) > .govuk-summary-list__actions > .govuk-link').click();\ncy.fullName(n + 'John Paul Smith Jr');\n// validate response\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);",
+              "err": {},
+              "uuid": "e6af5da4-bfe9-43f5-b8a4-a47823ff4311",
+              "parentUUID": "0e8f4da6-f5a3-4889-9dd1-804d1e1d26c8",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9431056e-d88d-42b9-b5c6-88a51a740dc8"
+          ],
+          "failures": [
+            "1cbf88ac-d5e9-43e4-948c-c188d346b9e3"
+          ],
+          "pending": [],
+          "skipped": [
+            "2ab9dd2e-6a28-406b-a336-91283dd264e8",
+            "8774a7c2-412e-4fa2-8fc5-024447dbf98d",
+            "c446a9ba-905c-4f60-a253-aa281776cb74",
+            "11467f51-73c8-42cf-b715-fb8151d1f6a4",
+            "e6af5da4-bfe9-43f5-b8a4-a47823ff4311"
+          ],
+          "duration": 30998,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

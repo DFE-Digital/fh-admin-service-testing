@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-04T14:00:39.412Z",
+    "end": "2023-08-04T14:00:49.148Z",
+    "duration": 9736,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5d35f4c7-351f-4336-8854-45138101fab3",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-confirmationPage.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-confirmationPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "19cc96f8-0aa6-494e-9361-fb8416b74975",
+          "title": "| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1 - validate content",
+              "fullTitle": "| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page AC 1 - validate content",
+              "timedOut": null,
+              "duration": 9702,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-confirmationPage.spec.js\"\n}",
+              "code": "cy.confirmationPage('John Paul Smith');",
+              "err": {},
+              "uuid": "ba3abd9a-7f7b-499b-a110-7175db5ddb2a",
+              "parentUUID": "19cc96f8-0aa6-494e-9361-fb8416b74975",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ba3abd9a-7f7b-499b-a110-7175db5ddb2a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9702,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
