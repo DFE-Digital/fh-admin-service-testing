@@ -101,7 +101,7 @@ Cypress.Commands.add('LAManWelcomePage',(LA)=>{
   })
   // Type of user page 
 Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
-    cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Who are you adding permissions for?')
     cy.contains('Someone who works for a local authority')
     cy.contains('Someone who works for a voluntary and community sector organisation')
@@ -116,7 +116,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
 
   // LA manager -  Type of user page 
 Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
-    cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Who are you adding permissions for?')
     cy.contains(`Someone who works for ${LA}`)
     cy.contains(`Someone who works for a voluntary and community sector organisation ${LA}`)
@@ -132,7 +132,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
 
   // what do they need to do - LA
   Cypress.Commands.add('typeOfUserLA',(selection)=>{
-     cy.title().should('eq','Type of User La - Manage family support services and accounts - GOV.UK')
+     cy.title().should('eq','What do they need to do? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('What do they need to do?')
     cy.contains('Add and manage services, family hubs and accounts')
     cy.contains('Make connection requests to voluntary and community sector services')
@@ -151,7 +151,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
   })
  // what do they need to do - VCS
   Cypress.Commands.add('typeOfUserVCS',(selection)=>{
-    cy.title().should('eq','Type of user VCS - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','What do they need to do? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('What do they need to do?')
     cy.contains('An organisation should only have one person with permissions to view and manage connection requests.')
     cy.contains('Add and manage services')
@@ -171,7 +171,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
   })
   //la route - which local authority do they work for ?
   Cypress.Commands.add('laWhichLA',(searchString)=>{
-    cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Which local authority do they work for? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Which local authority do they work for?')
     
     cy.get('#LaOrganisationName').click()
@@ -181,7 +181,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
   })
   //vcs route - which local authority do they work for ?
   Cypress.Commands.add('vcsWhichLA',(searchString)=>{
-    cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Which local authority area do they work in? - Manage family support services and accounts - GOV.UK')
     cy.pageHeadings().contains('Which local authority area do they work in?')
     
     cy.get('#LaOrganisationName').click().clear()
@@ -199,7 +199,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
   })
   // What's the user's full name?
   Cypress.Commands.add('fullName',(fullName)=>{
-    cy.title().should('eq','User Name - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq',"What's their full name? - Manage family support services and accounts - GOV.UK")
     cy.pageHeadings().contains("What's their full name?")
     cy.get('#fullName').click().clear().type(fullName)
     cy.get('.govuk-button').click()
@@ -249,7 +249,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
  Cypress.Commands.add('whichOrgVcs',(searchString)=>{
     cy.contains('Which organisation do they work for?')
     cy.contains("Their organisation must be in the directory for it to appear here. If it's not, you can add an organisation.")
-    cy.title().should('eq','Which organisation - Manage family support services and accounts - GOV.UK')
+    cy.title().should('eq','Which organisation do they work for? - Manage family support services and accounts - GOV.UK')
     cy.get('#VcsOrganisationName').click().clear().type(searchString)
     cy.get('#VcsOrganisationName__option--0').click()
     cy.get('.govuk-button').click()
