@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-05T06:35:47.024Z",
+    "end": "2023-08-05T06:35:59.102Z",
+    "duration": 12078,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d7c102d3-bb0a-4c2a-8dbf-c785b7edb24b",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-whichLA.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-whichLA.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "48384aa0-a4d5-4caa-8eb5-e0a8c6d4c87e",
+          "title": "| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,3,5 - recognised text - list of valid LAs displayed in dropdown,back button",
+              "fullTitle": "| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for? AC 1,3,5 - recognised text - list of valid LAs displayed in dropdown,back button",
+              "timedOut": null,
+              "duration": 5882,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-whichLA.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which local authority do they work for?');\ncy.laWhichLA('bristol');\ncy.contains(\"What's their email address?\");\n// back button - takes user to LA page\ncy.get('.govuk-back-link').click();\n// back button - takes user to What do they need to do? page\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');",
+              "err": {},
+              "uuid": "5214ccac-6286-46ca-9e1f-b9a625650e77",
+              "parentUUID": "48384aa0-a4d5-4caa-8eb5-e0a8c6d4c87e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 - unrecognised text /blank - no result found displayed in dropdown , error message",
+              "fullTitle": "| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for? AC 2 - unrecognised text /blank - no result found displayed in dropdown , error message",
+              "timedOut": null,
+              "duration": 3237,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-whichLA.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which local authority do they work for?');\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains('Select a local authority');\ncy.get('.govuk-error-summary').contains('Select a local authority');\n// unrecognised text \ncy.get('#LaOrganisationName').type('xx');\n//No results found\ncy.get('ul#LaOrganisationName__listbox').contains('No results found');\n// user tries to contiue \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains('Select a local authority');\ncy.get('.govuk-error-summary').contains('Select a local authority');\ncy.pageHeadings().contains('Which local authority do they work for?');",
+              "err": {},
+              "uuid": "9f93eadf-fe9a-4fec-8ca2-346e40a0fa9c",
+              "parentUUID": "48384aa0-a4d5-4caa-8eb5-e0a8c6d4c87e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "error page back link",
+              "fullTitle": "| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local authority do they work for? error page back link",
+              "timedOut": null,
+              "duration": 2878,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-whichLA.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which local authority do they work for?');\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\n// back button - takes user to What do they need to do? page\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');",
+              "err": {},
+              "uuid": "bdabd3ca-fbf9-4108-bd62-f09a2062e045",
+              "parentUUID": "48384aa0-a4d5-4caa-8eb5-e0a8c6d4c87e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5214ccac-6286-46ca-9e1f-b9a625650e77",
+            "9f93eadf-fe9a-4fec-8ca2-346e40a0fa9c",
+            "bdabd3ca-fbf9-4108-bd62-f09a2062e045"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11997,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-05T06:39:24.563Z",
+    "end": "2023-08-05T06:39:34.935Z",
+    "duration": 10372,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "27604d50-03fa-4ab1-8c67-e82eb35412bc",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-typeOfUserVCS.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-typeOfUserVCS.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4156c980-b9ef-4d85-92aa-118ef04542b4",
+          "title": "| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,2,6 - validate content ,VCS- Add and manage services, family hubs and accounts - option, back button",
+              "fullTitle": "| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page AC 1,2,6 - validate content ,VCS- Add and manage services, family hubs and accounts - option, back button",
+              "timedOut": null,
+              "duration": 4376,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-typeOfUserVCS.spec.js\"\n}",
+              "code": "// What do they need to do? page \ncy.typeOfUserVCS('1');\n// whichVCSpage\ncy.pageHeadings().contains('Which local authority area do they work in?');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('[data-testid=\"VcsManager\"]').should('be.checked');",
+              "err": {},
+              "uuid": "35f8e234-3165-4aa2-8066-e518f5eff5bd",
+              "parentUUID": "4156c980-b9ef-4d85-92aa-118ef04542b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - VCS -  View and respond to connection requests - option",
+              "fullTitle": "| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page AC 3 - VCS -  View and respond to connection requests - option",
+              "timedOut": null,
+              "duration": 2814,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-typeOfUserVCS.spec.js\"\n}",
+              "code": "// What do they need to do? page \ncy.typeOfUserVCS('2');\n// whichVCSpage\ncy.pageHeadings().contains('Which local authority area do they work in?');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('#VcsProfessional').should('be.checked');",
+              "err": {},
+              "uuid": "e278e1d1-b9b8-4708-8066-5415b978befc",
+              "parentUUID": "4156c980-b9ef-4d85-92aa-118ef04542b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4,5 - VCS - no selection, error message, select both to continue",
+              "fullTitle": "| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? page AC 4,5 - VCS - no selection, error message, select both to continue",
+              "timedOut": null,
+              "duration": 3109,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-typeOfUserVCS.spec.js\"\n}",
+              "code": "// error message when user does not select one of the options\ncy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Select what they need to do');\n// What do they need to do? page \ncy.typeOfUserVCS('both');\n// which LA page\ncy.pageHeadings().contains('Which local authority area do they work in?');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('#VcsProfessional').should('be.checked');\ncy.get('[data-testid=\"VcsManager\"]').should('be.checked');",
+              "err": {},
+              "uuid": "ea66cfa5-43c6-415a-9a72-e4edf36d0c39",
+              "parentUUID": "4156c980-b9ef-4d85-92aa-118ef04542b4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "35f8e234-3165-4aa2-8066-e518f5eff5bd",
+            "e278e1d1-b9b8-4708-8066-5415b978befc",
+            "ea66cfa5-43c6-415a-9a72-e4edf36d0c39"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10299,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-05T06:35:32.851Z",
+    "end": "2023-08-05T06:35:41.871Z",
+    "duration": 9020,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "369f70ca-28e2-4830-aa64-b85bcc69b140",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfUserLA.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfUserLA.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "180d8e95-4f1b-4165-85ca-1a4a7da97acc",
+          "title": "| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button",
+              "fullTitle": "| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button",
+              "timedOut": null,
+              "duration": 3447,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfUserLA.spec.js\"\n}",
+              "code": "cy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('la');\n// What do they need to do? page \ncy.typeOfUserLA('1');\n// which LA page\ncy.pageHeadings().contains('Which local authority do they work for?');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('[data-testid=\"LaManager\"]').should('be.checked');",
+              "err": {},
+              "uuid": "082fbcb0-ea6f-4109-98d6-bf1889145956",
+              "parentUUID": "180d8e95-4f1b-4165-85ca-1a4a7da97acc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - LA -  Make connection requests to voluntary and community sector services - option",
+              "fullTitle": "| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page AC 3 - LA -  Make connection requests to voluntary and community sector services - option",
+              "timedOut": null,
+              "duration": 2733,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfUserLA.spec.js\"\n}",
+              "code": "cy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('la');\n// What do they need to do? page \ncy.typeOfUserLA('2');\n// which LA page\ncy.pageHeadings().contains('Which local authority do they work for?');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('#LaProfessional').should('be.checked');",
+              "err": {},
+              "uuid": "086a6a53-09ff-47fc-956f-e9f5a623421e",
+              "parentUUID": "180d8e95-4f1b-4165-85ca-1a4a7da97acc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4 - LA - no selection - error message",
+              "fullTitle": "| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page AC 4 - LA - no selection - error message",
+              "timedOut": null,
+              "duration": 2803,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfUserLA.spec.js\"\n}",
+              "code": "cy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('la');\n// error message when user does not select one of the options\ncy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Select what they need to do');\n// What do they need to do? page \ncy.typeOfUserLA('2');\n// which LA page\ncy.pageHeadings().contains('Which local authority do they work for?');",
+              "err": {},
+              "uuid": "f87a8a6f-812e-43e9-9a9c-ac2bea96c6a1",
+              "parentUUID": "180d8e95-4f1b-4165-85ca-1a4a7da97acc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "082fbcb0-ea6f-4109-98d6-bf1889145956",
+            "086a6a53-09ff-47fc-956f-e9f5a623421e",
+            "f87a8a6f-812e-43e9-9a9c-ac2bea96c6a1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8983,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-05T06:45:52.039Z",
+    "end": "2023-08-05T06:45:52.370Z",
+    "duration": 331,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0d8aaf7c-1ccf-4171-8680-a08ab3ac84ca",
+      "title": "",
+      "fullFile": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-addVcsConfirmPage.spec.js",
+      "file": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-addVcsConfirmPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6186ce7-9d61-4260-b937-192eefe5a3b7",
+          "title": "| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,2,3  Add VCS Org confirmation page",
+              "fullTitle": "| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage  AC 1,2,3  Add VCS Org confirmation page",
+              "timedOut": null,
+              "duration": 277,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-addVcsConfirmPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-addVcsConfirmPage.spec.js/ manVCS-addVcsConfirmPage.spec  FHG-3803 Manage VCS - add Organisations ConfirmationPage -- AC 1,2,3  Add VCS Org confirmation page (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePagecomePage();\n//manage VCS link\ncy.manVcsLink();\ncy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click();\ncy.get(':nth-child(5) > .govuk-pagination__link').click();\ncy.get(':nth-child(2) > .govuk-table__cell--numeric').contains('View').click();\ncy.editVcsName(n + 'Test VCS Org 001');\ncy.get('#buttonContinue').click();\ncy.addVcsOrgConfirm();\ncy.dfeAdminWelcomePagecomePage();",
+              "err": {
+                "message": "TypeError: cy.dfeAdminWelcomePagecomePage is not a function",
+                "estack": "TypeError: cy.dfeAdminWelcomePagecomePage is not a function\n    at Context.eval (webpack:///./cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-addVcsConfirmPage.spec.js:8:11)",
+                "diff": null
+              },
+              "uuid": "877d67c0-9d95-43de-ab59-10898a762cc2",
+              "parentUUID": "f6186ce7-9d61-4260-b937-192eefe5a3b7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "877d67c0-9d95-43de-ab59-10898a762cc2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 277,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-05T06:36:04.264Z",
+    "end": "2023-08-05T06:36:24.906Z",
+    "duration": 20642,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5205ba09-6f13-4cb7-b755-521702afef5e",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-AddOrg.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-AddOrg.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ab76cddf-7aea-4f38-aa52-eb5ca0d98d6c",
+          "title": "| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1 ,2 - add vcs organisation linked to LA , back button",
+              "fullTitle": "| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name? AC 1 ,2 - add vcs organisation linked to LA , back button",
+              "timedOut": null,
+              "duration": 9327,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-AddOrg.spec.js\"\n}",
+              "code": "cy.contains('Which organisation do they work for?');\n// add org link\ncy.addOrgLink();\n// add organisation name page\ncy.addOrgVcs(n + ' VCS Organisation name');\n// back button - takes user to add organisation page\ncy.get('.govuk-back-link').click();\ncy.contains(\"What is the organisation's name?\");\n// back button - takes user to which organisation page\ncy.get('.govuk-back-link').click();\ncy.contains('Which organisation do they work for?');",
+              "err": {},
+              "uuid": "adda46ea-6421-4291-be31-72f7b9d5e16b",
+              "parentUUID": "ab76cddf-7aea-4f38-aa52-eb5ca0d98d6c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - blank - error message",
+              "fullTitle": "| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name? AC 3 - blank - error message",
+              "timedOut": null,
+              "duration": 6377,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-AddOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\ncy.get('#add-organisation').click();\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains(\"Enter the organisation's name\");\ncy.get('.govuk-error-summary').contains(\"Enter the organisation's name\");\n// user is able to clear the message and progress \n// add organisation name page\ncy.addOrgVcs(n + ' VCS Organisation name');\ncy.contains('Check details');",
+              "err": {},
+              "uuid": "0cfac892-ef41-48c7-b4ab-23e0996d23cf",
+              "parentUUID": "ab76cddf-7aea-4f38-aa52-eb5ca0d98d6c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Error page back link",
+              "fullTitle": "| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name? Error page back link",
+              "timedOut": null,
+              "duration": 4847,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-AddOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\ncy.get('#add-organisation').click();\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains(\"Enter the organisation's name\");\ncy.get('.govuk-error-summary').contains(\"Enter the organisation's name\");\n// back button - takes user to Which organisation do they work for? page\ncy.get('.govuk-back-link').click();\ncy.contains('Which organisation do they work for?');",
+              "err": {},
+              "uuid": "4036a649-67e8-454d-8107-f75c6f6739da",
+              "parentUUID": "ab76cddf-7aea-4f38-aa52-eb5ca0d98d6c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "adda46ea-6421-4291-be31-72f7b9d5e16b",
+            "0cfac892-ef41-48c7-b4ab-23e0996d23cf",
+            "4036a649-67e8-454d-8107-f75c6f6739da"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20551,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
