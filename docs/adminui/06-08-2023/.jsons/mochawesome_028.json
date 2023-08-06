@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-06T06:42:06.800Z",
+    "end": "2023-08-06T06:42:25.015Z",
+    "duration": 18215,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "286997b8-cd37-4ef9-89de-9d3130ed52cd",
+      "title": "",
+      "fullFile": "cypress/e2e/managePermissions/manPerm-dfeAdmin-userEmail.spec.js",
+      "file": "cypress/e2e/managePermissions/manPerm-dfeAdmin-userEmail.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1f043884-09f8-4074-889e-bfef029da1c1",
+          "title": "| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - edit user email ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4 Page content ,valid email address,back button",
+              "fullTitle": "| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - edit user email  AC 1,4 Page content ,valid email address,back button",
+              "timedOut": null,
+              "duration": 18143,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/managePermissions/manPerm-dfeAdmin-userEmail.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/managePermissions/manPerm-dfeAdmin-userEmail.spec.js/ manPerm-managePermissionsPage.spec  FHG-3708 Manage permissions - edit user email -- AC 1,4 Page content ,valid email address,back button (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage permissions link \ncy.managePermissionsLink();\ncy.managePermissionsPage();\n// edit service \ncy.editPermissionsLink();\n// edit email link\ncy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click();\n// enter a valid email id \ncy.email(n + 'abcdef@def.com');\ncy.contains(\"What's their full name?\");\n// back button - takes user to email page\ncy.get('.govuk-back-link').click();\n// back button - takes user to LA page\ncy.get('.govuk-back-link').click();\ncy.laWhichLA('bristol');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `#emailAddress`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `#emailAddress`, but never found it.\n    at Context.eval (webpack:///./cypress/support/commands.js:197:7)",
+                "diff": null
+              },
+              "uuid": "d33ba3b0-238a-4534-9459-12bc0121aa75",
+              "parentUUID": "1f043884-09f8-4074-889e-bfef029da1c1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d33ba3b0-238a-4534-9459-12bc0121aa75"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18143,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

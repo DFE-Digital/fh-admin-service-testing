@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:44:11.454Z",
+    "end": "2023-08-06T06:44:22.274Z",
+    "duration": 10820,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dd084e8c-af79-49c8-bb19-02f028a6a6e9",
+      "title": "",
+      "fullFile": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js",
+      "file": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ece82b5-48f3-4479-adef-32b251829680",
+          "title": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,5,7 - page content , back link , title ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 1,5,7 - page content , back link , title ",
+              "timedOut": null,
+              "duration": 1689,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// back link\ncy.get('.govuk-back-link').click();\ncy.dfeAdminWelcomePage();",
+              "err": {},
+              "uuid": "980d5f4f-7324-4ef2-8413-110405382c42",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 pagination",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 2 pagination",
+              "timedOut": null,
+              "duration": 2747,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\ncy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty');\n// first page\ncy.get('.govuk-pagination__item--current > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=1');\n// second page\ncy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=2');\n// next page \ncy.get('.govuk-pagination__next > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=3');\n// last page \ncy.get(':nth-child(6) > .govuk-pagination__link').click();\ncy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist');",
+              "err": {},
+              "uuid": "6fe70c74-e15e-4c9a-b1f2-92d3dc91a399",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - view VCS Org ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 3 - view VCS Org ",
+              "timedOut": null,
+              "duration": 1718,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// View VCS Org\ncy.manVcsView();",
+              "err": {},
+              "uuid": "367fb4a4-38df-408b-a98c-946871693e78",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4 - delete VCS Org ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 4 - delete VCS Org ",
+              "timedOut": null,
+              "duration": 1139,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// Delete VCS Org\ncy.manVcsDel();",
+              "err": {},
+              "uuid": "d40109cd-4583-4644-98c1-8f6f67e3badc",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 8 , sort by Organisation name",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 8 , sort by Organisation name",
+              "timedOut": null,
+              "duration": 1767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n//check initial sort order on contact name\ncy.checkSortOrder(0, 'none');\n//click on Organisation name heading link\ncy.contains('Organisation').click();\n//check sort order on contact name\ncy.checkSortOrder(0, 'ascending');\n//click on Organisation name heading link\ncy.contains('Organisation').click();\n//check sort order on contact name\ncy.checkSortOrder(0, 'descending');",
+              "err": {},
+              "uuid": "11b34f8a-020f-4dc6-93a5-610024f96d94",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 9 , sort by Local authority",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 9 , sort by Local authority",
+              "timedOut": null,
+              "duration": 1713,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n//check initial sort order on contact name\ncy.checkSortOrder(1, 'none');\n//click on Local authority heading link\ncy.contains('Local authority').click();\n//check sort order on contact name\ncy.checkSortOrder(1, 'ascending');\n//click on Local authority heading link\ncy.contains('Local authority').click();\n//check sort order on contact name\ncy.checkSortOrder(1, 'descending');",
+              "err": {},
+              "uuid": "7173b70c-11da-4120-9b7f-240bf8158dd1",
+              "parentUUID": "8ece82b5-48f3-4479-adef-32b251829680",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "980d5f4f-7324-4ef2-8413-110405382c42",
+            "6fe70c74-e15e-4c9a-b1f2-92d3dc91a399",
+            "367fb4a4-38df-408b-a98c-946871693e78",
+            "d40109cd-4583-4644-98c1-8f6f67e3badc",
+            "11b34f8a-020f-4dc6-93a5-610024f96d94",
+            "7173b70c-11da-4120-9b7f-240bf8158dd1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10773,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:38:41.426Z",
+    "end": "2023-08-06T06:38:59.643Z",
+    "duration": 18217,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "62066ea7-4183-43d5-9a06-87a661d782fa",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1269fe11-4cf6-4287-8b94-95f9030b332f",
+          "title": "| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,3,6 - recognised text - list of valid Organisations related to LA displayed in dropdown , back button,FHG-3754",
+              "fullTitle": "| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for? AC 1,3,6 - recognised text - list of valid Organisations related to LA displayed in dropdown , back button,FHG-3754",
+              "timedOut": null,
+              "duration": 7843,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\ncy.contains(\"Their organisation must be in the directory for it to appear here. If it's not, you can add an organisation.\");\n// back button - takes user to LA page\ncy.get('.govuk-back-link').click();\ncy.contains('Which local authority area do they work in?');\n// happy path\ncy.vcsWhichLA('redbridge');\ncy.whichOrgVcs('Centre & CAMHS');\n//email page\ncy.contains(\"What's their email address?\");\n// bug FHG-3754\n// go back validate if special characters are displayed correctly \ncy.get('.govuk-back-link').click();\ncy.contains('The Grove Redbridge Child Development Centre & CAMHS');",
+              "err": {},
+              "uuid": "0b22e614-287d-45fa-bc58-daa30436fe0a",
+              "parentUUID": "1269fe11-4cf6-4287-8b94-95f9030b332f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 , 4 - unrecognised text / blank - no result found displayed in dropdown , error message",
+              "fullTitle": "| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for? AC 2 , 4 - unrecognised text / blank - no result found displayed in dropdown , error message",
+              "timedOut": null,
+              "duration": 3736,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains('Select an organisation');\ncy.get('.govuk-error-summary').contains('Select an organisation');\n// unrecognised text \ncy.get('#VcsOrganisationName').type('xx');\n//No results found\ncy.get('ul#VcsOrganisationName__listbox').contains('No results found');\n// user tries to contiue \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('[data-testid=\"errors-list\"] > li').contains('Select an organisation');\ncy.get('.govuk-error-summary').contains('Select an organisation');\ncy.pageHeadings().contains('Which organisation do they work for?');",
+              "err": {},
+              "uuid": "7399ee6c-e794-4dfa-8a2d-a157aca55563",
+              "parentUUID": "1269fe11-4cf6-4287-8b94-95f9030b332f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 5 - add organisation link - FHG-3443 - validate link exists and takes user to correct page",
+              "fullTitle": "| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for? AC 5 - add organisation link - FHG-3443 - validate link exists and takes user to correct page",
+              "timedOut": null,
+              "duration": 3159,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\ncy.get('.govuk-hint > a').click();\ncy.contains(\"What is the organisation's name?\");",
+              "err": {},
+              "uuid": "202d9c25-88f4-47fc-9390-8f8d62b8d9da",
+              "parentUUID": "1269fe11-4cf6-4287-8b94-95f9030b332f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Error page back link",
+              "fullTitle": "| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions - Which organisation do they work for? Error page back link",
+              "timedOut": null,
+              "duration": 3371,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-whichVcsOrg.spec.js\"\n}",
+              "code": "cy.pageHeadings().contains('Which organisation do they work for?');\n// user tries to contiue without making selection \ncy.get('.govuk-button').click();\n// error message \ncy.get('.govuk-error-summary').contains('There is a problem');\n// back button - takes user to What do they need to do? page\ncy.get('.govuk-back-link').click();\ncy.contains('Which local authority area do they work in?');",
+              "err": {},
+              "uuid": "3f36d12c-4e20-4459-8f8b-3a446d5060c9",
+              "parentUUID": "1269fe11-4cf6-4287-8b94-95f9030b332f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b22e614-287d-45fa-bc58-daa30436fe0a",
+            "7399ee6c-e794-4dfa-8a2d-a157aca55563",
+            "202d9c25-88f4-47fc-9390-8f8d62b8d9da",
+            "3f36d12c-4e20-4459-8f8b-3a446d5060c9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18109,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

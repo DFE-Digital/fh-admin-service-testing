@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:36:42.470Z",
+    "end": "2023-08-06T06:37:01.922Z",
+    "duration": 19452,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "609f1513-fbf6-4e7c-acc5-de861829f81e",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgCheckDetailsPage.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgCheckDetailsPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d1010b69-6863-4c03-9404-ba03ea4f8f2e",
+          "title": "| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4 - Validate page content , back link",
+              "fullTitle": "| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page AC 1,4 - Validate page content , back link",
+              "timedOut": null,
+              "duration": 7428,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgCheckDetailsPage.spec.js\"\n}",
+              "code": "cy.contains('Which organisation do they work for?');\n// add org link\ncy.addOrgLink();\n// add organisation name page\ncy.addOrgVcs(n + '+VCS Organisation name');\ncy.contains(n + '+VCS Organisation name');\n// back link\ncy.get('.govuk-back-link').click();\ncy.addOrgVcs(n + '  VCS Organisation name');\n// continue\ncy.checkDetailsPage();",
+              "err": {},
+              "uuid": "c978193b-b4f5-4758-913d-31953faf854b",
+              "parentUUID": "d1010b69-6863-4c03-9404-ba03ea4f8f2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 - Continue to next page",
+              "fullTitle": "| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page AC 2 - Continue to next page",
+              "timedOut": null,
+              "duration": 5522,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgCheckDetailsPage.spec.js\"\n}",
+              "code": "cy.contains('Which organisation do they work for?');\n// add org link\ncy.addOrgLink();\n// add organisation name page\ncy.addOrgVcs(n + ' -VCS Organisation name');\ncy.contains(n + ' -VCS Organisation name');\n// // continue\n// cy.checkDetailsPage()\ncy.get('.govuk-button').click();\n// VCS added \ncy.contains('Voluntary community organisation added');",
+              "err": {},
+              "uuid": "e3ae6272-55a9-416c-bd5a-99b87a177108",
+              "parentUUID": "d1010b69-6863-4c03-9404-ba03ea4f8f2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - Change option",
+              "fullTitle": "| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page AC 3 - Change option",
+              "timedOut": null,
+              "duration": 6462,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgCheckDetailsPage.spec.js\"\n}",
+              "code": "// add org link\ncy.addOrgLink();\n// add organisation name page\ncy.addOrgVcs(n + ' VCS Organisation name');\ncy.get('.govuk-link').click();\n// add organisation name page\ncy.addOrgVcs(n + 'New VCS Organisation name');",
+              "err": {},
+              "uuid": "a5043dcc-08ed-4b44-bc69-77525a946efd",
+              "parentUUID": "d1010b69-6863-4c03-9404-ba03ea4f8f2e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c978193b-b4f5-4758-913d-31953faf854b",
+            "e3ae6272-55a9-416c-bd5a-99b87a177108",
+            "a5043dcc-08ed-4b44-bc69-77525a946efd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19412,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

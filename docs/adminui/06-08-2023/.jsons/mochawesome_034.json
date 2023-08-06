@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:45:16.063Z",
+    "end": "2023-08-06T06:45:46.058Z",
+    "duration": 29995,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2476db60-ee50-4bf0-a13c-214edfb9536a",
+      "title": "",
+      "fullFile": "cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-vcs-e2ejourney-mobile.spec.js",
+      "file": "cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-vcs-e2ejourney-mobile.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1969b172-ab03-4a7e-ab47-48383d39da29",
+          "title": "| 📱 addPerm-vcs-e2ejourney-mobile | ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "iphone-x - VCS Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-vcs-e2ejourney-mobile |  iphone-x - VCS Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 9536,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-vcs-e2ejourney-mobile.spec.js\"\n}",
+              "code": "cy.viewport(`iphone-x`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('vcs');\ncy.myaccountMob();\ncy.typeOfUserVCS('1');\ncy.myaccountMob();\ncy.vcsWhichLA('redbridge');\ncy.myaccountMob();\ncy.whichOrgVcs('cranbrook');\ncy.myaccountMob();\ncy.email(n + 'abcdef@def.com');\ncy.myaccountMob();\ncy.fullName('John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage('John Paul Smith');\ncy.myaccountMob();",
+              "err": {},
+              "uuid": "c1555ec7-7def-4085-835a-82072c7150ff",
+              "parentUUID": "1969b172-ab03-4a7e-ab47-48383d39da29",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "samsung-s10 - VCS Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-vcs-e2ejourney-mobile |  samsung-s10 - VCS Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 9706,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-vcs-e2ejourney-mobile.spec.js\"\n}",
+              "code": "cy.viewport(`samsung-s10`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('vcs');\ncy.myaccountMob();\ncy.typeOfUserVCS('1');\ncy.myaccountMob();\ncy.vcsWhichLA('redbridge');\ncy.myaccountMob();\ncy.whichOrgVcs('cranbrook');\ncy.myaccountMob();\ncy.email(n + '+abcdef@def.com');\ncy.myaccountMob();\ncy.fullName('+John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage('+John Paul Smith');\ncy.myaccountMob();",
+              "err": {},
+              "uuid": "accf2802-cedf-4ec2-aaa5-1362cdb813f5",
+              "parentUUID": "1969b172-ab03-4a7e-ab47-48383d39da29",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ipad-mini - VCS Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-vcs-e2ejourney-mobile |  ipad-mini - VCS Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 10631,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-vcs-e2ejourney-mobile.spec.js\"\n}",
+              "code": "cy.viewport(`ipad-mini`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('vcs');\ncy.myaccountMob();\ncy.typeOfUserVCS('1');\ncy.myaccountMob();\ncy.vcsWhichLA('redbridge');\ncy.myaccountMob();\ncy.whichOrgVcs('cranbrook');\ncy.myaccountMob();\ncy.email(n + '++abcdef@def.com');\ncy.myaccountMob();\ncy.fullName('++John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage('++John Paul Smith');\ncy.myaccountMob();",
+              "err": {},
+              "uuid": "654076cb-945e-45e1-89b4-ce39ace9355c",
+              "parentUUID": "1969b172-ab03-4a7e-ab47-48383d39da29",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c1555ec7-7def-4085-835a-82072c7150ff",
+            "accf2802-cedf-4ec2-aaa5-1362cdb813f5",
+            "654076cb-945e-45e1-89b4-ce39ace9355c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 29873,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:41:12.909Z",
+    "end": "2023-08-06T06:41:15.223Z",
+    "duration": 2314,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4cae447d-d287-40d3-b9fd-a2ced14386d6",
+      "title": "",
+      "fullFile": "cypress/e2e/managePermissions/manPerm-dfeAdmin-ConfirmPage.spec.js",
+      "file": "cypress/e2e/managePermissions/manPerm-dfeAdmin-ConfirmPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "08cc08e1-0baa-4f1c-a262-21da5ed26dc1",
+          "title": "| manPerm-ConfirmPage | FHG-3716 DFE Admin - Manage Permission (Permissions changed confirmation page) ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1 ",
+              "fullTitle": "| manPerm-ConfirmPage | FHG-3716 DFE Admin - Manage Permission (Permissions changed confirmation page)  AC 1 ",
+              "timedOut": null,
+              "duration": 2287,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/managePermissions/manPerm-dfeAdmin-ConfirmPage.spec.js\"\n}",
+              "code": "",
+              "err": {},
+              "uuid": "a58419b9-2d36-4fe9-834c-e870a42573ad",
+              "parentUUID": "08cc08e1-0baa-4f1c-a262-21da5ed26dc1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a58419b9-2d36-4fe9-834c-e870a42573ad"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2287,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

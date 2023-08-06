@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-06T06:34:37.354Z",
+    "end": "2023-08-06T06:34:59.065Z",
+    "duration": 21711,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ed910db-810a-4e54-9105-e94e0f3b0628",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9fb11225-76e1-4d74-a134-77e7b681abee",
+          "title": "| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,5 -  validate content",
+              "fullTitle": "| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for?  AC 1,5 -  validate content",
+              "timedOut": null,
+              "duration": 16374,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js/ addPerm-la-typeOfRole  FHG-1065 DFE - add permissions - who are you adding permissions for -- AC 1,5 -  validate content (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.title().should('eq', 'Type of user - Manage family support services and accounts - GOV.UK');\ncy.pageHeadings().contains('Who are you adding permissions for?');\ncy.contains('Someone who works for a local authority');\ncy.contains('Someone who works for a voluntary and community sector organisation');\ncy.typeOfUserPage('la');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('Someone who works for a local authority');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'Who are you adding permissions for? - Manage family support services and accounts - GOV.UK' to equal 'Type of user - Manage family support services and accounts - GOV.UK'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'Who are you adding permissions for? - Manage family support services and accounts - GOV.UK' to equal 'Type of user - Manage family support services and accounts - GOV.UK'\n    at Context.eval (webpack:///./cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js:11:19)",
+                "diff": "- 'Who are you adding permissions for? - Manage family support services and accounts - GOV.UK'\n+ 'Type of user - Manage family support services and accounts - GOV.UK'\n"
+              },
+              "uuid": "3f831622-ed95-4710-aeff-85385eb89425",
+              "parentUUID": "9fb11225-76e1-4d74-a134-77e7b681abee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2  -  LA option",
+              "fullTitle": "| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for?  AC 2  -  LA option",
+              "timedOut": null,
+              "duration": 1591,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('la');\ncy.typeOfUserLA();",
+              "err": {},
+              "uuid": "1ee0e161-4871-4c95-88e6-b562898d7039",
+              "parentUUID": "9fb11225-76e1-4d74-a134-77e7b681abee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3  -  VCS option",
+              "fullTitle": "| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for?  AC 3  -  VCS option",
+              "timedOut": null,
+              "duration": 1713,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('vcs');\ncy.typeOfUserVCS();",
+              "err": {},
+              "uuid": "80d3ea87-0c58-4dd4-aa36-49ac3db25de0",
+              "parentUUID": "9fb11225-76e1-4d74-a134-77e7b681abee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4  -  error message",
+              "fullTitle": "| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for?  AC 4  -  error message",
+              "timedOut": null,
+              "duration": 1974,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-typeOfRole.spec.js\"\n}",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\ncy.addPermissions();\n// error message when user does not select one of the options\ncy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Select who you are adding permissions for');\n//user makes a seletion\ncy.typeOfUserPage('la');\ncy.typeOfUserLA();",
+              "err": {},
+              "uuid": "a056f450-f0c1-4ec3-8fbe-2f7c4e7551db",
+              "parentUUID": "9fb11225-76e1-4d74-a134-77e7b681abee",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1ee0e161-4871-4c95-88e6-b562898d7039",
+            "80d3ea87-0c58-4dd4-aa36-49ac3db25de0",
+            "a056f450-f0c1-4ec3-8fbe-2f7c4e7551db"
+          ],
+          "failures": [
+            "3f831622-ed95-4710-aeff-85385eb89425"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21652,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

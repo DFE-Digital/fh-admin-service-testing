@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-08-06T06:33:52.331Z",
+    "end": "2023-08-06T06:34:18.870Z",
+    "duration": 26539,
+    "testsRegistered": 6,
+    "passPercent": 16.666666666666664,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 4,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "a2dd28bc-888b-4d5d-b696-7762e0ec7c68",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-checkAnswerPage.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-la-dfeAdmin-checkAnswerPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93a80447-93af-4dc0-9911-b910b326a427",
+          "title": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4 - validate page content , back link ",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 1,4 - validate page content , back link ",
+              "timedOut": null,
+              "duration": 7011,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-checkAnswerPage.spec.js\"\n}",
+              "code": "const expectedContent = {\n  'Who for': 'Someone who works for a local authority',\n  'Type of permission': 'Add and manage services, family hubs and accounts',\n  'Local authority': 'Bristol County Council',\n  'Email address': n + 'abcdef@def.com',\n  'Name': 'John Smith'\n};\ncy.contains('Check account details');\ncy.checkAnswerDetails(expectedContent);\n// back button - takes user to user name page\ncy.get('.govuk-back-link').click();\ncy.fullName('John Smith');\n//next page \ncy.checkAnswerPage();\ncy.contains('Permissions added');\ncy.contains('John Smith');",
+              "err": {},
+              "uuid": "10dd64be-b634-4683-8b0e-e7dc6fef12e5",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - Change link - who for",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 3 - Change link - who for",
+              "timedOut": null,
+              "duration": 19317,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-la-dfeAdmin-checkAnswerPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-la-dfeAdmin-checkAnswerPage.spec.js/ addPerm-la-checkAnswerPage  FHG-3391 DFE - add permissions - check account details page -- AC 3 - Change link - who for -- before each hook (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click();\ncy.typeOfUserPage('la');\ncy.typeOfUserLA('1');\ncy.laWhichLA('bristol');\ncy.email(n + 'abcdef@def.com');\ncy.fullName('John Smith');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'This email address is already linked to another account - Manage family support services and accounts - GOV.UK' to equal 'What\\'s their full name? - Manage family support services and accounts - GOV.UK'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `| addPerm-la-checkAnswerPag...`",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'This email address is already linked to another account - Manage family support services and accounts - GOV.UK' to equal 'What\\'s their full name? - Manage family support services and accounts - GOV.UK'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `| addPerm-la-checkAnswerPag...`\n    at Context.eval (webpack:///./cypress/support/commands.js:202:15)",
+                "diff": "- '\\'This email address is already linked to another account - Manage family support services and accounts - GOV.UK\\''\n+ '\\'What\\\\\\'s their full name? - Manage family support services and accounts - GOV.UK\\''\n"
+              },
+              "uuid": "38297c61-36a5-4fda-9512-18fadd41c9d8",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - Change link - Type of permission",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 3 - Change link - Type of permission",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click();\ncy.typeOfUserLA('1');\ncy.laWhichLA('redbridge');\ncy.email(n + 'abcdef@def.com');\ncy.fullName('John Smith');",
+              "err": {},
+              "uuid": "cce46d87-120f-4239-8c71-0f0ad681de99",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Local authority",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 3 - Change link - Local authority",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click();\ncy.laWhichLA('redbridge');\ncy.email(n + 'abcdef@def.com');\ncy.fullName('John Smith');",
+              "err": {},
+              "uuid": "89bf1557-8d81-4d09-a2bd-2b2b53313708",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Email address",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 3 - Change link - Email address",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click();\ncy.email(n + 'abcdef@def.com');\ncy.fullName('John Smith');",
+              "err": {},
+              "uuid": "32fd074d-d0d4-416e-aa93-c34a2e6083ff",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "AC 3 - Change link - Name",
+              "fullTitle": "| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page AC 3 - Change link - Name",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(5) > .govuk-summary-list__actions > .govuk-link').click();\ncy.fullName('John Paul Smith Jr');",
+              "err": {},
+              "uuid": "5374d5dd-0e29-4b06-9ae3-cabdd415d4af",
+              "parentUUID": "93a80447-93af-4dc0-9911-b910b326a427",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "10dd64be-b634-4683-8b0e-e7dc6fef12e5"
+          ],
+          "failures": [
+            "38297c61-36a5-4fda-9512-18fadd41c9d8"
+          ],
+          "pending": [],
+          "skipped": [
+            "cce46d87-120f-4239-8c71-0f0ad681de99",
+            "89bf1557-8d81-4d09-a2bd-2b2b53313708",
+            "32fd074d-d0d4-416e-aa93-c34a2e6083ff",
+            "5374d5dd-0e29-4b06-9ae3-cabdd415d4af"
+          ],
+          "duration": 26328,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-06T06:39:05.707Z",
+    "end": "2023-08-06T06:39:19.677Z",
+    "duration": 13970,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "518c2e24-cbcb-4cdf-8d6d-7666620536ad",
+      "title": "",
+      "fullFile": "cypress/e2e/e2eTests/e2eTest001-dfeAdmin-addPerm-la-vcs.spec.js",
+      "file": "cypress/e2e/e2eTests/e2eTest001-dfeAdmin-addPerm-la-vcs.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3cb027e5-95d8-4490-857e-5d03eee51e31",
+          "title": "| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "LA route ",
+              "fullTitle": "| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey  LA route ",
+              "timedOut": null,
+              "duration": 6778,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/e2eTests/e2eTest001-dfeAdmin-addPerm-la-vcs.spec.js\"\n}",
+              "code": "cy.visit('/');\n//// cy.startPage()\n// // cy.stubLogin('dfeAdmin')\ncy.dfeAdminWelcomePage();\ncy.addPermissions();\ncy.typeOfUserPage('la');\ncy.typeOfUserLA('1');\ncy.laWhichLA('redbridge');\ncy.email(n + 'abcdef@def.com');\ncy.fullName('John Paul Smith');\ncy.checkAnswerPage();\ncy.confirmationPage('John Paul Smith');",
+              "err": {},
+              "uuid": "eed4423f-4f4e-4787-9b12-ed45db5a8214",
+              "parentUUID": "3cb027e5-95d8-4490-857e-5d03eee51e31",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "VCS route",
+              "fullTitle": "| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey  VCS route",
+              "timedOut": null,
+              "duration": 7125,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/e2eTests/e2eTest001-dfeAdmin-addPerm-la-vcs.spec.js\"\n}",
+              "code": "cy.visit('/');\n//// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.addPermissions();\ncy.typeOfUserPage('vcs');\ncy.typeOfUserVCS('1');\ncy.vcsWhichLA('redbridge');\ncy.whichOrgVcs('cranbrook');\ncy.email(n + '-abcdef@def.com');\ncy.fullName('John Paul Smith');\ncy.checkAnswerPage();\ncy.confirmationPage('John Paul Smith');",
+              "err": {},
+              "uuid": "741f45c7-4784-48ec-8311-60fec930f2f2",
+              "parentUUID": "3cb027e5-95d8-4490-857e-5d03eee51e31",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eed4423f-4f4e-4787-9b12-ed45db5a8214",
+            "741f45c7-4784-48ec-8311-60fec930f2f2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13903,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
