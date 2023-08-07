@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-07T06:39:21.590Z",
+    "end": "2023-08-07T06:39:49.586Z",
+    "duration": 27996,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "68796d42-9224-4036-8a87-9b07bea05568",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserName.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserName.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "05f66591-f198-40da-befe-bb47c95b2bce",
+          "title": "| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1, 3 - validate page content , back link ",
+              "fullTitle": "| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name? AC 1, 3 - validate page content , back link ",
+              "timedOut": null,
+              "duration": 19702,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserName.spec.js\"\n}",
+              "code": "cy.fullName('John Smith');\ncy.contains('Check account details');\n// back button - takes user to user name page\ncy.get('.govuk-back-link').click();\n// back button - takes user to email page\ncy.get('.govuk-back-link').click();\ncy.email('abc@def.com');\n// entering more than 256 characters\nconst longName = ['AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];\ncy.fullName(`${longName}`);\ncy.contains(`${longName}`);",
+              "err": {},
+              "uuid": "47fe759f-ef54-434b-b3dd-f8951ea7d2a3",
+              "parentUUID": "05f66591-f198-40da-befe-bb47c95b2bce",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 - no name entered - error message",
+              "fullTitle": "| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name? AC 2 - no name entered - error message",
+              "timedOut": null,
+              "duration": 8208,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserName.spec.js\"\n}",
+              "code": "cy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Enter a name');\n// user is able to enter valid name after error message \ncy.fullName('John Smith');",
+              "err": {},
+              "uuid": "f9305d1e-ca7c-46c7-ae6c-1da8c7ce4513",
+              "parentUUID": "05f66591-f198-40da-befe-bb47c95b2bce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "47fe759f-ef54-434b-b3dd-f8951ea7d2a3",
+            "f9305d1e-ca7c-46c7-ae6c-1da8c7ce4513"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

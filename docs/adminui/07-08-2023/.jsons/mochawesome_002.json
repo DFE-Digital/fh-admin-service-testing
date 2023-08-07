@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2023-08-07T06:33:31.005Z",
+    "end": "2023-08-07T06:34:21.574Z",
+    "duration": 50569,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "50e0cf48-0b42-4964-9d2c-5e030aa10f9c",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-LAMan-typeOfRole.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-LAMan-typeOfRole.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6032e497-0acb-44c5-ab0b-575f53676d1c",
+          "title": "| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you adding permissions for?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button",
+              "fullTitle": "| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you adding permissions for? AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button",
+              "timedOut": null,
+              "duration": 18333,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-LAMan-typeOfRole.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-LAMan-typeOfRole.spec.js/ addPerm-LAMan-typeOfRole.spec  FHG-3870 LA manager - Who are you adding permissions for -- AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.LAManWelcomePage('London Borough of Redbridge');\ncy.addPermissions();\ncy.LAManTypeOfUserPage('London Borough of Redbridge', 'la');\n// What do they need to do? page \ncy.typeOfUserLA('1');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('[data-testid=\"LaManager\"]').should('be.checked');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('Who are you adding permissions for?');\n// back link\ncy.get('.govuk-back-link').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:73:44)",
+                "diff": null
+              },
+              "uuid": "4ad12479-42bd-4a1b-9097-ecc10c1f0b31",
+              "parentUUID": "6032e497-0acb-44c5-ab0b-575f53676d1c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - VCS route -  Make connection requests to voluntary and community sector services - option",
+              "fullTitle": "| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you adding permissions for? AC 3 - VCS route -  Make connection requests to voluntary and community sector services - option",
+              "timedOut": null,
+              "duration": 16004,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-LAMan-typeOfRole.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-LAMan-typeOfRole.spec.js/ addPerm-LAMan-typeOfRole.spec  FHG-3870 LA manager - Who are you adding permissions for -- AC 3 - VCS route -  Make connection requests to voluntary and community sector services - option (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.LAManWelcomePage('London Borough of Redbridge');\ncy.addPermissions();\ncy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs');\n// What do they need to do? page \ncy.typeOfUserVCS('1');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('What do they need to do?');\n// previous page selection is retained \ncy.get('[data-testid=\"VcsManager\"]').should('be.checked');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('Who are you adding permissions for?');\n// back link\ncy.get('.govuk-back-link').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:73:44)",
+                "diff": null
+              },
+              "uuid": "d9c87b4d-c216-4881-ac71-b9fa2c866b45",
+              "parentUUID": "6032e497-0acb-44c5-ab0b-575f53676d1c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4 - LA - no selection - error message",
+              "fullTitle": "| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you adding permissions for? AC 4 - LA - no selection - error message",
+              "timedOut": null,
+              "duration": 16063,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/addPermissions/addPerm-LAMan-typeOfRole.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/addPermissions/addPerm-LAMan-typeOfRole.spec.js/ addPerm-LAMan-typeOfRole.spec  FHG-3870 LA manager - Who are you adding permissions for -- AC 4 - LA - no selection - error message (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.LAManWelcomePage('London Borough of Redbridge');\ncy.addPermissions();\ncy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs');\n// error message when user does not select one of the options\ncy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Select what they need to do');\n// What do they need to do? page \ncy.typeOfUserVCS('1');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'London Borough of Redbridge' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:73:44)",
+                "diff": null
+              },
+              "uuid": "7d43d99a-33d0-4780-8bc1-fc92fd8c7afd",
+              "parentUUID": "6032e497-0acb-44c5-ab0b-575f53676d1c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4ad12479-42bd-4a1b-9097-ecc10c1f0b31",
+            "d9c87b4d-c216-4881-ac71-b9fa2c866b45",
+            "7d43d99a-33d0-4780-8bc1-fc92fd8c7afd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 50400,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

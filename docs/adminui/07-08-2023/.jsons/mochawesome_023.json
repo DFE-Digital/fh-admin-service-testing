@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-07T06:44:42.708Z",
+    "end": "2023-08-07T06:44:47.870Z",
+    "duration": 5162,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "11f1ee04-847f-4b4d-af16-d18058458a10",
+      "title": "",
+      "fullFile": "cypress/e2e/manageAccount/dfeAdmin-manageAccountPage.spec.js",
+      "file": "cypress/e2e/manageAccount/dfeAdmin-manageAccountPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66277f78-cfd4-4c63-a035-36de7391de4b",
+          "title": "| manageAccountPage | FHG-2106 My account - Manage your account page ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4, Page content , Change name , back button ",
+              "fullTitle": "| manageAccountPage | FHG-2106 My account - Manage your account page  AC 1,4, Page content , Change name , back button ",
+              "timedOut": null,
+              "duration": 3602,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageAccount/dfeAdmin-manageAccountPage.spec.js\"\n}",
+              "code": "cy.dfeAdminWelcomePage();\ncy.get('.govuk-header__container').contains('My account').click();\ncy.myaccountPage();\n// click on change name\ncy.get('.govuk-table__cell--numeric > a').click();\ncy.contains('Change your name');\n// back link\ncy.get('.govuk-back-link').click();\ncy.contains('Manage your account');",
+              "err": {},
+              "uuid": "a454c4fe-d5d4-4c05-8112-9dd36daea591",
+              "parentUUID": "66277f78-cfd4-4c63-a035-36de7391de4b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 - manage your gov.uk one login link",
+              "fullTitle": "| manageAccountPage | FHG-2106 My account - Manage your account page  AC 2 - manage your gov.uk one login link",
+              "timedOut": null,
+              "duration": 1492,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/manageAccount/dfeAdmin-manageAccountPage.spec.js\"\n}",
+              "code": "cy.dfeAdminWelcomePage('Department for Education');\ncy.get('.govuk-header__container').contains('My account').click();\ncy.myaccountPage();\n// check href contains gov uk integration link\ncy.get('.govuk-link').should('have.attr', 'href', 'https://home.integration.account.gov.uk');",
+              "err": {},
+              "uuid": "33193ff9-b8f3-44cd-8612-0963614215c2",
+              "parentUUID": "66277f78-cfd4-4c63-a035-36de7391de4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a454c4fe-d5d4-4c05-8112-9dd36daea591",
+            "33193ff9-b8f3-44cd-8612-0963614215c2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5094,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

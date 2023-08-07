@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 0,
+    "pending": 0,
+    "failures": 6,
+    "start": "2023-08-07T06:50:23.449Z",
+    "end": "2023-08-07T06:51:59.001Z",
+    "duration": 95552,
+    "testsRegistered": 6,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d35dae30-2317-43b9-b7b0-b2ad9d02d73b",
+      "title": "",
+      "fullFile": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js",
+      "file": "cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+          "title": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,5,7 - page content , back link , title ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 1,5,7 - page content , back link , title ",
+              "timedOut": null,
+              "duration": 16529,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 1,5,7 - page content , back link , title (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// back link\ncy.get('.govuk-back-link').click();\ncy.dfeAdminWelcomePage();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "acb89d64-bddd-4339-8317-094986f4f347",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2 pagination",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 2 pagination",
+              "timedOut": null,
+              "duration": 15723,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 2 pagination (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\ncy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty');\n// first page\ncy.get('.govuk-pagination__item--current > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=1');\n// second page\ncy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=2');\n// next page \ncy.get('.govuk-pagination__next > .govuk-pagination__link').click();\ncy.url().should('include', 'pageNumber=3');\n// last page \ncy.get(':nth-child(6) > .govuk-pagination__link').click();\ncy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "799487dd-e6c4-42d1-bdda-d3dbe1454c64",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 3 - view VCS Org ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 3 - view VCS Org ",
+              "timedOut": null,
+              "duration": 15735,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 3 - view VCS Org (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// View VCS Org\ncy.manVcsView();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "34a4fa32-5dd3-48c6-8c3c-5852d81f5209",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 4 - delete VCS Org ",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 4 - delete VCS Org ",
+              "timedOut": null,
+              "duration": 15727,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 4 - delete VCS Org (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n// Delete VCS Org\ncy.manVcsDel();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "eefb1248-9a58-421b-9f09-e809788902ae",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 8 , sort by Organisation name",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 8 , sort by Organisation name",
+              "timedOut": null,
+              "duration": 15738,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 8 , sort by Organisation name (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n//check initial sort order on contact name\ncy.checkSortOrder(0, 'none');\n//click on Organisation name heading link\ncy.contains('Organisation').click();\n//check sort order on contact name\ncy.checkSortOrder(0, 'ascending');\n//click on Organisation name heading link\ncy.contains('Organisation').click();\n//check sort order on contact name\ncy.checkSortOrder(0, 'descending');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "b3f1a601-ee46-48fc-89a4-f8f50ead0847",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 9 , sort by Local authority",
+              "fullTitle": "|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page  AC 9 , sort by Local authority",
+              "timedOut": null,
+              "duration": 15815,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/manageVCSOrgs/manVCS-dfeAdmin-manOrgsPage.spec.js/manVCS-manOrgsPage.spec  FHG-3798 Manage VCS Organisations Page -- AC 9 , sort by Local authority (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.visit('/');\ncy.dfeAdminWelcomePage();\n//manage VCS link\ncy.manVcsLink();\n//check initial sort order on contact name\ncy.checkSortOrder(1, 'none');\n//click on Local authority heading link\ncy.contains('Local authority').click();\n//check sort order on contact name\ncy.checkSortOrder(1, 'ascending');\n//click on Local authority heading link\ncy.contains('Local authority').click();\n//check sort order on contact name\ncy.checkSortOrder(1, 'descending');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Department for Education' within the element: <div.govuk-grid-column-two-thirds> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:56:44)",
+                "diff": null
+              },
+              "uuid": "1fc84d15-b81a-47d6-93d6-40931790dc96",
+              "parentUUID": "7f0d6291-32e1-4f68-ab42-572102aa0ac7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "acb89d64-bddd-4339-8317-094986f4f347",
+            "799487dd-e6c4-42d1-bdda-d3dbe1454c64",
+            "34a4fa32-5dd3-48c6-8c3c-5852d81f5209",
+            "eefb1248-9a58-421b-9f09-e809788902ae",
+            "b3f1a601-ee46-48fc-89a4-f8f50ead0847",
+            "1fc84d15-b81a-47d6-93d6-40931790dc96"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 95267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

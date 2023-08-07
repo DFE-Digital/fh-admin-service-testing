@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-07T06:40:35.445Z",
+    "end": "2023-08-07T06:40:46.516Z",
+    "duration": 11071,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ed6d2f23-a685-4881-a16a-264c210cb55b",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgConfirmPage.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgConfirmPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "196a4390-895d-491a-a1c6-73b70fcb4daf",
+          "title": "| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,2 - Validate page content , got to home page",
+              "fullTitle": "| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation page AC 1,2 - Validate page content , got to home page",
+              "timedOut": null,
+              "duration": 11014,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-addOrgConfirmPage.spec.js\"\n}",
+              "code": "cy.contains('Which organisation do they work for?');\n// add org link\ncy.addOrgLink();\n// add organisation name page\ncy.addOrgVcs(n + '+VCS Organisation name');\ncy.contains(n + '+VCS Organisation name');\n// continue\ncy.checkDetailsPage();\ncy.addVcsOrgConfirmation();",
+              "err": {},
+              "uuid": "a31da194-d818-4c54-8c16-8da2614318db",
+              "parentUUID": "196a4390-895d-491a-a1c6-73b70fcb4daf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a31da194-d818-4c54-8c16-8da2614318db"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11014,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

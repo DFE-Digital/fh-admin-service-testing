@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-07T06:38:48.054Z",
+    "end": "2023-08-07T06:39:12.180Z",
+    "duration": 24126,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2520bb81-63fe-4042-a6b8-3d239629699d",
+      "title": "",
+      "fullFile": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserEmail.spec.js",
+      "file": "cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserEmail.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "86433000-2bf3-4f21-8ecf-a7d5684d852f",
+          "title": "| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is their email address?",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AC 1,4 Page content ,valid email address,back button",
+              "fullTitle": "| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is their email address? AC 1,4 Page content ,valid email address,back button",
+              "timedOut": null,
+              "duration": 10964,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserEmail.spec.js\"\n}",
+              "code": "cy.email(n + 'abcdef@def.com');\ncy.contains(\"What's their full name?\");\n// back button - takes user to email page\ncy.get('.govuk-back-link').click();\n// back button - takes user to LA page\ncy.get('.govuk-back-link').click();\n// which organisation do they work for ?\ncy.contains('Which organisation do they work for?');",
+              "err": {},
+              "uuid": "d8367972-e80f-4458-8821-a0ae287fb7ba",
+              "parentUUID": "86433000-2bf3-4f21-8ecf-a7d5684d852f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AC 2,3 - no data entered , incorrect /invalid email address entered - error message",
+              "fullTitle": "| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is their email address? AC 2,3 - no data entered , incorrect /invalid email address entered - error message",
+              "timedOut": null,
+              "duration": 13033,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/e2e/addPermissions/addPerm-vcs-dfeAdmin-UserEmail.spec.js\"\n}",
+              "code": "// error message when user does not enter any email address\ncy.get('.govuk-button').click();\ncy.get('.govuk-error-summary').contains('There is a problem');\ncy.get('.govuk-error-summary').contains('Enter an email address');\nconst invalidEmails = ['test@', 'test123', '@abc.com'];\nfor (let i = 0; i < invalidEmails.length; i++) {\n  // user enters invalid email address\n  cy.email(`${invalidEmails[i]}`);\n  cy.get('.govuk-error-summary').contains('There is a problem');\n  cy.get('.govuk-error-summary').contains('Enter an email address');\n  // after error message , user is able to continue with entering correct details\n  cy.email(n + 'abcdef@def.com');\n  // back button - takes user to LA page\n  cy.get('.govuk-back-link').click();\n}\n// back button - takes user to LA page\ncy.get('.govuk-back-link').click();",
+              "err": {},
+              "uuid": "930d0c07-2012-49bd-9f61-71c3ab4ae4b4",
+              "parentUUID": "86433000-2bf3-4f21-8ecf-a7d5684d852f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d8367972-e80f-4458-8821-a0ae287fb7ba",
+            "930d0c07-2012-49bd-9f61-71c3ab4ae4b4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23997,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

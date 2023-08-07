@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2023-08-07T06:52:22.312Z",
+    "end": "2023-08-07T06:53:11.036Z",
+    "duration": 48724,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "980af206-1c05-40fa-a8cd-e8127e8aa523",
+      "title": "",
+      "fullFile": "cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js",
+      "file": "cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "84e3b33c-9070-492c-b2c2-2c7e91e33dd1",
+          "title": "| 📱 addPerm-la-e2ejourney-mobile |",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "ipad-mini - LA Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-la-e2ejourney-mobile | ipad-mini - LA Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 16565,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js/ 📱 addPerm-la-e2ejourney-mobile -- ipad-mini - LA Journey - Validate mobile version (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.viewport(`ipad-mini`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('la');\ncy.myaccountMob();\ncy.typeOfUserLA('1');\ncy.myaccountMob();\ncy.laWhichLA('redbridge');\ncy.myaccountMob();\ncy.email(n + '+abcdef@def.com');\ncy.myaccountMob();\ncy.fullName(n + '+John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage(n + '+John Paul Smith');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:290:58)",
+                "diff": null
+              },
+              "uuid": "b1fefe6c-5e98-437e-b45e-47f6976fea31",
+              "parentUUID": "84e3b33c-9070-492c-b2c2-2c7e91e33dd1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "iphone - LA Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-la-e2ejourney-mobile | iphone - LA Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 15800,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js/ 📱 addPerm-la-e2ejourney-mobile -- iphone - LA Journey - Validate mobile version (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.clearCookies();\ncy.viewport(`iphone-x`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('la');\ncy.myaccountMob();\ncy.typeOfUserLA('1');\ncy.myaccountMob();\ncy.laWhichLA('redbridge');\ncy.myaccountMob();\ncy.email(n + '-abcdef@def.com');\ncy.myaccountMob();\ncy.fullName(n + '-John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage(n + '-John Paul Smith');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:290:58)",
+                "diff": null
+              },
+              "uuid": "2dea1eeb-e41f-4742-ae17-0fd465f0f7e5",
+              "parentUUID": "84e3b33c-9070-492c-b2c2-2c7e91e33dd1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "samsung-s10 - LA Journey - Validate mobile version",
+              "fullTitle": "| 📱 addPerm-la-e2ejourney-mobile | samsung-s10 - LA Journey - Validate mobile version",
+              "timedOut": null,
+              "duration": 16215,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress/e2e/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"/mobile-e2e-journeys/dfeAdmin-addPerm-la-e2ejourney-mobile.spec.js/ 📱 addPerm-la-e2ejourney-mobile -- samsung-s10 - LA Journey - Validate mobile version (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "cy.clearCookies();\ncy.viewport(`samsung-s10`);\ncy.visit('/');\n// cy.startPage()\n// cy.stubLogin('dfeAdmin')\ncy.myaccountMob();\ncy.dfeAdminWelcomePage();\ncy.myaccountMob();\ncy.addPermissions();\ncy.myaccountMob();\ncy.typeOfUserPage('la');\ncy.myaccountMob();\ncy.typeOfUserLA('1');\ncy.myaccountMob();\ncy.laWhichLA('redbridge');\ncy.myaccountMob();\ncy.email(n + 'abcdef@def.com');\ncy.myaccountMob();\ncy.fullName(n + 'John Paul Smith');\ncy.myaccountMob();\ncy.checkAnswerPage();\ncy.myaccountMob();\ncy.confirmationPage(n + 'John Paul Smith');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find content: 'Sign out' within the element: <div.govuk-header__container> but never did.\n    at Context.eval (webpack:///./cypress/support/commands.js:290:58)",
+                "diff": null
+              },
+              "uuid": "4c2fe019-1372-47a4-a5ad-da269239a223",
+              "parentUUID": "84e3b33c-9070-492c-b2c2-2c7e91e33dd1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b1fefe6c-5e98-437e-b45e-47f6976fea31",
+            "2dea1eeb-e41f-4742-ae17-0fd465f0f7e5",
+            "4c2fe019-1372-47a4-a5ad-da269239a223"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 48580,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
