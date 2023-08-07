@@ -20,7 +20,6 @@ module.exports = defineConfig({
         }
 
         console.log('override after:run');
-        this.test.attachments = ['/absolut/path/to/file.png'];
       });
        return config;
   // implement node event listeners here
