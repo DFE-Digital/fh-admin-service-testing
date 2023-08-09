@@ -14,7 +14,7 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
         cy.email(n +'abcdef@def.com')
 	})
   it('AC 1, 3 - validate page content , back link ',()=>{
-    cy.fullName('John Smith')
+    cy.fullName('Fantastic Elephant')
     cy.contains('Check account details')
     // back button - takes user to user name page
     cy.get('.govuk-back-link').click()
@@ -31,6 +31,6 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
     cy.get('.govuk-error-summary').contains('There is a problem')
     cy.get('.govuk-error-summary').contains('Enter a name')
     // user is able to enter valid name after error message 
-    cy.fullName('John Smith')
+    cy.fullName('Fantastic Elephant')
   })
 })

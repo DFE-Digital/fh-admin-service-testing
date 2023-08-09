@@ -8,7 +8,7 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
          cy.visit('/')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
-        cy.title().should('eq','Type of user - Manage family support services and accounts - GOV.UK')
+        cy.title().should('eq','Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
         cy.pageHeadings().contains('Who are you adding permissions for?')
         cy.contains('Someone who works for a local authority')
         cy.contains('Someone who works for a voluntary and community sector organisation')
