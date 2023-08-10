@@ -2,6 +2,10 @@
 describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - edit user email ',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
+     beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')   
+	})
     it('AC 1 , 4 - page content , back link ',function(){
         cy.visit('/')
          cy.dfeAdminWelcomePage()
@@ -13,14 +17,14 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
          // edit email link
          cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
           // enter a valid email id 
-           cy.email(n +'abcdef@def.com')
+        cy.email(n +'abcdef@def.com')
         // back link
         // cy.get('.govuk-back-link').click()
         // cy.dfeAdminWelcomePagecomePage()
        
     })
-    it.only('AC 1,4 Page content ,valid email address,back button',()=>{
-        cy.visit('/')
+    it('AC 1,4 Page content ,valid email address,back button',()=>{
+       
          cy.dfeAdminWelcomePage()
          //manage permissions link 
         cy.managePermissionsLink()

@@ -2,8 +2,7 @@ describe('| addPerm-vcs-whichLA | FHG-3414 DFE - add permissions - Which local a
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+       cy.integrationLogin('dfeadmin')
        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')

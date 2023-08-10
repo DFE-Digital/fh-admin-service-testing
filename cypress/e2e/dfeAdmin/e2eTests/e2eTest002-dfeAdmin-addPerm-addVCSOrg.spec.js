@@ -1,11 +1,11 @@
 describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
-    //  before(()=> {
-    //     // integration login
-    //     cy.integrationLogin()
-
-	// })
+     beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
    
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
        cy.visit('/')

@@ -3,10 +3,9 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
     const n = num.toString();  
   // As a DFE Admin  creating an LA account
     beforeEach(()=> {
-		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+		    cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')

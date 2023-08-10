@@ -4,9 +4,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		    cy.visit('/')
-        
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('dfeadmin')
        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')

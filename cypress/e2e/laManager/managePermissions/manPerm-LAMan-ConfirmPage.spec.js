@@ -1,4 +1,4 @@
-describe('| manPerm-ConfirmPage | FHG-3716 DFE Admin - Manage Permission (Permissions changed confirmation page) ',{tags: ['dfeAdmin']},()=>{
+describe('| manPerm-ConfirmPage | FHG-3716 DFE Admin - Manage Permission (Permissions changed confirmation page) ',{ tags: ['LAMan'] },()=>{
      beforeEach(()=> {
 		cy.visit('/')
        // cy.startPage()

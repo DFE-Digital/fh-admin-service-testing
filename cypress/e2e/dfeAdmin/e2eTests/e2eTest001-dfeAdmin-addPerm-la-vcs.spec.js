@@ -2,11 +2,12 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     const num = Date.now();
     const n = num.toString();
 
-    // before(()=> {
-    //     // integration login
-    //     cy.integrationLogin()
-        
-	// })
+    beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
+
     // As a DFE Admin  creating an LA account
     it('LA route ',()=>{
 		cy.visit('/')

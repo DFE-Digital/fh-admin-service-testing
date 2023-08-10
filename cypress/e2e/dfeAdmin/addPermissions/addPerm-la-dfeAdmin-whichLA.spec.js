@@ -4,8 +4,7 @@ describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local a
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+       cy.integrationLogin('dfeadmin')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')

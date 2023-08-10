@@ -1,6 +1,11 @@
 describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - confirmation page for LA and VCS", { tags: ['LAMan'] }, () => {
     const num = Date.now();
     const n = num.toString();
+     beforeEach(() => {
+        cy.visit('/')    
+        cy.integrationLogin('laman')   
+    })
+
     // As a DFE Admin  creating an LA account
 
     it('AC 1,2 - validate confirmation page content for LA journey', () => {

@@ -1,4 +1,9 @@
 describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ',{tags: ['dfeAdmin']},()=>{
+     beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
     
     it('AC 1 , 4 - page content , back link ',function(){
         cy.visit('/')

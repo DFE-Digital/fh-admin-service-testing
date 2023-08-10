@@ -2,8 +2,8 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('dfeadmin')
+        cy.visit('/')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
@@ -11,6 +11,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.vcsWhichLA('redbridge')
 
 	})
+     
     it('AC 1,3,6 - recognised text - list of valid Organisations related to LA displayed in dropdown , back button,FHG-3754',()=>{
         cy.pageHeadings().contains('Which organisation do they work for?')
         cy.contains("Their organisation must be in the directory for it to appear here. If it's not, you can add an organisation.")

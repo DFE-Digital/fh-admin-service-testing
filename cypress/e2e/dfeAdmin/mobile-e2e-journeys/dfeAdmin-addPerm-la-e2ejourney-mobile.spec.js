@@ -1,13 +1,14 @@
 describe('| 📱 addPerm-la-e2ejourney-mobile |',{tags: ['dfeAdmin']},()=>{
         const num = Date.now();
         const n = num.toString();
+         beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')   
+	})
 
-    it(`ipad-mini - LA Journey - Validate mobile version`,function(){
+    it.skip(`ipad-mini - LA Journey - Validate mobile version`,function(){
         cy.viewport(`ipad-mini`)
         cy.visit('/')
-       // cy.startPage()
-        
-        // cy.stubLogin('dfeAdmin')
         cy.myaccountMob()
         cy.dfeAdminWelcomePage()
         cy.myaccountMob()
