@@ -1,4 +1,9 @@
 describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page',{tags: ['LAMan']},()=>{
+     beforeEach(() => {
+        cy.visit('/')    
+        cy.integrationLogin('laman')   
+    })
+
     
     it('AC 1,11 - LA Manager logged in homepage validate content',()=>{
        cy.visit('/')

@@ -1,4 +1,9 @@
 describe('| addPerm-dfeAdminHomepage | FHG-1599 DFE Admin Homepage - add permissions',{tags: ['dfeAdmin']},()=>{
+     beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
     
     it('AC1 - dfe admin logged in homepage validate content',()=>{
        cy.visit('/')

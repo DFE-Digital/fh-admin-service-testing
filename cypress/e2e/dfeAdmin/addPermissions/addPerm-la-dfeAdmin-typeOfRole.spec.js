@@ -1,9 +1,9 @@
 describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ',{tags: ['dfeAdmin']},()=>{
-    // beforeEach(()=> {
-	// 	cy.visit('/')
-    //    // cy.startPage()
-    //     // cy.stubLogin('dfeAdmin')
-	// })
+     beforeEach(()=> {
+		    cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
     it('AC 1,5 -  validate content',()=>{
          cy.visit('/')
         cy.dfeAdminWelcomePage()

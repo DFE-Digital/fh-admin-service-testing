@@ -1,5 +1,5 @@
 // FHG-3708
-describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - edit user email ',{tags: ['dfeAdmin']},()=>{
+describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - edit user email ',{ tags: ['LAMan'] },()=>{
     const num = Date.now();
     const n = num.toString();
     it('AC 1 , 4 - page content , back link ',function(){

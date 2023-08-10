@@ -3,10 +3,15 @@ describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confi
         const n = num.toString();
     // As a DFE Admin  creating an LA account
     beforeEach(()=> {
-		cy.visit('/')
+		    cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
+    it('AC 1 - validate content',()=>{
+        cy.visit('/')
        // cy.startPage()
         // cy.stubLogin('dfeAdmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
@@ -14,8 +19,6 @@ describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confi
         cy.email(n +'abcdef@def.com')
         cy.fullName('Happy Ferret')
         cy.checkAnswerPage()
-	})
-    it('AC 1 - validate content',()=>{
        cy.confirmationPage('Happy Ferret')
 
     })

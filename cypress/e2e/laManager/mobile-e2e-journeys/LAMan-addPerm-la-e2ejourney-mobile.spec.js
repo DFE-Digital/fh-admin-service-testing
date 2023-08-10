@@ -1,4 +1,4 @@
-describe('| 📱 addPerm-la-e2ejourney-mobile |',{tags: ['dfeAdmin']},()=>{
+describe('| 📱 addPerm-la-e2ejourney-mobile |',{ tags: ['LAMan'] },()=>{
         const num = Date.now();
         const n = num.toString();
 

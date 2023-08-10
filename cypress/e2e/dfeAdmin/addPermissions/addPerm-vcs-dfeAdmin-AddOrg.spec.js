@@ -4,8 +4,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+      cy.integrationLogin('dfeadmin')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')

@@ -1,6 +1,10 @@
 describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{tags: ['dfeAdmin']},()=>{
         const num = Date.now();
         const n = num.toString();
+         beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')   
+	})
     
     it(`iphone-x - VCS Journey - Validate mobile version`,function(){
         cy.viewport(`iphone-x`)

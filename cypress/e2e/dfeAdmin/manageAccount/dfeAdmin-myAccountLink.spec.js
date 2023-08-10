@@ -1,8 +1,8 @@
 describe('| myaccountMobPage | FHG-2101 My account page header ',{tags: ['dfeAdmin']},()=>{
      beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('dfeadmin')
+       
 	})
     it('AC 1,2,3 - Header - my account and signout links',function(){
         cy.dfeAdminWelcomePage()

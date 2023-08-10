@@ -1,4 +1,9 @@
 describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you adding permissions for?',{tags: ['LAMan']},()=>{
+     beforeEach(() => {
+        cy.visit('/')    
+        cy.integrationLogin('laman')   
+    })
+
     
 
     it('AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button',()=>{

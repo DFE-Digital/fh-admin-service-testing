@@ -1,4 +1,4 @@
-describe('|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ',{tags: ['dfeAdmin']},()=>{
+describe('|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ',{ tags: ['LAMan'] },()=>{
     
     it('AC 1,5,7 - page content , back link , title ',function(){
         cy.visit('/')

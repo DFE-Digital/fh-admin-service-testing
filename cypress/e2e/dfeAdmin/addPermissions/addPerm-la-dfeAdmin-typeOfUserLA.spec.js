@@ -1,8 +1,8 @@
 describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page',{tags: ['dfeAdmin']},()=>{
-    beforeEach(()=> {
-		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+     beforeEach(()=> {
+		    cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
 	})
     it('AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button',()=>{
        cy.dfeAdminWelcomePage()

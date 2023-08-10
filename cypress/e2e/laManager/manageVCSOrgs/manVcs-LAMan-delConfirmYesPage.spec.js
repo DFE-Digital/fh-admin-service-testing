@@ -1,4 +1,4 @@
-describe('| manVcs-dfeAmin-delConfirmYesPage | FHG-3807 DFE Admin - Manage VCS organisations (You have deleted the service page)',{tags: ['dfeAdmin']},()=>{
+describe('| manVcs-dfeAmin-delConfirmYesPage | FHG-3807 DFE Admin - Manage VCS organisations (You have deleted the service page)',{ tags: ['LAMan'] },()=>{
   
     it('AC 1,2,3 - page content , go to homepage , title ',function(){
         cy.visit('/')

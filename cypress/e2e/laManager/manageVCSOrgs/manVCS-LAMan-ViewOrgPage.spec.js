@@ -1,4 +1,4 @@
-describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Page ',{tags: ['dfeAdmin']},()=>{
+describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Page ',{ tags: ['LAMan'] },()=>{
      const num = Date.now();
     const n = num.toString();
     

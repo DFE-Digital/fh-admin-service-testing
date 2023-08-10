@@ -1,4 +1,4 @@
-describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ',{tags: ['dfeAdmin']},()=>{
+describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ',{ tags: ['LAMan'] },()=>{
     
     it('AC 1 , 4 - page content , back link ',function(){
         cy.visit('/')

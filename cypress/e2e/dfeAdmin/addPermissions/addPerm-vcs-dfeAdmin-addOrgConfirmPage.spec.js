@@ -4,8 +4,7 @@ describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation pa
     // As a DFE Admin  creating an VCS account
     beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+       cy.integrationLogin('dfeadmin')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')

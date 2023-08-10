@@ -3,7 +3,8 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
     const n = num.toString();
     // As a DFE Admin  creating an VCS account
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('/')    
+        cy.integrationLogin('laman')   
         cy.LAManWelcomePage('London Borough of Redbridge')
         cy.addPermissions()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')

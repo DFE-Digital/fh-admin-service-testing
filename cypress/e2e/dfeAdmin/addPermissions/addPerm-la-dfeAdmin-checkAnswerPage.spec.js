@@ -2,6 +2,11 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
         const num = Date.now();
         const n = num.toString();
     // As a DFE Admin  creating an LA account
+     beforeEach(()=> {
+		    cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+       
+	})
    
   it('AC 1,4 - validate page content , back link ',()=>{
     const expectedContent = {

@@ -1,6 +1,10 @@
 describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Page ',{tags: ['dfeAdmin']},()=>{
      const num = Date.now();
     const n = num.toString();
+     beforeEach(()=> {
+		cy.visit('/')
+        cy.integrationLogin('dfeadmin')   
+	})
     
     it('AC 1,5,6 - page content , back link , title ',function(){
         cy.visit('/')

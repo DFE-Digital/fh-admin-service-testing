@@ -1,6 +1,7 @@
 describe('| addPerm-vcs-typeOfUserVCS | FHG-3886 LA Man - What do they need to do? page', { tags: ['LAMan'] }, () => {
     beforeEach(() => {
         cy.visit('/')
+        cy.integrationLogin('dfeadmin')
         cy.LAManWelcomePage('London Borough of Redbridge')
         cy.addPermissions()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
