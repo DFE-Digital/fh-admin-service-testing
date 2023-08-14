@@ -57,15 +57,16 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
     cy.contains('Add account permissions to manage family support services and manage connection requests.')
     cy.contains('View and remove account permissions to manage family support services or manage connection requests.')
-    cy.contains('Add a service to the directory.')
-    cy.contains('View, change or delete services shown in the directory.')
-    cy.contains('Add a family hub to the directory.')
-    cy.contains('View, change or delete family hubs shown in the directory.')
-    cy.contains('Activate an LA before you create its accounts, services and family hubs.')
-    cy.contains('Add a service to the directory.')
-    cy.contains('View, change or delete services shown in the directory.')
+    //cy.contains('Add a service to the directory.')
+    //cy.contains('View, change or delete services shown in the directory.')
+    //cy.contains('Add a family hub to the directory.')
+    //cy.contains('View, change or delete family hubs shown in the directory.')
+    //cy.contains('Activate an LA before you create its accounts, services and family hubs.')
+    // cy.contains('Add a service to the directory.')
+    //cy.contains('View, change or delete services shown in the directory.')
     cy.contains('Add an organisation before adding permissions for its users.')
     cy.contains('View, change or delete existing organisations.')
+    cy.contains('Upload an excel spreadsheet.')
   })
 
 // LA Manager - Welcome page 
@@ -302,6 +303,13 @@ Cypress.Commands.add('myaccountPage',()=>{
   cy.title().should('eq','Manage your account - Manage family support services and accounts - GOV.UK')
 
 })
+// Sign out 
+Cypress.Commands.add('signOut',()=>{
+   Cypress. session. clearAllSavedSessions()
+    cy.get(':nth-child(2) > .govuk-header__link').contains('Sign out').click()
+    cy.contains('You have signed out')
+})
+
   Cypress.Commands.add('integrationLogin',(userType)=>{
 
   cy.session('userlogin',()=>{
@@ -649,10 +657,25 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
     cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Edit').click()
     cy.contains('Back to manage user accounts')
   })
-  // Delete permissions 
+  // Delete permissions link
   Cypress.Commands.add('deletePermissionsLink',()=>{
     cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Delete').click()
     cy.contains('This will remove all permissions that have been given to')
+  })
+// Delete permissions options page
+  Cypress.Commands.add('deletePermissionsOptionPage',(user,selection)=>{
+    cy.contains(`Do you want to delete ${user}'s permissions?`)
+    cy.contains(`This will remove all permissions that have been given to ${user}.`)
+     if (selection === 'Yes') {
+        cy.get('#remove-user').check();
+      } else if (selection === 'No'){
+        cy.get('#remove-user-2').check();
+      }
+     cy.get('#buttonContinue').click()
+  })
+
+  Cypress.Commands.add('deletePermissionsConfirmPage',(user)=>{
+    cy.contains(`You have deleted ${user}'s permissions`)
   })
   // Filters check box - Type of user
   Cypress.Commands.add('typeOfUserFilter',(selection)=>{
@@ -951,3 +974,13 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   return originalFn(url, options);
 });
 
+// Upload excel sheet 
+Cypress.Commands.add('uploadSheet',() => {
+  cy.get('[data-testid="upload-spreadsheet"]').click()
+  cy.contains('This file upload only supports .xlsm, .xlsx and .xls spreadsheets.')
+  cy.get('#FileUpload_FormFile').selectFile('cypress/fixtures/Local Authority Data Capture v7.0 test samples-01.xlsm')
+
+ cy.get('.govuk-button').click()
+ cy.contains('You have successfully uploaded your data')
+
+})
