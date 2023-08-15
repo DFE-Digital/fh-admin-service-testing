@@ -351,7 +351,62 @@ Cypress.Commands.add('signOut',()=>{
    }
    )
       cy.visit('/')
-   })
+  })
+
+Cypress.Commands.add('managelogin', (olusername, olpassword) => {
+    cy.session([olusername, olpassword], () => {
+
+        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { failOnStatusCode: false })
+        cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
+        cy.get('.govuk-button').click()
+        //
+        cy.get('#sign-in-button').click()
+        // login based on type of user 
+        // login email
+        cy.get('#email').type(`${Cypress.env(olusername)}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env(olpassword)}`)
+        cy.get('form > .govuk-button').click()
+        cy.visit('/')
+    })
+})
+
+Cypress.Commands.add('connectlogin', (olusername, olpassword) => {
+    cy.session([olusername, olpassword], () => {
+
+        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { failOnStatusCode: false })
+        //Click on Request a connection button
+        cy.visit('https://test.connect-families-to-support.education.gov.uk/ProfessionalReferral/LocalOfferDetail?serviceid=277')
+        cy.get('a:contains("Request a connection")').click();
+        //stub-login
+        cy.get('#sign-in-button').click()
+        // login based on type of user 
+        // login email
+        cy.get('#email').type(`${Cypress.env(olusername)}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env(olpassword)}`)
+        cy.get('form > .govuk-button').click()
+    })
+})
+
+Cypress.Commands.add('dashboardlogin', (olusername, olpassword, dashboardType) => {
+    cy.session([olusername, olpassword], () => {
+
+        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { failOnStatusCode: false })
+        //Click on Request a connection button
+        cy.visit(`https://test.manage-connection-requests.education.gov.uk/${dasboardType}/Dashboard`)
+        cy.get('#sign-in-button').click()
+        // login based on type of user 
+        // login email
+        cy.get('#email').type(`${Cypress.env(olusername)}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env(olpassword)}`)
+        cy.get('form > .govuk-button').click()
+    })
+})
 // Sort ascending / descending 
 Cypress.Commands.add('checkSortOrder', (value, sortOrder)=> {
     cy.get('th.govuk-table__header').eq(value).invoke('attr', 'aria-sort').then((ariasort) => {

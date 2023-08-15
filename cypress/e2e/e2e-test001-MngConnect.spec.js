@@ -1,8 +1,13 @@
 describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and vcs permissions , Connect - create and approve request , view requests',()=>{
-
+    afterEach(() => {
+        if (Cypress.mocha.getRunner().suite.ctx.currentTest.state === 'failed') {
+            Cypress.runner.stop()
+        } 
+    })
     it('Manage - (dfe admin) Add VCS organisation using spread sheet',()=>{
 		cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.managelogin('oneloginusername', 'oneloginpassword')
+        cy.visit('/Welcome')
         cy.dfeAdminWelcomePage()
         cy.uploadSheet()  
         // validate if the vcs has been added 
@@ -10,11 +15,13 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.manVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.contains('Test Harsha Madhu Vcs001')
+    })
 	
     
-    // Manage - (dfe admin) Add permissions to user LA Professional 
+    it('Manage - (dfe admin) Add permissions to user LA Professional', () => {  
         cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.managelogin('oneloginusername', 'oneloginpassword')
+        cy.visit('/Welcome')
         cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('la')
@@ -24,10 +31,12 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.fullName('TH - LA Pro')
         cy.checkAnswerPage()
         cy.confirmationPage('TH - LA Pro')
+    })
     
-    // Manage - (dfe admin) Add permissions to user VCS Professional 
+    it('Manage - (dfe admin) Add permissions to user VCS Professional', () => {  
         cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.managelogin('oneloginusername', 'oneloginpassword')
+        cy.visit('/Welcome')
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('2')
@@ -37,21 +46,45 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.fullName('TH - VCS Pro')
         cy.checkAnswerPage()
         cy.confirmationPage('TH - VCS Pro')
-        // sign out as dfe admin
-        cy.wait(2000)
-        cy.signOut()
-
     })
-    // session details change - sign in as LA Pro = user id = harshare139@googlemail.com
-     // user id = 
-    it.skip('Connect - (la Professional) Make and view connection request ',()=>{
-        cy.visit('https://test.connect-families-to-support.education.gov.uk')
 
-    })
-    it.skip('sign out as La Pro',()=>{
-        cy.visit('/')
-        cy.signOut()
-
+    it('Connect - (la Professional) Create and view connection request ',()=>{
+        cy.visit('https://test.connect-families-to-support.education.gov.uk');
+        cy.refServLanding();
+        cy.searchbypostcode('bs14 8at');
+        //Select the first result on search results page
+        cy.get('ul.search-results>li:nth-child(1) a').click();
+        cy.connectlogin('oneloginLAusername', 'oneloginpassword')
+        cy.visit('https://test.connect-families-to-support.education.gov.uk/ProfessionalReferral/Safeguarding?serviceId=277')
+        cy.get('.app-button--inverted').click();
+        //click on Yes radio button and continue on privacy statement page
+        cy.selectRadioButtonAndContinue('#shared-privacy-yes', 'div.govuk-grid-row button');
+        //click on Yes radio button and continue on consent page
+        cy.selectRadioButtonAndContinue('#consent-yes', 'div.govuk-grid-row button');
+        //enter a contact name and continue on family contact name page
+        cy.enterTextAndContinue('.govuk-input', 'James Bond', 'div.govuk-grid-row button');
+        //enter reason and continue 
+        cy.reasonForConnectionRequestPage();
+        //select all checkboxes
+        cy.selectCheckBoxes('Email');;
+        //click continue button
+        cy.get('div.govuk-grid-row button').click();
+        //enter a valid email address and continue 
+        cy.enterTextAndContinue('.govuk-input', 'a@test.com', 'div.govuk-grid-row button');
+        //click continue button
+        cy.get('div.govuk-grid-row button').click();
+        //Enter text in the reason text area
+        cy.get('#reason').type('Test service engage with this family');
+        //click continue button
+        cy.get('div.govuk-grid-row button').click();
+        //click on Telephone and email radio button
+        cy.get('#telephone-and-email').click();
+        //enter a telephone number and continue
+        cy.enterTextAndContinue('.govuk-input', '01132 347 902', 'div.govuk-grid-row button');
+        //click Confirm details button
+        cy.contains('Confirm details and send request').click();
+        cy.checkPanelText('Connection request sent');
+        //cy.contains('Requests sent').click();
     })
 
     // session details change - sign in as LA Pro = user id = harshareddy.leeds@googlemail.com
@@ -59,14 +92,11 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
     it.skip('Connect Dashboard - (VCS Professional ) view and accept requests ',()=>{
         cy.visit('/')
     })
-    it.skip('sign out as VCS Pro',()=>{
-        cy.visit('/')
-        cy.signOut()
 
-    })
     it('Manage - ( dfe admin) - delete LA Professional user permissions',()=>{
         cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.managelogin('oneloginusername', 'oneloginpassword')
+        cy.visit('/Welcome')
         cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
@@ -79,24 +109,19 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
        
 
     })
-    // session details change - sign in as dfe Admin = user id = dfe admin
-    it.skip('Manage - (dfe admin) delete VCS organisation',()=>{
+
+    it('Manage - (dfe admin) delete VCS organisation',()=>{
 		cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.managelogin('oneloginusername', 'oneloginpassword')
+        cy.visit('/Welcome')
         cy.dfeAdminWelcomePage()
          //manage VCS link
         cy.manVcsLink()
-        cy.get(':nth-child(4) > .govuk-pagination__link').click()
-       cy.get(':nth-child(9) > .govuk-table__cell--numeric > .govuk-\!-margin-right-0').click()
-        
-        // cy.manVcsDel()
-        cy.DelVcsPage()    
-
-         cy.DelVcsPage('Yes')    
-        // add validation - You have not deleted the service confirmation page
-        cy.VcsYesDelPage()
-        // homepage
-        cy.dfeAdminWelcomePage()
+        cy.get('.govuk-pagination__list li:last-child').click();
+        cy.get('td.govuk-table__cell a[data-testid="delete_TestHarshaMadhuVcs001"]').click();
+        cy.contains('Deleting an organisation');
+        cy.selectRadioButtonAndContinue('#removeOrg', 'button.govuk-button')
+        cy.contains('You have deleted Test Harsha Madhu Vcs001')
 
        
 	})
