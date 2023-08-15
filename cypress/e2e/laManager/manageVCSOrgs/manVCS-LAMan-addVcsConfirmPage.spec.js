@@ -5,7 +5,7 @@ describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisati
 
     it('AC 1,2,3  Add VCS Org confirmation page',()=>{
         cy.visit('/')
-        cy.dfeAdminWelcomePagecomePage( )
+        cy.dfeAdminWelcomePage( )
          //manage VCS link
         cy.manVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()

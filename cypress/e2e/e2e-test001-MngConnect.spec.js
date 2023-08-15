@@ -28,7 +28,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('2')
         cy.laWhichLA('tower hamlets')
-        cy.email('harshare139@googlemail.com')
+        cy.email('harshare139@googlemail.co')
         cy.fullName('TH - LA Pro')
         cy.checkAnswerPage()
         cy.confirmationPage('TH - LA Pro')
@@ -43,11 +43,35 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.typeOfUserVCS('2')
         cy.vcsWhichLA('tower hamlets')
         cy.whichOrgVcs('Test Harsha Madhu Vcs001')
-        cy.email('harshareddy.leeds@googlemail.com')
+        cy.email('harshareddy.leeds@googlemail.co')
         cy.fullName('TH - VCS Pro')
         cy.checkAnswerPage()
         cy.confirmationPage('TH - VCS Pro')
+<<<<<<< Updated upstream
     })
+=======
+        // sign out as dfe admin
+        // cy.wait(2000)
+        // cy.signOut()
+
+    })
+    it.only('sign out as dFe admin',()=>{
+        cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+        cy.signOut()
+
+    })
+
+    // session details change - sign in as LA Pro = user id = harshare139@googlemail.com
+     // user id = 
+    it.skip('Connect - (la Professional) Make and view connection request ',()=>{
+        cy.visit('https://test.connect-families-to-support.education.gov.uk')
+
+    })
+    it.skip('sign out as La Pro',()=>{
+        cy.visit('/')
+        cy.signOut()
+>>>>>>> Stashed changes
 
     it('Connect - (la Professional) Create and view connection request ',()=>{
         cy.visit('https://test.connect-families-to-support.education.gov.uk');
@@ -76,7 +100,6 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.contains('Confirm details and send request').click();
         cy.checkPanelText('Connection request sent');
     })
-
     // session details change - sign in as LA Pro = user id = harshareddy.leeds@googlemail.com
 
     it.skip('Connect Dashboard - (VCS Professional ) view and accept requests ',()=>{
@@ -97,17 +120,33 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.deletePermissionsOptionPage('TH - LA Pro','Yes')
         cy.deletePermissionsConfirmPage('TH - LA Pro')
     })
+<<<<<<< Updated upstream
 
+=======
+    // session details change - sign in as dfe Admin = user id = dfe admin
+>>>>>>> Stashed changes
     it('Manage - (dfe admin) delete VCS organisation',()=>{
 		cy.visit('/')
         cy.managelogin('oneloginusername', 'oneloginpassword')
         cy.visit('/Welcome')
         cy.dfeAdminWelcomePage()
         cy.manVcsLink()
+<<<<<<< Updated upstream
         cy.get('.govuk-pagination__list li:last-child').click();
         cy.get('td.govuk-table__cell a[data-testid="delete_TestHarshaMadhuVcs001"]').click();
         cy.contains('Deleting an organisation');
         cy.selectRadioButtonAndContinue('#removeOrg', 'button.govuk-button')
         cy.contains('You have deleted Test Harsha Madhu Vcs001')
+=======
+        cy.get(':nth-child(4) > .govuk-pagination__link').click()
+        cy.get('[data-testid="delete_TestHarshaMadhuVcs001"]').click()
+        cy.DelVcsPage('Yes')    
+        // add validation - You have not deleted the service confirmation page
+        cy.VcsYesDelPage()
+        // homepage
+        cy.dfeAdminWelcomePage()
+
+       
+>>>>>>> Stashed changes
 	})
 })

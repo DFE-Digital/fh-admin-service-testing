@@ -1,11 +1,11 @@
 describe('| manageAccountPage | FHG-2106 My account - Manage your account page ',{ tags: ['LAMan'] },()=>{
      beforeEach(()=> {
 		cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('laman')   
 	})
     it('AC 1,4, Page content , Change name , back button ',function(){
-         cy.dfeAdminWelcomePage()
+       
+        cy.LAManWelcomePage('London Borough of Redbridge')
          cy.get('.govuk-header__container').contains('My account').click()
          cy.myaccountPage()
          // click on change name

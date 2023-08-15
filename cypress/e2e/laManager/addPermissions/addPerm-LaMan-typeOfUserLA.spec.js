@@ -2,7 +2,7 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
 
     beforeEach(() => {
         cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+         cy.integrationLogin('laman')   
         cy.LAManWelcomePage('London Borough of Redbridge')
         cy.addPermissions()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
