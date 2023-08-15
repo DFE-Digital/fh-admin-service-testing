@@ -27,7 +27,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
     it('AC 3 - delete permissions link ',function(){
         cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()

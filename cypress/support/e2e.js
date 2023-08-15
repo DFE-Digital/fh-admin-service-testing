@@ -18,6 +18,7 @@ import './commands';
 import './accountsCommands';
 import './LACommands';
 import './VCSCommands';
+import './connectCommands';
 import 'cypress-mochawesome-reporter/register';
 
 // Alternatively you can use CommonJS syntax:
