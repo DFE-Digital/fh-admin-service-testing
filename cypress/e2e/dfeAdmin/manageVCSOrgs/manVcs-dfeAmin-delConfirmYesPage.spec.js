@@ -20,7 +20,4 @@ describe('| manVcs-dfeAmin-delConfirmYesPage | FHG-3807 DFE Admin - Manage VCS o
         // homepage
         cy.dfeAdminWelcomePage()
     
-})
-
-
-})
+}) 

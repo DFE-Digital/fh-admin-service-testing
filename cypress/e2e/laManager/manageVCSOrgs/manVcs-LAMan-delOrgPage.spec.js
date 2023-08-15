@@ -2,7 +2,8 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
   
     it('AC 1,5,6 - page content , back link , title ',function(){
         cy.visit('/')
-        cy.dfeAdminWelcomePage()
+        cy.integrationLogin('laman')
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
         cy.manVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
@@ -15,7 +16,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
 })
     it('AC 2 - Yes, I want to delete it',function(){
         cy.visit('/')
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
         cy.manVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
@@ -26,7 +27,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     })
      it('AC 3 - No, I want to keep it ,',function(){
         cy.visit('/')
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
         cy.manVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
@@ -37,7 +38,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     })
     it.only('AC 4 - error messages  ,',function(){
         cy.visit('/')
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
         cy.manVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()

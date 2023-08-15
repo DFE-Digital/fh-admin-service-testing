@@ -4,7 +4,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     // As a LA Manager, creating LA and VCS accounts
     beforeEach(() => {
         cy.visit('/')
-        cy.integrationLogin('dfeadmin')
+        cy.integrationLogin('laman')   
         cy.LAManWelcomePage('London Borough of Redbridge')
         cy.addPermissions()
     })
