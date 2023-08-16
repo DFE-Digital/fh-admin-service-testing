@@ -306,49 +306,48 @@ Cypress.Commands.add('signOut',()=>{
     cy.contains('You have signed out')
 })
 
-  Cypress.Commands.add('integrationLogin',(userType)=>{
-<<<<<<< Updated upstream
+//  Cypress.Commands.add('integrationLogin',(userType)=>{
 
-  cy.session('userlogin',()=>{
+//  cy.session('userlogin',()=>{
 
-        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
+//        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
      
         
-          cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
-          cy.get('.govuk-button').click()
-          //
-          cy.get('#sign-in-button').click()
-         // login based on type of user 
-         if (userType == 'dfeadmin'){
-          // login email
-          cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
-          cy.get('form > .govuk-button').click()
-          // login password
-          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+//          cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
+//          cy.get('.govuk-button').click()
+//          //
+//          cy.get('#sign-in-button').click()
+//         // login based on type of user 
+//         if (userType == 'dfeadmin'){
+//          // login email
+//          cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+//          cy.get('form > .govuk-button').click()
+//          // login password
+//          cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
           
 
-         }
-         else if ( userType == 'laman'){
-          // login email
-          cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
-          cy.get('form > .govuk-button').click()
-          // login password
-          cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
+//         }
+//         else if ( userType == 'laman'){
+//          // login email
+//          cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
+//          cy.get('form > .govuk-button').click()
+//          // login password
+//          cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
           
 
-         }
-        cy.get('form > .govuk-button').click()
-          // check if the user is signed in
-        cy.get('.govuk-header__navigation-item').contains('Sign out')
+//         }
+//        cy.get('form > .govuk-button').click()
+//          // check if the user is signed in
+//        cy.get('.govuk-header__navigation-item').contains('Sign out')
         
          
-   },
-   {
-     cacheAcrossSpecs: true
-   }
-   )
-      cy.visit('/')
-  })
+//   },
+//   {
+//     cacheAcrossSpecs: true
+//   }
+//   )
+//      cy.visit('/')
+//  })
 
 Cypress.Commands.add('managelogin', (olusername, olpassword) => {
     cy.session([olusername, olpassword], () => {
@@ -388,7 +387,7 @@ Cypress.Commands.add('connectlogin', (olusername, olpassword, id) => {
     })
 })
 
-=======
+Cypress.Commands.add('integrationLogin', (userType) => {
   cy.session(userType,()=>{
     cy.get('body').then((body) => {
       if (body.find('.govuk-header__navigation-item').length < 1) {
@@ -428,7 +427,7 @@ function signIn(userType){
   // check if the user is signed in
   cy.get('.govuk-header__navigation-item').contains('Sign out')
 }
->>>>>>> Stashed changes
+
 // Sort ascending / descending 
 Cypress.Commands.add('checkSortOrder', (value, sortOrder)=> {
     cy.get('th.govuk-table__header').eq(value).invoke('attr', 'aria-sort').then((ariasort) => {
@@ -486,24 +485,6 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
   cy.get('.govuk-button').click()
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   // Sign in page
   Cypress.Commands.add('signInPage',()=>{
