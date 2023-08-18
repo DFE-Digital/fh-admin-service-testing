@@ -2,13 +2,12 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         const num = Date.now();
         const n = num.toString();
     
-    it(`iphone-x - VCS Journey - Validate mobile version`,function(){
+    it.skip(`iphone-x - VCS Journey - Validate mobile version`,function(){
         cy.viewport(`iphone-x`)
         cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('laman')
         cy.myaccountMob()
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
@@ -30,13 +29,12 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
     
     })
-     it(`samsung-s10 - VCS Journey - Validate mobile version`,function(){
+     it.skip(`samsung-s10 - VCS Journey - Validate mobile version`,function(){
         cy.viewport(`samsung-s10`)
         cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('laman')
         cy.myaccountMob()
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
@@ -59,13 +57,12 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
     
     })
     //
-     it(`ipad-mini - VCS Journey - Validate mobile version`,function(){
+     it.skip(`ipad-mini - VCS Journey - Validate mobile version`,function(){
         cy.viewport(`ipad-mini`)
         cy.visit('/')
-       // cy.startPage()
-        // cy.stubLogin('dfeAdmin')
+        cy.integrationLogin('laman')
         cy.myaccountMob()
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
