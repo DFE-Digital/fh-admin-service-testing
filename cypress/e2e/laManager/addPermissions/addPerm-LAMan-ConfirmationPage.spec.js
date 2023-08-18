@@ -1,9 +1,11 @@
-describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - confirmation page for LA and VCS", { tags: ['LAMan'] }, () => {
-    const num = Date.now();
-    const n = num.toString();
+describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - confirmation page for LA and VCS", { tags: ['LAMan'] }, () => {    
+    let n;
+
      beforeEach(() => {
-        cy.visit('/')    
-        cy.integrationLogin('laman')   
+        n = Date.now().toString()
+        cy.visit('/')
+        cy.integrationLogin('laman')
+           
     })
 
     // As a DFE Admin  creating an LA account

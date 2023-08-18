@@ -449,6 +449,12 @@ Cypress.Commands.add('manVcsLink',()=>{
   cy.contains('View, change or delete existing organisations.')
   cy.title().should('eq','Manage organisations - Manage family support services and accounts - GOV.UK')
 })
+Cypress.Commands.add('laManVcsLink',()=>{
+  cy.contains('Manage organisations').click()
+  cy.contains('Manage organisations')
+  cy.contains('View, change or delete existing organisations.')
+  cy.title().should('eq','Manage organisations - Manage family support services and accounts - GOV.UK')
+})
 // View VCS Organisation link
 Cypress.Commands.add('manVcsView',()=>{
   cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
