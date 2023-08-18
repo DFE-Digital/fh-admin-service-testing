@@ -1,28 +1,32 @@
 describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ',{ tags: ['LAMan'] },()=>{
+    beforeEach(() => {
+        cy.visit('/')
+        cy.integrationLogin('laman')
+    });
+    
     
     it('AC 1 , 4 - page content , back link ',function(){
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         // back link
         cy.get('.govuk-back-link').click()
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
        
     })
      it('AC 2 - edit permissions link ',function(){
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         // delete permissions link
-        cy.editPermissionsLink()   
+        cy.editPermissionsLink()
     })
     it('AC 3 - delete permissions link ',function(){
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -31,8 +35,8 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
        
     })
     it('AC 5 - Type of user filters - Both LA and VCS ',()=>{
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -58,8 +62,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     })
 
     it('AC 6 - Name , Email , Organisation filter',()=>{
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -84,8 +87,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     })
     it('AC 8 , 9 - no result found  + Clear filter',()=>{
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -100,9 +102,8 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
 
     })
-    it('AC 11 , 12 Pagination',()=>{
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+    it('AC 11 , 12 Pagination',()=>{        
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -121,8 +122,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist')
     })
      it(' Name - sort by Organisation name',function(){
-        cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -139,8 +139,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     })
     it('Email address , sort by Email address',function(){
-       cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -158,8 +157,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     })
      it('Works for , sort by Works for',function(){
-       cy.visit('/')
-         cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage('London Borough of Redbridge')
          //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -173,11 +171,5 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Works for').click();
 		//check sort order on contact name
 		cy.checkSortOrder(2, 'descending');
-
-
-    })
- 
-    
-    
-
+    })    
 })

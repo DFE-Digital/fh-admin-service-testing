@@ -16,7 +16,7 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
          cy.contains('Manage your account')     
     })
     it('AC 2 - manage your gov.uk one login link',()=>{
-          cy.dfeAdminWelcomePage('Department for Education')
+        cy.LAManWelcomePage('London Borough of Redbridge')
          cy.get('.govuk-header__container').contains('My account').click()
          cy.myaccountPage()
         // check href contains gov uk integration link

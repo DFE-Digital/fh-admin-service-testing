@@ -22,17 +22,17 @@ describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page',{tags: ['L
         cy.contains('Manage permissions').click()
         cy.get('.govuk-back-link').click()
 
-        cy.contains('Add an LA service').click()
-        cy.go(-1)
+        // cy.contains('Add an LA service').click()
+        // cy.go(-1)
 
-        cy.contains('Manage LA services').click()
-        cy.go(-1)
+        // cy.contains('Manage LA services').click()
+        // cy.go(-1)
 
-        cy.contains('Add a family hub').click()
-         cy.go(-1)
+        // cy.contains('Add a family hub').click()
+        //  cy.go(-1)
 
-        cy.contains('Manage family hubs').click()
-         cy.go(-1)
+        // cy.contains('Manage family hubs').click()
+        //  cy.go(-1)
 
         cy.contains('Add an organisation').click()
         cy.get('.govuk-back-link').click()

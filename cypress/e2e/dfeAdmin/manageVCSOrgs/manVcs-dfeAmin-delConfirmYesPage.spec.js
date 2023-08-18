@@ -19,5 +19,5 @@ describe('| manVcs-dfeAmin-delConfirmYesPage | FHG-3807 DFE Admin - Manage VCS o
         cy.VcsYesDelPage()
         // homepage
         cy.dfeAdminWelcomePage()
-    
+    })
 }) 
