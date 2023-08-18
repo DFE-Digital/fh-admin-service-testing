@@ -5,16 +5,16 @@ describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisati
 
     it('AC 1,2,3  Add VCS Org confirmation page',()=>{
         cy.visit('/')
-        cy.dfeAdminWelcomePage( )
-         //manage VCS link
-        cy.manVcsLink()
+        cy.integrationLogin('laman')
+        cy.LAManWelcomePage('London Borough of Redbridge')
+        //manage VCS link
+        cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
         cy.get(':nth-child(5) > .govuk-pagination__link').click()
         cy.get(':nth-child(2) > .govuk-table__cell--numeric').contains('View').click()
         cy.editVcsName(n + 'Test VCS Org 001')
         cy.get('#buttonContinue').click()
         cy.addVcsOrgConfirm()
-        cy.dfeAdminWelcomePagecomePage( )
+        cy.LAManWelcomePage('London Borough of Redbridge')
     })  
-
 })
