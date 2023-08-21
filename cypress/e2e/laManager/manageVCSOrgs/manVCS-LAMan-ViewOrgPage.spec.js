@@ -1,14 +1,16 @@
 describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Page ',{ tags: ['LAMan'] },()=>{
-     const num = Date.now();
+    beforeEach(() => {
+        cy.integrationLogin('laman')
+        cy.visit('/')
+    });
+    
+    const num = Date.now();
     const n = num.toString();
     
     it('AC 1,5,6 - page content , back link , title ',function(){
-       
-        cy.integrationLogin('laman')
-         cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         cy.manVcsView()
          //manage VCS link
         cy.manVcsViewPage('Jubilee Church Ilford','London Borough of Redbridge')
@@ -21,11 +23,10 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
          cy.contains('Manage organisations')
     })
 
-    it('AC 2 Add VCS Org name',()=>{
-        cy.visit('/')
+    it('AC 2 Add VCS Org name',()=>{        
         cy.LAManWelcomePage('London Borough of Redbridge')
          //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
         cy.get(':nth-child(5) > .govuk-pagination__link').click()
         cy.get(':nth-child(2) > .govuk-table__cell--numeric').contains('View').click()
@@ -35,27 +36,24 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     })
 
      it('AC 3 - view VCS Org ',function(){
-        cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
         //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         // View VCS Org
         cy.manVcsView()
     })
     it('AC 4 - delete VCS Org ',function(){
-        cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
         //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         // Delete VCS Org
         cy.manVcsDel()
        
     })
     it('AC 8 , sort by Organisation name',function(){
-        cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
         //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         //check initial sort order on contact name
 		cy.checkSortOrder(0, 'none');
 		//click on Organisation name heading link
@@ -69,23 +67,18 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
 
     })
     it('AC 9 , sort by Local authority',function(){
-        cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
         //manage VCS link
-        cy.manVcsLink()
+        cy.laManVcsLink()
         //check initial sort order on contact name
-		cy.checkSortOrder(1, 'none');
+		cy.checkSortOrder(0, 'none');
 		//click on Local authority heading link
-		cy.contains('Local authority').click();
+		cy.contains('Organisation').click();
 		//check sort order on contact name
-		cy.checkSortOrder(1, 'ascending');
+		cy.checkSortOrder(0, 'ascending');
 		//click on Local authority heading link
-		cy.contains('Local authority').click();
+		cy.contains('Organisation').click();
 		//check sort order on contact name
-		cy.checkSortOrder(1, 'descending');
-
+		cy.checkSortOrder(0, 'descending');
     })
- 
-    
-
 })
