@@ -387,23 +387,37 @@ Cypress.Commands.add('connectlogin', (olusername, olpassword, id) => {
     })
 })
 
-Cypress.Commands.add('integrationLogin', (userType) => {
+Cypress.Commands.add('integrationLogin', (userType) => {  
   cy.session(userType,()=>{
-    cy.get('body').then((body) => {
-      if (body.find('.govuk-header__navigation-item').length < 1) {
-        signIn(userType);
-      }
-    });
-    // Check user type
+      signIn(userType);
     },
     {
+      validate() {
+        cy.visit('/Welcome')
+        cy.contains('My account')
+        cy.visit('https://signin.integration.account.gov.uk', 
+        { 
+          auth: {
+            username: `${Cypress.env('username')}`,
+            password: `${Cypress.env('password')}`,
+          },
+          failOnStatusCode: true 
+        })
+      },
       cacheAcrossSpecs: true
     }
   )
   cy.visit('/')
 })
 function signIn(userType){
-  cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`,{failOnStatusCode: false})
+  cy.visit('https://signin.integration.account.gov.uk', 
+  { 
+    auth: {
+      username: `${Cypress.env('username')}`,
+      password: `${Cypress.env('password')}`,
+    },
+    failOnStatusCode: false 
+  })
   cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/')
   cy.get('.govuk-button').click()
   //

@@ -1,11 +1,11 @@
 describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page", {tags: ['dfeAdmin']},()=>{
-        const num = Date.now();
-        const n = num.toString();
     // As a DFE Admin  creating an VCS account
+    var n;
     beforeEach(()=> {
+        n = Date.now().toString();
 		    cy.visit('/')
         cy.integrationLogin('dfeadmin')
-       cy.dfeAdminWelcomePage()
+        cy.dfeAdminWelcomePage()
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')

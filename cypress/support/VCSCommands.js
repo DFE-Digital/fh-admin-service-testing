@@ -30,3 +30,15 @@ Cypress.Commands.add('VcsYesDelPage',(OrgName)=>{
    cy.get('.govuk-button').click()
 
 })
+
+Cypress.Commands.add('CreateVcsOrganisation', (email, name) => {
+  cy.addPermissions()
+  cy.typeOfUserPage('vcs')
+  cy.typeOfUserVCS('1')
+  cy.vcsWhichLA('redbridge')
+  cy.whichOrgVcs('cranbrook')
+  cy.email(email)
+  cy.fullName(name)
+  cy.checkAnswerPage()
+  cy.contains('Go to homepage').click()
+})

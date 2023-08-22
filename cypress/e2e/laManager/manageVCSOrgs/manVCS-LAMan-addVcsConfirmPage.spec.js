@@ -11,7 +11,7 @@ describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisati
         cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
         cy.get(':nth-child(5) > .govuk-pagination__link').click()
-        cy.get(':nth-child(2) > .govuk-table__cell--numeric').contains('View').click()
+        cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
         cy.editVcsName(n + 'Test VCS Org 001')
         cy.get('#buttonContinue').click()
         cy.addVcsOrgConfirm()
