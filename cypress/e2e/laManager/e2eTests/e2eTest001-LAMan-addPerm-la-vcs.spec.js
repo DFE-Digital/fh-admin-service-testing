@@ -2,21 +2,21 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     const num = Date.now();
     const n = num.toString();
 
-    // before(()=> {
+    beforeEach(()=> {
     //     // integration login
-    //     cy.integrationLogin()
+        cy.integrationLogin('laman')
         
-	// })
+	})
     // As a DFE Admin  creating an LA account
     it('LA route ',()=>{
 		cy.visit('/')
         //// cy.startPage()
         // // cy.stubLogin('dfeAdmin')
-        cy.dfeAdminWelcomePage()
+        cy.LAManWelcomePage()
         cy.addPermissions()
-        cy.typeOfUserPage('la')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge','la')
         cy.typeOfUserLA('1')
-        cy.laWhichLA('redbridge')
+        //cy.laWhichLA('redbridge')
         cy.email(n +'abcdef@def.com')
         cy.fullName('John Paul Smith')
         cy.checkAnswerPage()
@@ -28,10 +28,11 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
         //// cy.startPage()
         // cy.stubLogin('dfeAdmin')
         
+        cy.LAManWelcomePage()
         cy.addPermissions()
-        cy.typeOfUserPage('vcs')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge','vcs')
         cy.typeOfUserVCS('1')
-        cy.vcsWhichLA('redbridge')
+        //cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs('cranbrook')
         cy.email(n +'-abcdef@def.com')
         cy.fullName('John Paul Smith')

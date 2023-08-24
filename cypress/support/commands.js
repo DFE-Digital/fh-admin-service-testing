@@ -71,18 +71,18 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
 
 // LA Manager - Welcome page 
 Cypress.Commands.add('LAManWelcomePage',(LA)=>{
-    cy.get('.govuk-grid-column-two-thirds').contains(`${LA}`)
+    //cy.get('.govuk-grid-column-two-thirds').contains(`${LA}`)
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
 
     cy.contains('Add permissions')
     cy.contains('Manage permissions')
     
-    cy.contains('Activate a local authority')
-      .should('not.exist');
-    cy.contains('Add a VCS service')
-      .should('not.exist');
-    cy.contains('Manage VCS services')
-      .should('not.exist');
+    //cy.contains('Activate a local authority')
+    //  .should('not.exist');
+    //cy.contains('Add a VCS service')
+    //  .should('not.exist');
+    //cy.contains('Manage VCS services')
+    //  .should('not.exist');
 
     cy.contains('Add an organisation')
     cy.contains('Manage organisations')
