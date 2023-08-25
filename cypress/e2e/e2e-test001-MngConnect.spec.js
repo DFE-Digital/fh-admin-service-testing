@@ -51,7 +51,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
 
 
     it('Connect - (la Professional) Create and view connection request ',()=>{
-        cy.visit('https://test.connect-families-to-support.education.gov.uk');
+        cy.visit('https://dev.connect-families-to-support.education.gov.uk');
         cy.refServLanding();
         cy.searchbypostcode('E1 5NP');
         cy.get('ul.search-results>li:nth-child(1) a').click();
@@ -59,7 +59,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
             const href = $el.attr('href');
             const serviceid = href.substring(45)
             cy.connectlogin('oneloginLAusername', 'oneloginpassword', serviceid);
-            cy.visit(`https://test.connect-families-to-support.education.gov.uk/ProfessionalReferral/Safeguarding?serviceId=${serviceid}`);
+            cy.visit(`https://dev.connect-families-to-support.education.gov.uk/ProfessionalReferral/Safeguarding?serviceId=${serviceid}`);
         });
         cy.get('.app-button--inverted').click();
         cy.selectRadioButtonAndContinue('#shared-privacy-yes', 'div.govuk-grid-row button');

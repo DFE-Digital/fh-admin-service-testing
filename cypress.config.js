@@ -7,7 +7,7 @@ var isAzurePipeline = configJson.isAzurePipeline;
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
   e2e: {
-       'baseUrl': 'https://test.manage-family-support-services-and-accounts.education.gov.uk/',
+       'baseUrl': 'https://dev.manage-family-support-services-and-accounts.education.gov.uk/',
 
     'specPattern': ['**/*.spec.js', '**/*.feature','**/*.cy'],
     setupNodeEvents(on, config) {
