@@ -1,10 +1,9 @@
-describe('| manVcs-dfeAmin-delConfirmNoPage | FHG-3811 DFE Admin - Manage VCS organisation (You have not deleted the service page)',{ tags: ['LAMan'] },()=>{
-  
-    it('AC 1,2,3 - page content , go to homepage , title ',function(){
+describe('| manVcs-dfeAmin-delConfirmNoPage | FHG-3811 DFE Admin - Manage VCS organisation (You have not deleted the service page)', { tags: ['LAMan'] }, () => {
+
+    it('AC 1,2,3 - page content , go to homepage , title ', function () {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.LAManWelcomePage('London Borough of Redbridge')
-         //manage VCS link
+        //manage VCS link
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.manVcsDel()

@@ -4,8 +4,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
     // As a DFE Admin  creating an VCS account
     beforeEach(() => {
         cy.visit('/')
-        cy.integrationLogin('laman')   
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.integrationLogin('laman')
         cy.addPermissions()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')

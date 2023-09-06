@@ -1,18 +1,18 @@
-describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page',{tags: ['LAMan']},()=>{
-     beforeEach(() => {
-        cy.visit('/')    
-        cy.integrationLogin('laman')   
+describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page', { tags: ['LAMan'] }, () => {
+    beforeEach(() => {
+        cy.visit('/')
+        cy.integrationLogin('laman')
     })
 
-    
-    it('AC 1,11 - LA Manager logged in homepage validate content',()=>{
-       cy.visit('/')
+
+    it('AC 1,11 - LA Manager logged in homepage validate content', () => {
+        cy.visit('/')
         // validate page content 
         // name of person logged in 
         cy.LAManWelcomePage('London Borough of Redbridge')
-        
+
     })
-    it('AC 2,3,4,5,6,7,8,9 -page links',()=>{
+    it('AC 2,3,4,5,6,7,8,9 -page links', () => {
         cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
 

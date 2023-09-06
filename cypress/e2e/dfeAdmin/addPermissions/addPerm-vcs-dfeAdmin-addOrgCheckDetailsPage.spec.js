@@ -1,19 +1,18 @@
-describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page',{tags: ['dfeAdmin']},()=>{
+describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check details page', { tags: ['dfeAdmin'] }, () => {
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an VCS account
-    beforeEach(()=> {
-		cy.visit('/')
-      cy.integrationLogin('dfeadmin')
-        cy.dfeAdminWelcomePage()
+    beforeEach(() => {
+        cy.visit('/')
+        cy.integrationLogin('dfeadmin')        
         cy.addPermissions()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
         cy.vcsWhichLA('redbridge')
     })
 
-    it('AC 1,4 - Validate page content , back link',()=>{
-         cy.contains('Which organisation do they work for?')
+    it('AC 1,4 - Validate page content , back link', () => {
+        cy.contains('Which organisation do they work for?')
         // add org link
         cy.addOrgLink()
         // add organisation name page
@@ -25,7 +24,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         // continue
         cy.checkDetailsPage()
     })
-    it('AC 2 - Continue to next page',()=>{
+    it('AC 2 - Continue to next page', () => {
         cy.contains('Which organisation do they work for?')
         // add org link
         cy.addOrgLink()
@@ -38,7 +37,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         // VCS added 
         cy.contains('Voluntary community organisation added')
     })
-    it('AC 3 - Change option',()=>{
+    it('AC 3 - Change option', () => {
         // add org link
         cy.addOrgLink()
         // add organisation name page
@@ -46,9 +45,5 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         cy.get('.govuk-link').click()
         // add organisation name page
         cy.addOrgVcs(n + 'New VCS Organisation name')
-
-
     })
-
-
 })

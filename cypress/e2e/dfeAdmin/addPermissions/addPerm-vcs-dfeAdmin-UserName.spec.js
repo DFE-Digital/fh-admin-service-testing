@@ -1,19 +1,19 @@
-describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name?", {tags: ['dfeAdmin']},()=>{
-    const num = Date.now();
-    const n = num.toString();  
+describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their full name?", { tags: ['dfeAdmin'] }, () => {
+  const num = Date.now();
+  const n = num.toString();
   // As a DFE Admin  creating an VCS account
-    beforeEach(()=> {
-		    cy.visit('/')
-       cy.integrationLogin('dfeadmin')
-        cy.dfeAdminWelcomePage()
-        cy.addPermissions()
-        cy.typeOfUserPage('vcs')
-        cy.typeOfUserVCS('1')
-        cy.vcsWhichLA('redbridge')
-        cy.whichOrgVcs('cranbrook')
-        cy.email(n +'abcdef@def.com')
-	})
-  it('AC 1, 3 - validate page content , back link ',()=>{
+  beforeEach(() => {
+    cy.visit('/')
+    cy.integrationLogin('dfeadmin')    
+    cy.addPermissions()
+    cy.typeOfUserPage('vcs')
+    cy.typeOfUserVCS('1')
+    cy.vcsWhichLA('redbridge')
+    cy.whichOrgVcs('cranbrook')
+    cy.email(n + 'abcdef@def.com')
+  })
+
+  it('AC 1, 3 - validate page content , back link ', () => {
     cy.fullName('John Smith')
     cy.contains('Check account details')
     // back button - takes user to user name page
@@ -26,7 +26,8 @@ describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their
     cy.fullName(`${longName}`)
     cy.contains(`${longName}`)
   })
-  it('AC 2 - no name entered - error message',()=>{
+  
+  it('AC 2 - no name entered - error message', () => {
     cy.get('.govuk-button').click()
     cy.get('.govuk-error-summary').contains('There is a problem')
     cy.get('.govuk-error-summary').contains('Enter a name')
