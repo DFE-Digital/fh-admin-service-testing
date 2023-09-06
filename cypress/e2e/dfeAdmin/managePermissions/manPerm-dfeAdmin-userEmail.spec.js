@@ -8,7 +8,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     })
     it('AC 1 , 4 - page content , back link ', function () {
         cy.visit('/')
-        cy.dfeAdminWelcomePage()
         //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -24,8 +23,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
 
     })
     it('AC 1,4 Page content ,valid email address,back button', () => {
-
-        cy.dfeAdminWelcomePage()
         //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -43,7 +40,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         cy.contains('Manage user permissions')
     })
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
-        cy.dfeAdminWelcomePage()
         //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()

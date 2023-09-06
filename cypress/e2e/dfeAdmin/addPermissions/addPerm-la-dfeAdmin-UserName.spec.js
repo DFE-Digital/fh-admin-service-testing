@@ -1,18 +1,17 @@
-describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their full name?", {tags: ['dfeAdmin']},()=>{
-    const num = Date.now();
-    const n = num.toString();  
+describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their full name?", { tags: ['dfeAdmin'] }, () => {
+  const num = Date.now();
+  const n = num.toString();
   // As a DFE Admin  creating an LA account
-    beforeEach(()=> {
-		    cy.visit('/')
-        cy.integrationLogin('dfeadmin')
-        cy.dfeAdminWelcomePage()
-        cy.addPermissions()
-        cy.typeOfUserPage('la')
-        cy.typeOfUserLA('1')
-        cy.laWhichLA('bristol')
-        cy.email(n +'abcdef@def.com')
-	})
-  it('AC 1, 3 - validate page content , back link ',()=>{
+  beforeEach(() => {
+    cy.visit('/')
+    cy.integrationLogin('dfeadmin')    
+    cy.addPermissions()
+    cy.typeOfUserPage('la')
+    cy.typeOfUserLA('1')
+    cy.laWhichLA('bristol')
+    cy.email(n + 'abcdef@def.com')
+  })
+  it('AC 1, 3 - validate page content , back link ', () => {
     cy.fullName('Fantastic Elephant')
     cy.contains('Check account details')
     // back button - takes user to user name page
@@ -25,7 +24,7 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
     cy.fullName(`${longName}`)
     cy.contains(`${longName}`)
   })
-  it('AC 2 - no name entered - error message',()=>{
+  it('AC 2 - no name entered - error message', () => {
     cy.get('.govuk-button').click()
     cy.get('.govuk-error-summary').contains('There is a problem')
     cy.get('.govuk-error-summary').contains('Enter a name')

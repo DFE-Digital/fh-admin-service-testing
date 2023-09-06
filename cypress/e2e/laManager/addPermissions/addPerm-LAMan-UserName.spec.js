@@ -4,8 +4,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     // As a LA Manager creating LA and VCS user accounts
     beforeEach(() => {
         cy.visit('/')
-         cy.integrationLogin('laman')   
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.integrationLogin('laman')
         cy.addPermissions()
     })
 

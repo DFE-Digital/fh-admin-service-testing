@@ -1,38 +1,36 @@
-describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ',{tags: ['dfeAdmin']},()=>{
-     beforeEach(()=> {
-		cy.visit('/')
-        cy.integrationLogin('dfeadmin')   
-	})
-    
-    it('AC 1 , 4 - page content , back link ',function(){
-        cy.dfeAdminWelcomePage()
+describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( Manage User Permissions) Page ', { tags: ['dfeAdmin'] }, () => {
+    beforeEach(() => {
+        cy.visit('/')
+        cy.integrationLogin('dfeadmin')
+    })
+
+    it('AC 1 , 4 - page content , back link ', function () {
         //manage permissions link 
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         // back link
         cy.get('.govuk-back-link').click()
         cy.dfeAdminWelcomePage()
-       
+
     })
-     it('AC 2 - edit permissions link ',function(){
-        cy.dfeAdminWelcomePage()
+
+    it('AC 2 - edit permissions link ', function () {
         //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         // delete permissions link
-        cy.editPermissionsLink()   
+        cy.editPermissionsLink()
     })
-    it('AC 3 - delete permissions link ',function(){
-        cy.dfeAdminWelcomePage()
-         //manage permissions link
+
+    it('AC 3 - delete permissions link ', function () {
+        //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         // delete permissions link
         cy.deletePermissionsLink()
-       
     })
+
     it('AC 5 - Type of user filters - Both LA and VCS ', () => {
-        cy.dfeAdminWelcomePage()
         //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
@@ -55,14 +53,13 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         // cy.contains('Redbridge')
     })
 
-    it('AC 6 - Name , Email , Organisation filter',()=>{
+    it('AC 6 - Name , Email , Organisation filter', () => {
         var n = Date.now().toString();
         var email = n + 'abc@co.uk';
         var name = n + 'John Smith';
-        cy.CreateVcsOrganisation(email,name);
+        cy.CreateVcsOrganisation(email, name);
 
-        cy.dfeAdminWelcomePage()
-         //manage permissions link
+        //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         cy.clearFilters()
@@ -74,7 +71,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.emailFilter(email)
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains(email)
         cy.clearFilters()
-        
+
         // organisation filter
         cy.organisationFilter('redbridge')
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('London Borough of Redbridge')
@@ -85,9 +82,9 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.clearFilters()
 
     })
-    it('AC 8 , 9 - no result found  + Clear filter',()=>{
-        cy.dfeAdminWelcomePage()
-         //manage permissions link
+
+    it('AC 8 , 9 - no result found  + Clear filter', () => {
+        //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
@@ -101,74 +98,72 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
 
     })
-    it('AC 11 , 12 Pagination',()=>{
-        cy.dfeAdminWelcomePage()
-         //manage permissions link
+
+    it('AC 11 , 12 Pagination', () => {
+        //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
-       // first page
+        // first page
         cy.get('.govuk-pagination__item--current > .govuk-pagination__link').click()
         cy.url().should('include', 'pageNumber=1')
         // second page
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
         cy.url().should('include', 'pageNumber=2')
-         // next page 
+        // next page 
         cy.get('.govuk-pagination__next > .govuk-pagination__link').click()
         cy.url().should('include', 'pageNumber=3')
         // last page 
         cy.get(':nth-child(6) > .govuk-pagination__link').click()
         cy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist')
     })
-     it(' Name - sort by Organisation name',function(){
-        cy.dfeAdminWelcomePage()
-         //manage permissions link
-        cy.managePermissionsLink()
-        cy.managePermissionsPage()
-        //check initial sort order on contact name
-		cy.checkSortOrder(0, 'none');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Name').click();
-		//check sort order on contact name
-		cy.checkSortOrder(0, 'ascending');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Name').click();
-		//check sort order on contact name
-		cy.checkSortOrder(0, 'descending');
 
-    })
-    it('Email address , sort by Email address',function(){
-        cy.dfeAdminWelcomePage()
+    it(' Name - sort by Organisation name', function () {
         //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         //check initial sort order on contact name
-		cy.checkSortOrder(1, 'none');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Email address').click();
-		//check sort order on contact name
-		cy.checkSortOrder(1, 'ascending');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Email address').click();
-		//check sort order on contact name
-		cy.checkSortOrder(1, 'descending');
-
+        cy.checkSortOrder(0, 'none');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Name').click();
+        //check sort order on contact name
+        cy.checkSortOrder(0, 'ascending');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Name').click();
+        //check sort order on contact name
+        cy.checkSortOrder(0, 'descending');
 
     })
-     it('Works for , sort by Works for',function(){
-        cy.dfeAdminWelcomePage()
+
+    it('Email address , sort by Email address', function () {
         //manage permissions link
         cy.managePermissionsLink()
         cy.managePermissionsPage()
         //check initial sort order on contact name
-		cy.checkSortOrder(2, 'none');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Works for').click();
-		//check sort order on contact name
-		cy.checkSortOrder(2, 'ascending');
-		//click on Organisation name heading link
-		cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Works for').click();
-		//check sort order on contact name
-		cy.checkSortOrder(2, 'descending');
+        cy.checkSortOrder(1, 'none');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Email address').click();
+        //check sort order on contact name
+        cy.checkSortOrder(1, 'ascending');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Email address').click();
+        //check sort order on contact name
+        cy.checkSortOrder(1, 'descending');
+    })
+
+    it('Works for , sort by Works for', function () {
+        //manage permissions link
+        cy.managePermissionsLink()
+        cy.managePermissionsPage()
+        //check initial sort order on contact name
+        cy.checkSortOrder(2, 'none');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Works for').click();
+        //check sort order on contact name
+        cy.checkSortOrder(2, 'ascending');
+        //click on Organisation name heading link
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Works for').click();
+        //check sort order on contact name
+        cy.checkSortOrder(2, 'descending');
     })
 })

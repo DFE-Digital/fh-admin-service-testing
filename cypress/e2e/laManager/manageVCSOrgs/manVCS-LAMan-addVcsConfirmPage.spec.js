@@ -1,12 +1,10 @@
-describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage ',{ tags: ['LAMan'] },()=>{
-        const num = Date.now();
-        const n = num.toString();
-    
+describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisations ConfirmationPage ', { tags: ['LAMan'] }, () => {
+    const num = Date.now();
+    const n = num.toString();
 
-    it('AC 1,2,3  Add VCS Org confirmation page',()=>{
+    it('AC 1,2,3  Add VCS Org confirmation page', () => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.LAManWelcomePage('London Borough of Redbridge')
         //manage VCS link
         cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
@@ -16,5 +14,5 @@ describe('| manVCS-addVcsConfirmPage.spec | FHG-3803 Manage VCS - add Organisati
         cy.get('#buttonContinue').click()
         cy.addVcsOrgConfirm()
         cy.LAManWelcomePage('London Borough of Redbridge')
-    })  
+    })
 })
