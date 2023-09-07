@@ -2,6 +2,7 @@ describe('| manPerm-userPermissions | FHG-1617 Manage permissions ( Manage User 
 
     it('AC 1 ', function () {
         cy.visit('/')
+        cy.integrationLogin('laman')
         //my account link
         cy.get('.govuk-header__content').contains('My account').click()
         cy.contains('Manage your account')
