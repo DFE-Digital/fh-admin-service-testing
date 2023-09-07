@@ -42,3 +42,15 @@ Cypress.Commands.add('CreateVcsOrganisation', (email, name) => {
   cy.checkAnswerPage()
   cy.contains('Go to homepage').click()
 })
+
+Cypress.Commands.add('LaCreateVcsOrganisation', (email, name) => {
+  cy.addPermissions()
+  cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')  
+  cy.typeOfUserVCS('1')
+  // cy.vcsWhichLA('redbridge')
+  cy.whichOrgVcs('cranbrook')
+  cy.email(email)
+  cy.fullName(name)
+  cy.checkAnswerPage()
+  cy.contains('Go to homepage').click()
+})
