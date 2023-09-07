@@ -1,8 +1,8 @@
-describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
-        const num = Date.now();
-        const n = num.toString();
-    
-    it.skip(`iphone-x - VCS Journey - Validate mobile version`,function(){
+describe('| 📱 addPerm-vcs-e2ejourney-mobile | ', { tags: ['LAMan'] }, () => {
+    const num = Date.now();
+    const n = num.toString();
+
+    it(`iphone-x - VCS Journey - Validate mobile version`, function () {
         cy.viewport(`iphone-x`)
         cy.visit('/')
         cy.integrationLogin('laman')
@@ -11,15 +11,13 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
-        cy.typeOfUserPage('vcs')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.myaccountMob()
         cy.typeOfUserVCS('1')
         cy.myaccountMob()
-        cy.vcsWhichLA('redbridge')
-        cy.myaccountMob()
         cy.whichOrgVcs('cranbrook')
         cy.myaccountMob()
-        cy.email(n +'abcdef@def.com')
+        cy.email(n + 'abcdef@def.com')
         cy.myaccountMob()
         cy.fullName('John Paul Smith')
         cy.myaccountMob()
@@ -27,9 +25,9 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.confirmationPage('John Paul Smith')
         cy.myaccountMob()
-    
+
     })
-     it.skip(`samsung-s10 - VCS Journey - Validate mobile version`,function(){
+    it(`samsung-s10 - VCS Journey - Validate mobile version`, function () {
         cy.viewport(`samsung-s10`)
         cy.visit('/')
         cy.integrationLogin('laman')
@@ -38,15 +36,14 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
-        cy.typeOfUserPage('vcs')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.myaccountMob()
         cy.myaccountMob()
         cy.typeOfUserVCS('1')
         cy.myaccountMob()
-        cy.vcsWhichLA('redbridge')
-        cy.myaccountMob()
         cy.whichOrgVcs('cranbrook')
         cy.myaccountMob()
-        cy.email(n +'+abcdef@def.com')
+        cy.email(n + '+abcdef@def.com')
         cy.myaccountMob()
         cy.fullName('+John Paul Smith')
         cy.myaccountMob()
@@ -54,10 +51,10 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.confirmationPage('+John Paul Smith')
         cy.myaccountMob()
-    
+
     })
-    //
-     it.skip(`ipad-mini - VCS Journey - Validate mobile version`,function(){
+
+    it(`ipad-mini - VCS Journey - Validate mobile version`, function () {
         cy.viewport(`ipad-mini`)
         cy.visit('/')
         cy.integrationLogin('laman')
@@ -66,15 +63,13 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.addPermissions()
         cy.myaccountMob()
-        cy.typeOfUserPage('vcs')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.myaccountMob()
         cy.typeOfUserVCS('1')
         cy.myaccountMob()
-        cy.vcsWhichLA('redbridge')
-        cy.myaccountMob()
         cy.whichOrgVcs('cranbrook')
         cy.myaccountMob()
-        cy.email(n +'++abcdef@def.com')
+        cy.email(n + '++abcdef@def.com')
         cy.myaccountMob()
         cy.fullName('++John Paul Smith')
         cy.myaccountMob()
@@ -82,7 +77,7 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ',{ tags: ['LAMan'] },()=>{
         cy.myaccountMob()
         cy.confirmationPage('++John Paul Smith')
         cy.myaccountMob()
-    
+
     })
-    
+
 })
