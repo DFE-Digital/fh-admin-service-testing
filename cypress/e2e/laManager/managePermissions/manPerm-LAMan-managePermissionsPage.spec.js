@@ -4,27 +4,28 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.integrationLogin('laman')
     });
 
+    it('Validate permissions page', function () {
+        cy.managePermissionsLink()
+        cy.managePermissionsPage()
+    })
 
     it('AC 1 , 4 - page content , back link ', function () {
         //manage permissions link 
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         // back link
         cy.get('.govuk-back-link').click()
         cy.LAManWelcomePage('London Borough of Redbridge')
-
     })
+
     it('AC 2 - edit permissions link ', function () {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         // delete permissions link
         cy.editPermissionsLink()
     })
     it('AC 3 - delete permissions link ', function () {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         // delete permissions link
         cy.deletePermissionsLink()
 
@@ -32,7 +33,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     it('AC 5 - Type of user filters - Both LA and VCS ', () => {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
+
         cy.clearFilters()
         // apply LA filter 
         cy.typeOfUserFilter('la')
@@ -46,40 +47,37 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         // add validations
         // first page has VCS 
         cy.contains('Cranbrook')
-
         // last page has LA 
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.contains('Redbridge')
     })
 
     it('AC 6 - Name , Email , Organisation filter', () => {
+        var n = Date.now().toString();
+        var email = n + 'abc@co.uk';
+        var name = n + 'John Smith';
+        cy.LaCreateVcsOrganisation(email, name);
+        
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
+
         cy.clearFilters()
         // name filter 
-        cy.nameFilter('1688045232974John Smith')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('1688045232974John Smith')
+        cy.nameFilter(name)
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains(name)
         cy.clearFilters()
         // email filter 
-        cy.emailFilter('1688539487973++abcdef@def.co.uk')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('1688539487973++abcdef@def.co.uk')
+        cy.emailFilter(email)
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains(email)
         cy.clearFilters()
-
         // organisation filter
-        cy.organisationFilter('Cranbrook Baptist Church')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Cranbrook Baptist Church')
+        cy.organisationFilter('London Borough of Redbridge')
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('London Borough of Redbridge')
         cy.clearFilters()
-        // 
-        cy.organisationFilter('Suffolk County Council')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Suffolk County Council')
-        cy.clearFilters()
-
     })
     it('AC 8 , 9 - no result found  + Clear filter', () => {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
         cy.clearFilters()
         // name filter 
@@ -95,7 +93,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     it('AC 11 , 12 Pagination', () => {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
         // first page
         cy.get('.govuk-pagination__item--current > .govuk-pagination__link').click()
@@ -114,7 +111,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     it(' Name - sort by Organisation name', function () {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(0, 'none');
         //click on Organisation name heading link
@@ -131,7 +127,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     it('Email address , sort by Email address', function () {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(1, 'none');
         //click on Organisation name heading link
@@ -147,7 +142,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
     it('Works for , sort by Works for', function () {
         //manage permissions link
         cy.managePermissionsLink()
-        cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(2, 'none');
         //click on Organisation name heading link

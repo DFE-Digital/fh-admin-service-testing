@@ -8,7 +8,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         cy.integrationLogin('laman')
     });
 
-    it('AC 1 , 4 - page content , back link ', function () {
+    it('AC 1 - page content', function () {
         cy.visit('/')
         //manage permissions link 
         cy.managePermissionsLink()
@@ -19,13 +19,10 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
         // enter a valid email id 
         cy.email(n + 'abcdef@def.com')
-        // back link
-        // cy.get('.govuk-back-link').click()
-        // cy.dfeAdminWelcomePagecomePage()
-
+        cy.contains("Email address changed")
     })
-    //todo fix 
-    it.only('AC 1,4 Page content ,valid email address,back button', () => {
+
+    it('AC 1,4 Page content , back button', () => {
         cy.visit('/')
         //manage permissions link 
         cy.managePermissionsLink()
@@ -35,17 +32,20 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit email link
         cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
         // enter a valid email id 
-        cy.email(n + 'abcdef@def.com')
-
-        cy.contains("What's their full name?")
-        // back button - takes user to email page
+        // cy.email(n + 'abcdef@def.com')
+        cy.contains("What's their email address?")
+        // back button - takes user to edit page
         cy.get('.govuk-back-link').click()
-        // back button - takes user to LA page
+        // back button - takes user to manage permissions page
         cy.get('.govuk-back-link').click()
-        cy.laWhichLA('bristol')
+        cy.contains('Manage user permissions')
     })
 
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
+        cy.managePermissionsLink()
+        cy.editPermissionsLink()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+
         // error message when user does not enter any email address
         cy.get('.govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
@@ -57,12 +57,14 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
             cy.email(`${invalidEmails[i]}`)
             cy.get('.govuk-error-summary').contains('There is a problem')
             cy.get('.govuk-error-summary').contains('Enter an email address')
-            // after error message , user is able to continue with entering correct details
-            cy.email(n + 'abcdef@def.com')
-            // back button - takes user to LA page
-            cy.get('.govuk-back-link').click()
         }
+
+        // after error message , user is able to continue with entering correct details
+        cy.email(n + 'abcdef@def.com')
+        cy.contains('Email address changed')
+
         // back button - takes user to LA page
-        cy.get('.govuk-back-link').click()
+        cy.get('.govuk-button').click()
+        cy.contains('London Borough of Redbridge')
     })
 })
