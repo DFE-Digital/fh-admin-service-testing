@@ -37,7 +37,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
         cy.typeOfUserPage('la')
 
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 

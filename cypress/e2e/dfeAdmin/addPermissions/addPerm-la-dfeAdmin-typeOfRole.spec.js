@@ -34,7 +34,7 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
         cy.visit('/')
         cy.addPermissions()
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select who you are adding permissions for')
         //user makes a seletion

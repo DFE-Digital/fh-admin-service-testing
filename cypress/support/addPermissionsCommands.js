@@ -56,7 +56,7 @@ Cypress.Commands.add('typeOfUserVCS',(selection)=>{
         cy.get('[data-testid="VcsManager"]').check();
         cy.get('#VcsProfessional').check();
     }
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
 })
 
 //la route - which local authority do they work for ?
