@@ -33,7 +33,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         cy.contains(n + ' -VCS Organisation name')
         // // continue
         // cy.checkDetailsPage()
-        cy.get('.govuk-button').click()
+        cy.get('#buttonConfirm').click()
         // VCS added 
         cy.contains('Voluntary community organisation added')
     })
@@ -42,7 +42,8 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         cy.addOrgLink()
         // add organisation name page
         cy.addOrgVcs(n + ' VCS Organisation name')
-        cy.get('.govuk-link').click()
+        cy.get('#buttonConfirm').click()
+        cy.get('#buttonGoToHome').click()
         // add organisation name page
         cy.addOrgVcs(n + 'New VCS Organisation name')
     })
