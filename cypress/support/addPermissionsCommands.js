@@ -84,3 +84,16 @@ Cypress.Commands.add('checkAnswerPage',()=>{
     cy.get('.govuk-button').contains('Confirm details').click();
 
 })
+
+ // Check confirmation page 
+ Cypress.Commands.add('confirmationPage',(name)=>{
+    cy.get('.govuk-panel.govuk-panel--confirmation').contains('Permissions added')
+    cy.contains('What happens next')
+    cy.contains(`We've emailed ${name}:`)
+    cy.contains('to let them know their permissions have been set up')
+    cy.contains('a link to the service, where they can create their password and set up two-factor authentication')
+    //
+    cy.contains('Go to homepage').click()
+    cy.contains('Add account permissions to manage family support services and manage connection requests.')
+
+ })

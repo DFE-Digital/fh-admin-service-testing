@@ -25,7 +25,7 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
     cy.contains(`${longName}`)
   })
   it('AC 2 - no name entered - error message', () => {
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
     cy.get('.govuk-error-summary').contains('There is a problem')
     cy.get('.govuk-error-summary').contains('Enter a name')
     // user is able to enter valid name after error message 
