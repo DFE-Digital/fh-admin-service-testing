@@ -93,9 +93,7 @@ Cypress.Commands.add('LAManWelcomePage',(LA)=>{
 
   // ********************** Accounts *************************
    // Select add permissions
-  Cypress.Commands.add('addPermissions',()=>{
-    cy.get('#add-permission').click()
-  })
+
   // Type of user page 
 Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
     cy.title().should('eq','Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
@@ -194,19 +192,8 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.get('#emailAddress').click().clear().type(emailAdd)
     cy.get('#buttonContinue').click()
   })
-  // What's the user's full name?
-  Cypress.Commands.add('fullName',(fullName)=>{
-    cy.title().should('eq',"What's their full name? - Manage family support services and accounts - GOV.UK")
-    cy.pageHeadings().contains("What's their full name?")
-    cy.get('#fullName').click().clear().type(fullName)
-    cy.get('.govuk-button').click()
-  })
-  // Check account details page
-  Cypress.Commands.add('checkAnswerPage',()=>{
-    cy.contains('Check account details')
-    cy.get('.govuk-button').click()
 
-  })
+
   //Check details page 
 Cypress.Commands.add('checkAnswerDetails', (expectedContent)=> {
 // Iterate over the elements with class "govuk-summary-list__row"
