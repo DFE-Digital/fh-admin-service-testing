@@ -31,7 +31,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
     it('AC 2 , 4 - unrecognised text / blank - no result found displayed in dropdown , error message', () => {
         cy.pageHeadings().contains('Which organisation do they work for?')
         // user tries to contiue without making selection 
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         // error message 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains('Select an organisation')
@@ -41,7 +41,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         //No results found
         cy.get('ul#VcsOrganisationName__listbox').contains('No results found')
         // user tries to contiue 
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         // error message 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains('Select an organisation')
@@ -58,7 +58,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
     it('Error page back link', () => {
         cy.pageHeadings().contains('Which organisation do they work for?')
         // user tries to contiue without making selection 
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         // error message 
         cy.get('.govuk-error-summary').contains('There is a problem')
         // back button - takes user to What do they need to do? page

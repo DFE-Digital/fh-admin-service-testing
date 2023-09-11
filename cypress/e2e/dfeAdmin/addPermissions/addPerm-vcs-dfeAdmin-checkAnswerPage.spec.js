@@ -45,7 +45,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Email address': n + 'abcdef@def.com',
       'Name': n + 'John Steven Smith',
     };
-    cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkWhoFor').click()
     cy.typeOfUserPage('vcs')
     cy.typeOfUserVCS('both')
     cy.vcsWhichLA('bristol')
@@ -68,7 +68,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Email address': n + 'abcdef@def.com',
       'Name': n + 'John Steven Smith',
     };
-    cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkTypeOfPermission').click()
     cy.typeOfUserVCS('both')
     cy.vcsWhichLA('bristol')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
@@ -89,7 +89,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Email address': n + 'abcdef@def.com',
       'Name': n + 'John Steven Smith',
     };
-    cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkLocalAuthority').click()
     cy.vcsWhichLA('bristol')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
     cy.email(n + 'abcdef@def.com')
@@ -109,7 +109,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Email address': n + 'abcdef@def.com',
       'Name': n + 'John Steven Smith',
     };
-    cy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkVcsOrganisation').click()
     cy.whichOrgVcs('Jubilee Church Ilford')
     cy.email(n + 'abcdef@def.com')
     cy.fullName(n + 'John Steven Smith')
@@ -128,7 +128,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Email address': n + 'new.email@def.com',
       'Name': n + 'John Steven Smith',
     };
-    cy.get(':nth-child(5) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkEmailAddress').click()
     cy.email(n + 'new.email@def.com')
     cy.fullName(n + 'John Steven Smith')
     // validate response
@@ -146,7 +146,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Name': n + 'John Paul Smith Jr',
     };
 
-    cy.get(':nth-child(6) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkFullName').click()
     cy.fullName(n + 'John Paul Smith Jr')
     // validate response
     cy.contains('Check account details')

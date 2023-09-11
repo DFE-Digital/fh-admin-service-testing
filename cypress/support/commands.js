@@ -159,7 +159,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
 Cypress.Commands.add('checkDetailsPage',()=>{
   cy.contains('Check details')
   cy.title().should('eq','Check details - Manage family support services and accounts - GOV.UK')
-  cy.get('.govuk-button').click()
+  cy.get('#buttonConfirm').click()
 })
 // Add organisation VCS - confirmation page 
 Cypress.Commands.add('addVcsOrgConfirmation',()=>{
@@ -168,7 +168,7 @@ Cypress.Commands.add('addVcsOrgConfirmation',()=>{
   cy.contains('What happens next')
   cy.contains('You can now create user accounts for the organisation.')
   cy.contains('You can do this from your homepage.')
-  cy.get('.govuk-button').click()
+  cy.get('#buttonGoToHome').click()
   cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
 })
