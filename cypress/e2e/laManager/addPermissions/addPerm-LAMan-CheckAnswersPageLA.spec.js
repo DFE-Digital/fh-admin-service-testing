@@ -41,7 +41,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkWhoFor').click()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('both')
         cy.whichOrgVcs('cranbrook')
@@ -62,7 +62,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkTypeOfPermission').click()
         cy.typeOfUserLA('both')
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Steven Smith')
@@ -80,7 +80,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkEmailAddress').click()
         cy.email(n + 'new.email@defg.com')
         cy.fullName(n + 'John Steven Smith')
         // validate response
@@ -97,7 +97,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkFullName').click()
         cy.fullName(n + 'John Paul Smith Jr')
         // validate response
         cy.contains('Check account details')
