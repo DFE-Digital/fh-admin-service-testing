@@ -96,7 +96,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.get('#LaOrganisationName').click().clear()
     cy.get('#LaOrganisationName').type(searchString)
     cy.get('#LaOrganisationName__option--0').click()
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
   })
   // What's their email address?
   Cypress.Commands.add('email',(emailAdd)=>{
@@ -151,7 +151,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
   cy.contains("What is the organisation's name?")
  // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
  cy.get('#organisationName').click().clear().type(orgName)
- cy.get('.govuk-button').click()
+ cy.get('#buttonContinue').click()
  cy.contains('Check details')
 
  })
