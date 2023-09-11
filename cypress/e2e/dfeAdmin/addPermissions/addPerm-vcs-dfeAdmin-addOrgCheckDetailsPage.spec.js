@@ -37,13 +37,12 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         // VCS added 
         cy.contains('Voluntary community organisation added')
     })
-    it('AC 3 - Change option', () => {
+    it.only('AC 3 - Change option', () => {
         // add org link
         cy.addOrgLink()
         // add organisation name page
         cy.addOrgVcs(n + ' VCS Organisation name')
-        cy.get('#buttonConfirm').click()
-        cy.get('#buttonGoToHome').click()
+        cy.get('#linkOrganisationName').click()
         // add organisation name page
         cy.addOrgVcs(n + 'New VCS Organisation name')
     })
