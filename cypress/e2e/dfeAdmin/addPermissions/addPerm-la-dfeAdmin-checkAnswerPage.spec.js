@@ -1,6 +1,8 @@
 describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
   const num = Date.now();
   const n = num.toString();
+  const delayTime = 250;
+
   // As a DFE Admin  creating an LA account
   beforeEach(() => {
     cy.visit('/')
@@ -21,7 +23,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.com')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
@@ -50,13 +52,13 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.co.in')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
 
-    cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkWhoFor').click()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -78,13 +80,13 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.co.pl')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
 
-    cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkTypeOfPermission').click()
     cy.typeOfUserLA('1')
     cy.laWhichLA('redbridge')
 
@@ -104,13 +106,13 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.co.nz')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
 
-    cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkLocalAuthority').click()
     cy.laWhichLA('redbridge')
 
     cy.email(n + 'abcdef@def.co.nzl')
@@ -129,13 +131,13 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.co.au')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
 
-    cy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkEmailAddress').click()
     cy.email(n + 'abcdef@def.co.aul')
     cy.fullName('Unusual Koala')
   })
@@ -152,12 +154,12 @@ describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check 
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
-    cy.wait(1000)
+    cy.wait(delayTime)
     cy.email(n + 'abcdef@def.co.au')
     cy.fullName('Unusual Koala')
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
-    cy.get(':nth-child(5) > .govuk-summary-list__actions > .govuk-link').click()
+    cy.get('#linkFullName').click()
     cy.fullName('John Paul Smith Jr')
   })
 })
