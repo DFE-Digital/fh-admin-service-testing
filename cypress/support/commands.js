@@ -81,7 +81,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     } else if (permissionType === 'vcs'){
       cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
     }
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
   })
 
 
@@ -139,7 +139,7 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
     cy.title().should('eq','Which organisation do they work for? - Manage family support services and accounts - GOV.UK')
     cy.get('#VcsOrganisationName').click().clear().type(searchString)
     cy.get('#VcsOrganisationName__option--0').click()
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
  })
  // Add organisation link 
  Cypress.Commands.add('addOrgLink',()=>{
