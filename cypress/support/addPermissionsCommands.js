@@ -82,7 +82,6 @@ Cypress.Commands.add('fullName',(fullName)=>{
 Cypress.Commands.add('checkAnswerPage',()=>{
     cy.contains('Check account details')
     cy.get('.govuk-button').contains('Confirm details').click();
-
 })
 
  // Check confirmation page 

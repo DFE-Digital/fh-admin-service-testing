@@ -44,7 +44,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
         cy.manVcsDel()
         cy.DelVcsPage()
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('.govuk-button').contains('Confirm').click();
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select if you want to delete the organisation')
         // make a selection

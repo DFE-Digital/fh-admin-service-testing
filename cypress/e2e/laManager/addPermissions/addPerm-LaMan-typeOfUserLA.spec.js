@@ -49,7 +49,7 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
     it('AC 5 - LA - no selection - error message', () => {
 
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 

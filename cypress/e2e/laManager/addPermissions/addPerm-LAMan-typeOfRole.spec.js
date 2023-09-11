@@ -50,7 +50,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
 
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 
