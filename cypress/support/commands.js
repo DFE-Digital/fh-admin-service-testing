@@ -310,55 +310,7 @@ Cypress.Commands.add('checkPaginationSelection', (value)=> {
 
 
 // ********************** Voluntary community organisations (VCSs) *************************
-// manage VCS Organisation link
-Cypress.Commands.add('manVcsLink',()=>{
-  cy.contains('Manage VCS organisations').click()
-  cy.contains('Manage organisations')
-  cy.contains('View, change or delete existing organisations.')
-  cy.title().should('eq','Manage organisations - Manage family support services and accounts - GOV.UK')
-})
-Cypress.Commands.add('laManVcsLink',()=>{
-  cy.contains('Manage organisations').click()
-  cy.contains('Manage organisations')
-  cy.contains('View, change or delete existing organisations.')
-  cy.title().should('eq','Manage organisations - Manage family support services and accounts - GOV.UK')
-})
-// View VCS Organisation link
-Cypress.Commands.add('manVcsView',()=>{
-  cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
-  cy.contains('Back to manage local authorities and organisations')
 
-
-})
-// Delete VCS Organisation link
-Cypress.Commands.add('manVcsDel',()=>{
-  cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Delete').click()
-})
-// view vcs organisation 
-Cypress.Commands.add('manVcsViewPage',(orgName,LA)=>{
-  cy.get('.govuk-heading-l').contains(`${orgName}`)
-  cy.get('#OrganisationName').contains(`${orgName}`)
-  cy.get('#LocalAuthority').contains(`${LA}`)
-  cy.get('#OrganisationType').contains('Voluntary community organisation')
-  cy.title().should('eq',`${orgName} - Manage family support services and accounts - GOV.UK`)
- 
-
-})
-// Edit VCS Org Name 
-Cypress.Commands.add('editVcsName',(orgName)=>{
-  cy.get('.govuk-link').contains('Change').click()
-  cy.contains("What is the organisation's name?")
-  cy.get('#organisationName').click().clear().type(orgName)
-})
-// add VCS Org confirmation page 
-Cypress.Commands.add('addVcsOrgConfirm',()=>{
-  cy.get('.govuk-button').click()
-  cy.contains('You have saved these details')
-  cy.contains('Any changes will show in the directory straight away.')
-  cy.title().should('eq',`You have saved these details - Manage family support services and accounts - GOV.UK`)
-  cy.get('.govuk-button').click()
-
-})
   
   // Sign in page
   Cypress.Commands.add('signInPage',()=>{
@@ -443,10 +395,12 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
       }
       cy.get('#filters-component > .govuk-button').click()
   })
-// Clear filters 
+
+  // Clear filters 
   Cypress.Commands.add('clearFilters',()=>{
-    cy.get('p > a').click()
+    cy.get('a').contains('Clear filters').click();
   })
+
   //email filter 
   Cypress.Commands.add('emailFilter',(email)=>{
     cy.get(':nth-child(2) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${email}`)
@@ -466,12 +420,6 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
     cy.get('#filters-component > .govuk-button').click()
   })
 
-   
-
- 
-
-  //******************************* OLD  manage services ******************************
-
 //view services
   Cypress.Commands.add('ViewServices',(serviceName)=>{
     cy.contains('Manage your services').click()
@@ -488,21 +436,7 @@ Cypress.Commands.add('addVcsOrgConfirm',()=>{
     cy.get(`[data-testid="${serviceID}-delete"]`).click();
     
    })
-   // delete confirmation
-   Cypress.Commands.add('deleteConfirm',(selection)=>{
-    cy.contains('Deleting a service')
-     if (selection === 'Yes') {
-    cy.get('[value="Yes, I want to delete it"]').check();
-    cy.get('.govuk-button').click()
-    cy.contains('You have deleted the service')
-  } else if (selection === 'No'){
-     cy.get('[value="No, I want to keep it"]').check();
-      cy.get('.govuk-button').click()
-     cy.contains('You have not deleted the service')
-  }
-    cy.get('.govuk-button').click()
-    cy.contains('Add a service to the directory.')
-   })
+
 // edit service
 Cypress.Commands.add('editService',(serviceID)=>{
   cy.contains('Manage your services')
