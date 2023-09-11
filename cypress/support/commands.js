@@ -108,7 +108,7 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
   } else if (permissionType === 'vcs'){
      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
   }
-  cy.get('.govuk-button').click()
+  cy.get('#buttonContinue').click()
   })
 
   // LA manager -  Type of user page 
@@ -144,7 +144,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
       cy.get('[data-testid="LaManager"]').check();
       cy.get('#LaProfessional').check();
   }
-  cy.get('.govuk-button').click()
+  cy.get('#buttonContinue').click()
   })
  // what do they need to do - VCS
   Cypress.Commands.add('typeOfUserVCS',(selection)=>{
@@ -174,7 +174,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.get('#LaOrganisationName').click()
     cy.get('#LaOrganisationName').type(searchString)
     cy.get('#LaOrganisationName__option--0').click()
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
   })
   //vcs route - which local authority do they work for ?
   Cypress.Commands.add('vcsWhichLA',(searchString)=>{
@@ -192,7 +192,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.pageHeadings().contains("What's their email address?")
     cy.contains('They will use this to sign in to their account.')
     cy.get('#emailAddress').click().clear().type(emailAdd)
-    cy.get('.govuk-button').click()
+    cy.get('#buttonContinue').click()
   })
   // What's the user's full name?
   Cypress.Commands.add('fullName',(fullName)=>{
@@ -419,7 +419,14 @@ function signIn(userType){
     failOnStatusCode: false 
   })
   cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/')
-  cy.get('.govuk-button').click()
+
+  cy.get('.js-cookie-banner-accept')
+    .then((val) => {
+      val.click()
+  })
+
+  cy.get('.govuk-button').contains('Start now').click();
+
   //
   cy.get('#sign-in-button').click()
   // login based on type of user
@@ -439,7 +446,7 @@ function signIn(userType){
   }
   cy.get('form > .govuk-button').click()
   // check if the user is signed in
-  cy.get('.govuk-header__navigation-item').contains('Sign out')
+  cy.get('.govuk-link--inverse').contains('Sign out')
 }
 
 // Sort ascending / descending 

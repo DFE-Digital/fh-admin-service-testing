@@ -23,7 +23,7 @@ describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is thei
     })
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
         // error message when user does not enter any email address
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
 
