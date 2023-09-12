@@ -16,7 +16,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkEmail').click()
         // enter a valid email id 
         cy.email(n + 'abcdef@def.com')
         cy.contains("Email address changed")
@@ -30,7 +30,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkEmail').click()
         // enter a valid email id 
         // cy.email(n + 'abcdef@def.com')
         cy.contains("What's their email address?")
@@ -44,10 +44,10 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
         cy.managePermissionsLink()
         cy.editPermissionsLink()
-        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkEmail').click()
 
         // error message when user does not enter any email address
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
 
@@ -64,7 +64,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         cy.contains('Email address changed')
 
         // back button - takes user to LA page
-        cy.get('.govuk-button').click()
+        cy.get('.govuk-button').contains('Go to homepage').click()
         cy.contains('London Borough of Redbridge')
     })
 })

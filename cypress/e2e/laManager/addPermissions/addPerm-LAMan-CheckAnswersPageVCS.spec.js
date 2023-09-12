@@ -42,7 +42,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(1) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkWhoFor').click()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('both')
         cy.email(n + 'abcdef@defg.com')
@@ -63,7 +63,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkTypeOfPermission').click()
         cy.typeOfUserVCS('both')
         cy.whichOrgVcs("St Mary's Woodford")
         cy.email(n + 'abcdef@defg.com')
@@ -83,7 +83,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(3) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkVcsOrganisation').click()
         cy.whichOrgVcs('Grief Encounter')
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Steven Smith')
@@ -102,7 +102,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(4) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkEmailAddress').click()
         cy.email(n + 'new.email@defg.com')
         cy.fullName(n + 'John Steven Smith')
         // validate response
@@ -120,7 +120,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         };
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Paul Smith')
-        cy.get(':nth-child(5) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('#linkFullName').click()
         cy.fullName(n + 'John Paul Smith Jr')
         // validate response
         cy.contains('Check account details')
