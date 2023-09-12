@@ -6,11 +6,11 @@ describe('| myaccountMobPage | FHG-2101 My account page header ',{tags: ['dfeAdm
 	})
     it('AC 1,2,3 - Header - my account and signout links',function(){        
          //my account link
-        cy.get('.govuk-header__content').contains('My account').click()
+        cy.get('.dfeuk-header__username').contains('My account').click()
         cy.contains('Manage your account')
         //signout link
-        cy.get('.govuk-header__content').contains('Sign out').click()
-        cy.contains('You have signed out')     
+        cy.get('.dfeuk-header__username').contains('Sign out').click()
+        cy.contains('You have signed out')
     })
 
 })
