@@ -1,4 +1,4 @@
-describe("| addPerm-la-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
+describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
   const num = Date.now();
   const n = num.toString();
   const delayTime = 250;
