@@ -24,7 +24,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
         // error message when user does not enter any email address
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
 
@@ -61,7 +61,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')
         // error message when user does not enter any email address
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
 
