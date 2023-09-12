@@ -30,7 +30,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
         cy.email(n + 'abcdef@def.com')
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter a name')
         // user is able to enter valid name after error message 
@@ -61,7 +61,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')
         cy.email(n + 'abcdef@def.com')
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter a name')
         // user is able to enter valid name after error message 
