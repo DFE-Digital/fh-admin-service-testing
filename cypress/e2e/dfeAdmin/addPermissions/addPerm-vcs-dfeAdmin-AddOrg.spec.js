@@ -28,7 +28,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
         cy.pageHeadings().contains('Which organisation do they work for?')
         cy.get('#add-organisation').click()
         // user tries to contiue without making selection 
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         // error message 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains("Enter the organisation's name")
@@ -42,7 +42,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
         cy.pageHeadings().contains('Which organisation do they work for?')
         cy.get('#add-organisation').click()
         // user tries to contiue without making selection 
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         // error message 
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('[data-testid="errors-list"] > li').contains("Enter the organisation's name")

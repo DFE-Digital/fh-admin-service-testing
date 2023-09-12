@@ -4,7 +4,7 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
         cy.integrationLogin('laman')
     })
     it('AC 1,4, Page content , Change name , back button ', function () {
-        cy.get('.govuk-header__container').contains('My account').click()
+        cy.get('.govuk-link--inverse').contains('My account').click()
         cy.myaccountPage()
         // click on change name
         cy.get('.govuk-table__cell--numeric > a').click()
@@ -15,10 +15,10 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
     })
     
     it('AC 2 - manage your gov.uk one login link', () => {
-        cy.get('.govuk-header__container').contains('My account').click()
+        cy.get('.govuk-link--inverse').contains('My account').click()
         cy.myaccountPage()
         // check href contains gov uk integration link
-        cy.get('.govuk-link').should('have.attr', 'href', 'https://home.integration.account.gov.uk')
+        cy.get('a').contains('Manage your GOV.UK One Login details').should('have.attr', 'href', 'https://home.integration.account.gov.uk')
     })
 
 })

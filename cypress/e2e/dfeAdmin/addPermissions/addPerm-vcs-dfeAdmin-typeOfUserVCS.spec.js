@@ -34,7 +34,7 @@ describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? 
     it('AC 4,5 - VCS - no selection, error message, select both to continue', () => {
 
         // error message when user does not select one of the options
-        cy.get('.govuk-button').click()
+        cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 
