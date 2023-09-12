@@ -172,15 +172,7 @@ Cypress.Commands.add('addVcsOrgConfirmation',()=>{
   cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
 })
-// mobile menu
-Cypress.Commands.add('myaccountMob',()=>{
-  cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
-  cy.get('.govuk-header__menu-button').click()
-  cy.get('.govuk-header__container').contains('Sign out')
-  cy.get('.govuk-header__container').contains('My account')
-  cy.get('.govuk-header__menu-button').click()
-  cy.get('.govuk-header__container').contains('Sign out').should('not.be.visible') 
-})
+
 // my account 
 Cypress.Commands.add('myaccountPage',()=>{
   cy.contains('Manage your account')
@@ -621,13 +613,12 @@ Cypress.Commands.add('uncheckSelectedCheckboxes', ()=> {
 Cypress.Commands.add('checkRequestDetails', (expectedContent)=> {
 // Iterate over the elements with class "govuk-summary-list__row"
     cy.get('div.govuk-summary-list__row').each(($row) => {
-        // Extract the key and value from each row
-        const key = $row.find('dt.govuk-summary-list__key').text().trim();
-        const value = $row.find('dd.govuk-summary-list__value').text().trim();
-        expect(value).to.equal(expectedContent[key]);
+      // Extract the key and value from each row
+      const key = $row.find('dt.govuk-summary-list__key').text().trim();
+      const value = $row.find('dd.govuk-summary-list__value').text().trim();
+      expect(value).to.equal(expectedContent[key]);
 
-        cy.get($row).find('a:not(.govuk-visually-hidden)')
-            .should('contain', 'Change');
+      cy.get($row).find('a:not(.govuk-visually-hidden)').should('contain', 'Change');
     })
 })
 
@@ -665,7 +656,6 @@ Cypress.Commands.add('uploadSheet',() => {
   cy.contains('This file upload only supports .xlsm, .xlsx and .xls spreadsheets.')
   cy.get('#FileUpload_FormFile').selectFile('cypress/fixtures/Local Authority Data Capture v7.0 test samples-01.xlsm')
 
- cy.get('.govuk-button').click()
- cy.contains('You have successfully uploaded your data')
-
+  cy.get('.govuk-button').click()
+  cy.contains('You have successfully uploaded your data')
 })
