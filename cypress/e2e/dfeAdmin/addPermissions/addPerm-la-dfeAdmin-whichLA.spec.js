@@ -5,7 +5,7 @@ describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local a
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
 

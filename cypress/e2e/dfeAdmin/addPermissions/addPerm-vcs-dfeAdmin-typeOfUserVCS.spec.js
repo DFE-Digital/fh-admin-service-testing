@@ -2,7 +2,7 @@ describe('| addPerm-vcs-typeOfUserVCS | FHG-3412 DFE - What do they need to do? 
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
     })
 

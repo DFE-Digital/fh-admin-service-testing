@@ -3,7 +3,7 @@ describe('| addPerm-vcs-whichLA | FHG-3414 DFE - add permissions - Which local a
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
 

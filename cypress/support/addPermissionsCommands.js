@@ -1,4 +1,4 @@
-Cypress.Commands.add('addPermissions',()=>{
+Cypress.Commands.add('gotoAddPermissionsPage',()=>{
     cy.get('#add-permission').click()
 })
 

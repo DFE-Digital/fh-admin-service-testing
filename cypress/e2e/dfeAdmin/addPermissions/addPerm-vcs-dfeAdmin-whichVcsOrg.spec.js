@@ -4,7 +4,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.visit('/')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
         cy.vcsWhichLA('redbridge')

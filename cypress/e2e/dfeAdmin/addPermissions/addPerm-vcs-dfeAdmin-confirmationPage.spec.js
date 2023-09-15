@@ -5,7 +5,7 @@ describe("| addPerm-vcs-confirmationPage | FHG-3579 DFE - add permissions - conf
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')

@@ -5,7 +5,7 @@ describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation pa
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
         cy.vcsWhichLA('redbridge')

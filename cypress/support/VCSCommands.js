@@ -32,7 +32,7 @@ Cypress.Commands.add('VcsYesDelPage',(OrgName)=>{
 })
 
 Cypress.Commands.add('CreateVcsOrganisation', (email, name) => {
-  cy.addPermissions()
+  cy.gotoAddPermissionsPage()
   cy.typeOfUserPage('vcs')
   cy.typeOfUserVCS('1')
   cy.vcsWhichLA('redbridge')
@@ -44,7 +44,7 @@ Cypress.Commands.add('CreateVcsOrganisation', (email, name) => {
 })
 
 Cypress.Commands.add('LaCreateVcsOrganisation', (email, name) => {
-  cy.addPermissions()
+  cy.gotoAddPermissionsPage()
   cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')  
   cy.typeOfUserVCS('1')
   // cy.vcsWhichLA('redbridge')

@@ -9,7 +9,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     // creating an LA account
     it('LA route ',()=>{
 		cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
         cy.email(n + 'abcdef@def.com')
@@ -22,7 +22,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     // creating an VCS account
     it('VCS route' ,()=>{
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')

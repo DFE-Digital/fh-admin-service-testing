@@ -7,7 +7,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
     it('AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button', () => {
         cy.visit('/')
 
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         // What do they need to do? page 
         cy.typeOfUserLA('1')
@@ -27,7 +27,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
     it('AC 3 - VCS route -  Make connection requests to voluntary and community sector services - option', () => {
         cy.visit('/')
 
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
 
         // What do they need to do? page 
@@ -46,7 +46,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
 
     it('AC 4 - LA - no selection - error message', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
 
         // error message when user does not select one of the options

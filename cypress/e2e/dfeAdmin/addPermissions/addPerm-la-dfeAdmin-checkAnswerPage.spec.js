@@ -19,7 +19,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -48,7 +48,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -76,7 +76,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -102,7 +102,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -127,7 +127,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')
@@ -150,7 +150,7 @@ describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check
       'Name': 'Unusual Koala',
     };
     cy.visit('/')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')

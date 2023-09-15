@@ -13,7 +13,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         // // cy.stubLogin('dfeAdmin')
         cy.dfeAdminWelcomePage()
 
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
         cy.vcsWhichLA('redbridge')
@@ -28,7 +28,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.addVcsOrgConfirmation('DfeAdmin')
 
         // add permissions using this newly added VCS organisation 
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')

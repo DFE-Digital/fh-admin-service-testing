@@ -6,7 +6,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 1 , 4 - page content , back link ', function () {
         //manage permissions link 
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         // back link
         cy.get('.govuk-back-link').click()
@@ -16,7 +16,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 2 - edit permissions link ', function () {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         // delete permissions link
         cy.editPermissionsLink()
@@ -24,7 +24,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 3 - delete permissions link ', function () {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         // delete permissions link
         cy.deletePermissionsLink()
@@ -32,7 +32,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 5 - Type of user filters - Both LA and VCS ', () => {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         cy.clearFilters()
         // apply LA filter 
@@ -60,7 +60,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.CreateVcsOrganisation(email, name);
 
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         cy.clearFilters()
         // name filter 
@@ -85,7 +85,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 8 , 9 - no result found  + Clear filter', () => {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
         cy.clearFilters()
@@ -101,7 +101,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('AC 11 , 12 Pagination', () => {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
         // first page
@@ -120,7 +120,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it(' Name - sort by Organisation name', function () {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(0, 'none');
@@ -137,7 +137,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('Email address , sort by Email address', function () {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(1, 'none');
@@ -153,7 +153,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     it('Works for , sort by Works for', function () {
         //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         //check initial sort order on contact name
         cy.checkSortOrder(2, 'none');

@@ -329,10 +329,7 @@ Cypress.Commands.add('checkPaginationSelection', (value)=> {
    })
 
    // ************* Manage Permissions **************************************
-   // Select manage permissions link
-  Cypress.Commands.add('managePermissionsLink',()=>{
-   cy.get(':nth-child(5) > :nth-child(2) > .govuk-heading-s > a').click()
-  })
+
    //Manage permissions
    Cypress.Commands.add('managePermissionsPage',()=>{
     cy.contains('Manage user permissions')
@@ -344,11 +341,7 @@ Cypress.Commands.add('checkPaginationSelection', (value)=> {
     cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Edit').click()
     cy.contains('Back to manage user accounts')
   })
-  // Delete permissions link
-  Cypress.Commands.add('deletePermissionsLink',()=>{
-    cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Delete').click()
-    cy.contains('This will remove all permissions that have been given to')
-  })
+
 // Delete permissions options page
   Cypress.Commands.add('deletePermissionsOptionPage',(user,selection)=>{
     cy.contains(`Do you want to delete ${user}'s permissions?`)
@@ -385,13 +378,6 @@ Cypress.Commands.add('checkPaginationSelection', (value)=> {
     cy.get('a').contains('Clear filters').click();
   })
 
-  //email filter 
-  Cypress.Commands.add('emailFilter',(email)=>{
-    cy.get(':nth-child(2) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${email}`)
-    cy.get('#filters-component > .govuk-button').click()
-    
-
-  })
   //name filter 
   Cypress.Commands.add('nameFilter',(name)=>{
     cy.get(':nth-child(1) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${name}`)

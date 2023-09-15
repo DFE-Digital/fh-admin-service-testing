@@ -5,7 +5,7 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
   beforeEach(() => {
     cy.visit('/')
     cy.integrationLogin('dfeadmin')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
     cy.laWhichLA('bristol')

@@ -5,7 +5,7 @@ describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is the
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')

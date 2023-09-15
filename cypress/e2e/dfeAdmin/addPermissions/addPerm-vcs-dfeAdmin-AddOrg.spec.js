@@ -5,7 +5,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')        
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
         cy.vcsWhichLA('redbridge')

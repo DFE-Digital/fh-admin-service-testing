@@ -5,7 +5,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
 
     })
     it('AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button', () => {
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         // What do they need to do? page 
         cy.typeOfUserLA('1')
@@ -19,7 +19,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
 
     })
     it('AC 3 - LA -  Make connection requests to voluntary and community sector services - option', () => {
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         // What do they need to do? page 
         cy.typeOfUserLA('2')
@@ -33,7 +33,7 @@ describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? pa
 
     })
     it('AC 4 - LA - no selection - error message', () => {
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
 
         // error message when user does not select one of the options

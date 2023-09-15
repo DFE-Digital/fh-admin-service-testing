@@ -5,7 +5,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
     })
 
     it('AC 1,4 LA Page content ,valid email address,back button', () => {

@@ -5,7 +5,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
     })
 
     it('AC 1, 3 - LA - validate page content , back link ', () => {

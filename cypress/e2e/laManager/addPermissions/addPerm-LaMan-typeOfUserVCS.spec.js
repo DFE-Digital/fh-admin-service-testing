@@ -2,7 +2,7 @@ describe('| addPerm-vcs-typeOfUserVCS | FHG-3886 LA Man - What do they need to d
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
     })
 

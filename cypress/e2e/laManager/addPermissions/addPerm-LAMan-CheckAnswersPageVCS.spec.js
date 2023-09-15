@@ -5,7 +5,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')

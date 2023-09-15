@@ -5,7 +5,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     n = Date.now().toString();
     cy.visit('/')
     cy.integrationLogin('dfeadmin')    
-    cy.addPermissions()
+    cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('vcs')
     cy.typeOfUserVCS('1')
     cy.vcsWhichLA('redbridge')

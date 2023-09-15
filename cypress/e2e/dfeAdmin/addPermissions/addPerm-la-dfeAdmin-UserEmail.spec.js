@@ -6,7 +6,7 @@ describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is thei
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('bristol')

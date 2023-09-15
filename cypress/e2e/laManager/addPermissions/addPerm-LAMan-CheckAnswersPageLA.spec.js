@@ -5,7 +5,7 @@ describe("| addPerm-la-checkAnswerPage | FHG-3911 LA manager - add permissions -
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
     })

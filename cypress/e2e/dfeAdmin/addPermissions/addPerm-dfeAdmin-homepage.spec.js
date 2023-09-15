@@ -24,7 +24,7 @@ describe('| addPerm-dfeAdminHomepage | FHG-1599 DFE Admin Homepage - add permiss
     })
     it('AC 2 - User logged in and selects add permissions', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage()
     })
 })

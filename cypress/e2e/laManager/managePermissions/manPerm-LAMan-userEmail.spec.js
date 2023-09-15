@@ -11,7 +11,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     it('AC 1 - page content', function () {
         cy.visit('/')
         //manage permissions link 
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         // edit service 
         cy.editPermissionsLink()
@@ -25,7 +25,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     it('AC 1,4 Page content , back button', () => {
         cy.visit('/')
         //manage permissions link 
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         // edit service 
         cy.editPermissionsLink()
@@ -42,7 +42,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     })
 
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.editPermissionsLink()
         cy.get('#linkEmail').click()
 

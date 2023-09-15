@@ -23,7 +23,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
     })
     
     it.skip('Manage - (dfe admin) Add permissions to user LA Professional', () => {  
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('2')
         cy.laWhichLA('tower hamlets')
@@ -34,7 +34,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
     })
     
     it.skip('Manage - (dfe admin) Add permissions to user VCS Professional', () => {  
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('2')
         cy.vcsWhichLA('tower hamlets')
@@ -81,7 +81,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
 
     it.skip('Manage - ( dfe admin) - delete LA Professional user permissions',()=>{
          //manage permissions link
-        cy.managePermissionsLink()
+        cy.gotoManagePermissionsPage()
         cy.managePermissionsPage()
         cy.emailFilter('harshare139@googlemail.com')
         // delete permissions link

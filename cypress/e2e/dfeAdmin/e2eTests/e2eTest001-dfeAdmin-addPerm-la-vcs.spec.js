@@ -12,7 +12,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     it('LA route ',()=>{
 		cy.visit('/')
         cy.dfeAdminWelcomePage()
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('redbridge')
@@ -27,7 +27,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
         //// cy.startPage()
         // cy.stubLogin('dfeAdmin')
         
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')

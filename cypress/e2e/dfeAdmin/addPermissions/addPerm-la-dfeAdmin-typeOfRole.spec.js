@@ -6,7 +6,7 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
     })
     it('AC 1,5 -  validate content', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.title().should('eq', 'Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
         cy.pageHeadings().contains('Who are you adding permissions for?')
         cy.contains('Someone who works for a local authority')
@@ -20,19 +20,19 @@ describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you
     })
     it('AC 2  -  LA option', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA()
     })
     it('AC 3  -  VCS option', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS()
     })
     it('AC 4  -  error message', () => {
         cy.visit('/')
-        cy.addPermissions()
+        cy.gotoAddPermissionsPage()
         // error message when user does not select one of the options
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
