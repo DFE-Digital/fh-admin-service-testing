@@ -199,25 +199,6 @@ Cypress.Commands.add('signOut',()=>{
     cy.contains('You have signed out')
 })
 
-Cypress.Commands.add('managelogin', (olusername, olpassword) => {
-    cy.session([olusername, olpassword], () => {
-
-        cy.visit(`https://${Cypress.env('username')}:${Cypress.env('password')}@signin.integration.account.gov.uk/?prompt=login`, { failOnStatusCode: false })
-        cy.visit('https://test.manage-family-support-services-and-accounts.education.gov.uk/') 
-        cy.get('.govuk-button').click()
-        //
-        cy.get('#sign-in-button').click()
-        // login based on type of user 
-        // login email
-        cy.get('#email').type(`${Cypress.env(olusername)}`)
-        cy.get('form > .govuk-button').click()
-        // login password
-        cy.get('#password').type(`${Cypress.env(olpassword)}`)
-        cy.get('form > .govuk-button').click()
-        cy.visit('/')
-    })
-})
-
 Cypress.Commands.add('connectlogin', (olusername, olpassword, id) => {
     cy.session([olusername, olpassword], () => {
 
@@ -281,18 +262,18 @@ function signIn(userType){
   cy.get('#sign-in-button').click()
   // login based on type of user
   if (userType == 'dfeadmin'){
-  // login email
-  cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
-  cy.get('form > .govuk-button').click()
-  // login password
-  cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+    // login email
+    cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+    cy.get('form > .govuk-button').click()
+    // login password
+    cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
   }
   else if ( userType == 'laman'){
-  // login email
-  cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
-  cy.get('form > .govuk-button').click()
-  // login password
-  cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
+    // login email
+    cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
+    cy.get('form > .govuk-button').click()
+    // login password
+    cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
   }
   cy.get('form > .govuk-button').click()
   // check if the user is signed in
@@ -667,6 +648,6 @@ Cypress.Commands.add('uploadSheet',() => {
   cy.contains('This file upload only supports .xlsm, .xlsx and .xls spreadsheets.')
   cy.get('#FileUpload_FormFile').selectFile('cypress/fixtures/Local Authority Data Capture v7.0 test samples-01.xlsm')
 
-  cy.get('.govuk-button').click()
+  cy.get('.govuk-button').contains('Upload').click()
   cy.contains('You have successfully uploaded your data')
 })
