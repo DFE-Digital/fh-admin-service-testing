@@ -1,22 +1,16 @@
 describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',{ tags: ['LAMan'] },()=>{
     const num = Date.now();
     const n = num.toString();
-    //  before(()=> {
-    //     // integration login
-    //     cy.integrationLogin()
 
-	// })
+    beforeEach(()=> {
+        cy.integrationLogin('laman') 
+	})
    
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
        cy.visit('/')
-        //// cy.startPage()
-        // // cy.stubLogin('dfeAdmin')
-        cy.dfeAdminWelcomePage()
-
         cy.addPermissions()
-        cy.typeOfUserPage('vcs')
-        cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.typeOfUserVCS('1')
         cy.contains('Which organisation do they work for?')
         // add org link
         cy.addOrgLink()
@@ -25,13 +19,12 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.contains(n + '+VCS Organisation name')
         // continue
         cy.checkDetailsPage()
-        cy.addVcsOrgConfirmation()
+        cy.addVcsOrgConfirmation('LaManager')
 
         // add permissions using this newly added VCS organisation 
         cy.addPermissions()
-        cy.typeOfUserPage('vcs')
+        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs(n + '+VCS Organisation name')
         cy.email(n +'-abcdef@def.com')
         cy.fullName('John Paul Smith')

@@ -20,6 +20,6 @@ describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation pa
         cy.contains(n + '+VCS Organisation name')
         // continue
         cy.checkDetailsPage()
-        cy.addVcsOrgConfirmation()
+        cy.addVcsOrgConfirmation('DfeAdmin')
     })
 })

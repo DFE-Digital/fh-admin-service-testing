@@ -25,7 +25,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.contains(n + '+VCS Organisation name')
         // continue
         cy.checkDetailsPage()
-        cy.addVcsOrgConfirmation()
+        cy.addVcsOrgConfirmation('DfeAdmin')
 
         // add permissions using this newly added VCS organisation 
         cy.addPermissions()

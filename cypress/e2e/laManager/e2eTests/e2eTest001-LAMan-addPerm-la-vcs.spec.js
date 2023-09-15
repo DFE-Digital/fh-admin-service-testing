@@ -3,7 +3,6 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     const n = num.toString();
 
     beforeEach(()=> {
-        // integration login
         cy.integrationLogin('laman') 
 	})
 

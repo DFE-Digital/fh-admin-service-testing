@@ -162,16 +162,27 @@ Cypress.Commands.add('checkDetailsPage',()=>{
   cy.get('#buttonConfirm').click()
 })
 // Add organisation VCS - confirmation page 
-Cypress.Commands.add('addVcsOrgConfirmation',()=>{
+Cypress.Commands.add('addVcsOrgConfirmation',(userRole)=>{
   cy.contains('Voluntary community organisation added')
   cy.title().should('eq','Voluntary community organisation added - Manage family support services and accounts - GOV.UK')
   cy.contains('What happens next')
-  cy.contains('You can now create user accounts for the organisation.')
+
+  switch(userRole){
+    case 'DfeAdmin':
+      cy.contains('You can now create user accounts for the organisation.')
+      break;
+
+    case 'LaManager':
+      cy.contains('Before this organisation can accept support requests for its services, you need to add a user.')
+      break;
+  }
+
   cy.contains('You can do this from your homepage.')
   cy.get('#buttonGoToHome').click()
   cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
 })
+
 
 // my account 
 Cypress.Commands.add('myaccountPage',()=>{
