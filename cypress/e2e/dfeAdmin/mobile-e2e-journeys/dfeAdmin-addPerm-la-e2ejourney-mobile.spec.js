@@ -1,9 +1,20 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe('| 📱 addPerm-la-e2ejourney-mobile |', { tags: ['dfeAdmin'] }, () => {
-    const num = Date.now();
-    const n = num.toString();
+    var n;
+    var emailAddress;
+    var fullName;
+
     beforeEach(() => {
+        n = getDateString();
+        emailAddress = n + '+abcdef@def.com';
+        fullName = n + '+John Paul Smith';
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
+    })
+
+    afterEach(() => {
+        cy.deleteUser(emailAddress, fullName)
     })
 
     it(`ipad-mini - LA Journey - Validate mobile version`, function () {
@@ -14,10 +25,10 @@ describe('| 📱 addPerm-la-e2ejourney-mobile |', { tags: ['dfeAdmin'] }, () => 
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('redbridge')
-        cy.email(n + '+abcdef@def.com')
-        cy.fullName(n + '+John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage(n + '+John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
     it('iphone - LA Journey - Validate mobile version', () => {
@@ -28,10 +39,10 @@ describe('| 📱 addPerm-la-e2ejourney-mobile |', { tags: ['dfeAdmin'] }, () => 
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('redbridge')
-        cy.email(n + '-abcdef@def.com')
-        cy.fullName(n + '-John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage(n + '-John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
     it('samsung-s10 - LA Journey - Validate mobile version', () => {
@@ -42,9 +53,9 @@ describe('| 📱 addPerm-la-e2ejourney-mobile |', { tags: ['dfeAdmin'] }, () => 
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
         cy.laWhichLA('redbridge')
-        cy.email(n + 'abcdef@def.com')
-        cy.fullName(n + 'John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage(n + 'John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 })

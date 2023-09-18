@@ -1,23 +1,31 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - confirmation page for LA and VCS", { tags: ['LAMan'] }, () => {
-    let n;
+    var n;
+    var emailAddress;
+    var fullName;
 
     beforeEach(() => {
-        n = Date.now().toString()
+        n = getDateString();
+        emailAddress = n + 'abcdef@def.com';
+        fullName = n + 'John Paul Smith';
         cy.visit('/')
         cy.integrationLogin('laman')
     })
 
-    // As a DFE Admin  creating an LA account
+    afterEach(() => {
+        cy.deleteUser(emailAddress, fullName)
+    })
 
     it('AC 1,2 - validate confirmation page content for LA journey', () => {
         cy.visit('/')
         cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
-        cy.email(n + 'abcdef@def.com')
-        cy.fullName(n + 'John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage(n + 'John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
     it('AC 1,2 - validate confirmation page content for VCS journey', () => {
@@ -26,9 +34,9 @@ describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - c
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')
-        cy.email(n + 'abcdef@def.com')
-        cy.fullName(n + 'John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage(n + 'John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 })

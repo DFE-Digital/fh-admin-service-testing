@@ -1,11 +1,21 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',{ tags: ['LAMan'] },()=>{
-    const num = Date.now();
-    const n = num.toString();
+    var n;
+    var emailAddress;
+    var fullName;
 
     beforeEach(()=> {
+        n = getDateString();
+        emailAddress = n + '-abcdef@def.com';
+        fullName = n + 'John Paul Smith';
         cy.integrationLogin('laman') 
 	})
    
+    afterEach(() => {
+        cy.deleteUser(emailAddress, fullName)
+    })
+    
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
        cy.visit('/')
         cy.gotoAddPermissionsPage()
@@ -26,9 +36,9 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs(n + '+VCS Organisation name')
-        cy.email(n +'-abcdef@def.com')
-        cy.fullName('John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 })

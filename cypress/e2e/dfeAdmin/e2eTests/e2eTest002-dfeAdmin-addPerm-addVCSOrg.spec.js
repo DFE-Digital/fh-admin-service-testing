@@ -1,11 +1,18 @@
 describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirmation page',{tags: ['dfeAdmin']},()=>{
     const num = Date.now();
     const n = num.toString();
-     beforeEach(()=> {
+    const emailAddress = n + 'abcdef@def.com';
+    const fullName = 'John Paul Smith' + n;
+
+    beforeEach(()=> {
 		cy.visit('/')
         cy.integrationLogin('dfeadmin')
        
 	})
+
+    after(() => {
+        cy.deleteUser(emailAddress, fullName)
+    })
    
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
        cy.visit('/')
@@ -33,9 +40,9 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs(n + '+VCS Organisation name')
-        cy.email(n +'-abcdef@def.com')
-        cy.fullName('John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 })

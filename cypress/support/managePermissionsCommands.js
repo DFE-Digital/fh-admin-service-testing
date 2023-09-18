@@ -18,6 +18,7 @@ Cypress.Commands.add('deletePermissionsLink',()=>{
 // delete user
 Cypress.Commands.add('deleteUser',(userEmail, userName)=>{
    //  Delete created user
+   cy.viewport(`macbook-16`)
    cy.visit('/') 
    cy.gotoManagePermissionsPage()
    cy.emailFilter(userEmail)

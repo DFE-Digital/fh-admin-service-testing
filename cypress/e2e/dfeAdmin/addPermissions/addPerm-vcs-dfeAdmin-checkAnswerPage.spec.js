@@ -1,8 +1,13 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
   // As a DFE Admin  creating an VCS account
   var n;
+  var emailAddress;
+  
   beforeEach(() => {
-    n = Date.now().toString();
+    n = getDateString();
+    emailAddress = n + 'abcdef@def.com';
     cy.visit('/')
     cy.integrationLogin('dfeadmin')    
     cy.gotoAddPermissionsPage()
@@ -10,17 +15,21 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.typeOfUserVCS('1')
     cy.vcsWhichLA('redbridge')
     cy.whichOrgVcs('cranbrook')
-    cy.email(n + 'abcdef@def.com')
+    cy.email(emailAddress)
     cy.fullName(n + 'John Paul Smith')
 
   })
+
   it('AC 1,4 - validate page content , back link ', () => {
+
+    const fullName = n + 'John Smith';
+
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
       'Local authority': 'London Borough of Redbridge',
       'Voluntary and community organisation': 'Cranbrook Baptist Church',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Paul Smith',
     };
 
@@ -29,11 +38,14 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
 
     // back button - takes user to user name page
     cy.get('.govuk-back-link').click()
-    cy.fullName(n + 'John Smith')
+    cy.fullName(fullName)
+
     //next page 
     cy.checkAnswerPage()
     cy.contains('Permissions added')
 
+    // Clean Up
+    cy.deleteUser(emailAddress, fullName)
   })
 
   it('AC 3 - Change link - who for', () => {
@@ -42,7 +54,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Type of permission': 'Add and manage services, View and respond to connection requests',
       'Local authority': 'Bristol County Council',
       'Voluntary and community organisation': 'Hartcliffe Club for Young People',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkWhoFor').click()
@@ -50,29 +62,29 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.typeOfUserVCS('both')
     cy.vcsWhichLA('bristol')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
-    cy.email(n + 'abcdef@def.com')
+    cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
-
 
     // validate response
     cy.contains('Check account details')
     cy.checkAnswerDetails(expectedContent)
 
   })
+
   it('AC 3 - Change link - Type of permission', () => {
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services, View and respond to connection requests',
       'Local authority': 'Bristol County Council',
       'Voluntary and community organisation': 'Hartcliffe Club for Young People',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkTypeOfPermission').click()
     cy.typeOfUserVCS('both')
     cy.vcsWhichLA('bristol')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
-    cy.email(n + 'abcdef@def.com')
+    cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
     // validate response
     cy.contains('Check account details')
@@ -80,19 +92,20 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
 
 
   })
+
   it('AC 3 - Change link - Local authority', () => {
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
       'Local authority': 'Bristol County Council',
       'Voluntary and community organisation': 'Hartcliffe Club for Young People',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkLocalAuthority').click()
     cy.vcsWhichLA('bristol')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
-    cy.email(n + 'abcdef@def.com')
+    cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
     // validate response
     cy.contains('Check account details')
@@ -100,18 +113,19 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
 
 
   })
+
   it('AC 3 - Change link - Which VCS Organisation', () => {
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
       'Local authority': 'London Borough of Redbridge',
       'Voluntary and community organisation': 'Jubilee Church Ilford',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkVcsOrganisation').click()
     cy.whichOrgVcs('Jubilee Church Ilford')
-    cy.email(n + 'abcdef@def.com')
+    cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
     // validate response
     cy.contains('Check account details')
@@ -136,13 +150,14 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.checkAnswerDetails(expectedContent)
 
   })
+
   it('AC 3 - Change link - Name', () => {
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
       'Local authority': 'London Borough of Redbridge',
       'Voluntary and community organisation': 'Cranbrook Baptist Church',
-      'Email address': n + 'abcdef@def.com',
+      'Email address': emailAddress,
       'Name': n + 'John Paul Smith Jr',
     };
 

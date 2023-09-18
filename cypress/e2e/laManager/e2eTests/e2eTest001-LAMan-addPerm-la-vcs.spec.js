@@ -1,10 +1,20 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey ',{ tags: ['LAMan'] },function(){
-    const num = Date.now();
-    const n = num.toString();
+    var n;
+    var emailAddress;
+    var fullName;
 
     beforeEach(()=> {
+        n = getDateString();
+        emailAddress = n + 'abcdef@def.com';
+        fullName = n + 'John Paul Smith';
         cy.integrationLogin('laman') 
 	})
+
+    afterEach(() => {
+        cy.deleteUser(emailAddress, fullName)
+    })
 
     // creating an LA account
     it('LA route ',()=>{
@@ -12,11 +22,11 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
         cy.gotoAddPermissionsPage()
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
         cy.typeOfUserLA('1')
-        cy.email(n + 'abcdef@def.com')
-        cy.fullName('John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.contains('Check account details')
         cy.checkAnswerPage()
-       cy.confirmationPage('John Paul Smith')
+       cy.confirmationPage(fullName)
     })
 
     // creating an VCS account
@@ -26,9 +36,9 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
         cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs('cranbrook')
-        cy.email(n +'-abcdef@def.com')
-        cy.fullName('John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 })

@@ -1,7 +1,14 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe('| 📱 addPerm-vcs-e2ejourney-mobile | ', { tags: ['dfeAdmin'] }, () => {
-    const num = Date.now();
-    const n = num.toString();
+    var n;
+    var emailAddress;
+    var fullName;
+
     beforeEach(() => {
+        n = getDateString();
+        emailAddress = n + '+abcdef@def.com';
+        fullName = n + 'John Paul Smith';
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
     })
@@ -15,10 +22,10 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ', { tags: ['dfeAdmin'] }, () =
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs('cranbrook')
-        cy.email(n + 'abcdef@def.com')
-        cy.fullName('John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
     it(`samsung-s10 - VCS Journey - Validate mobile version`, function () {
@@ -30,10 +37,10 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ', { tags: ['dfeAdmin'] }, () =
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs('cranbrook')
-        cy.email(n + '+abcdef@def.com')
-        cy.fullName('+John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('+John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
     it(`ipad-mini - VCS Journey - Validate mobile version`, function () {
@@ -45,10 +52,10 @@ describe('| 📱 addPerm-vcs-e2ejourney-mobile | ', { tags: ['dfeAdmin'] }, () =
         cy.typeOfUserVCS('1')
         cy.vcsWhichLA('redbridge')
         cy.whichOrgVcs('cranbrook')
-        cy.email(n + '++abcdef@def.com')
-        cy.fullName('++John Paul Smith')
+        cy.email(emailAddress)
+        cy.fullName(fullName)
         cy.checkAnswerPage()
-        cy.confirmationPage('++John Paul Smith')
+        cy.confirmationPage(fullName)
     })
 
 })
