@@ -19,7 +19,7 @@ describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confi
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
-        cy.laWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeLa')
         cy.email(emailAddress)
         cy.fullName(fullName)
         cy.checkAnswerPage()

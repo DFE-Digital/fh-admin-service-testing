@@ -8,7 +8,7 @@ describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the or
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
 
     })
     it('AC 1 ,2 - add vcs organisation linked to LA , back button', () => {

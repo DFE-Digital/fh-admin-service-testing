@@ -1,4 +1,6 @@
 describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organisations (Deleting an organisation page)', { tags: ['dfeAdmin'] }, () => {
+    const loggedInUserRole = 'DfeAdmin';
+
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
@@ -7,9 +9,9 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     it('AC 1,5,6 - page content , back link , title ', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage()
         // back link
         cy.get('.govuk-back-link').click()
@@ -19,9 +21,9 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     it('AC 2 - Yes, I want to delete it', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink()
         cy.DelVcsPage('Yes')
         // add validation - You have deleted the service confirmation page
         cy.contains('')
@@ -30,9 +32,9 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     it('AC 3 - No, I want to keep it ,', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage('No')
         // add validation - You have not deleted the service confirmation page
         cy.VcsNotDelPage()
@@ -41,9 +43,9 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     it.only('AC 4 - error messages  ,', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage()
         // error message when user does not select one of the options
         cy.get('#buttonConfirm').click()

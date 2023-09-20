@@ -6,7 +6,7 @@ describe('| manVcs-dfeAmin-delConfirmNoPage | FHG-3811 DFE Admin - Manage VCS or
         //manage VCS link
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage()
 
         cy.DelVcsPage('No')

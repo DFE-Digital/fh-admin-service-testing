@@ -23,7 +23,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
         cy.contains('Which organisation do they work for?')
         // add org link
         cy.addOrgLink()
@@ -38,7 +38,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
         cy.whichOrgVcs(n + '+VCS Organisation name')
         cy.email(emailAddress)
         cy.fullName(fullName)

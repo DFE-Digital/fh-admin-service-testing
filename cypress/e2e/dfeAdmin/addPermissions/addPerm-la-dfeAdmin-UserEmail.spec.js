@@ -9,7 +9,7 @@ describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is thei
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('1')
-        cy.laWhichLA('bristol')
+        cy.selectWhichLA('bristol', 'ForUserTypeLa')
 
     })
     it('AC 1,4 Page content ,valid email address,back button', () => {
@@ -19,7 +19,7 @@ describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is thei
         cy.get('.govuk-back-link').click()
         // back button - takes user to LA page
         cy.get('.govuk-back-link').click()
-        cy.laWhichLA('bristol')
+        cy.selectWhichLA('bristol', 'ForUserTypeLa')
     })
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
         // error message when user does not enter any email address

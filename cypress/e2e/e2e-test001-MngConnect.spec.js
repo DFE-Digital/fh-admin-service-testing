@@ -1,6 +1,8 @@
 
 describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and vcs permissions , Connect - create and approve request , view requests', () => {
 
+    const loggedInUserRole = 'DfeAdmin';
+
     // Tests skipped as spreadsheet upload test cannot be repeated in its current form
     // this needs a rethink and rewrite before it can be used
     beforeEach(() => {
@@ -17,7 +19,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
     it.skip('Manage - (dfe admin) Add VCS organisation using spread sheet',()=>{
         cy.uploadSheet()  
         cy.get('.govuk-header__product-name').click()
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.contains('Test Harsha Madhu Vcs001')
     })
@@ -26,7 +28,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
         cy.typeOfUserLA('2')
-        cy.laWhichLA('tower hamlets')
+        cy.selectWhichLA('tower hamlets', 'ForUserTypeLa')
         cy.email('harshare139@googlemail.co')
         cy.fullName('TH - LA Pro')
         cy.checkAnswerPage()
@@ -37,7 +39,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('2')
-        cy.vcsWhichLA('tower hamlets')
+        cy.selectWhichLA('tower hamlets', 'ForUserTypeVcs')
         cy.whichOrgVcs('Test Harsha Madhu Vcs001')
         cy.email('harshareddy.leeds@googlemail.co')
         cy.fullName('TH - VCS Pro')
@@ -91,7 +93,7 @@ describe('| e2e-test001-MngConnect | Manage - add VCS organisation , add la and 
     })
 
     it.skip('Manage - (dfe admin) delete VCS organisation',()=>{
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get('.govuk-pagination__list li:last-child').click();
         cy.get('td.govuk-table__cell a[data-testid="delete_TestHarshaMadhuVcs001"]').click();
         cy.contains('Deleting an organisation');

@@ -8,7 +8,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
     })
 
     it('AC 1,4 - Validate page content , back link', () => {

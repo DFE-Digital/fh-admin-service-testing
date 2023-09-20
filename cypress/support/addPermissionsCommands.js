@@ -59,17 +59,6 @@ Cypress.Commands.add('typeOfUserVCS',(selection)=>{
     cy.get('#buttonContinue').click()
 })
 
-//la route - which local authority do they work for ?
-Cypress.Commands.add('laWhichLA',(searchString)=>{
-    cy.title().should('eq','Which local authority do they work for? - Manage family support services and accounts - GOV.UK')
-    cy.pageHeadings().contains('Which local authority do they work for?')
-
-    cy.get('#LaOrganisationName').click()
-    cy.get('#LaOrganisationName').type(searchString)
-    cy.get('#LaOrganisationName__option--0').click()
-    cy.get('#buttonContinue').click()
-})
-
 // What's the user's full name?
 Cypress.Commands.add('fullName',(fullName)=>{
     cy.title().should('eq',"What's their full name? - Manage family support services and accounts - GOV.UK")

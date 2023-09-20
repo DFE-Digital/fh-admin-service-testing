@@ -46,8 +46,12 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
   })
 
 // LA Manager - Welcome page 
-Cypress.Commands.add('LAManWelcomePage',(LA)=>{
-    cy.get('.govuk-grid-column-two-thirds').contains(`${LA}`)
+Cypress.Commands.add('LAManWelcomePage',(localAuthority)=>{
+
+    if(localAuthority != undefined){
+      cy.get('.govuk-grid-column-two-thirds').contains(`${localAuthority}`)
+    }
+    
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
 
     cy.contains('Add permissions')
@@ -88,16 +92,7 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
 
 
 
-  //vcs route - which local authority do they work for ?
-  Cypress.Commands.add('vcsWhichLA',(searchString)=>{
-    cy.title().should('eq','Which local authority area do they work in? - Manage family support services and accounts - GOV.UK')
-    cy.pageHeadings().contains('Which local authority area do they work in?')
-    
-    cy.get('#LaOrganisationName').click().clear()
-    cy.get('#LaOrganisationName').type(searchString)
-    cy.get('#LaOrganisationName__option--0').click()
-    cy.get('#buttonContinue').click()
-  })
+
   // What's their email address?
   Cypress.Commands.add('email',(emailAdd)=>{
     cy.title().should('eq',"What's their email address? - Manage family support services and accounts - GOV.UK")
@@ -636,4 +631,39 @@ Cypress.Commands.add('uploadSheet',() => {
 
   cy.get('.govuk-button').contains('Upload').click()
   cy.contains('You have successfully uploaded your data')
+})
+
+Cypress.Commands.add('paginationGoToLastPage',() => {
+  cy.get('.govuk-pagination__item').last().click()
+})
+
+
+//la route - which local authority do they work for ?
+Cypress.Commands.add('selectWhichLA',(searchString, validateFor)=>{
+
+  switch(validateFor){
+    case 'ForUserTypeLa':
+      cy.title().should('eq','Which local authority do they work for? - Manage family support services and accounts - GOV.UK')
+      cy.pageHeadings().contains('Which local authority do they work for?')
+      break;
+
+    case 'ForUserTypeVcs':
+      cy.title().should('eq','Which local authority area do they work in? - Manage family support services and accounts - GOV.UK')
+      cy.pageHeadings().contains('Which local authority area do they work in?')
+      break;
+
+    case 'ForAddVcsOrganisation':
+      cy.title().should('eq','Which Local Authority - Manage family support services and accounts - GOV.UK')
+      cy.pageHeadings().contains('Which local authority is the organisation in?')
+      break;
+
+    case undefined:
+      // dont validate
+      break;
+  }
+
+  cy.get('#LaOrganisationName').click()
+  cy.get('#LaOrganisationName').type(searchString)
+  cy.get('#LaOrganisationName__option--0').click()
+  cy.get('#buttonContinue').click()
 })

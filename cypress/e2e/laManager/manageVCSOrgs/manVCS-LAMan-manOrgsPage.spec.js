@@ -42,7 +42,7 @@ describe('|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ', {
         //manage VCS link
         cy.laManVcsLink()
         // Delete VCS Org
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
     })
 
     it('AC 8 , sort by Organisation name', function () {

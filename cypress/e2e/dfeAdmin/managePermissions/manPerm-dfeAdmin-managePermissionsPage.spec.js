@@ -57,7 +57,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         var n = Date.now().toString();
         var email = n + 'abc@co.uk';
         var name = n + 'John Smith';
-        cy.CreateVcsOrganisation(email, name);
+        cy.CreateVcsUser(email, name);
 
         //manage permissions link
         cy.gotoManagePermissionsPage()

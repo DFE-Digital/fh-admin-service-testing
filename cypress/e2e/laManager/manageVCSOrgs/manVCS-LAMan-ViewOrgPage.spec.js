@@ -44,7 +44,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         //manage VCS link
         cy.laManVcsLink()
         // Delete VCS Org
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
     })
 
     it('AC 8 , sort by Organisation name', function () {
