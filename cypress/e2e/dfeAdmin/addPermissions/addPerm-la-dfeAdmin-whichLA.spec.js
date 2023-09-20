@@ -12,7 +12,7 @@ describe('| addPerm-la-laWhichLA | FHG-3386 DFE - add permissions -Which local a
     })
     it('AC 1,3,5 - recognised text - list of valid LAs displayed in dropdown,back button', () => {
         cy.pageHeadings().contains('Which local authority do they work for?')
-        cy.laWhichLA('bristol')
+        cy.selectWhichLA('bristol', 'ForUserTypeLa')
         cy.contains("What's their email address?")
         // back button - takes user to LA page
         cy.get('.govuk-back-link').click()

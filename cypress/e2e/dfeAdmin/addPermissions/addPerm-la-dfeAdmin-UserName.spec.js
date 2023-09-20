@@ -8,7 +8,7 @@ describe("| addPerm-la-UserName | FHG-3389 DFE - add permissions - What's their 
     cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('la')
     cy.typeOfUserLA('1')
-    cy.laWhichLA('bristol')
+    cy.selectWhichLA('bristol', 'ForUserTypeLa')
     cy.email(n + 'abcdef@def.com')
   })
   it('AC 1, 3 - validate page content , back link ', () => {

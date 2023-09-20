@@ -11,7 +11,7 @@ describe('| addPerm-vcs-whichLA | FHG-3414 DFE - add permissions - Which local a
     
     it('AC 1,3,5 - recognised text - list of valid LAs displayed in dropdown,back button', () => {
         cy.pageHeadings().contains('Which local authority area do they work in?')
-        cy.vcsWhichLA('bristol')
+        cy.selectWhichLA('bristol', 'ForUserTypeVcs')
         cy.contains("Which organisation do they work for?")
         // back button - takes user to LA page
         cy.get('.govuk-back-link').click()

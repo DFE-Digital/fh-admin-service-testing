@@ -13,7 +13,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('vcs')
     cy.typeOfUserVCS('1')
-    cy.vcsWhichLA('redbridge')
+    cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
     cy.whichOrgVcs('cranbrook')
     cy.email(emailAddress)
     cy.fullName(n + 'John Paul Smith')
@@ -60,7 +60,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.get('#linkWhoFor').click()
     cy.typeOfUserPage('vcs')
     cy.typeOfUserVCS('both')
-    cy.vcsWhichLA('bristol')
+    cy.selectWhichLA('bristol', 'ForUserTypeVcs')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
     cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
@@ -82,7 +82,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     };
     cy.get('#linkTypeOfPermission').click()
     cy.typeOfUserVCS('both')
-    cy.vcsWhichLA('bristol')
+    cy.selectWhichLA('bristol', 'ForUserTypeVcs')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
     cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
@@ -103,7 +103,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkLocalAuthority').click()
-    cy.vcsWhichLA('bristol')
+    cy.selectWhichLA('bristol', 'ForUserTypeVcs')
     cy.whichOrgVcs('Hartcliffe Club for Young People')
     cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')

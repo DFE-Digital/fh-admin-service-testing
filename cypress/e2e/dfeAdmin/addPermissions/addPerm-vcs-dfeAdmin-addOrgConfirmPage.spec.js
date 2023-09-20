@@ -8,7 +8,7 @@ describe('| addPerm-vcs-addOrgConfirmPage | FGH-3447 VCS Add Org confirmation pa
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
     })
 
     it('AC 1,2 - Validate page content , got to home page', () => {

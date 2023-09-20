@@ -8,7 +8,7 @@ describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is the
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
         cy.whichOrgVcs('cranbrook')
     })
     

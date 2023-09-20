@@ -1,6 +1,8 @@
 describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Page ', { tags: ['dfeAdmin'] }, () => {
+    const loggedInUserRole = 'DfeAdmin';
     const num = Date.now();
     const n = num.toString();
+
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
@@ -9,7 +11,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     it('AC 1,5,6 - page content , back link , title ', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.manVcsView()
         //manage VCS link
         cy.manVcsViewPage('Jubilee Church Ilford', 'London Borough of Redbridge')
@@ -25,7 +27,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     it('AC 2 Add VCS Org name', () => {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
         cy.get(':nth-child(5) > .govuk-pagination__link').click()
         cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
@@ -37,22 +39,22 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     it('AC 3 - view VCS Org ', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         // View VCS Org
         cy.manVcsView()
     })
     it('AC 4 - delete VCS Org ', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         // Delete VCS Org
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
 
     })
     it('AC 8 , sort by Organisation name', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         //check initial sort order on contact name
         cy.checkSortOrder(0, 'none');
         //click on Organisation name heading link
@@ -68,7 +70,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
     it('AC 9 , sort by Local authority', function () {
         cy.visit('/')
         //manage VCS link
-        cy.manVcsLink()
+        cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         //check initial sort order on contact name
         cy.checkSortOrder(1, 'none');
         //click on Local authority heading link

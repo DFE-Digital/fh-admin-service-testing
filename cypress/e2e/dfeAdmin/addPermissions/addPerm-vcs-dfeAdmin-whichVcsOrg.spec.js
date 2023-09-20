@@ -7,7 +7,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
 
     })
 
@@ -18,7 +18,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.get('.govuk-back-link').click()
         cy.contains('Which local authority area do they work in?')
         // happy path
-        cy.vcsWhichLA('redbridge')
+        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
         cy.whichOrgVcs('Centre & CAMHS')
         //email page
         cy.contains("What's their email address?")

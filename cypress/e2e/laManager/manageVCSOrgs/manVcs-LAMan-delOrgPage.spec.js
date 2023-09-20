@@ -1,3 +1,5 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organisations (Deleting an organisation page)', { tags: ['LAMan'] }, () => {
 
     beforeEach(() => {
@@ -9,7 +11,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
         //manage VCS link
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage()
         // back link
         cy.get('.govuk-back-link').click()
@@ -18,10 +20,15 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
     })
 
     it('AC 2 - Yes, I want to delete it', function () {
-        //manage VCS link
+
+        //  Create Organisation to be deleted
+        var organisationName = `ZZZZZZZZZZZZZZZZZTestOrganisation-${getDateString()}`;
+        cy.createVcsOrganisation(organisationName, 'LaManager')
+
+        cy.visit('/')
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink(organisationName)
         cy.DelVcsPage('Yes')
         // add validation - You have deleted the service confirmation page
         cy.contains('You have deleted')
@@ -31,7 +38,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
         //manage VCS link
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage('No')
         // add validation - You have not deleted the service confirmation page
         cy.VcsNotDelPage()
@@ -41,7 +48,7 @@ describe('| manVcs-dfeAmin-delOrgPage | , FHG-3805 DFE Admin -Manage VCS organis
         //manage VCS link
         cy.laManVcsLink()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.manVcsDel()
+        cy.deleteOrganisationLink('Any')
         cy.DelVcsPage()
         // error message when user does not select one of the options
         cy.get('.govuk-button').contains('Confirm').click();
