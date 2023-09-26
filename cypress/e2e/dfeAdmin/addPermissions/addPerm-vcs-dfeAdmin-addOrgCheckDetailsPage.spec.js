@@ -31,8 +31,7 @@ describe('| addPerm-vcs-addOrgCheckDetailsPage | FGH-3445 VCS Add Org Check deta
         // add organisation name page
         cy.addOrgVcs(n + ' -VCS Organisation name')
         cy.contains(n + ' -VCS Organisation name')
-        // // continue
-        // cy.checkDetailsPage()
+
         cy.get('#buttonConfirm').click()
         // VCS added 
         cy.contains('Voluntary community organisation added')

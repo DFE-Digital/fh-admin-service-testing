@@ -1,6 +1,7 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page", { tags: ['dfeAdmin'] }, () => {
-    const num = Date.now();
-    const n = num.toString();
+    var n = getDateString();
     const emailAddress = n + 'abcdef@def.com';
     const fullName = 'Happy Ferret' + n;
 

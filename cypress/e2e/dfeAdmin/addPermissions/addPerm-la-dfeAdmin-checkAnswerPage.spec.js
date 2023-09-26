@@ -1,6 +1,7 @@
+import { getDateString } from '../../../support/helperFunctions';
+
 describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
-  const num = Date.now();
-  const n = num.toString();
+  var n = getDateString();
   const delayTime = 250;
 
   // As a DFE Admin  creating an LA account

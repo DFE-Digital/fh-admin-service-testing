@@ -15,9 +15,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
     })
    
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
-       cy.visit('/')
-        //// cy.startPage()
-        // // cy.stubLogin('dfeAdmin')
+        cy.visit('/')
         cy.dfeAdminWelcomePage()
 
         cy.gotoAddPermissionsPage()

@@ -6,33 +6,27 @@
 before(() => {
   
   cy.clearCookies();
-    Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            return false
-        })     
-    });
+  Cypress.on('uncaught:exception', (err, runnable) => {
+      // returning false here prevents Cypress from
+      // failing the test
+      return false
+  })  
+
+});
     
-  // start page - admin-ui
-  Cypress.Commands.add('startPage',()=>{
-    cy.contains('Manage family support services and accounts')
-    cy.get('.govuk-button--start').click()
-    cy.contains('This is to manage family support services.')
-    cy.contains('Use this to:')
-    cy.contains('add local authorities')
-    cy.contains('add VCS organisations to the directory')
-    cy.contains('view organisations you have added to the directory')
-  })
-  // stub login
-  Cypress.Commands.add('stubLogin',(userType)=>{
-    cy.contains('button', `${userType}.user@stub.com`).click();
-  })
-// dfe admin - Welcome page 
+// Tests FHG-1599
 Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     cy.get('.govuk-grid-column-two-thirds').contains('Department for Education')
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
-    cy.contains('Add account permissions to manage family support services and manage connection requests.')
-    cy.contains('View and remove account permissions to manage family support services or manage connection requests.')
+    
+    // Accounts 
+    cy.contains('Accounts')
+    cy.contains('Add permissions')
+    cy.contains('Add account permissions to manage family support services and manage connection requests')
+    cy.contains('Manage permissions')
+    cy.contains('View and remove account permissions to manage family support services or manage connection requests')
+
+    //  Functionality not active
     //cy.contains('Add a service to the directory.')
     //cy.contains('View, change or delete services shown in the directory.')
     //cy.contains('Add a family hub to the directory.')
@@ -40,7 +34,12 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     //cy.contains('Activate an LA before you create its accounts, services and family hubs.')
     // cy.contains('Add a service to the directory.')
     //cy.contains('View, change or delete services shown in the directory.')
+
+    //  Voluntary Community Organisations ( VCSs)
+    cy.contains('Voluntary community organisations (VCSs)')
+    cy.contains('Add a VCS organisation')
     cy.contains('Add an organisation before adding permissions for its users.')
+    cy.contains('Manage VCS organisations')
     cy.contains('View, change or delete existing organisations.')
     cy.contains('Upload an excel spreadsheet.')
   })
@@ -68,11 +67,6 @@ Cypress.Commands.add('LAManWelcomePage',(localAuthority)=>{
     cy.contains('Manage organisations')
   })
 
-
-
-
-  // ********************** Accounts *************************
-
   // LA manager -  Type of user page 
 Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.title().should('eq','Who are you adding permissions for? - Manage family support services and accounts - GOV.UK')
@@ -87,11 +81,6 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     }
     cy.get('#buttonContinue').click()
   })
-
-
-
-
-
 
   // What's their email address?
   Cypress.Commands.add('email',(emailAdd)=>{
@@ -116,16 +105,6 @@ Cypress.Commands.add('checkAnswerDetails', (expectedContent)=> {
             .should('contain', 'Change');
     })
 })
-// Change links 
-Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
-    cy.get('.govuk-summary-list__row')
-    .filter((index, element) => {
-        const keyElement = Cypress.$(element).find('.govuk-summary-list__key');
-        return keyElement.text().trim() === key;
-    })
-    .find('a')
-    .click();
-})
 
  // which organisation do they work for ?
  Cypress.Commands.add('whichOrgVcs',(searchString)=>{
@@ -141,21 +120,23 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
   cy.get('#add-organisation').click()
   cy.contains("What is the organisation's name?")
  })
+
 // Add organisaion - What is the organisations name?
  Cypress.Commands.add('addOrgVcs',(orgName)=>{
   cy.contains("What is the organisation's name?")
- // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
- cy.get('#organisationName').click().clear().type(orgName)
- cy.get('#buttonContinue').click()
- cy.contains('Check details')
+  // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
+  cy.get('#organisationName').click().clear().type(orgName)
+  cy.get('#buttonContinue').click()
+  cy.contains('Check details')
+})
 
- })
 // Add organisation VCS - check details page 
 Cypress.Commands.add('checkDetailsPage',()=>{
   cy.contains('Check details')
   cy.title().should('eq','Check details - Manage family support services and accounts - GOV.UK')
   cy.get('#buttonConfirm').click()
 })
+
 // Add organisation VCS - confirmation page 
 Cypress.Commands.add('addVcsOrgConfirmation',(userRole)=>{
   cy.contains('Voluntary community organisation added')
@@ -177,7 +158,6 @@ Cypress.Commands.add('addVcsOrgConfirmation',(userRole)=>{
   cy.contains('Add account permissions to manage family support services and manage connection requests.')
 
 })
-
 
 // my account 
 Cypress.Commands.add('myaccountPage',()=>{
@@ -287,120 +267,98 @@ Cypress.Commands.add('checkPaginationSelection', (value)=> {
     cy.contains('li.govuk-pagination__item a', value).should('have.attr', 'aria-current', '"page"');
 })
 
+// Page headings 
+Cypress.Commands.add('pageHeadings',()=>{
+  cy.get('.govuk-fieldset__heading')
+})
 
-// ********************** Voluntary community organisations (VCSs) *************************
+// check details
+Cypress.Commands.add('checkDetails',(serviceName,supportType)=>{
+  cy.contains('Check the service details')
+  cy.get('.govuk-summary-list').contains(`${serviceName}`)
+  cy.get('.govuk-summary-list').contains(`${supportType}`)
+  cy.contains('Confirm details').click()
+})
 
-  
-  // Sign in page
-  Cypress.Commands.add('signInPage',()=>{
-    cy.contains('Sign in to your account')
-    cy.get('.govuk-button').click()
-  })
- 
-  // Page headings 
-  Cypress.Commands.add('pageHeadings',()=>{
-    cy.get('.govuk-fieldset__heading')
-  })
-  // Choose Organisation
-  Cypress.Commands.add('chooseOrganisation',(selection)=>{
-    cy.contains('Which type of organisation')
-    cy.get("select#SelectedOrganisation").select(`${selection}`)
-    cy.get('.govuk-button').click()
+//Manage permissions
+Cypress.Commands.add('managePermissionsPage',()=>{
+  cy.contains('Manage user permissions')
+  cy.contains('Edit or delete user permissions.')
+  cy.contains('Filter users')
+})
 
-  })
-
-//    // check details
-   Cypress.Commands.add('checkDetails',(serviceName,supportType)=>{
-    cy.contains('Check the service details')
-    cy.get('.govuk-summary-list').contains(`${serviceName}`)
-    cy.get('.govuk-summary-list').contains(`${supportType}`)
-    cy.contains('Confirm details').click()
-   })
-   // confirmation page
-   Cypress.Commands.add('serviceAdded',()=>{
-    cy.contains('Service added')
-    cy.contains('Go to home page').click()
-    cy.contains('Add a service')
-   })
-
-   // ************* Manage Permissions **************************************
-
-   //Manage permissions
-   Cypress.Commands.add('managePermissionsPage',()=>{
-    cy.contains('Manage user permissions')
-    cy.contains('Edit or delete user permissions.')
-    cy.contains('Filter users')
-   })
-   // Edit  permissions 
-  Cypress.Commands.add('editPermissionsLink',()=>{
-    cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Edit').click()
-    cy.contains('Back to manage user accounts')
-  })
+// Edit  permissions 
+Cypress.Commands.add('editPermissionsLink',()=>{
+  cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('Edit').click()
+  cy.contains('Back to manage user accounts')
+})
 
 // Delete permissions options page
-  Cypress.Commands.add('deletePermissionsOptionPage',(user,selection)=>{
-    cy.contains(`Do you want to delete ${user}'s permissions?`)
-    cy.contains(`This will remove all permissions that have been given to ${user}.`)
-     if (selection === 'Yes') {
-        cy.get('#remove-user').check();
-      } else if (selection === 'No'){
-        cy.get('#remove-user-2').check();
-      }
-     cy.get('#buttonContinue').click()
-  })
+Cypress.Commands.add('deletePermissionsOptionPage',(user,selection)=>{
+  cy.contains(`Do you want to delete ${user}'s permissions?`)
+  cy.contains(`This will remove all permissions that have been given to ${user}.`)
+    if (selection === 'Yes') {
+      cy.get('#remove-user').check();
+    } else if (selection === 'No'){
+      cy.get('#remove-user-2').check();
+    }
+    cy.get('#buttonContinue').click()
+})
 
-  Cypress.Commands.add('deletePermissionsConfirmPage',(user)=>{
-    cy.contains(`You have deleted ${user}'s permissions`)
-  })
-  // Filters check box - Type of user
-  Cypress.Commands.add('typeOfUserFilter',(selection)=>{
+Cypress.Commands.add('deletePermissionsConfirmPage',(user)=>{
+  cy.contains(`You have deleted ${user}'s permissions`)
+})
 
-        // user selects checkboxes 1 , 2 or both
-        if (selection === 'la') {
-          cy.get('#isLaUser').check();
-      } else if (selection === 'vcs'){
-         cy.get('#isVcsUser').check();
-      }
-      else if (selection == 'both') {
-          cy.get('#isLaUser').check();
-          cy.get('#isVcsUser').check();
-      }
-      cy.get('#filters-component > .govuk-button').click()
-  })
+// Filters check box - Type of user
+Cypress.Commands.add('typeOfUserFilter',(selection)=>{
 
-  // Clear filters 
-  Cypress.Commands.add('clearFilters',()=>{
-    cy.get('a').contains('Clear filters').click();
-  })
+  // user selects checkboxes 1 , 2 or both
+  if (selection === 'la') {
+    cy.get('#isLaUser').check();
+  } else if (selection === 'vcs'){
+    cy.get('#isVcsUser').check();
+  }
+  else if (selection == 'both') {
+    cy.get('#isLaUser').check();
+    cy.get('#isVcsUser').check();
+  }
+  cy.get('#filters-component > .govuk-button').click()
+})
 
-  //name filter 
-  Cypress.Commands.add('nameFilter',(name)=>{
-    cy.get(':nth-child(1) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${name}`)
-    cy.get('#filters-component > .govuk-button').click()
-    
-  })
-  //organisation filter 
-  Cypress.Commands.add('organisationFilter',(org)=>{
-    cy.get(':nth-child(3) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${org}`)
-    cy.get('#filters-component > .govuk-button').click()
-  })
+// Clear filters 
+Cypress.Commands.add('clearFilters',()=>{
+  cy.get('a').contains('Clear filters').click();
+})
+
+//name filter 
+Cypress.Commands.add('nameFilter',(name)=>{
+  cy.get(':nth-child(1) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${name}`)
+  cy.get('#filters-component > .govuk-button').click()
+})
+
+//organisation filter 
+Cypress.Commands.add('organisationFilter',(org)=>{
+  cy.get(':nth-child(3) > :nth-child(1) > .govuk-form-group > .govuk-fieldset > #userName').click().clear().type(`${org}`)
+  cy.get('#filters-component > .govuk-button').click()
+})
 
 //view services
-  Cypress.Commands.add('ViewServices',(serviceName)=>{
-    cy.contains('Manage your services').click()
-    cy.get('.govuk-grid-column-full').contains(`${serviceName}`)
+Cypress.Commands.add('ViewServices',(serviceName)=>{
+  cy.contains('Manage your services').click()
+  cy.get('.govuk-grid-column-full').contains(`${serviceName}`)
 });
+
 //manage services
-  Cypress.Commands.add('deleteServices',(serviceID)=>{
-    cy.contains('Manage your services')
-    cy.get('.govuk-table__row').contains(`${serviceName}`).contains('Delete').click()
+Cypress.Commands.add('deleteServices',(serviceID)=>{
+  cy.contains('Manage your services')
+  cy.get('.govuk-table__row').contains(`${serviceName}`).contains('Delete').click()
 });
+
 // delete service
-   Cypress.Commands.add('deleteService',(serviceID)=>{
-    cy.contains('Manage your services')
-    cy.get(`[data-testid="${serviceID}-delete"]`).click();
-    
-   })
+Cypress.Commands.add('deleteService',(serviceID)=>{
+  cy.contains('Manage your services')
+  cy.get(`[data-testid="${serviceID}-delete"]`).click();
+})
 
 // edit service
 Cypress.Commands.add('editService',(serviceID)=>{
@@ -417,100 +375,6 @@ Cypress.Commands.add('saveDetails',()=>{
   cy.get('[data-testid="homepage-button"]').click()
   cy.contains('Add a service to the directory.')
 })
-// delete test data service 
-Cypress.Commands.add('deleteTestData',(serviceId)=>{
-  // cy.visit('/OrganisationAdmin/Welcome')
-  // cy.get('[data-testid="manage-services"]').click()
-  cy.get(`[data-testid="${serviceId}-delete"]`).click();
-  cy.get('[value="Yes, I want to delete it"]').check();
-  cy.get('.govuk-button').click()
-
-})
-// make changes on confirm page
-Cypress.Commands.add('editTitle',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('checkDetailsEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.contains('Save details').click()
-  cy.contains('Go to home page').click()
-})
-Cypress.Commands.add('typeOfServiceEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('serviceDeliveryTypeEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('whoForEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('whatLanguageEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('payForServiceEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('contactDetailsEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
-})
-Cypress.Commands.add('moreDetailsEdit',(serviceId)=>{
-  cy.contains(`${serviceId}`)
-  cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()
-})
-
-//-------------------Common page commands ----------------------
-Cypress.Commands.add('checkPageHeading', (locator, expectedHeading) => {
-    cy.get(locator).invoke('text').then((text) => {
-		const trimmedText = text.trim();
-		expect(trimmedText).to.equal(expectedHeading);
-	})
-})
-
-Cypress.Commands.add('checkLinkHref', (locator, nhsLink) => {
-    cy.get(locator).invoke('attr', 'href').then((href) => {
-		expect(href).to.equal(nhsLink);
-	})
-})
-
-Cypress.Commands.add('clickBackLink', ()=> {
-    cy.get('.govuk-back-link').click();
-})
-
-Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) => {
-    cy.get(locator).each(($element) => {
-		const text = $element.text();
-		actualList.push(text);
-		}).then(() => {
-		expect(actualList).to.deep.equal(expectedList);
-		})
-})
-
-Cypress.Commands.add('getRadioButtonsAndCheckboxes', (locator, actualRadioButtons, expectedRadioButtons)=> {
-    cy.get(locator).each(($el) => {
-		actualRadioButtons.push($el.text().trim())
-		}).then(()=>{
-		expect(actualRadioButtons).to.deep.equal(expectedRadioButtons)
-	})
-})
-
-Cypress.Commands.add('checkTextOf', (locator, expectedText)=> {
-    cy.get(locator).invoke('text').then((text)=> {
-        expect(text.trim()).to.equal(expectedText);
-    })
-})
-
-Cypress.Commands.add('checkValueOfTextBox', (locator, expectedText)=> {
-    cy.get(locator).invoke('attr', 'value').then((value)=> {
-        expect(value).to.equal(expectedText);
-    })
-})
 
 Cypress.Commands.add('enterTextAndContinue', (textBoxLocator, enteredtext, continueLocator)=> {
     //enter a contact name
@@ -522,19 +386,6 @@ Cypress.Commands.add('enterTextAndContinue', (textBoxLocator, enteredtext, conti
 Cypress.Commands.add('enterText', (textBoxLocator, enteredtext)=> {
     //enter a contact name
 	cy.get(textBoxLocator).clear().type(enteredtext);
-})
-
-//-----------------------Consent page---------------------------
-Cypress.Commands.add('checkErrorText', (expectedErrorHeading, expectedErrorText) => {
-    cy.get('.govuk-error-summary__title').invoke('text').then((text) => {
-		expect(text.trim()).to.equal(expectedErrorHeading);
-	})
-	cy.get('.govuk-error-summary__body').invoke('text').then((text) => {
-		expect(text.trim()).to.equal(expectedErrorText);
-	})
-    cy.get('.govuk-error-message').invoke('text').then((text) => {
-		expect(text.replace('Error:','').trim().split('\n').shift()).to.equal(expectedErrorText);
-	})
 })
 
 Cypress.Commands.add('selectRadioButtonAndContinue', (radioLocator, continueLocator)=> {
@@ -558,51 +409,11 @@ Cypress.Commands.add('checkPanelText', (expectedHeading)=> {
 })
 
 
-Cypress.Commands.add('checkTextOfAllCheckedCheckboxes', (actualCheckedText, expectedCheckedText)=> {
-    // Get label text of all checked checkboxes
-    cy.get('.govuk-checkboxes__input')
-    .filter(':checked')
-    .each(($checkbox) => {
-    // Get the associated label element and extract its text content
-        const labelText = $checkbox.next('.govuk-label').text();
-        actualCheckedText.push(labelText.trim());
-    }).then(()=> {
-      expect(actualCheckedText).to.deep.equal(expectedCheckedText);
-  });
-})
-
 Cypress.Commands.add('selectCheckBoxes', (label)=> {
     cy.contains('label', label)
     .parent()
     .find('input')
     .check();
-})
-
-Cypress.Commands.add('uncheckSelectedCheckboxes', ()=> {
-    cy.get('.govuk-checkboxes__input:checked').uncheck();
-})
-
-//----------------------------Check details page ------------------------
-Cypress.Commands.add('checkRequestDetails', (expectedContent)=> {
-// Iterate over the elements with class "govuk-summary-list__row"
-    cy.get('div.govuk-summary-list__row').each(($row) => {
-      // Extract the key and value from each row
-      const key = $row.find('dt.govuk-summary-list__key').text().trim();
-      const value = $row.find('dd.govuk-summary-list__value').text().trim();
-      expect(value).to.equal(expectedContent[key]);
-
-      cy.get($row).find('a:not(.govuk-visually-hidden)').should('contain', 'Change');
-    })
-})
-
-Cypress.Commands.add('clickOnChangeLinkFor', (key)=> {
-    cy.get('.govuk-summary-list__row')
-    .filter((index, element) => {
-        const keyElement = Cypress.$(element).find('.govuk-summary-list__key');
-        return keyElement.text().trim() === key;
-    })
-    .find('a')
-    .click();
 })
 
 // custom command to overwrite baseUrl if we are using localhost etc
