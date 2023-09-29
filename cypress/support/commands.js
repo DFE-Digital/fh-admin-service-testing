@@ -516,3 +516,47 @@ Cypress.Commands.add('selectWhichLA',(searchString, validateFor)=>{
     // cy.contains('Manage family support services and accounts');
 
   })
+
+// contact us page 
+Cypress.Commands.add('contactUsPage',()=>{
+  cy.contains('Contact us')
+  cy.contains("You can contact us by email at manage-family-support.service@education.gov.uk. We will aim to respond within 5 working days.")
+  cy.contains("You can also give us feedback using our survey.")
+  // feedback link
+  cy.get('.govuk-grid-column-two-thirds > :nth-child(3) > a').should('have.attr','href','https://dferesearch.fra1.qualtrics.com/jfe/form/SV_55bovSWW2AlnNwG')
+  // back link
+  // cy.get('.govuk-back-link').click()
+  // cy.contains('You can find help, services and activities in your local area, including:');
+})
+// accessibility page
+Cypress.Commands.add('accessibilityPage',()=>{
+  cy.contains('Accessibility Statement')
+  cy.contains('This accessibility statement applies to Connect families to support.')
+  cy.contains('Feedback and contact information')
+  cy.contains('Reporting accessibility problems with this website')
+  cy.contains('Enforcement procedure')
+  cy.contains("Technical information about this website’s accessibility")
+  cy.contains("We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, contact: connect-family-support.service@education.gov.uk.")
+  cy.contains("What we\’re doing to improve accessibility")
+  cy.contains('If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, email: connect-family-support.service@education.gov.uk.')
+})
+//feedbackPage
+Cypress.Commands.add('feedbackPage',()=>{
+  
+  cy.contains("This survey is to get your feedback on ‘Manage family support services and accounts'.")
+})
+//privacy page
+Cypress.Commands.add('privacyPageContent',()=>{
+  
+  cy.contains("Privacy notice ‘Manage family support services and accounts’ is provided by the Department for Education (DfE).")
+  cy.contains("The Department for Education is joint data controller with various local authorities for data collected within this service. The local authority that your account is associated with shares data controller responsibility for your account with DfE.")
+  cy.contains("A data controller determines how and why personal data is processed. For more information, read the Department for Education’s entry in the Data Protection Public Register.")
+})
+// terms and conditions page
+Cypress.Commands.add('termsandconditionsPage',()=>{
+ 
+  cy.contains("Terms and conditions")
+  cy.contains("Welcome to Manage family support services and accounts. This service is run by the Department for Education (DfE).")
+  cy.contains("These terms and conditions apply to local authority and voluntary and community sector (VCS) professionals who are signed in and using the service to add and manage:")
+  cy.contains("You can make a complaint or give feedback about this service by emailing manage-connection-requests.service@education.gov.uk.")
+})
