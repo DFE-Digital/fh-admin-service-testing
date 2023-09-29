@@ -394,6 +394,23 @@ Cypress.Commands.add('selectRadioButtonAndContinue', (radioLocator, continueLoca
 	//click continue button on consent page
 	cy.get(continueLocator).click();
 })
+// accessibility page
+Cypress.Commands.add('accessibilityPage',()=>{
+  cy.contains('Accessibility statement')
+  cy.contains('How accessible this website is')
+  cy.contains('Feedback and contact information')
+  cy.contains('Reporting accessibility problems with this website')
+  cy.contains('Enforcement procedure')
+  cy.contains("Technical information about this website’s accessibility")
+  cy.contains('Compliance status')
+  cy.contains("What we\’re doing to improve accessibility")
+  cy.contains('Preparation of this accessibility statement')
+  // back link
+  cy.get('.govuk-back-link').click()
+  cy.contains('You can find help, services and activities in your local area, including:');
+
+
+})
 
 
 //---------------------- confirmation page --------------------------------------
@@ -478,3 +495,24 @@ Cypress.Commands.add('selectWhichLA',(searchString, validateFor)=>{
   cy.get('#LaOrganisationName__option--0').click()
   cy.get('#buttonContinue').click()
 })
+
+ // cookies text
+  Cypress.Commands.add('cookies',()=>{
+      cy.contains(' Cookies on Manage family support services and accounts')
+      cy.contains('We use some essential cookies to make this service work.')
+      cy.contains('We’d also like to use analytics cookies so we can understand how you use the service and make improvements.')
+      cy.contains('Accept analytics cookies');
+      cy.contains('Reject analytics cookies');
+      cy.contains('View cookies');
+  })
+  Cypress.Commands.add('cookiesPageContent',()=>{
+    cy.contains("Cookies are small files saved on your phone, tablet or computer when you visit a website.")
+
+    cy.contains("We use cookies to make Manage family support and accounts work and collect information about how you use this website.")
+    cy.contains('Change your cookie settings')
+    cy.contains('Do you want to accept analytics cookies?')
+    // // back link
+    // cy.get('.govuk-back-link').click()
+    // cy.contains('Manage family support services and accounts');
+
+  })
