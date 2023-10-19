@@ -21,6 +21,7 @@ import './managePermissionsCommands';
 import './VCSCommands';
 import './connectCommands';
 import 'cypress-mochawesome-reporter/register';
+import './apiCommands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
