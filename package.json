@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "cypress": "12.17.3"
+    "cypress": "^13.3.2"
   },
   "dependencies": {
     "cypress-mochawesome-reporter": "^3.5.0"
   },
   "scripts": {
-    "azure-test":"npx cypress run --reporter junit --reporter-options attachments=true --reporter-options mochaFile=result-[hash].xml",
+    "azure-test": "npx cypress run --reporter junit --reporter-options attachments=true --reporter-options mochaFile=result-[hash].xml",
     "mocha-report": "yarn cypress run --spec \"cypress/e2e/**/test-e2e.spec.js\"",
     "adminservicetests": "yarn cypress run --spec \"cypress/e2e/admin-service/**/*.spec.js\",CYPRESS_BASE_URL=https://test.manage-family-support-services-and-accounts.education.gov.uk/",
     "referralservicetests": "yarn cypress run --spec \"cypress/e2e/referral-service/**/*.spec.js\",CYPRESS_BASE_URL=https://test.connect-families-to-support.education.gov.uk/",
