@@ -22,19 +22,10 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     // Accounts 
     cy.contains('Accounts')
     cy.contains('Add permissions')
-    cy.contains('Add account permissions to manage family support services and manage connection requests')
+    cy.contains('Add a user account to manage support services or connection requests.')
     cy.contains('Manage permissions')
-    cy.contains('View and remove account permissions to manage family support services or manage connection requests')
-
-    //  Functionality not active
-    //cy.contains('Add a service to the directory.')
-    //cy.contains('View, change or delete services shown in the directory.')
-    //cy.contains('Add a family hub to the directory.')
-    //cy.contains('View, change or delete family hubs shown in the directory.')
-    //cy.contains('Activate an LA before you create its accounts, services and family hubs.')
-    // cy.contains('Add a service to the directory.')
-    //cy.contains('View, change or delete services shown in the directory.')
-
+    cy.contains('View, edit or delete user accounts to manage support services or connection requests.')
+    
     //  Voluntary Community Organisations ( VCSs)
     cy.contains('Voluntary community organisations (VCSs)')
     cy.contains('Add a VCS organisation')

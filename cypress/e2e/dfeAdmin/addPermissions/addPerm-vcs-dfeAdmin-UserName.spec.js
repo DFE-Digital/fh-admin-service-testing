@@ -30,7 +30,7 @@ describe("| addPerm-vcs-UserName | FHG-3578 DFE - add permissions - What's their
   it('AC 2 - no name entered - error message', () => {
     cy.get('#buttonContinue').click()
     cy.get('.govuk-error-summary').contains('There is a problem')
-    cy.get('.govuk-error-summary').contains('Enter a name')
+    cy.get('.govuk-error-summary').contains('Enter a full name')
     // user is able to enter valid name after error message 
     cy.fullName('John Smith')
   })
