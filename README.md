@@ -18,7 +18,7 @@ Regression suites for each of these environments are configured using github act
 
 ![alt text](https://github.com/DFE-Digital/fh-admin-service-testing/actions/workflows/test-adminUi-regression.yml/badge.svg)
 
-### health check api
+### Health check api
 Health Check status update
 
 ![alt text](https://github.com/DFE-Digital/fh-admin-service-testing/actions/workflows/test-adminUi-APIstatus.yml/badge.svg)
