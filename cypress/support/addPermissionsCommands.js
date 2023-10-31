@@ -82,6 +82,6 @@ Cypress.Commands.add('checkAnswerPage',()=>{
     cy.contains('a link to the service, where they can create their password and set up two-factor authentication')
     //
     cy.contains('Go to homepage').click()
-    cy.contains('Add account permissions to manage family support services and manage connection requests.')
+    cy.contains('Add a user account to manage support services or connection requests.')
 
  })

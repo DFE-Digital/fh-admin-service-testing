@@ -146,7 +146,7 @@ Cypress.Commands.add('addVcsOrgConfirmation',(userRole)=>{
 
   cy.contains('You can do this from your homepage.')
   cy.get('#buttonGoToHome').click()
-  cy.contains('Add account permissions to manage family support services and manage connection requests.')
+  cy.contains('Add a user account to manage support services or connection requests.')
 
 })
 

@@ -1,4 +1,4 @@
-describe('| addPerm-la-typeOfUserLA | FHG-3382 DFE - What do they need to do? page', { tags: ['dfeAdmin'] }, () => {
+describe('| addPerm-la-dfeAdmin-typeOfUserLA | FHG-3382 DFE - What do they need to do? page', { tags: ['dfeAdmin'] }, () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')

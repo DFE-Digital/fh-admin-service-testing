@@ -1,6 +1,6 @@
 import { getDateString } from '../../../support/helperFunctions';
 
-describe("| addPerm-dfe-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
+describe("| addPerm-la-dfeAdmin-checkAnswerPage | FHG-3391 DFE - add permissions - check account details page", { tags: ['dfeAdmin'] }, () => {
   var n = getDateString();
   const delayTime = 250;
 

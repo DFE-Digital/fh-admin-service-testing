@@ -1,6 +1,6 @@
 import { getDateString } from '../../../support/helperFunctions';
 
-describe("| addPerm-la-confirmationPage | FHG-3392 DFE - add permissions - confirmation page", { tags: ['dfeAdmin'] }, () => {
+describe("| addPerm-la-dfeAdmin-confirmationPage | FHG-3392 DFE - add permissions - confirmation page", { tags: ['dfeAdmin'] }, () => {
     var n = getDateString();
     const emailAddress = n + 'abcdef@def.com';
     const fullName = 'Happy Ferret' + n;

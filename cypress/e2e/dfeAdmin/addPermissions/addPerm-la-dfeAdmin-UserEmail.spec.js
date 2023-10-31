@@ -1,4 +1,4 @@
-describe('| addPerm-la-UserEmail | FHG-3387 DFE - add permissions - What is their email address?', { tags: ['dfeAdmin'] }, () => {
+describe('| addPerm-la-dfeAdmin-UserEmail | FHG-3387 DFE - add permissions - What is their email address?', { tags: ['dfeAdmin'] }, () => {
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an LA account

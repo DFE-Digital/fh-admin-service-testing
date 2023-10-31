@@ -1,4 +1,4 @@
-describe("| addPerm-vcs-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name?", { tags: ['dfeAdmin'] }, () => {
+describe("| addPerm-vcs-dfeAdmin-AddOrg | FHG-3443 DFE - add permissions - What is the organisation's name?", { tags: ['dfeAdmin'] }, () => {
     const num = Date.now();
     const n = num.toString();
     // As a DFE Admin  creating an VCS account

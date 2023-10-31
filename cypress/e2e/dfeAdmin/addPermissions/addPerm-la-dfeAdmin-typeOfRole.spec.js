@@ -1,4 +1,4 @@
-describe('| addPerm-la-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ', { tags: ['dfeAdmin'] }, () => {
+describe('| addPerm-la-dfeAdmin-typeOfRole | FHG-1065 DFE - add permissions - who are you adding permissions for? ', { tags: ['dfeAdmin'] }, () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
