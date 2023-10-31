@@ -1,4 +1,4 @@
-name: "| Test env | Manage family support services and accounts - Health Check Status |"
+name: "| Test env - Health Check Status | Manage family support services and accounts |"
 
 on:
   schedule:
