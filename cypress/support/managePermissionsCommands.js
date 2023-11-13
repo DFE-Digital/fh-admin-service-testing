@@ -1,6 +1,6 @@
 // Select manage permissions link
 Cypress.Commands.add('gotoManagePermissionsPage',()=>{
-   cy.get('a').contains('Manage permissions').click()
+   cy.get('a').contains('Manage users').click()
 })
 
 //email filter 

@@ -8,7 +8,7 @@ describe('| manageAccountPage | FHG-2106 My account - Manage your account page '
         cy.get('.govuk-link--inverse').contains('My account').click()
         cy.myaccountPage()
         // click on change name
-        cy.get('.govuk-table__cell--numeric > a').click()
+        cy.get('.govuk-summary-list__actions > a').click()
         cy.contains('Change your name')
         // back link
         cy.get('.govuk-back-link').click()

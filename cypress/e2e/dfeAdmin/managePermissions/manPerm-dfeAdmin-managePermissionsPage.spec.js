@@ -40,13 +40,14 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.contains('Redbridge')
         cy.clearFilters()
         // apply VCS filter
-        cy.contains('Cranbrook')
+        cy.typeOfUserFilter('vcs')
+        cy.contains('Bangladeshi')
         cy.clearFilters()
         //apply both filters 
         cy.typeOfUserFilter('both')
         // add validations
         // first page has VCS 
-        cy.contains('Cranbrook')
+        cy.contains('Redbridge')
 
         // last page has LA 
         // cy.get(':nth-child(4) > .govuk-pagination__link').click()
@@ -77,8 +78,8 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('London Borough of Redbridge')
         cy.clearFilters()
         // 
-        cy.organisationFilter('Suffolk County Council')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Suffolk County Council')
+        cy.organisationFilter('Tower Hamlets')
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Tower Hamlets Council')
         cy.clearFilters()
 
     })

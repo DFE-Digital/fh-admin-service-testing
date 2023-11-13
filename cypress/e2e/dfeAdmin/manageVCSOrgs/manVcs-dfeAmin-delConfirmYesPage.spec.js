@@ -6,9 +6,10 @@ describe('| manVcs-dfeAmin-delConfirmYesPage | FHG-3807 DFE Admin - Manage VCS o
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
+        cy.log(getDateString())
 
         //  Create Organisation to be deleted
-        organisationName = `ZZZZZZZZZZZZZZZZZTestOrganisation-${getDateString()}`;
+        organisationName = `ZZZZZZZZZZZZZZZZZZTestOrganisation-${getDateString()}`;
         cy.createVcsOrganisation(organisationName, 'DfeAdmin')
 
     })

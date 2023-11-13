@@ -21,9 +21,9 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     
     // Accounts 
     cy.contains('Accounts')
-    cy.contains('Add permissions')
+    cy.contains('Add a user')
     cy.contains('Add a user account to manage support services or connection requests.')
-    cy.contains('Manage permissions')
+    cy.contains('Manage users')
     cy.contains('View, edit or delete user accounts to manage support services or connection requests.')
     
     //  Voluntary Community Organisations ( VCSs)
@@ -44,8 +44,8 @@ Cypress.Commands.add('LAManWelcomePage',(localAuthority)=>{
     
     cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
 
-    cy.contains('Add permissions')
-    cy.contains('Manage permissions')
+    cy.contains('Add a user')
+    cy.contains('Manage users')
     
     cy.contains('Activate a local authority')
       .should('not.exist');
@@ -263,6 +263,34 @@ Cypress.Commands.add('pageHeadings',()=>{
   cy.get('.govuk-fieldset__heading')
 })
 
+// check page heading
+Cypress.Commands.add('checkPageHeading', (locator, expectedHeading) => {
+    cy.get(locator).invoke('text').then((text) => {
+        const trimmedText = text.trim();
+        expect(trimmedText).to.equal(expectedHeading);
+    })
+})
+
+// check static text using locator
+Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) => {
+    cy.get(locator).each(($element) => {
+        const text = $element.text().trim();
+        actualList.push(text);
+    }).then(() => {
+        expect(actualList).to.deep.equal(expectedList);
+    })
+})
+
+//check current page on pagination
+Cypress.Commands.add('checkPaginationSelection', (value) => {
+    cy.contains('li.govuk-pagination__item a', value).should('have.attr', 'aria-current', '"page"');
+})
+
+//click on back link
+Cypress.Commands.add('clickBackLink', () => {
+    cy.get('.govuk-back-link').click();
+})
+
 // check details
 Cypress.Commands.add('checkDetails',(serviceName,supportType)=>{
   cy.contains('Check the service details')
@@ -392,9 +420,9 @@ Cypress.Commands.add('accessibilityPage',()=>{
   cy.contains('Feedback and contact information')
   cy.contains('Reporting accessibility problems with this website')
   cy.contains('Enforcement procedure')
-  cy.contains("Technical information about this website’s accessibility")
+  cy.contains("Technical information about this website's accessibility")
   cy.contains('Compliance status')
-  cy.contains("What we\’re doing to improve accessibility")
+    cy.contains("What we're doing to improve accessibility")
   cy.contains('Preparation of this accessibility statement')
   // back link
   cy.get('.govuk-back-link').click()
@@ -519,18 +547,7 @@ Cypress.Commands.add('contactUsPage',()=>{
   // cy.get('.govuk-back-link').click()
   // cy.contains('You can find help, services and activities in your local area, including:');
 })
-// accessibility page
-Cypress.Commands.add('accessibilityPage',()=>{
-  cy.contains('Accessibility Statement')
-  cy.contains('This accessibility statement applies to Connect families to support.')
-  cy.contains('Feedback and contact information')
-  cy.contains('Reporting accessibility problems with this website')
-  cy.contains('Enforcement procedure')
-  cy.contains("Technical information about this website’s accessibility")
-  cy.contains("We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, contact: connect-family-support.service@education.gov.uk.")
-  cy.contains("What we\’re doing to improve accessibility")
-  cy.contains('If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, email: connect-family-support.service@education.gov.uk.')
-})
+
 //feedbackPage
 Cypress.Commands.add('feedbackPage',()=>{
   
@@ -547,7 +564,7 @@ Cypress.Commands.add('privacyPageContent',()=>{
 Cypress.Commands.add('termsandconditionsPage',()=>{
  
   cy.contains("Terms and conditions")
-  cy.contains("Welcome to Manage family support services and accounts. This service is run by the Department for Education (DfE).")
-  cy.contains("These terms and conditions apply to local authority and voluntary and community sector (VCS) professionals who are signed in and using the service to add and manage:")
-  cy.contains("You can make a complaint or give feedback about this service by emailing manage-connection-requests.service@education.gov.uk.")
+  cy.contains('Welcome to Connect families to support and Manage family support services and accounts (our services). Our services are run by the Department for Education and their use is subject to these terms and conditions.')
+  cy.contains("Connect families to support allows professionals who work with families to:")
+  cy.contains("Last updated 20 October 2023.")
 })

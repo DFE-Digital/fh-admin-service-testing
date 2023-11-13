@@ -8,8 +8,8 @@ describe('| addPerm-vcs-UserEmail | FHG-3577 DFE - add permissions - What is the
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('1')
-        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
-        cy.whichOrgVcs('cranbrook')
+        cy.selectWhichLA('tower hamlets', 'ForUserTypeVcs')
+        cy.whichOrgVcs('elop')
     })
     
     it('AC 1,4 Page content ,valid email address,back button', () => {

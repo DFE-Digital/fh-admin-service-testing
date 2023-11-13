@@ -13,8 +13,8 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     cy.gotoAddPermissionsPage()
     cy.typeOfUserPage('vcs')
     cy.typeOfUserVCS('1')
-    cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
-    cy.whichOrgVcs('cranbrook')
+    cy.selectWhichLA('tower hamlets', 'ForUserTypeVcs')
+    cy.whichOrgVcs('elop')
     cy.email(emailAddress)
     cy.fullName(n + 'John Paul Smith')
 
@@ -27,8 +27,8 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
-      'Local authority': 'London Borough of Redbridge',
-      'Voluntary and community organisation': 'Cranbrook Baptist Church',
+      'Local authority': 'Tower Hamlets Council',
+      'Voluntary and community organisation': 'Elop Mentoring',
       'Email address': emailAddress,
       'Name': n + 'John Paul Smith',
     };
@@ -118,13 +118,13 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
-      'Local authority': 'London Borough of Redbridge',
-      'Voluntary and community organisation': 'Jubilee Church Ilford',
+      'Local authority': 'Tower Hamlets Council',
+        'Voluntary and community organisation': 'V & A Museum Of Childhood',
       'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkVcsOrganisation').click()
-    cy.whichOrgVcs('Jubilee Church Ilford')
+    cy.whichOrgVcs('V & A Museum Of Childhood')
     cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
     // validate response
@@ -137,8 +137,8 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
-      'Local authority': 'London Borough of Redbridge',
-      'Voluntary and community organisation': 'Cranbrook Baptist Church',
+      'Local authority': 'Tower Hamlets Council',
+      'Voluntary and community organisation': 'Elop Mentoring',
       'Email address': n + 'new.email@def.com',
       'Name': n + 'John Steven Smith',
     };
@@ -155,8 +155,8 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
     const expectedContent = {
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
-      'Local authority': 'London Borough of Redbridge',
-      'Voluntary and community organisation': 'Cranbrook Baptist Church',
+      'Local authority': 'Tower Hamlets Council',
+      'Voluntary and community organisation': 'Elop Mentoring',
       'Email address': emailAddress,
       'Name': n + 'John Paul Smith Jr',
     };

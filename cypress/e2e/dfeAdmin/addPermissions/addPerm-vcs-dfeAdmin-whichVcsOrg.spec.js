@@ -7,7 +7,7 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('vcs')
         cy.typeOfUserVCS('both')
-        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
+        cy.selectWhichLA('tower hamlets', 'ForUserTypeVcs')
 
     })
 
@@ -18,14 +18,14 @@ describe('| addPerm-vcs-whichVcsOrg | FHG-3416 ,FHG-3754 DFE - add permissions -
         cy.get('.govuk-back-link').click()
         cy.contains('Which local authority area do they work in?')
         // happy path
-        cy.selectWhichLA('redbridge', 'ForUserTypeVcs')
-        cy.whichOrgVcs('Centre & CAMHS')
+        cy.selectWhichLA('tower hamlets', 'ForUserTypeVcs')
+        cy.whichOrgVcs('elop')
         //email page
         cy.contains("What's their email address?")
         // bug FHG-3754
         // go back validate if special characters are displayed correctly 
         cy.get('.govuk-back-link').click()
-        cy.contains('The Grove Redbridge Child Development Centre & CAMHS')
+        cy.contains('Elop Mentoring')
     })
 
     it('AC 2 , 4 - unrecognised text / blank - no result found displayed in dropdown , error message', () => {
