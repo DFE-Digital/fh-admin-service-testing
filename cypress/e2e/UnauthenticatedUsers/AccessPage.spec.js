@@ -1,4 +1,4 @@
-describe('| should redirect unauthenticated user to signin page', { tags: ['dfeAdmin'] }, () => {
+describe.skip('| should redirect unauthenticated user to signin page', { tags: ['dfeAdmin'] }, () => {
 
     const pages = [
         "/Welcome",

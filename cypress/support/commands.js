@@ -426,7 +426,7 @@ Cypress.Commands.add('accessibilityPage',()=>{
   cy.contains('Preparation of this accessibility statement')
   // back link
   cy.get('.govuk-back-link').click()
-  cy.contains('You can find help, services and activities in your local area, including:');
+  cy.contains('Manage your account');
 
 
 })

@@ -16,10 +16,10 @@ describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page', { tags: [
         cy.visit('/')
         cy.LAManWelcomePage('London Borough of Redbridge')
 
-        cy.contains('Add permissions').click()
+        cy.contains('Add a user').click()
         cy.get('.govuk-back-link').click()
 
-        cy.contains('Manage permissions').click()
+        cy.contains('Manage users').click()
         cy.get('.govuk-back-link').click()
 
         // cy.contains('Add an LA service').click()

@@ -37,19 +37,20 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.clearFilters()
         // apply LA filter 
         cy.typeOfUserFilter('la')
-        cy.contains('Redbridge')
+        cy.contains('Tower Hamlets')
         cy.clearFilters()
         // apply VCS filter
-        cy.contains('Cranbrook')
+        cy.typeOfUserFilter('vcs')
+        cy.contains('Bangladeshi')
         cy.clearFilters()
         //apply both filters 
         cy.typeOfUserFilter('both')
         // add validations
         // first page has VCS 
-        cy.contains('Cranbrook')
+        cy.contains('Bangladeshi')
         // last page has LA 
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        cy.contains('Redbridge')
+        cy.contains('Elop')
     })
 
     it('AC 6 - Name , Email , Organisation filter', () => {

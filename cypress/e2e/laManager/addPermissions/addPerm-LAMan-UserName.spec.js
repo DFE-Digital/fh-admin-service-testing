@@ -32,7 +32,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
         cy.email(n + 'abcdef@def.com')
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
-        cy.get('.govuk-error-summary').contains('Enter a name')
+        cy.get('.govuk-error-summary').contains('Enter a full name')
         // user is able to enter valid name after error message 
         cy.fullName('John Smith')
     })
@@ -63,7 +63,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
         cy.email(n + 'abcdef@def.com')
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
-        cy.get('.govuk-error-summary').contains('Enter a name')
+        cy.get('.govuk-error-summary').contains('Enter a full name')
         // user is able to enter valid name after error message 
         cy.fullName('John Smith')
     })

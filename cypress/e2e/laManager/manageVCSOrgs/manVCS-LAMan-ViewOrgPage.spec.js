@@ -12,7 +12,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         cy.laManVcsLink()
         cy.manVcsView()
         //manage VCS link
-        cy.manVcsViewPage('Jubilee Church Ilford', 'London Borough of Redbridge')
+        cy.manVcsViewPage('V & A Museum Of Childhood', 'Tower Hamlets Council')
         // back button 
         cy.get('.govuk-back-link').click()
         cy.contains('Manage organisations')
