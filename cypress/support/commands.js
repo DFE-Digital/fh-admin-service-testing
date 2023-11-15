@@ -227,20 +227,27 @@ function signIn(userType){
   //
   cy.get('#sign-in-button').click()
   // login based on type of user
-  if (userType == 'dfeadmin'){
-    // login email
-    cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
-    cy.get('form > .govuk-button').click()
-    // login password
-    cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
-  }
-  else if ( userType == 'laman'){
-    // login email
-    cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
-    cy.get('form > .govuk-button').click()
-    // login password
-    cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
-  }
+    if (userType == 'dfeadmin') {
+        // login email
+        cy.get('#email').type(`${Cypress.env('oneloginusername')}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env('oneloginpassword')}`)
+    }
+    else if (userType == 'laman') {
+        // login email
+        cy.get('#email').type(`${Cypress.env('lamanoneloginusername')}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env('lamanoneloginpassword')}`)
+    }
+    else if (userType == 'vcsman') {
+        // login email
+        cy.get('#email').type(`${Cypress.env('vcsmanoneloginusername')}`)
+        cy.get('form > .govuk-button').click()
+        // login password
+        cy.get('#password').type(`${Cypress.env('vcsmanoneloginpassword')}`)
+    }
   cy.get('form > .govuk-button').click()
   // check if the user is signed in
   cy.get('.govuk-link--inverse').contains('Sign out')
