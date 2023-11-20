@@ -243,10 +243,10 @@ function signIn(userType){
     }
     else if (userType == 'vcsman') {
         // login email
-        cy.get('#email').type(`${Cypress.env('vcsmanoneloginusername')}`)
+        cy.get('#email').type(`familyhubs.vcsman@education.gov.uk`)
         cy.get('form > .govuk-button').click()
         // login password
-        cy.get('#password').type(`${Cypress.env('vcsmanoneloginpassword')}`)
+        cy.get('#password').type(`43@$mellyC4t3`)
     }
   cy.get('form > .govuk-button').click()
   // check if the user is signed in

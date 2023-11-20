@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\cypress",
+    "\\cypress\\e2e",
+    "\\cypress\\e2e\\dfeAdmin",
+    "\\cypress\\e2e\\dfeAdmin\\manageLocations",
+    "\\cypress\\e2e\\laManager\\manageServices",
+    "\\cypress\\e2e\\vcsManager",
+    "\\cypress\\support"
+  ],
+  "SelectedNode": "\\cypress\\e2e\\dfeAdmin\\manageLocations\\manageLocations-dfeAdmin-HomePage.spec.js",
+  "PreviewInSolutionExplorer": false
+}

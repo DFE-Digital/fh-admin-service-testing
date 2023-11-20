@@ -18,7 +18,7 @@
         //check page heading
         cy.checkPageHeading(".govuk-heading-l", expectedPageHeading)
         //check static text
-        cy.getTextOfElements('main#main-content p', actualStaticText, expectedStaticText);
+        cy.getTextOfElements('.govuk-grid-column-two-thirds > p', actualStaticText, expectedStaticText);
         //check table heading
         cy.getTextOfElements('.govuk-table__header', actualHeader, expectedHeader);
         //check the total rows in the page 
@@ -174,6 +174,98 @@
         cy.checkPageHeading('.govuk-grid-column-three-quarters > .govuk-heading-m', resultsHeading);
         //check text under heading
         cy.getTextOfElements('.govuk-grid-column-three-quarters > p', actualText, expectedText);
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location type as Family hub', () => {
+        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select family hub checkbox
+        cy.selectCheckBoxes('Family hub');
+        //click on apply filters
+        cy.get('#filters-component > .govuk-button').click();
+        //check location type on all rows
+        cy.get('.govuk-table__body > .govuk-table__row').each(($row) => {
+            const rowText = $row.text().trim();
+            expect(rowText).to.contains('FAMILY HUB');
+        });
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location type as Non family hub', () => {
+        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+        const expectedFilteredList = ['1', '2', '⋯', '38', 'Next'];
+        let actualFilteredList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select Non family hub checkbox
+        cy.selectCheckBoxes('Non family hub');
+        //click on apply filters
+        cy.get('#filters-component > .govuk-button').click();
+        //check location type on all rows
+        cy.get('.govuk-table__body > .govuk-table__row').each(($row) => {
+            const rowText = $row.text().trim();
+            expect(rowText).to.not.contains('FAMILY HUB');
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFilteredList, expectedFilteredList);
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location name and location type as both family hub and Non family hub', () => {
+        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select family hub checkbox
+        cy.selectCheckBoxes('Family hub');
+        //select Non family hub checkbox
+        cy.selectCheckBoxes('Non family hub');
+        //enter text in filter box and click on Apply filter button
+        cy.enterTextAndContinue('#SearchName', "45", '#filters-component > .govuk-button');
+        //Sort by location type
+        cy.contains('Location Type').click();
+        //check location type on 1st row
+        cy.get('.govuk-table__body > :nth-child(1) > :nth-child(2)').invoke('text')
+            .then((text) => {
+                expect(text.trim()).to.equal('FAMILY HUB');
+            });
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(6);
+        });
+        //check pagination doesn't exist
+        cy.get('.govuk-pagination').should('not.exist');
         //click on clear filter
         cy.get('#filters-component > p > a').click();
         //check the total number of rows in the page
