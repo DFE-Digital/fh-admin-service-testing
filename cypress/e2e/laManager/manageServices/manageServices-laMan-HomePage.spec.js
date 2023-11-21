@@ -3,7 +3,7 @@
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.visit('/manage/services')
+        cy.contains('Services').click();
     })
 
     it('validate services homepage content', () => {

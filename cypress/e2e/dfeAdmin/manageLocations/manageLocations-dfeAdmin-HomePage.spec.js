@@ -3,7 +3,7 @@
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
-        cy.visit('/locations/managelocations')
+        cy.contains('Manage locations').click();
     })
 
     it('validate locations homepage content', () => {
