@@ -5,6 +5,6 @@ describe('| welcome page ', { tags: ['dfeAdmin'] }, () => {
     })
 
     it('validate content', () => {
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
     })
 })

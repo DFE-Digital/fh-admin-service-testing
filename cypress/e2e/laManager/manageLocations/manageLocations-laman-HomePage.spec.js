@@ -3,7 +3,7 @@
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
-        cy.visit('/locations/managelocations')
+        cy.contains('Locations').click();
     })
 
     it('validate locations homepage content', () => {
@@ -18,7 +18,7 @@
         //check page heading
         cy.checkPageHeading(".govuk-heading-l", expectedPageHeading)
         //check static text
-        cy.getTextOfElements('main#main-content p', actualStaticText, expectedStaticText);
+        cy.getTextOfElements('.govuk-grid-column-two-thirds > p', actualStaticText, expectedStaticText);
         //check table heading
         cy.getTextOfElements('.govuk-table__header', actualHeader, expectedHeader);
         //check the total rows in the page 
@@ -90,5 +90,189 @@
         cy.clickBackLink();
         //verify page heading
         cy.checkPageHeading('.govuk-caption-l', expectedPageHeading);
+    })
+
+    it('filter locations section content', () => {
+        const expectedFilterHeading = 'Filter locations';
+        const expectedFilters = ['Location name', 'Location type'];
+        let actualFilters = [];
+        const expectedCheckBoxes = ['Family hub', 'Non family hub']
+        let actualCheckBoxes = [];
+
+        //check filter heading
+        cy.checkPageHeading('.filters-component__heading h2', expectedFilterHeading);
+        //check filter names
+        cy.getTextOfElements('h3', actualFilters, expectedFilters);
+        //checkboxes text
+        cy.getTextOfElements('.govuk-checkboxes__label', actualCheckBoxes, expectedCheckBoxes);
+        cy.get('#filters-component > .govuk-button').should('contain', 'Apply filter');
+        cy.get('#filters-component > p > a').should('contain', 'Clear filter');
+    })
+
+    it('filter locations by full location name and click on clear filters', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        let actualList = [];
+
+        //enter text in filter box and click on Apply filter button
+        cy.enterTextAndContinue('#SearchName', "Acorn Fc, 36 Grove Park Road, Rainham, RM13 7DA", '#filters-component > .govuk-button');
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(1);
+        });
+        //check pagination doesn't exist
+        cy.get('.govuk-pagination').should('not.exist');
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+    })
+
+    it('filter locations by partial location name and click on clear filters', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        const filteredList = ['1', '2', '3', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+        let actualFilterList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //enter text in filter box and click on Apply filter button
+        cy.enterTextAndContinue('#SearchName', "House", '#filters-component > .govuk-button');
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check filtered pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFilterList, filteredList);
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('No results found page on filter', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        const resultsHeading = 'No results returned';
+        let actualList = [];
+        let actualFinalList = [];
+        let actualText = [];
+        const expectedText = ['Try again by changing or removing filters you applied.'];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //enter text in filter box and click on Apply filter button
+        cy.enterTextAndContinue('#SearchName', "abc", '#filters-component > .govuk-button');
+        //check the heading
+        cy.checkPageHeading('.govuk-grid-column-three-quarters > .govuk-heading-m', resultsHeading);
+        //check text under heading
+        cy.getTextOfElements('.govuk-grid-column-three-quarters > p', actualText, expectedText);
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location type as Family hub', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select family hub checkbox
+        cy.selectCheckBoxes('Family hub');
+        //click on apply filters
+        cy.get('#filters-component > .govuk-button').click();
+        //check location type on all rows
+        cy.get('.govuk-table__body > .govuk-table__row').each(($row) => {
+            const rowText = $row.text().trim();
+            expect(rowText).to.contains('FAMILY HUB');
+        });
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location type as Non family hub', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+        const expectedFilteredList = ['1', '2', '⋯', '34', 'Next'];
+        let actualFilteredList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select Non family hub checkbox
+        cy.selectCheckBoxes('Non family hub');
+        //click on apply filters
+        cy.get('#filters-component > .govuk-button').click();
+        //check location type on all rows
+        cy.get('.govuk-table__body > .govuk-table__row').each(($row) => {
+            const rowText = $row.text().trim();
+            expect(rowText).to.not.contains('FAMILY HUB');
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFilteredList, expectedFilteredList);
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
+    })
+
+    it('filter by location name and location type as both family hub and Non family hub', () => {
+        const expectedList = ['1', '2', '⋯', '35', 'Next'];
+        let actualList = [];
+        let actualFinalList = [];
+
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
+        //select family hub checkbox
+        cy.selectCheckBoxes('Family hub');
+        //select Non family hub checkbox
+        cy.selectCheckBoxes('Non family hub');
+        //enter text in filter box and click on Apply filter button
+        cy.enterTextAndContinue('#SearchName', "45", '#filters-component > .govuk-button');
+        //Sort by location type
+        cy.contains('Location Type').click();
+        //check location type on 1st row
+        cy.get('.govuk-table__body > :nth-child(1) > :nth-child(2)').invoke('text')
+            .then((text) => {
+                expect(text.trim()).to.equal('FAMILY HUB');
+            });
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(6);
+        });
+        //check pagination doesn't exist
+        cy.get('.govuk-pagination').should('not.exist');
+        //click on clear filter
+        cy.get('#filters-component > p > a').click();
+        //check the total number of rows in the page
+        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
+            expect(length).to.equal(10);
+        });
+        //check pagination items
+        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 })

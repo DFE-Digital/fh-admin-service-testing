@@ -17,7 +17,7 @@ before(() => {
 // Tests FHG-1599
 Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     cy.get('.govuk-grid-column-two-thirds').contains('Department for Education')
-    cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
+    cy.title().should('contain', 'Manage family support services and accounts - GOV.UK')
     
     // Accounts 
     cy.contains('Accounts')
@@ -25,13 +25,25 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     cy.contains('Add a user account to manage support services or connection requests.')
     cy.contains('Manage users')
     cy.contains('View, edit or delete user accounts to manage support services or connection requests.')
+
+    // Local Authorities
+    cy.contains('Local authorities (LAs)')
+    cy.contains('Add a service')
+    cy.contains('Add a service to the directory.')
+    cy.contains('Services can include groups, activities, programmes and advice.')
+    cy.contains('Manage services')
+    cy.contains('View, change or delete services shown in the directory.')
+    cy.contains('Add a location')
+    cy.contains('Add a location to the directory.')
+    cy.contains('Manage locations')
+    cy.contains('View, change or delete service and family hub locations in the directory.')
     
     //  Voluntary Community Organisations ( VCSs)
     cy.contains('Voluntary community organisations (VCSs)')
-    cy.contains('Add a VCS organisation')
+    cy.contains('Add an organisation')
     cy.contains('Add an organisation before adding permissions for its users.')
-    cy.contains('Manage VCS organisations')
-    cy.contains('View, change or delete existing organisations.')
+    cy.contains('Manage organisations')
+    cy.contains('View or delete organisations.')
     cy.contains('Upload an excel spreadsheet.')
   })
 
@@ -42,21 +54,38 @@ Cypress.Commands.add('LAManWelcomePage',(localAuthority)=>{
       cy.get('.govuk-grid-column-two-thirds').contains(`${localAuthority}`)
     }
     
-    cy.title().should('eq', 'Welcome - Manage family support services and accounts - GOV.UK')
+    cy.title().should('contain', 'Manage family support services and accounts - GOV.UK')
 
     cy.contains('Add a user')
     cy.contains('Manage users')
     
-    cy.contains('Activate a local authority')
-      .should('not.exist');
-    cy.contains('Add a VCS service')
-      .should('not.exist');
-    cy.contains('Manage VCS services')
-      .should('not.exist');
+    cy.contains('Local authority services and locations')
+    cy.contains('Services')
+    cy.contains('Add, view, change or delete services shown in the directory.')
+    cy.contains('Services can include groups, activities, programmes and advice.')
+    cy.contains('Locations')
+    cy.contains('Add, view, change or delete your service and family hub locations in the directory.')
 
     cy.contains('Add an organisation')
     cy.contains('Manage organisations')
-  })
+})
+
+// VCS Manager - Welcome page 
+Cypress.Commands.add('VCSManWelcomePage', (vcsOrganisation) => {
+
+    if (vcsOrganisation != undefined) {
+        cy.get('.govuk-grid-column-two-thirds').contains(`${vcsOrganisation}`)
+    }
+
+    cy.title().should('contain', 'Manage family support services and accounts - GOV.UK')
+
+    cy.contains('Services')
+    cy.contains('Add, view, change or delete services shown in the directory.')
+    cy.contains('Services can include groups, activities, programmes and advice.')
+    cy.contains('Locations')
+    cy.contains('Add, view, change or delete your service and family hub locations in the directory.')
+
+})
 
   // LA manager -  Type of user page 
 Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
