@@ -604,3 +604,28 @@ Cypress.Commands.add('termsandconditionsPage',()=>{
   cy.contains("Connect families to support allows professionals who work with families to:")
   cy.contains("Last updated 20 October 2023.")
 })
+
+//check error messages
+Cypress.Commands.add('checkErrorBannerAndMessages', (expectedErrorHeading, expectedErrorText, actualErrorBannerText, actualMessages) => {
+    cy.get('.govuk-error-summary__title').invoke('text').then((text) => {
+        expect(text.trim()).to.equal(expectedErrorHeading);
+    })
+    cy.get('.govuk-error-summary__body li').each(($el) => {
+        actualErrorBannerText.push($el.text().trim())
+    }).then(()=>{
+        expect(actualErrorBannerText).to.deep.equal(expectedErrorText)
+    })
+
+    cy.get('.govuk-error-message').each(($el) => {
+        actualMessages.push($el.text().replace('Error:','').trim().split('\n').shift())
+    }).then(()=>{
+        expect(actualMessages).to.deep.equal(expectedErrorText)
+    })
+})
+
+//check service name text box content
+Cypress.Commands.add('checkTextBoxContent', (expectedText, attribute) => {
+    cy.get('input.govuk-input#textbox').invoke('attr',attribute).then((value) => {
+        expect(value.trim()).to.equal(expectedText);
+    })
+})
