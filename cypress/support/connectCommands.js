@@ -40,3 +40,9 @@ Cypress.Commands.add('selectCheckBoxes', (label) => {
         .check();
 })
 
+Cypress.Commands.add('checkTextOf', (locator, expectedText)=> {
+    cy.get(locator).should('be.visible').invoke('text').then((text)=> {
+        expect(text.trim()).to.equal(expectedText);
+    })
+})
+
