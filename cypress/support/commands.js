@@ -301,7 +301,7 @@ Cypress.Commands.add('pageHeadings',()=>{
 
 // check page heading
 Cypress.Commands.add('checkPageHeading', (locator, expectedHeading) => {
-    cy.get(locator).invoke('text').then((text) => {
+    cy.get(locator).should('be.visible').invoke('text').then((text) => {
         const trimmedText = text.trim();
         expect(trimmedText).to.equal(expectedHeading);
     })
@@ -315,6 +315,53 @@ Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) =>
     }).then(() => {
         expect(actualList).to.deep.equal(expectedList);
     })
+})
+
+// get text of all service categories
+Cypress.Commands.add('getvisibleTextOfElements', (locator, actualList, expectedList) => {
+    // Find visible elements with IDs starting with "category-"
+    cy.get(locator).filter(':visible').each(($element) => {
+        cy.wrap($element)
+        .invoke('text')
+        .then((labelText) => {
+            const text = labelText.trim();
+            actualList.push(text);
+        })
+    }).then(() => {
+        expect(actualList).to.deep.equal(expectedList);
+    })
+});
+
+//Get text of all sub-categories
+Cypress.Commands.add('getTextOfSubCategories', (locator, actualList, expectedList) => {
+    cy.get(locator)
+        .find('input[type="checkbox"]')
+        .each(($checkbox) => {
+            cy.wrap($checkbox)
+                .then(($input) => {
+                    const labelFor = $input.attr('id');
+                    return cy.get(`label[for="${labelFor}"]`);
+                })
+                .invoke('text')
+                .then((labelText) => {
+                    const text = labelText.trim();
+                    actualList.push(text);
+                });
+        }).then(() => {
+            expect(actualList).to.deep.equal(expectedList);
+    })
+});
+
+//Get text of checked checkboxes
+Cypress.Commands.add('getTextOfCheckedCheckboxes', (actualList, expectedList) => {
+    cy.get('.govuk-checkboxes__input:checked')
+        .each(($checkbox) => {
+            const labelText = $checkbox.next('.govuk-label').text().trim(); 
+            actualList.push(labelText); 
+        })
+        .then(() => {
+            expect(actualList).to.deep.equal(expectedList);
+        });
 })
 
 //check current page on pagination
@@ -488,6 +535,13 @@ Cypress.Commands.add('selectCheckBoxes', (label)=> {
     .check();
 })
 
+Cypress.Commands.add('unselectCheckBoxes', (label) => {
+    cy.contains('label', label)
+        .parent()
+        .find('input')
+        .uncheck();
+})
+
 // custom command to overwrite baseUrl if we are using localhost etc
 Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   const space = Cypress.env('SPACE');
@@ -628,4 +682,30 @@ Cypress.Commands.add('checkTextBoxContent', (expectedText, attribute) => {
     cy.get('input.govuk-input#textbox').invoke('attr',attribute).then((value) => {
         expect(value.trim()).to.equal(expectedText);
     })
+})
+
+//click on change link for service categories offered
+Cypress.Commands.add('clickChangeLinkForServiceCategory', (rowName) => {
+    cy.get('.govuk-summary-list__key')
+        .contains(rowName) 
+        .siblings('.govuk-summary-list__actions') 
+        .find('a') 
+        .click(); 
+})
+
+//get radio buttons values
+Cypress.Commands.add('getRadioButtons', (locator, actualRadioButtons, expectedRadioButtons) => {
+    cy.get(locator).each(($el) => {
+        actualRadioButtons.push($el.text().trim())
+    }).then(() => {
+        expect(actualRadioButtons).to.deep.equal(expectedRadioButtons)
+    })
+})
+
+//Select radio button and age range
+Cypress.Commands.add('selectYesRadioButtonAndAgeRange', (fromAge, toAge) => { 
+    cy.get('#ViewModel_Children_Yes').check();
+    cy.get('#ViewModel_FromAge').select(fromAge);
+    cy.get('#ViewModel_ToAge').select(toAge);
+    cy.get('div.govuk-grid-row button').click();
 })
