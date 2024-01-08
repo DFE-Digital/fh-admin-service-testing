@@ -35,7 +35,7 @@ jobs:
           CYPRESS_lamanoneloginpassword: ${{ secrets.LAMAN_ONELOGIN_PASSWORD }}
           CYPRESS_username: ${{ secrets.INTEGRATION_ID }}
           CYPRESS_password: ${{ secrets.INTEGRATION_PASSWORD }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: report
           path: ./cypress/reports/
