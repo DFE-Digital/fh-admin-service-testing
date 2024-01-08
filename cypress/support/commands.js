@@ -692,3 +692,20 @@ Cypress.Commands.add('clickChangeLinkForServiceCategory', (rowName) => {
         .find('a') 
         .click(); 
 })
+
+//get radio buttons values
+Cypress.Commands.add('getRadioButtons', (locator, actualRadioButtons, expectedRadioButtons) => {
+    cy.get(locator).each(($el) => {
+        actualRadioButtons.push($el.text().trim())
+    }).then(() => {
+        expect(actualRadioButtons).to.deep.equal(expectedRadioButtons)
+    })
+})
+
+//Select radio button and age range
+Cypress.Commands.add('selectYesRadioButtonAndAgeRange', (fromAge, toAge) => { 
+    cy.get('#ViewModel_Children_Yes').check();
+    cy.get('#ViewModel_FromAge').select(fromAge);
+    cy.get('#ViewModel_ToAge').select(toAge);
+    cy.get('div.govuk-grid-row button').click();
+})
