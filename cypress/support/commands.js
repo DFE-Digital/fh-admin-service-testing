@@ -709,3 +709,9 @@ Cypress.Commands.add('selectYesRadioButtonAndAgeRange', (fromAge, toAge) => {
     cy.get('#ViewModel_ToAge').select(toAge);
     cy.get('div.govuk-grid-row button').click();
 })
+
+//Add a language
+Cypress.Commands.add('selectLanguage', (locator, searchResultsLocator, language) => {
+    cy.get(locator).click().clear().type(language);
+    cy.get(searchResultsLocator).click();
+})
