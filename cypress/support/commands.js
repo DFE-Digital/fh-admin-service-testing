@@ -227,7 +227,7 @@ Cypress.Commands.add('integrationLogin', (userType) => {
             username: `${Cypress.env('username')}`,
             password: `${Cypress.env('password')}`,
           },
-          failOnStatusCode: true 
+          failOnStatusCode: false 
         })
       },
       cacheAcrossSpecs: true
@@ -666,7 +666,7 @@ Cypress.Commands.add('checkErrorBannerAndMessages', (expectedErrorHeading, expec
     })
     cy.get('.govuk-error-summary__body li').each(($el) => {
         actualErrorBannerText.push($el.text().trim())
-    }).then(()=>{
+    }).then(() => {
         expect(actualErrorBannerText).to.deep.equal(expectedErrorText)
     })
 

@@ -3,6 +3,7 @@ describe('LA Manager - manage services - language page', () => {
         cy.visit('/')
         cy.integrationLogin('laman')
         cy.contains('Services').click();
+        cy.enterTextAndContinue('#service-name', 'Deaf', '.moj-filter__selected > .govuk-button');
         cy.get('.govuk-table__cell a')
             .eq(0)
             .click();
@@ -21,7 +22,7 @@ describe('LA Manager - manage services - language page', () => {
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
         //check empty language text box
-        cy.checkTextOf('#language-0', 'English');
+        cy.get('#language-0__option--0').should('have.text', 'English');
         //check Add another language buttons
         cy.getTextOfElements('.fh-add-another__add-button', actualList, expectedList);
         //check sub heading
@@ -52,7 +53,7 @@ describe('LA Manager - manage services - language page', () => {
         cy.get('#TranslationServices').uncheck();
         cy.get('#BritishSignLanguage').uncheck();
         //click continue button 
-        cy.get('form > :nth-child(6)').click();
+        cy.get('form > :nth-child(5)').click();
     })
 
     it('display error messages when no language is selected', () => {
@@ -60,8 +61,70 @@ describe('LA Manager - manage services - language page', () => {
         const errorHeading = 'There is a problem';
         let [actualBannerMessages, actualMessages] = [[], []];
 
+        //Delete the default language
+        cy.get('#language-0').click().clear();
+        //click continue button
+        cy.get('form > :nth-child(5)').click();
+        //check error message
+        cy.checkErrorBannerAndMessages(errorHeading, emptyTextErrorMessage, actualBannerMessages, actualMessages);
+    })
+
+    it('display error messages when incorrect language is selected', () => {
+        const emptyTextErrorMessage = ['Enter an available language'];
+        const errorHeading = 'There is a problem';
+        let [actualBannerMessages, actualMessages] = [[], []];
+
+        //Delete the default language
+        cy.get('#language-0').click().clear();
+        //Select a language
+        cy.selectLanguage('#language-0', '#language-0__listbox', 'Genie');
         //click continue button 
         cy.get('form > :nth-child(5)').click();
+        //check error message
+        cy.checkErrorBannerAndMessages(errorHeading, emptyTextErrorMessage, actualBannerMessages, actualMessages);
+    })
+
+    it('display error message when duplicate language is selected', () => {
+        const emptyTextErrorMessage = ['You can only select a language once'];
+        const errorHeading = 'There is a problem';
+        let [actualBannerMessages, actualMessages] = [[], []];
+
+        //Delete the default language
+        cy.get('#language-0').click().clear();
+        //Select a language
+        cy.selectLanguage('#language-0', '#language-0__option--0', 'Fre');
+        //Click on Add another language button
+        cy.get('.fh-add-another__add-button').click();
+        //Select the same language
+        cy.selectLanguage('#language-1', '#language-1__option--0', 'Fre');
+        //click continue button 
+        cy.get('form > :nth-child(6)').click();
+        //check error message
+        cy.checkErrorBannerAndMessages(errorHeading, emptyTextErrorMessage, actualBannerMessages, actualMessages);
+    })
+
+    it('display multiple error messages', () => {
+        const emptyTextErrorMessage = ['Enter any languages the service is offered in', 'Enter an available language',
+            'You can only select a language once'];
+        const errorHeading = 'There is a problem';
+        let [actualBannerMessages, actualMessages] = [[], []];
+
+        //Delete the default language
+        cy.get('#language-0').click().clear();
+        //Click on Add another language button
+        cy.get('.fh-add-another__add-button').click();
+        //Select a language
+        cy.selectLanguage('#language-1', '#language-1__option--0', 'Fre');
+        //Click on Add another language button
+        cy.get('.fh-add-another__add-button').click();
+        //Select the same language
+        cy.selectLanguage('#language-2', '#language-2__listbox', 'Genie');
+        //Click on Add another language button
+        cy.get('.fh-add-another__add-button').click();
+        //Select the same language
+        cy.selectLanguage('#language-3', '#language-3__option--0', 'Fre');
+        //click continue button 
+        cy.get('form > :nth-child(8)').click();
         //check error message
         cy.checkErrorBannerAndMessages(errorHeading, emptyTextErrorMessage, actualBannerMessages, actualMessages);
     })
