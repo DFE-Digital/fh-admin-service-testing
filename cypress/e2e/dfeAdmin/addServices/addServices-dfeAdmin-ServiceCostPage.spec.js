@@ -1,4 +1,4 @@
-describe('DfE Admin - Add services - Does the service cost money to use page', () => {
+﻿describe('DfE Admin - Add services - Does the service cost money to use page', () => {
     beforeEach(() => {
         const checkboxList = ['Activities, clubs and groups', 'Holiday clubs and schemes'];
         cy.visit('/')
@@ -23,7 +23,7 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
         //Select a language
         cy.selectLanguage('#language-0', '#language-0__option--0', 'Fre');
         //click continue button 
-        cy.get('form > :nth-child(6)').click();
+        cy.get('form > :nth-child(5)').click();
     })
 
     it('validate page content, radio buttons and back link', () => {
@@ -31,7 +31,7 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
         let actualRadioButtons = [];
         let expectedRadioButtons = ['Yes, it costs money to use', 'No, it is free to use'];
         const expectedPrevPageHeading = 'Which language is the service offered in?';
-        const conditionalText = 'Provide more details if you can. For example, we suggest you pay �2 every session.';
+        const conditionalText = 'Provide more details if you can. For example, we suggest you pay £2 every session.';
         const hintText = 'You have 150 characters remaining';
 
         //check page heading
@@ -43,7 +43,7 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
         //check text of conditional text area
         cy.checkTextOf('#service-cost > p', conditionalText);
         //check character count hint text
-        cy.checkTextOf('govuk-hint', hintText);
+        cy.checkTextOf('.govuk-character-count__status', hintText);
         //Click on back link
         cy.clickBackLink();
         //verify page heading
@@ -51,8 +51,8 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
     })
 
     it('Select Yes radio button and continue to next page', () => {
-        const expectedPageHeading = "Is the support offered by this service related to children or young people?";
-        const expectedNextPageHeading = 'Which language is the service offered in?';
+        const expectedPageHeading = "Does the service cost money to use?";
+        const expectedNextPageHeading = 'When is the service available?';
 
         //select Yes radio button 
         cy.get('#UserInput_HasCost_Yes').click();
@@ -65,10 +65,7 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
         //verify page heading
         cy.checkPageHeading('h1', expectedPageHeading);
         //verify Yes radio button is selected
-        cy.get('#ViewModel_Children_Yes').should('be.checked');
-        //Verify selected age range values
-        cy.get('#ViewModel_FromAge').should('have.value', '2');
-        cy.get('#ViewModel_ToAge').should('have.value', '5');
+        cy.get('#UserInput_HasCost_Yes').should('be.checked');
     })
 
     
@@ -85,13 +82,23 @@ describe('DfE Admin - Add services - Does the service cost money to use page', (
 
     it('display error messages for exceeding the character count', ()=> {
 		const errorHeading = 'There is a problem';
-        const errorMessage = ['Cost description must be 150 characters or less'];
+        const errorMessage = 'Cost description must be 150 characters or less';
         let [actualBannerMessages, actualMessages] = [[], []];
 
         //select Yes radio button and continue
-        cy.selectRadioButtonAndContinue('#UserInput_HasCost_Yes', 'div.govuk-grid-row button');
-		//check error banner
-		cy.checkErrorBannerAndMessages(errorHeading, errorMessage, actualBannerMessages, actualMessages);
+        cy.get('#UserInput_HasCost_Yes').check();
+        //enter text in the text area
+        cy.get('#text-area').type('Test description to test the service cost page error message. Provided more details if you can. For example, we suggest you pay £2 every session tests.');
+        //click continue button
+        cy.get('form > .govuk-button').click();
+        //check error heading
+        cy.get('.govuk-error-summary__title').should('contain', errorHeading);
+        //check error banner message
+        cy.get('.govuk-list > li > a').should('contain', errorMessage);
+        //check error message above the text area
+        cy.get('#text-area-error-message').should('contain', errorMessage);
+        //check character count hint text
+        cy.get('.govuk-character-count__status').should('contain', 'You have 1 character too many');
     })
 
 })
