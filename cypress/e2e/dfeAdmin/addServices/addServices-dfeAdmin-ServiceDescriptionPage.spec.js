@@ -68,7 +68,7 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
 		const enteredText =	'Test description.'.repeat(12);
 		const expectedHintText = 'You have 4 characters too many';
 		const errorHeading = 'There is a problem';
-		const errorMessage = ['Service description must be 200 characters or less'];
+		const errorMessage = 'Service description must be 200 characters or less';
 		const expectedHeading = 'Is the support offered by this service related to children or young people?';
         let [actualBannerMessages, actualMessages] = [[], []];
 
@@ -78,8 +78,10 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
 		cy.checkTextOf('.govuk-character-count__message:not(.govuk-visually-hidden)', expectedHintText);
 		//click continue button 
 		cy.get('div.govuk-grid-row button').click();
-		//check error banner
-		cy.checkErrorBannerAndMessages(errorHeading, errorMessage, actualBannerMessages, actualMessages);
+		//check error messages
+        cy.get('.govuk-error-summary__title').should('contain', errorHeading);
+        cy.get('.govuk-list > li > a').should('have.text', errorMessage);
+        cy.get('#text-area-error-message').should('contain', errorMessage);
 		//check hint text for character count after error message
 		cy.checkTextOf('.govuk-character-count__message:not(.govuk-visually-hidden)', expectedHintText);
 		//Enter text in the reason text area

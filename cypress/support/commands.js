@@ -44,7 +44,6 @@ Cypress.Commands.add('dfeAdminWelcomePage',()=>{
     cy.contains('Add an organisation before adding permissions for its users.')
     cy.contains('Manage organisations')
     cy.contains('View or delete organisations.')
-    cy.contains('Upload an excel spreadsheet.')
   })
 
 // LA Manager - Welcome page 
@@ -646,7 +645,7 @@ Cypress.Commands.add('feedbackPage',()=>{
 //privacy page
 Cypress.Commands.add('privacyPageContent',()=>{
   
-  cy.contains("Privacy notice ‘Manage family support services and accounts’ is provided by the Department for Education (DfE).")
+  cy.contains("Manage family support services and accounts is provided by the Department for Education (DfE).")
   cy.contains("The Department for Education is joint data controller with various local authorities for data collected within this service. The local authority that your account is associated with shares data controller responsibility for your account with DfE.")
   cy.contains("A data controller determines how and why personal data is processed. For more information, read the Department for Education’s entry in the Data Protection Public Register.")
 })

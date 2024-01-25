@@ -14,7 +14,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.gotoManagePermissionsPage()
         // back link
         cy.get('.govuk-back-link').click()
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
     })
 
     it('AC 2 - edit permissions link ', function () {
@@ -72,8 +72,8 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains(email)
         cy.clearFilters()
         // organisation filter
-        cy.organisationFilter('London Borough of Redbridge')
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('London Borough of Redbridge')
+        cy.organisationFilter('Tower Hamlets Council')
+        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').contains('Tower Hamlets Council')
         cy.clearFilters()
     })
     it('AC 8 , 9 - no result found  + Clear filter', () => {
