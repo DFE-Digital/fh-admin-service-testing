@@ -52,7 +52,7 @@
 
     it('Select Yes radio button and continue to next page', () => {
         const expectedPageHeading = "Does the service cost money to use?";
-        const expectedNextPageHeading = 'When is the service available?';
+        const expectedNextPageHeading = 'When is this service available?';
 
         //select Yes radio button 
         cy.get('#UserInput_HasCost_Yes').click();

@@ -14,7 +14,6 @@ describe('LA Manager - manage services - service name page', () => {
         const expectedPageHeading = "What is the service name?";
         let actualText = [];
         const expectedText = 'A Team Arts';
-        const expectedHomePageHeading = 'Service details placeholder';
 
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
@@ -23,7 +22,7 @@ describe('LA Manager - manage services - service name page', () => {
         //Click on back link
         cy.clickBackLink();
         //verify page heading
-        cy.checkPageHeading('h1', expectedHomePageHeading);
+        cy.checkPageHeading('h1', expectedText);
     })
 
     it('should display error message when no text is entered', ()=> {

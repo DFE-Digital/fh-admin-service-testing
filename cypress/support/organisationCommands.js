@@ -3,7 +3,7 @@
 
     switch(loggedInUserRole){
       case 'DfeAdmin':
-        cy.contains('Manage VCS organisations').click()
+        cy.contains('Manage organisations').click()
         break;
 
       case 'LaManager':
@@ -20,7 +20,7 @@
   Cypress.Commands.add('gotoAddVcsOrganisationsPage',(loggedInUserRole)=>{
     switch(loggedInUserRole){
       case 'DfeAdmin':
-        cy.contains('Add a VCS organisation').click()
+        cy.contains('Add an organisation').click()
         break;
 
       case 'LaManager':

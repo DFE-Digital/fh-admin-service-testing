@@ -12,7 +12,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         cy.laManVcsLink()
         cy.manVcsView()
         //manage VCS link
-        cy.manVcsViewPage('V & A Museum Of Childhood', 'Tower Hamlets Council')
+        cy.manVcsViewPage('V & A Museum Of Childhoods', 'Tower Hamlets Council')
         // back button 
         cy.get('.govuk-back-link').click()
         cy.contains('Manage organisations')
@@ -26,7 +26,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         //manage VCS link
         cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
-        cy.get(':nth-child(5) > .govuk-pagination__link').click()
+        cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
         cy.editVcsName(n + 'Test VCS Org 001')
         cy.get('#buttonContinue').click()

@@ -13,7 +13,7 @@ describe('DfE Admin - manage services - service name page', () => {
     it('validate service name page content and back link', ()=> {
         const expectedPageHeading = "What is the service name?";
         let actualText = [];
-        const expectedText = '1st Hainault Scout Group\nScouting';
+        const expectedText = '1st Hainault Scout Group Scouting';
         const expectedHomePageHeading = 'Service details placeholder';
 
         //check page heading

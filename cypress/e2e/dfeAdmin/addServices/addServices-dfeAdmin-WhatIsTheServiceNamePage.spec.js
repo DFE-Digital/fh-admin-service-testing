@@ -1,15 +1,16 @@
-describe('DfE Admin - manage services homepage', () => {
+describe('DfE Admin - service name homepage', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.contains('Add a service').click();
+        cy.get('form > .govuk-button').click();
     })
 
     it('validate service name page content and back link', () => {
         const expectedPageHeading = "What is the service name?";
         let actualText = [];
         const expectedText = [''];
-        const expectedHomePageHeading = 'Department for Education';
+        const expectedHomePageHeading = 'Which local authority is the service in?';
 
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
@@ -18,7 +19,7 @@ describe('DfE Admin - manage services homepage', () => {
         //Click on back link
         cy.clickBackLink();
         //verify page heading
-        cy.checkPageHeading('.govuk-caption-l', expectedHomePageHeading);
+        cy.checkPageHeading('h1', expectedHomePageHeading);
     })
     
     it('should display error message when no text is entered', ()=> {

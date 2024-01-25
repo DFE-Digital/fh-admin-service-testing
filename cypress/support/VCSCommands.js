@@ -37,9 +37,9 @@ Cypress.Commands.add('CreateVcsUser', (email, name) => {
 
 Cypress.Commands.add('LaCreateVcsUser', (email, name) => {
   cy.gotoAddPermissionsPage()
-  cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')  
+  cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')  
   cy.typeOfUserVCS('1')
-  cy.whichOrgVcs('cranbrook')
+  cy.whichOrgVcs('Toyhouse')
   cy.email(email)
   cy.fullName(name)
   cy.checkAnswerPage()

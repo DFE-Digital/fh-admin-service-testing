@@ -47,11 +47,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
         cy.typeOfUserFilter('both')
         // add validations
         // first page has VCS 
-        cy.contains('Redbridge')
-
-        // last page has LA 
-        // cy.get(':nth-child(4) > .govuk-pagination__link').click()
-        // cy.contains('Redbridge')
+        cy.contains('Bangladeshi')
     })
 
     it('AC 6 - Name , Email , Organisation filter', () => {
