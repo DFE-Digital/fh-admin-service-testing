@@ -4,7 +4,7 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
         cy.visit('/')
         cy.integrationLogin('laman')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
     })
 
     it('AC 1,2,6 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button', () => {

@@ -9,7 +9,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     })
 
     it('AC 1,4 LA Page content ,valid email address,back button', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         cy.email(n + 'abcdef@def.com')
         cy.contains("What's their full name?")
@@ -21,7 +21,7 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     })
 
     it('AC 2,3 - LA no data entered, incorrect /invalid email address entered - error message', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         // error message when user does not enter any email address
         cy.get('#buttonContinue').click()
@@ -44,9 +44,9 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     })
 
     it('AC 1,4 VCS Page content ,valid email address,back button', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         cy.email(n + 'abcdef@def.com')
         cy.contains("What's their full name?")
         // back button - takes user to email page
@@ -57,9 +57,9 @@ describe('| addPerm-UserEmail | FHG-3887 DFE - add permissions - What is their e
     })
 
     it('AC 2,3 - VCS no data entered , incorrect /invalid email address entered - error message', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         // error message when user does not enter any email address
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')

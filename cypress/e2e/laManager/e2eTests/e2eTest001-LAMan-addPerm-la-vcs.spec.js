@@ -20,7 +20,7 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     it('LA route ',()=>{
 		cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         cy.email(emailAddress)
         cy.fullName(fullName)
@@ -33,9 +33,9 @@ describe('| e2eTest001-addPerm-la-vcs.spec | add permission - la , vcs journey '
     it('VCS route' ,()=>{
         cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         cy.email(emailAddress)
         cy.fullName(fullName)
         cy.checkAnswerPage()

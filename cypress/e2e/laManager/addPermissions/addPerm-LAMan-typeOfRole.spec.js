@@ -4,11 +4,11 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.integrationLogin('laman')
     })
 
-    it('AC 1,2,5 - LA manager - LA route - validate content Someone who works for London Borough of Redbridge , back button', () => {
+    it('AC 1,2,5 - LA manager - LA route - validate content Someone who works for Tower Hamlets Council , back button', () => {
         cy.visit('/')
 
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         // What do they need to do? page 
         cy.typeOfUserLA('1')
         // back link
@@ -28,7 +28,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.visit('/')
 
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
 
         // What do they need to do? page 
         cy.typeOfUserVCS('1')
@@ -47,7 +47,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
     it('AC 4 - LA - no selection - error message', () => {
         cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
 
         // error message when user does not select one of the options
         cy.get('#buttonContinue').click()

@@ -20,7 +20,7 @@ describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - c
     it('AC 1,2 - validate confirmation page content for LA journey', () => {
         cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         cy.email(emailAddress)
         cy.fullName(fullName)
@@ -31,9 +31,9 @@ describe("| addPerm-confirmationPage | FHG-3912 LA Manager - add permissions - c
     it('AC 1,2 - validate confirmation page content for VCS journey', () => {
         cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         cy.email(emailAddress)
         cy.fullName(fullName)
         cy.checkAnswerPage()

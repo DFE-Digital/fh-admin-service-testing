@@ -9,7 +9,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     })
 
     it('AC 1, 3 - LA - validate page content , back link ', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         cy.email(n + 'abcdef@def.com')
         cy.contains("What's their full name?")
@@ -27,7 +27,7 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     })
 
     it('AC 2 - LA - no name entered - error message', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'la')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'la')
         cy.typeOfUserLA('1')
         cy.email(n + 'abcdef@def.com')
         cy.get('#buttonContinue').click()
@@ -38,9 +38,9 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     })
 
     it('AC 1, 3 - VCS - validate page content , back link ', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         cy.email(n + 'abcdef@def.com')
         cy.contains("What's their full name?")
         cy.fullName('John Smith')
@@ -57,9 +57,9 @@ describe("| addPerm-UserName | FHG-3909 LA Manager - add permissions - What's th
     })
 
     it('AC 2 - VCS - no name entered - error message', () => {
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
-        cy.whichOrgVcs('cranbrook')
+        cy.whichOrgVcs('Toyhouse')
         cy.email(n + 'abcdef@def.com')
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')

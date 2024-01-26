@@ -3,7 +3,7 @@ describe('| addPerm-vcs-typeOfUserVCS | FHG-3886 LA Man - What do they need to d
         cy.visit('/')
         cy.integrationLogin('laman')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
     })
 
     it('AC 1,2,6 - validate content ,VCS- Add and manage services, family hubs and accounts - option, back button', () => {

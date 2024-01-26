@@ -13,6 +13,6 @@ describe('| manVcs-dfeAmin-delConfirmNoPage | FHG-3811 DFE Admin - Manage VCS or
         // add validation - You have not deleted the service confirmation page
         cy.VcsNotDelPage()
         // homepage
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
     })
 })

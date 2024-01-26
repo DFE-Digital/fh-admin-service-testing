@@ -19,7 +19,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
     it('e2e test add permissions - add vcs org if it doesnt exist',()=>{
        cy.visit('/')
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
         cy.contains('Which organisation do they work for?')
         // add org link
@@ -33,7 +33,7 @@ describe('|e2eTest002-addPerm-addVCSOrg | Add permissions - VCS Add Org confirma
 
         // add permissions using this newly added VCS organisation 
         cy.gotoAddPermissionsPage()
-        cy.LAManTypeOfUserPage('London Borough of Redbridge', 'vcs')
+        cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
         cy.typeOfUserVCS('1')
         cy.whichOrgVcs(n + '+VCS Organisation name')
         cy.email(emailAddress)
