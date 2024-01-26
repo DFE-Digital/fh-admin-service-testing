@@ -65,6 +65,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
 
         // back button - takes user to LA page
         cy.get('.govuk-button').contains('Go to homepage').click()
-        cy.contains('London Borough of Redbridge')
+        cy.contains('Tower Hamlets Council')
     })
 })

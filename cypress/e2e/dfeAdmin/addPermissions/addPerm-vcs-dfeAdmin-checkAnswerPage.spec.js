@@ -119,12 +119,12 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3418 DFE - add permissions - check
       'Who for': 'Someone who works for a voluntary and community sector organisation',
       'Type of permission': 'Add and manage services',
       'Local authority': 'Tower Hamlets Council',
-        'Voluntary and community organisation': 'V & A Museum Of Childhood',
+        'Voluntary and community organisation': 'V & A Museum Of Childhoods',
       'Email address': emailAddress,
       'Name': n + 'John Steven Smith',
     };
     cy.get('#linkVcsOrganisation').click()
-    cy.whichOrgVcs('V & A Museum Of Childhood')
+    cy.whichOrgVcs('V & A Museum Of Childhoods')
     cy.email(emailAddress)
     cy.fullName(n + 'John Steven Smith')
     // validate response

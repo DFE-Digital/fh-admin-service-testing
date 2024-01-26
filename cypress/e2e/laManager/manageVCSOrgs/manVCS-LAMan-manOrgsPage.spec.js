@@ -9,7 +9,7 @@ describe('|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ', {
         cy.laManVcsLink()
         // back link
         cy.get('.govuk-back-link').click()
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
     })
 
     it('AC 2 pagination', () => {
@@ -26,7 +26,7 @@ describe('|manVCS-manOrgsPage.spec | FHG-3798 Manage VCS Organisations Page ', {
         cy.get('.govuk-pagination__next > .govuk-pagination__link').click()
         cy.url().should('include', 'pageNumber=3')
         // last page 
-        cy.get(':nth-child(6) > .govuk-pagination__link').click()
+        cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist')
     })
 

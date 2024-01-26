@@ -9,12 +9,12 @@ describe('| addPerm-LAMan-homepage | FHG-1699 LA manager - Home page', { tags: [
         cy.visit('/')
         // validate page content 
         // name of person logged in 
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
 
     })
     it('AC 2,3,4,5,6,7,8,9 -page links', () => {
         cy.visit('/')
-        cy.LAManWelcomePage('London Borough of Redbridge')
+        cy.LAManWelcomePage('Tower Hamlets Council')
 
         cy.contains('Add a user').click()
         cy.get('.govuk-back-link').click()
