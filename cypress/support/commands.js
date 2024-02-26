@@ -714,3 +714,39 @@ Cypress.Commands.add('selectLanguage', (locator, searchResultsLocator, language)
     cy.get(locator).click().clear().type(language);
     cy.get(searchResultsLocator).click();
 })
+
+//check error text and heading on the banner
+Cypress.Commands.add('checkErrorText', (expectedErrorHeading, expectedErrorText) => {
+    cy.get('.govuk-error-summary__title').invoke('text').then((text) => {
+        expect(text.trim()).to.equal(expectedErrorHeading);
+    })
+    cy.get('.govuk-error-summary__body').invoke('text').then((text) => {
+        expect(text.trim()).to.equal(expectedErrorText);
+    })
+    cy.get('.govuk-error-message').invoke('text').then((text) => {
+        expect(text.replace('Error:', '').trim().split('\n').shift()).to.equal(expectedErrorText);
+    })
+})
+
+//----------------------------Check details page ------------------------
+Cypress.Commands.add('checkDetails', (expectedContent) => {
+    cy.get('div.govuk-summary-list__row').each(($row) => {
+        const key = $row.find('dt.govuk-summary-list__key').text().trim();
+        const value = $row.find('dd.govuk-summary-list__value').text().trim();
+        expect(value).to.equal(expectedContent[key]);
+
+        cy.get($row).find('a:not(.govuk-visually-hidden)')
+            .should('contain', 'Change');
+    })
+})
+
+//--------------------- click change link on check details page -----------------
+Cypress.Commands.add('clickOnChangeLinkFor', (key) => {
+    cy.get('.govuk-summary-list__row')
+        .filter((index, element) => {
+            const keyElement = Cypress.$(element).find('.govuk-summary-list__key');
+            return keyElement.text().trim() === key;
+        })
+        .find('a')
+        .click();
+})
