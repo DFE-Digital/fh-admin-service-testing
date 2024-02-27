@@ -7,7 +7,7 @@
         cy.get('.govuk-table__cell a')
             .eq(0)
             .click();
-        cy.clickChangeLinkForServiceCategory('Does the service cost money to use?');
+        cy.clickChangeLinkForServiceCategory('Cost');
     })
 
     it('validate page content', () => {
@@ -39,7 +39,7 @@
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //click on change service cost link
-        cy.clickChangeLinkForServiceCategory('Does the service cost money to use?');
+        cy.clickChangeLinkForServiceCategory('Cost');
         //verify Yes radio button is selected
         cy.get('#UserInput_HasCost_Yes').should('be.checked');
         //select No radio button 

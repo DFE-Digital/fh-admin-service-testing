@@ -15,7 +15,7 @@
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Enter text in the reason text area
-        cy.get('#text-area').type('Test description');
+        cy.get('#textarea').type('Test description');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //select No radio button
@@ -52,7 +52,7 @@
 
     it('Select Yes radio button and continue to next page', () => {
         const expectedPageHeading = "Does the service cost money to use?";
-        const expectedNextPageHeading = 'When is this service available?';
+        const expectedNextPageHeading = 'How can people use this service?';
 
         //select Yes radio button 
         cy.get('#UserInput_HasCost_Yes').click();

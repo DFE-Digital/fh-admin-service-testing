@@ -1,4 +1,4 @@
-﻿describe.skip('VCS Admin - manage services homepage', () => {
+﻿describe('VCS Admin - manage services homepage', () => {
 
     beforeEach(() => {
         cy.visit('/')
@@ -8,7 +8,7 @@
 
     it('validate services homepage content', () => {
         const expectedPageHeading = 'Elop Mentoring services';
-        const expectedStaticText = ['View existing services in your VCS organisation.'];
+        const expectedStaticText = ['View existing services in your VCS organisation or add a service.'];
         let actualStaticText = [];
         const expectedList = ['1', '2', '⋯', '35', 'Next'];
         let actualList = [];

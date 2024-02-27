@@ -22,7 +22,7 @@ describe('LA Manager - manage services - service name page', () => {
         //Click on back link
         cy.clickBackLink();
         //verify page heading
-        cy.checkPageHeading('h1', expectedText);
+        cy.checkPageHeading('h1', 'Service details');
     })
 
     it('should display error message when no text is entered', ()=> {

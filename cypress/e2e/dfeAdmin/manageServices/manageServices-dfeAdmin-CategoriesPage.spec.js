@@ -6,7 +6,7 @@ describe('DfE Admin - manage services - categories page', () => {
         cy.get('.govuk-table__cell a')
             .eq(0)
             .click();
-        cy.clickChangeLinkForServiceCategory('Types of support offered');
+        cy.clickChangeLinkForServiceCategory('Support it offers');
     })
 
     it('validate support selection page content and back link', () => {
@@ -15,7 +15,7 @@ describe('DfE Admin - manage services - categories page', () => {
         let actualCheckboxList = [];
         const checkboxList = ['Special educational needs and disabilities (SEND)', 'Autistic Spectrum Disorder (ASD)'];
         const expectedText = ["Select the categories and subcategories of support that  Autism-Friendly Cinema - Picture House provides."];
-        const expectedPreviousPageHeading = 'Autism-Friendly Cinema - Picture House';
+        const expectedPreviousPageHeading = 'Service details';
 
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
@@ -40,7 +40,7 @@ describe('DfE Admin - manage services - categories page', () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Click change for the service category
-        cy.clickChangeLinkForServiceCategory('Types of support offered');
+        cy.clickChangeLinkForServiceCategory('Support it offers');
         //check pre selected checkboxes
         cy.getTextOfCheckedCheckboxes(actualCheckboxList, checkboxList);
         //unselect a new sub-category
@@ -48,7 +48,7 @@ describe('DfE Admin - manage services - categories page', () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Click change for the service category
-        cy.clickChangeLinkForServiceCategory('Types of support offered');
+        cy.clickChangeLinkForServiceCategory('Support it offers');
         //check selected checkboxes
         cy.getTextOfCheckedCheckboxes(actualUpdatedCheckboxList, newCheckboxList);
     })

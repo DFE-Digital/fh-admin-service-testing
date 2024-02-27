@@ -8,9 +8,9 @@
 
     it('validate locations homepage content', () => {
         const expectedPageHeading = 'Locations';
-        const expectedStaticText = ['View existing locations'];
+        const expectedStaticText = ['View and edit existing locations or add a new location.'];
         let actualStaticText = [];
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         let actualList = [];
         const expectedHeader = ['Location', '', ''];
         let actualHeader = [];
@@ -41,7 +41,7 @@
     })
 
     it('Navigate to 3rd page using Next and pagination number buttons', () => {
-        const expectedList = ['Previous', '1', '2', '3', '4', '⋯', '39', 'Next'];
+        const expectedList = ['Previous', '1', '2', '3', '4', '⋯', '44', 'Next'];
         let actualList = [];
 
         //click on 2nd page from pagination 
@@ -55,7 +55,7 @@
     })
 
     it('Navigate to a page using Previous button', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         let actualList = [];
 
         //click on 2nd page from pagination 
@@ -97,7 +97,7 @@
     })
 
     it('filter locations by full location name and click on clear filters', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         let actualList = [];
 
         //enter text in filter box and click on Apply filter button
@@ -119,7 +119,7 @@
     })
 
     it('filter locations by partial location name and click on clear filters', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         const filteredList = ['1', '2', '⋯', '5', 'Next'];
         let actualList = [];
         let actualFinalList = [];
@@ -146,7 +146,7 @@
     })
 
     it('No results found page on filter', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         const resultsHeading = 'No results returned';
         let actualList = [];
         let actualFinalList = [];
@@ -172,7 +172,7 @@
     })
 
     it('filter by location type as Family hub', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         let actualList = [];
         let actualFinalList = [];
 
@@ -197,8 +197,8 @@
         cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
     
-    it.only('filter by location name and location type as Only show family hubs', () => {
-        const expectedList = ['1', '2', '⋯', '39', 'Next'];
+    it('filter by location name and location type as Only show family hubs', () => {
+        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         let actualList = [];
         let actualFinalList = [];
 

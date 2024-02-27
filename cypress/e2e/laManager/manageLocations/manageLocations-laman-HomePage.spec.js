@@ -8,7 +8,7 @@
 
     it('validate locations homepage content', () => {
         const expectedPageHeading = 'Tower Hamlets Council Locations';
-        const expectedStaticText = ['View existing locations in your local authority and add locations'];
+        const expectedStaticText = ['View and edit existing locations in your local authority or add a new location.'];
         let actualStaticText = [];
         const expectedList = ['1', '2', '⋯', '35', 'Next'];
         let actualList = [];

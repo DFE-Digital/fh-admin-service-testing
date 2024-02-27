@@ -1,4 +1,4 @@
-﻿describe.skip('VCS Manager - manage locations homepage', () => {
+﻿describe('VCS Manager - manage locations homepage', () => {
 
     beforeEach(() => {
         cy.visit('/')
@@ -8,11 +8,9 @@
 
     it('validate locations homepage content', () => {
         const expectedPageHeading = 'Elop Mentoring Locations';
-        const expectedStaticText = ['View existing locations in your organisation'];
+        const expectedStaticText = ['View and edit existing locations in your organisation or add a new location.'];
         let actualStaticText = [];
-        const expectedList = ['1', '2', '⋯', '35', 'Next'];
-        let actualList = [];
-        const expectedHeader = ['Location', 'Location Type', ''];
+        const expectedHeader = ['Location', '', ''];
         let actualHeader = [];
 
         //check page heading
@@ -39,19 +37,6 @@
         cy.checkSortOrder(0, 'descending');
     })
 
-    it('sort by location type', () => {
-        //check default sort order
-        cy.checkSortOrder(1, 'none');
-        //click on location type table header link
-        cy.contains('Location Type').click();
-        //check location type column sort order
-        cy.checkSortOrder(1, 'ascending');
-        //click on location type table header link
-        cy.contains('Location Type').click();
-        //check location type column sort order
-        cy.checkSortOrder(1, 'descending');
-    })
-
     it('verify back link', () => {
         const expectedPageHeading = 'Elop Mentoring';
 
@@ -63,15 +48,15 @@
 
     it('filter locations section content', () => {
         const expectedFilterHeading = 'Filter locations';
-        const expectedFilters = ['Location name'];
+        const expectedFilters = ['Search locations'];
         let actualFilters = [];
 
         //check filter heading
         cy.checkPageHeading('.filters-component__heading h2', expectedFilterHeading);
         //check filter names
         cy.getTextOfElements('h3', actualFilters, expectedFilters);
-        cy.get('#filters-component > .govuk-button').should('contain', 'Apply filter');
-        cy.get('#filters-component > p > a').should('contain', 'Clear filter');
+        cy.get('#filters-component > .govuk-button').should('contain', 'Apply filters');
+        cy.get('#filters-component > p > a').should('contain', 'Clear filters');
     })
 
     it('filter locations by full location name and click on clear filters', () => {

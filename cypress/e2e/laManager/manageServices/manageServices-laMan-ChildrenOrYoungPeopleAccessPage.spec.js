@@ -6,14 +6,14 @@ describe('LA Manager - manage services - can children or young people access pag
         cy.get('.govuk-table__cell a')
             .eq(0)
             .click();
-        cy.clickChangeLinkForServiceCategory('For children and young people?');
+        cy.clickChangeLinkForServiceCategory('Does support relate to children and young people?');
     })
 
     it('validate page content and back link', () => {
         const expectedPageHeading = "Is the support offered by this service related to children or young people?";
         let actualRadioButtons = [];
         let expectedRadioButtons = ['Yes', 'No'];
-        const expectedPreviousPageHeading = 'Autism-Friendly Cinema - Picture House';
+        const expectedPreviousPageHeading = 'Service details';
 
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
@@ -28,18 +28,18 @@ describe('LA Manager - manage services - can children or young people access pag
     })
 
     it('Select Yes radio button and continue to next page', () => {
-        const expectedNextPageHeading = 'Autism-Friendly Cinema - Picture House';
+        const expectedNextPageHeading = 'Service details';
 
         //Select Yes radio button, age range and continue
         cy.selectYesRadioButtonAndAgeRange('2 years old', '5 years old');
         //check next page heading
         cy.checkPageHeading('h1', expectedNextPageHeading);
         //Navigate to children or young people page
-        cy.clickChangeLinkForServiceCategory('For children and young people?');
+        cy.clickChangeLinkForServiceCategory('Does support relate to children and young people?');
         //Select Yes radio button, age range and continue
         cy.selectYesRadioButtonAndAgeRange('2 years old', '5 years old');
         //Navigate to children or young people page
-        cy.clickChangeLinkForServiceCategory('For children and young people?');
+        cy.clickChangeLinkForServiceCategory('Does support relate to children and young people?');
         //verify Yes radio button is selected
         cy.get('#ViewModel_Children_Yes').should('be.checked');
         //Verify selected age range values

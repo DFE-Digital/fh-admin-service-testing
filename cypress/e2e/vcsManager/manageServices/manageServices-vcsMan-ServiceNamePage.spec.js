@@ -1,11 +1,11 @@
-describe.skip('VCS Manager - manage services - service name page', () => {
+describe('VCS Manager - manage services - service name page', () => {
 
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('vcsman')
         cy.contains('Services').click();
         cy.get('.govuk-table__cell a')
-            .eq(1) 
+            .eq(0) 
             .click(); 
         cy.contains('.govuk-summary-list__actions a', 'Change').click();
     })
@@ -14,7 +14,7 @@ describe.skip('VCS Manager - manage services - service name page', () => {
         const expectedPageHeading = "What is the service name?";
         let actualText = [];
         const expectedText = 'Elop Mentoring';
-        const expectedHomePageHeading = 'Service details placeholder';
+        const expectedHomePageHeading = 'Service details';
 
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);

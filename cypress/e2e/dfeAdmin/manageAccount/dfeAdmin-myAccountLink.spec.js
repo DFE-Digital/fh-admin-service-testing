@@ -11,7 +11,7 @@ describe('| myaccountPage | FHG-2101 My account page header ',{tags: ['dfeAdmin'
     })
 
     //  Intermittently fails
-    it.skip('AC 4 - Header - Signout links',function(){        
+    it('AC 4 - Header - Signout links',function(){        
        //signout link
        cy.get('.dfeuk-header__username').contains('Sign out').click()
        cy.contains('You have signed out')

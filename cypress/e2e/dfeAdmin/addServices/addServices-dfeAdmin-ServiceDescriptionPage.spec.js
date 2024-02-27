@@ -25,9 +25,9 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
         //check page heading
         cy.checkPageHeading("h1", expectedPageHeading);
         //check static text
-        cy.checkTextOf('.govuk-form-group > p', expectedText);
+        cy.checkTextOf('main#main-content p', expectedText);
         //check text area content
-        cy.checkTextOf('#text-area', '');
+        cy.checkTextOf('#textarea', '');
         //check character limit text
         cy.checkTextOf('.govuk-hint:not(.govuk-visually-hidden)', expectedHintText);
         //Click on back link
@@ -44,7 +44,7 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
         //check hint text for character count with blank text box
 		cy.checkTextOf('.govuk-hint:not(.govuk-visually-hidden)', initialHintText);
 		//Enter text in the reason text area
-		cy.get('#text-area').type('Test description');
+		cy.get('#textarea').type('Test description');
 		//check hint text for character count after entering the text
 		cy.checkTextOf('.govuk-hint:not(.govuk-visually-hidden)', finalHintText);
 		//click continue button 
@@ -73,7 +73,7 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
         let [actualBannerMessages, actualMessages] = [[], []];
 
 		//Enter text in the reason text area
-		cy.get('#text-area').type(enteredText);
+		cy.get('#textarea').type(enteredText);
 		//check hint text for character count
 		cy.checkTextOf('.govuk-character-count__message:not(.govuk-visually-hidden)', expectedHintText);
 		//click continue button 
@@ -81,11 +81,11 @@ describe('DfE Admin - Add services - Give a description of the service page', ()
 		//check error messages
         cy.get('.govuk-error-summary__title').should('contain', errorHeading);
         cy.get('.govuk-list > li > a').should('have.text', errorMessage);
-        cy.get('#text-area-error-message').should('contain', errorMessage);
+        cy.get('#textarea-error-message').should('contain', errorMessage);
 		//check hint text for character count after error message
 		cy.checkTextOf('.govuk-character-count__message:not(.govuk-visually-hidden)', expectedHintText);
 		//Enter text in the reason text area
-		cy.get('#text-area').clear().type('Test description');
+		cy.get('#textarea').clear().type('Test description');
 		//click continue button 
 		cy.get('div.govuk-grid-row button').click();
 		//check page heading

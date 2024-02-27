@@ -26,6 +26,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         //manage VCS link
         cy.laManVcsLink()
         cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
+        cy.get('.govuk-pagination__list > :nth-child(3) > .govuk-pagination__link').click()
         cy.get(':nth-child(4) > .govuk-pagination__link').click()
         cy.get(':nth-child(1) > .govuk-table__cell--numeric').contains('View').click()
         cy.editVcsName(n + 'Test VCS Org 001')

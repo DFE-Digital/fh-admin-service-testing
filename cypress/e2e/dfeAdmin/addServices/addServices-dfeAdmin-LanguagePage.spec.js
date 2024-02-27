@@ -15,7 +15,7 @@ describe('DfE Admin - Add services - language selection page', () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Enter text in the reason text area
-        cy.get('#text-area').type('Test description');
+        cy.get('#textarea').type('Test description');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //select No radio button and click on continue button

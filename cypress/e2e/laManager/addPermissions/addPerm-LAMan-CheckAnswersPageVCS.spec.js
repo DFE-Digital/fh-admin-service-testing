@@ -15,7 +15,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         const expectedContent = {
             'Who for': 'Someone who works for a voluntary and community sector organisation Tower Hamlets Council',
             'Type of permission': 'Add and manage services',
-            'Voluntary and community organisation': 'Toyhouse Libraries Associations',
+            'Voluntary and community organisation': 'Toyhouse Libraries Association',
             'Email address': n + 'abcdef@def.com',
             'Name': n + 'John Paul Smith',
         };
@@ -57,7 +57,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         const expectedContent = {
             'Who for': 'Someone who works for a voluntary and community sector organisation Tower Hamlets Council',
             'Type of permission': 'Add and manage services, View and respond to connection requests',
-            'Voluntary and community organisation': "Toyhouse Libraries Associations",
+            'Voluntary and community organisation': "Toyhouse Libraries Association",
             'Email address': n + 'abcdef@defg.com',
             'Name': n + 'John Steven Smith',
         };
@@ -65,7 +65,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         cy.fullName(n + 'John Paul Smith')
         cy.get('#linkTypeOfPermission').click()
         cy.typeOfUserVCS('both')
-        cy.whichOrgVcs("Toyhouse Libraries Associations")
+        cy.whichOrgVcs("Toyhouse Libraries Association")
         cy.email(n + 'abcdef@defg.com')
         cy.fullName(n + 'John Steven Smith')
         // validate response
@@ -96,7 +96,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         const expectedContent = {
             'Who for': 'Someone who works for a voluntary and community sector organisation Tower Hamlets Council',
             'Type of permission': 'Add and manage services',
-            'Voluntary and community organisation': 'Toyhouse Libraries Associations',
+            'Voluntary and community organisation': 'Toyhouse Libraries Association',
             'Email address': n + 'new.email@defg.com',
             'Name': n + 'John Steven Smith',
         };
@@ -114,7 +114,7 @@ describe("| addPerm-vcs-checkAnswerPage | FHG-3934 LA manager - add permissions 
         const expectedContent = {
             'Who for': 'Someone who works for a voluntary and community sector organisation Tower Hamlets Council',
             'Type of permission': 'Add and manage services',
-            'Voluntary and community organisation': 'Toyhouse Libraries Associations',
+            'Voluntary and community organisation': 'Toyhouse Libraries Association',
             'Email address': n + 'abcdef@defg.com',
             'Name': n + 'John Paul Smith Jr',
         };

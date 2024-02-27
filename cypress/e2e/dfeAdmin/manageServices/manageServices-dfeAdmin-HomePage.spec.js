@@ -8,7 +8,7 @@
 
     it('validate services homepage content', () => {
         const expectedPageHeading = 'Services';
-        const expectedStaticText = ['View existing services for Local Authorities and VCS organisations.', 'Clear filter'];
+        const expectedStaticText = ['View existing services for Local Authorities and VCS organisations or add a service.', 'Clear filter'];
         let actualStaticText = [];
         const expectedList = ['1', '2', '⋯', '62', 'Next'];
         let actualList = [];

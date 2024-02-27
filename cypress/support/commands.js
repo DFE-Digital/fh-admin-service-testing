@@ -144,7 +144,7 @@ Cypress.Commands.add('checkAnswerDetails', (expectedContent)=> {
  Cypress.Commands.add('addOrgVcs',(orgName)=>{
   cy.contains("What is the organisation's name?")
   // cy.title().should('eq','Add organisation - Manage family support services and accounts - GOV.UK')
-  cy.get('#organisationName').click().clear().type(orgName)
+  cy.get('#organisationName').clear().type(orgName)
   cy.get('#buttonContinue').click()
   cy.contains('Check details')
 })
