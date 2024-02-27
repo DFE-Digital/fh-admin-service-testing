@@ -33,6 +33,8 @@ jobs:
           CYPRESS_oneloginpassword: ${{ secrets.ONELOGIN_PASSWORD }}
           CYPRESS_lamanoneloginusername: ${{ secrets.LAMAN_ONELOGIN_ID }}
           CYPRESS_lamanoneloginpassword: ${{ secrets.LAMAN_ONELOGIN_PASSWORD }}
+          CYPRESS_vcsmanoneloginusername: ${{ secrets.VCSMAN_ONELOGIN_ID }}
+          CYPRESS_vcsmanoneloginpassword: ${{ secrets.VCSMAN_ONELOGIN_PASSWORD }}
           CYPRESS_username: ${{ secrets.INTEGRATION_ID }}
           CYPRESS_password: ${{ secrets.INTEGRATION_PASSWORD }}
       - uses: actions/upload-artifact@v2
