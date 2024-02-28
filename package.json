@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "cypress": "^13.6.4"
+    "cypress": "^13.3.2"
   },
   "dependencies": {
     "axios": "^1.6.7",
-    "cypress-mochawesome-reporter": "^3.8.1"
+    "cypress-mochawesome-reporter": "^3.5.0"
   },
   "scripts": {
     "azure-test": "npx cypress run --reporter junit --reporter-options attachments=true --reporter-options mochaFile=result-[hash].xml",
