@@ -85,4 +85,42 @@ describe('DfE Admin - Add services - Locations for this service page', () => {
 
     })
 
+    it('validate location can be removed', () => {
+        const expectedRemoveLocationPageHeading = "Do you want to remove";
+        const expectedSuccessfulRemoveLocationPageHeading = "How can people use this service?";
+
+        //Click on remove locations link
+        cy.clickRemoveLocationsLink();
+        //verify page heading
+        cy.get('[class=govuk-fieldset__heading]').contains(expectedRemoveLocationPageHeading);
+
+        //Click yes radio button
+        cy.get('[id=radio-True]').click();
+
+        //Click Continue
+        cy.get('[type=submit]').click();
+
+        // verify page heading
+        cy.get('[class=govuk-fieldset__heading]').contains(expectedSuccessfulRemoveLocationPageHeading);
+    })
+
+    it('validate location is not removed', () => {
+        const expectedRemoveLocationPageHeading = "Do you want to remove";
+        const expectedLocationsPageHeading = "Locations for test service";
+
+        //Click on remove locations link
+        cy.clickRemoveLocationsLink();
+        //verify page heading
+        cy.get('[class=govuk-fieldset__heading]').contains(expectedRemoveLocationPageHeading);
+
+        //Click yes radio button
+        cy.get('[id=radio-False]').click();
+
+        //Click Continue
+        cy.get('[type=submit]').click();
+
+        // verify page heading
+        cy.checkPageHeading("h1", expectedLocationsPageHeading);
+    })
+
 })

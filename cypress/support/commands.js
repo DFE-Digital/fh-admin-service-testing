@@ -768,3 +768,10 @@ Cypress.Commands.add('checkLocationCardDetails', (keyValuePairs, title) => {
         }
     })
 })
+
+//------------------ Locations Page ---------------------------------
+
+//click on remove location link
+Cypress.Commands.add('clickRemoveLocationsLink', () => {
+  cy.get('a[href*="/manage-services/Remove-Location?flow=add&"]').click();
+})
