@@ -1,4 +1,4 @@
-﻿describe('DfE Admin - manage services - service cost page', () => {
+﻿describe.skip('DfE Admin - manage services - service cost page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')

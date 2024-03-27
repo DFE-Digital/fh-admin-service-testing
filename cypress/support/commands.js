@@ -94,11 +94,11 @@ Cypress.Commands.add('LAManTypeOfUserPage',(LA,permissionType)=>{
     cy.contains(`Someone who works for a voluntary and community sector organisation ${LA}`)
     // select persmission type
       if (permissionType === 'la') {
-      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+      cy.get(`#radio-LA`).click();
     } else if (permissionType === 'vcs'){
-      cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+      cy.get(`#radio-VCS`).click();
     }
-    cy.get('#buttonContinue').click()
+    cy.get('form > .govuk-button').click()
   })
 
   // What's their email address?
@@ -598,8 +598,7 @@ Cypress.Commands.add('selectWhichLA',(searchString, validateFor)=>{
       break;
   }
 
-  cy.get('#LaOrganisationName').click()
-  cy.get('#LaOrganisationName').type(searchString)
+  cy.enterText('#LaOrganisationName', searchString);
   cy.get('#LaOrganisationName__option--0').click()
   cy.get('#buttonContinue').click()
 })
@@ -749,4 +748,23 @@ Cypress.Commands.add('clickOnChangeLinkFor', (key) => {
         })
         .find('a')
         .click();
+})
+
+//----------------- Locations card ------------------------------------
+Cypress.Commands.add('checkLocationCardDetails', (keyValuePairs, title) => {
+
+    cy.checkTextOf('.govuk-summary-card__title', title);
+    cy.checkTextOf('.govuk-summary-card__title-wrapper > .govuk-summary-card__actions > a', 'Remove location from this service');
+
+    cy.get('div.govuk-summary-list__row').each(($row) => {
+        // Extract the key and value from each row
+        const key = $row.find('dt.govuk-summary-list__key').text().trim();
+        const value = $row.find('dd.govuk-summary-list__value').text().trim();
+        expect(value).to.equal(keyValuePairs[key]);
+
+        if (key == 'Days service is available' || key == 'service availability details') {
+            cy.get($row).find('a:not(.govuk-visually-hidden)')
+                .should('contain', 'Change');
+        }
+    })
 })

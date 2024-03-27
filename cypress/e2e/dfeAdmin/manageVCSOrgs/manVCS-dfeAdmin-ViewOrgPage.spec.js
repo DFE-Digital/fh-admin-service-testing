@@ -14,7 +14,7 @@ describe('|manVCS-ViewOrgPage.spec | FHG-3799 Manage VCS - View Organisations Pa
         cy.gotoManageVcsOrganisationsPage(loggedInUserRole)
         cy.manVcsView()
         //manage VCS link
-        cy.manVcsViewPage('V & A Museum Of Childhoods', 'Tower Hamlets Council')
+        cy.manVcsViewPage('Hartcliffe Club for Young People', 'Bristol County Council')
         // back button 
         cy.get('.govuk-back-link').click()
         cy.contains('Manage organisations')

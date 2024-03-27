@@ -24,8 +24,8 @@ Cypress.Commands.add('deleteUser',(userEmail, userName)=>{
    cy.emailFilter(userEmail)
    cy.deletePermissionsLink()
    cy.contains(`Do you want to delete ${userName}'s permissions?`)
-   cy.get('#remove-user').click()
-   cy.get('#buttonContinue').click()
+   cy.get('#radio-True').click()
+   cy.get('form > .govuk-button').click()
    cy.contains(`You have deleted ${userName}'s permissions`)
 })
 

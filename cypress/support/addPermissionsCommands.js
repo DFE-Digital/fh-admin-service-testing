@@ -11,11 +11,11 @@ Cypress.Commands.add('typeOfUserPage',(permissionType)=>{
 
     // select persmission type
     if (permissionType === 'la') {
-        cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+        cy.get(`#radio-LA`).click();
     } else if (permissionType === 'vcs'){
-        cy.get(`[data-testid="role-for-organisation-type-${permissionType}"]`).click();
+        cy.get(`#radio-VCS`).click();
     }
-    cy.get('#buttonContinue').click()
+    cy.get('form > .govuk-button').click()
 })
 
 // what do they need to do - LA
@@ -27,15 +27,15 @@ Cypress.Commands.add('typeOfUserLA',(selection)=>{
 
     // user selects checkboxes 1 , 2 or both
     if (selection === '1') {
-        cy.get('[data-testid="LaManager"]').check();
+        cy.get('#checkbox-LaManager').check();
     } else if (selection === '2'){
-        cy.get('#LaProfessional').check();
+        cy.get('#checkbox-LaProfessional').check();
     }
     else if (selection == 'both') {
-        cy.get('[data-testid="LaManager"]').check();
-        cy.get('#LaProfessional').check();
+        cy.get('#checkbox-LaManager').check();
+        cy.get('#checkbox-LaProfessional').check();
     }
-    cy.get('#buttonContinue').click()
+    cy.get('form > .govuk-button').click()
 })
 
 // what do they need to do - VCS
@@ -48,15 +48,15 @@ Cypress.Commands.add('typeOfUserVCS',(selection)=>{
 
     // user selects checkboxes 1 , 2 or both
     if (selection === '1') {
-        cy.get('[data-testid="VcsManager"]').check();
+        cy.get('#checkbox-VcsManager').check();
     } else if (selection === '2'){
-        cy.get('#VcsProfessional').check();
+        cy.get('#checkbox-VcsProfessional').check();
     }
     else if (selection == 'both') {
-        cy.get('[data-testid="VcsManager"]').check();
-        cy.get('#VcsProfessional').check();
+        cy.get('#checkbox-VcsManager').check();
+        cy.get('#checkbox-VcsProfessional').check();
     }
-    cy.get('#buttonContinue').click()
+    cy.get('form > .govuk-button').click()
 })
 
 // What's the user's full name?
@@ -64,7 +64,7 @@ Cypress.Commands.add('fullName',(fullName)=>{
     cy.title().should('eq',"What's their full name? - Manage family support services and accounts - GOV.UK")
     cy.pageHeadings().contains("What's their full name?")
     cy.get('#fullName').click().clear().type(fullName)
-    cy.get('#buttonContinue').click()
+    cy.get('form > .govuk-button').click()
 })
 
 // Check account details page

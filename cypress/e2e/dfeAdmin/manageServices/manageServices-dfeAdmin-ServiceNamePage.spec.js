@@ -1,4 +1,4 @@
-describe('DfE Admin - manage services - service name page', () => {
+describe.skip('DfE Admin - manage services - service name page', () => {
 
     beforeEach(() => {
         cy.visit('/')

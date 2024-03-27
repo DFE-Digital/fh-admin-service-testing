@@ -14,7 +14,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
         // enter a valid email id 
         cy.email(n + 'abcdef@def.com')
         // back link
@@ -29,7 +29,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
         // enter a valid email id
         // cy.email(n + 'abcdef@def.com')
 
@@ -46,7 +46,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
         // error message when user does not enter any email address
         cy.get('#buttonContinue').click()
         cy.get('.govuk-error-summary').contains('There is a problem')

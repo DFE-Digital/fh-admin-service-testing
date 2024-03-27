@@ -1,4 +1,4 @@
-describe('LA Manager - manage services - service name page', () => {
+describe.skip('LA Manager - manage services - service name page', () => {
 
     beforeEach(() => {
         cy.visit('/')

@@ -34,7 +34,7 @@ describe('| addPerm-la-dfeAdmin-typeOfRole | FHG-1065 DFE - add permissions - wh
         cy.visit('/')
         cy.gotoAddPermissionsPage()
         // error message when user does not select one of the options
-        cy.get('#buttonContinue').click()
+        cy.get('form > .govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select the type of user you are adding')
         //user makes a seletion

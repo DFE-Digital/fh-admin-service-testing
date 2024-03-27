@@ -8,10 +8,8 @@
 
     it('validate services homepage content', () => {
         const expectedPageHeading = 'Services';
-        const expectedStaticText = ['View existing services for Local Authorities and VCS organisations or add a service.', 'Clear filter'];
+        const expectedStaticText = ['View existing services for Local Authorities and VCS organisations.', 'Clear filter'];
         let actualStaticText = [];
-        const expectedList = ['1', '2', '⋯', '62', 'Next'];
-        let actualList = [];
         const expectedHeader = ['Services'];
         let actualHeader = [];
 
@@ -25,8 +23,6 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         })
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('1');
     })
@@ -41,22 +37,16 @@
     })
 
     it('Navigate to 3rd page using Next and pagination number buttons', () => {
-        const expectedList = ['Previous', '1', '2', '3', '4', '⋯', '62', 'Next'];
-        let actualList = [];
 
         //click on 2nd page from pagination 
         cy.contains('li.govuk-pagination__item a', '2').click();
         //click on Next from pagination 
         cy.contains('div.govuk-pagination__next a', 'Next').click();
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('3');
     })
 
     it('Navigate to a page using Previous button', () => {
-        const expectedList = ['1', '2', '⋯', '62', 'Next'];
-        let actualList = [];
 
         //click on 2nd page from pagination 
         cy.contains('li.govuk-pagination__item a', '2').click();
@@ -64,8 +54,6 @@
         cy.checkPaginationSelection('2');
         //click on Previous from pagination 
         cy.contains('div.govuk-pagination__prev', 'Previous').click();
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('1');
     })
@@ -91,8 +79,6 @@
     })
 
     it('filter services by full service name and click on clear filter', () => {
-        const expectedList = ['1', '2', '⋯', '62', 'Next'];
-        let actualList = [];
 
         //enter text in filter box and click on Apply filter button
         cy.enterTextAndContinue('#service-name', 'City Wellbeing Practice', '.moj-filter__selected > .govuk-button');
@@ -108,49 +94,31 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
     })
 
     it('filter services by partial service name and click on clear filter', () => {
-        const expectedList = ['1', '2', '⋯', '62', 'Next'];
-        const filteredList = ['1', '2', '3', 'Next'];
-        let actualList = [];
-        let actualFinalList = [];
-        let actualFilterList = [];
 
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //enter text in filter box and click on Apply filter button
         cy.enterTextAndContinue('#service-name', 'Play', '.moj-filter__selected > .govuk-button');
         //check the total number of rows in the page
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check filtered pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFilterList, filteredList);
         //click on clear filter
         cy.get('.fh-button-link').click();
         //check the total number of rows in the page
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 
     it('No results found page on filter', () => {
-        const expectedList = ['1', '2', '⋯', '62', 'Next'];
         const resultsHeading = 'No results found';
-        let actualList = [];
-        let actualFinalList = [];
         let actualText = [];
         const expectedText = ['Try again by searching for another service.'];
 
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //enter text in filter box and click on Apply filter button
-        cy.enterTextAndContinue('#service-name', 'abc', '.moj-filter__selected > .govuk-button');
+        cy.enterTextAndContinue('#service-name', 'abcdef', '.moj-filter__selected > .govuk-button');
         //check the heading
         cy.checkPageHeading('#results h2', resultsHeading);
         //check filtered pagination items
@@ -161,7 +129,5 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 })

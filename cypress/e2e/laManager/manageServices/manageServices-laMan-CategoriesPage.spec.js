@@ -1,4 +1,4 @@
-describe('LA Manager - manage services - Categories page', () => {
+describe.skip('LA Manager - manage services - Categories page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')

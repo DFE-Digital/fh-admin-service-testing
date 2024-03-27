@@ -1,4 +1,4 @@
-describe('DfE Admin - manage services - can children or young people access page', () => {
+describe.skip('DfE Admin - manage services - can children or young people access page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')

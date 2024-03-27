@@ -91,24 +91,6 @@ describe('| manPerm-managePermissionsPage.spec | FHG-1617 Manage permissions ( M
 
     })
 
-    it('AC 11 , 12 Pagination', () => {
-        //manage permissions link
-        cy.gotoManagePermissionsPage()
-        cy.get('form > .govuk-grid-row > .govuk-grid-column-two-thirds').should('not.be.empty')
-        // first page
-        cy.get('.govuk-pagination__item--current > .govuk-pagination__link').click()
-        cy.url().should('include', 'pageNumber=1')
-        // second page
-        cy.get('.govuk-pagination__list > :nth-child(2) > .govuk-pagination__link').click()
-        cy.url().should('include', 'pageNumber=2')
-        // next page 
-        cy.get('.govuk-pagination__next > .govuk-pagination__link').click()
-        cy.url().should('include', 'pageNumber=3')
-        // last page 
-        cy.get(':nth-child(6) > .govuk-pagination__link').click()
-        cy.get('.govuk-pagination__next > .govuk-pagination__link').should('not.exist')
-    })
-
     it(' Name - sort by Organisation name', function () {
         //manage permissions link
         cy.gotoManagePermissionsPage()

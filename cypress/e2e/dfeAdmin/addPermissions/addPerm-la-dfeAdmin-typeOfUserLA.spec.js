@@ -4,6 +4,7 @@ describe('| addPerm-la-dfeAdmin-typeOfUserLA | FHG-3382 DFE - What do they need 
         cy.integrationLogin('dfeadmin')
 
     })
+
     it('AC 1,2,5 -  validate content , LA - Add and manage services, family hubs and accounts - option, back button', () => {
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
@@ -15,9 +16,10 @@ describe('| addPerm-la-dfeAdmin-typeOfUserLA | FHG-3382 DFE - What do they need 
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
         // previous page selection is retained 
-        cy.get('[data-testid="LaManager"]').should('be.checked');
+        cy.get('#checkbox-LaManager').should('be.checked');
 
     })
+
     it('AC 3 - LA -  Make connection requests to voluntary and community sector services - option', () => {
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
@@ -29,15 +31,16 @@ describe('| addPerm-la-dfeAdmin-typeOfUserLA | FHG-3382 DFE - What do they need 
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
         // previous page selection is retained 
-        cy.get('#LaProfessional').should('be.checked');
+        cy.get('#checkbox-LaProfessional').should('be.checked');
 
     })
+
     it('AC 4 - LA - no selection - error message', () => {
         cy.gotoAddPermissionsPage()
         cy.typeOfUserPage('la')
 
         // error message when user does not select one of the options
-        cy.get('#buttonContinue').click()
+        cy.get('form > .govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 

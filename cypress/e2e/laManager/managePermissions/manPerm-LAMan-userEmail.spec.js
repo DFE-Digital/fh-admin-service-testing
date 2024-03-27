@@ -16,7 +16,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
         // enter a valid email id 
         cy.email(n + 'abcdef@def.com')
         cy.contains("Email address changed")
@@ -30,7 +30,7 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
         // edit service 
         cy.editPermissionsLink()
         // edit email link
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
         // enter a valid email id 
         // cy.email(n + 'abcdef@def.com')
         cy.contains("What's their email address?")
@@ -44,10 +44,10 @@ describe('| manPerm-managePermissionsPage.spec | FHG-3708 Manage permissions - e
     it('AC 2,3 - no data entered , incorrect /invalid email address entered - error message', () => {
         cy.gotoManagePermissionsPage()
         cy.editPermissionsLink()
-        cy.get('#linkEmail').click()
+        cy.get(':nth-child(2) > .govuk-summary-list__actions > a').click()
 
         // error message when user does not enter any email address
-        cy.get('#buttonContinue').click()
+        cy.get('form > .govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Enter an email address')
 

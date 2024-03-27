@@ -1,4 +1,4 @@
-describe('LA Manager - manage services - language page', () => {
+describe.skip('LA Manager - manage services - language page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')

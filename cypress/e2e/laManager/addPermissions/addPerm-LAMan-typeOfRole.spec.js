@@ -15,7 +15,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
         // previous page selection is retained 
-        cy.get('[data-testid="LaManager"]').should('be.checked');
+        cy.get('#checkbox-LaManager').should('be.checked');
         // back link
         cy.get('.govuk-back-link').click()
         cy.contains('Who are you adding permissions for?')
@@ -36,7 +36,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.get('.govuk-back-link').click()
         cy.contains('What do they need to do?')
         // previous page selection is retained 
-        cy.get('[data-testid="VcsManager"]').should('be.checked');
+        cy.get('#checkbox-VcsManager').should('be.checked');
         // back link
         cy.get('.govuk-back-link').click()
         cy.contains('Who are you adding permissions for?')
@@ -50,7 +50,7 @@ describe('| addPerm-LAMan-typeOfRole.spec | FHG-3870 LA manager - Who are you ad
         cy.LAManTypeOfUserPage('Tower Hamlets Council', 'vcs')
 
         // error message when user does not select one of the options
-        cy.get('#buttonContinue').click()
+        cy.get('form > .govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 

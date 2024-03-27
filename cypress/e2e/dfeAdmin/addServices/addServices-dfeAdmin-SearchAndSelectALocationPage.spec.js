@@ -1,4 +1,6 @@
-﻿describe('DfE Admin - Add services - Search and select a location page', () => {
+﻿import { getDateString } from '../../../support/helperFunctions';
+
+describe('DfE Admin - Add services - Search and select a location page', () => {
     var n = getDateString();
     const addressline1 = 'Test address' + n;
 
@@ -88,7 +90,7 @@
         const expectedLocation = 'The Salvation Army, 15\nClements Road, Ilford, Essex, IG1 1BH';
 
         //enter postcode and continue
-        cy.enterText('#select-location-location', 'The Salva');
+        cy.enterText('#select-location-location', 'Clements Road');
         //click on location
         cy.get('#select-location-location__option--0').click();
         //click on continue button
@@ -141,7 +143,17 @@
             const selectedText = Cypress.$(`#select-location-location-select option[value="${value}"]`).text();
             expect(selectedText).to.equal(expectedLocation);
         });
+    })
 
+    it('display error messages when no location is selected', () => {
+        const emptyTextErrorMessage = ['Select an existing location or add a new location'];
+        const errorHeading = 'There is a problem';
+        let [actualBannerMessages, actualMessages] = [[], []];
+
+        //click continue button 
+        cy.get('div.govuk-grid-row button').click();
+        //check error message
+        cy.checkErrorBannerAndMessages(errorHeading, emptyTextErrorMessage, actualBannerMessages, actualMessages);
     })
 
 })

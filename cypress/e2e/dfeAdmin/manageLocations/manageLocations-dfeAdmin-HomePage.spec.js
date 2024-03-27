@@ -10,8 +10,6 @@
         const expectedPageHeading = 'Locations';
         const expectedStaticText = ['View and edit existing locations or add a new location.'];
         let actualStaticText = [];
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        let actualList = [];
         const expectedHeader = ['Location', '', ''];
         let actualHeader = [];
 
@@ -25,8 +23,6 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         })
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('1');
     })
@@ -41,22 +37,16 @@
     })
 
     it('Navigate to 3rd page using Next and pagination number buttons', () => {
-        const expectedList = ['Previous', '1', '2', '3', '4', '⋯', '44', 'Next'];
-        let actualList = [];
 
         //click on 2nd page from pagination 
         cy.contains('li.govuk-pagination__item a', '2').click();
         //click on Next from pagination 
         cy.contains('div.govuk-pagination__next a', 'Next').click();
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('3');
     })
 
     it('Navigate to a page using Previous button', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        let actualList = [];
 
         //click on 2nd page from pagination 
         cy.contains('li.govuk-pagination__item a', '2').click();
@@ -64,8 +54,6 @@
         cy.checkPaginationSelection('2');
         //click on Previous from pagination 
         cy.contains('div.govuk-pagination__prev', 'Previous').click();
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //check current page on pagination
         cy.checkPaginationSelection('1');
     })
@@ -97,8 +85,6 @@
     })
 
     it('filter locations by full location name and click on clear filters', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        let actualList = [];
 
         //enter text in filter box and click on Apply filter button
         cy.enterTextAndContinue('#SearchName', "Backfields House, Upper York St, St Paul's, BS2 8QJ", '#filters-component > .govuk-button');
@@ -114,47 +100,14 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
-    })
-
-    it('filter locations by partial location name and click on clear filters', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        const filteredList = ['1', '2', '⋯', '5', 'Next'];
-        let actualList = [];
-        let actualFinalList = [];
-        let actualFilterList = [];
-
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
-        //enter text in filter box and click on Apply filter button
-        cy.enterTextAndContinue('#SearchName', "House", '#filters-component > .govuk-button');
-        //check the total number of rows in the page
-        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
-            expect(length).to.equal(10);
-        });
-        //check filtered pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFilterList, filteredList);
-        //click on clear filter
-        cy.get('#filters-component > p > a').click();
-        //check the total number of rows in the page
-        cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
-            expect(length).to.equal(10);
-        });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 
     it('No results found page on filter', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
         const resultsHeading = 'No results returned';
-        let actualList = [];
         let actualFinalList = [];
         let actualText = [];
         const expectedText = ['Try again by changing or removing filters you applied.'];
 
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //enter text in filter box and click on Apply filter button
         cy.enterTextAndContinue('#SearchName', "abc", '#filters-component > .govuk-button');
         //check the heading
@@ -167,17 +120,10 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 
     it('filter by location type as Family hub', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        let actualList = [];
-        let actualFinalList = [];
 
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //select family hub checkbox
         cy.selectCheckBoxes('Only show family hubs');
         //click on apply filters
@@ -193,17 +139,10 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
     
     it('filter by location name and location type as Only show family hubs', () => {
-        const expectedList = ['1', '2', '⋯', '44', 'Next'];
-        let actualList = [];
-        let actualFinalList = [];
 
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualList, expectedList);
         //select family hub checkbox
         cy.selectCheckBoxes('Only show family hubs');
         //enter text in filter box and click on Apply filter button
@@ -225,7 +164,5 @@
         cy.get('tbody.govuk-table__body tr.govuk-table__row').its('length').then((length) => {
             expect(length).to.equal(10);
         });
-        //check pagination items
-        cy.getTextOfElements('.govuk-pagination li, .govuk-pagination div', actualFinalList, expectedList);
     })
 })

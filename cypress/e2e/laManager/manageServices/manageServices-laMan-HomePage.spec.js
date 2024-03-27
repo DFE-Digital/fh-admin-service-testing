@@ -8,7 +8,7 @@
 
     it('validate services homepage content', () => {
         const expectedPageHeading = 'Tower Hamlets Council services';
-        const expectedStaticText = ['View existing services in your Local Authority or add a service.'];
+        const expectedStaticText = ['View existing services in your Local Authority.'];
         let actualStaticText = [];
         const expectedList = ['1', '2', '⋯', '35', 'Next'];
         let actualList = [];

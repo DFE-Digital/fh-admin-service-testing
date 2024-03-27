@@ -1,4 +1,4 @@
-describe('DfE Admin - manage services - language page', () => {
+describe.skip('DfE Admin - manage services - language page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')

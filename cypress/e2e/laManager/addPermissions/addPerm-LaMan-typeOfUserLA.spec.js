@@ -17,7 +17,7 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
         cy.get('.govuk-back-link').click()
         cy.contains('Who are you adding permissions for?')
         // previous page selection is retained 
-        cy.get('[data-testid="role-for-organisation-type-la"]').should('be.checked');
+        cy.get('#radio-LA').should('be.checked');
     })
 
     it('AC 3 - LA -  Make connection requests to voluntary and community sector services - option', () => {
@@ -30,7 +30,7 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
         cy.get('.govuk-back-link').click()
         cy.contains('Who are you adding permissions for?')
         // previous page selection is retained 
-        cy.get('[data-testid="role-for-organisation-type-la"]').should('be.checked');
+        cy.get('#radio-LA').should('be.checked');
     })
 
     it('AC 4 - LA -  Select both options', () => {
@@ -43,13 +43,13 @@ describe('| addPerm-LAMan-typeOfUser.spec | FHG-3872 LA manager - What do they n
         cy.get('.govuk-back-link').click()
         cy.contains('Who are you adding permissions for?')
         // previous page selection is retained 
-        cy.get('[data-testid="role-for-organisation-type-la"]').should('be.checked');
+        cy.get('#radio-LA').should('be.checked');
     })
 
     it('AC 5 - LA - no selection - error message', () => {
 
         // error message when user does not select one of the options
-        cy.get('#buttonContinue').click()
+        cy.get('form > .govuk-button').click()
         cy.get('.govuk-error-summary').contains('There is a problem')
         cy.get('.govuk-error-summary').contains('Select what they need to do')
         // What do they need to do? page 

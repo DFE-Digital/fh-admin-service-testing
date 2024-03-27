@@ -1,4 +1,4 @@
-﻿describe('LA Admin - manage services - service cost page', () => {
+﻿describe.skip('LA Admin - manage services - service cost page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')

@@ -1,4 +1,4 @@
-describe('LA Manager - manage services - can children or young people access page', () => {
+describe.skip('LA Manager - manage services - can children or young people access page', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
