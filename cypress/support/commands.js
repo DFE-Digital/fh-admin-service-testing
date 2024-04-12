@@ -201,7 +201,7 @@ Cypress.Commands.add('connectlogin', (olusername, olpassword, id) => {
         cy.visit(`https://test.connect-families-to-support.education.gov.uk/ProfessionalReferral/LocalOfferDetail?serviceid=${id}`)
         cy.get('a:contains("Request a connection")').click();
         //stub-login
-        cy.get('#sign-in-button').click()
+        cy.get('[id="sign-in-button"]').click()
         // login based on type of user 
         // login email
         cy.get('#email').type(`${Cypress.env(olusername)}`)
@@ -253,7 +253,7 @@ function signIn(userType){
   cy.get('.govuk-button').contains('Start now').click();
 
   //
-  cy.get('#sign-in-button').click()
+  cy.get('[id="sign-in-button"]').click()
   // login based on type of user
     if (userType == 'dfeadmin') {
         // login email
