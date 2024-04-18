@@ -93,7 +93,48 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('div.govuk-grid-row button').click();
     })
 
-    it('test', () => {
+    it('should contain the correct url', () => {
+        cy.url().should('include', 'Service-Detail');
+    });
 
-    })
+    it('should contain correct heading', () => {
+        cy.get('#main-content > div > div > h1').contains('Check the details and add service');
+    });
+
+    it('should contain correct subheadings', () => {
+        cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
+        cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
+        cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
+        cy.get('#main-content > div > div > h3:nth-child(8)').contains('In Person, Online, Telephone');
+        cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
+    });
+
+    it('should contain given service details', () => {
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Name');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('test service');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Support it offers');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains('Holiday clubs and schemes');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Description');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Test description');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dt')
+            .contains('Does support relate to children or young people?');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
+            .contains('Yes - 0 years old to 1 years old');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dt').contains('Languages');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+            .contains('French');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+            .contains('British Sign Language and translation services available on request');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dt').contains('Cost');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
+            .contains("Yes - £2");
+    });
 })
