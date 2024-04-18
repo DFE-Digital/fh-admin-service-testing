@@ -137,4 +137,37 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains("Yes - £2");
     });
+
+    it('should contain given details for using this service', () => {
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dt')
+            .contains('How this service is provided');
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('In Person, Online, Telephone');
+
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dt').contains('Locations');
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains('1 Location');
+    });
+
+    it('should contain given details for location 1', () => {
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dt').contains('Address');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd')
+            .contains('1 test 2603, test line 1, leeds, LS6 1LT'); // TODO: Get this during the beforeEach hook and use as a variable.
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2)').contains('Family hub');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd').contains('Yes');
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(3) > dt').contains('Location details');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(3) > dd').contains('More location details'); // TODO: Fix
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dt')
+            .contains('Days service is available');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dd.govuk-summary-list__value')
+            .contains('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dt')
+            .contains('Extra availability details');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('More online & telephone details');
+    });
 })
