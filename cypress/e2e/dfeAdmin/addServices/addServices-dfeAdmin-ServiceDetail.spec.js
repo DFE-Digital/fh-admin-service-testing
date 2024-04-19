@@ -1,5 +1,5 @@
-describe("DfE Admin - Add Services - Service Detail Page", () => {
-    beforeEach(() => {
+describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: false }, () => {
+    before(() => {
         const checkboxList = ['Activities, clubs and groups', 'Holiday clubs and schemes'];
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
@@ -7,7 +7,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
-        cy.enterTextAndContinue('.govuk-input', 'test service', 'div.govuk-grid-row button');
+        cy.enterTextAndContinue('.govuk-input', 'Test Service', 'div.govuk-grid-row button');
         //Select a category
         checkboxList.forEach((checkbox) => {
             cy.selectCheckBoxes(checkbox);
@@ -15,7 +15,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Enter text in the reason text area
-        cy.get('#textarea').type('Test description');
+        cy.get('#textarea').type('Description of the Service');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -61,7 +61,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
 
         // Select yes & type some details
         cy.get('#UserInput_HasDetails_Yes').click();
-        cy.get('#text-area').type('More location details');
+        cy.get('#text-area').type('Extra Availability Description');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -82,26 +82,26 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         // Select all checkboxes for contact options
         cy.get('[type="checkbox"]').check();
         cy.get('#email-text-box').type('test@email.com');
-        cy.get('#telephone-text-box').type("+44 808 157 0192");
+        cy.get('#telephone-text-box').type("+44 128 256 0512");
         cy.get('#website-text-box').type('www.service.com');
-        cy.get('#text-message-text-box').type('+44 808 157 0192');
+        cy.get('#text-message-text-box').type('+44 192 384 0768');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        cy.get('#textarea').type('Even more details about the service');
+        cy.get('#textarea').type('Even more details about the Service');
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
     })
 
-    it('should contain the correct url', () => {
+    it('Should contain the correct url', () => {
         cy.url().should('include', 'Service-Detail');
     });
 
-    it('should contain correct heading', () => {
+    it('Should contain correct heading', () => {
         cy.get('#main-content > div > div > h1').contains('Check the details and add service');
     });
 
-    it('should contain correct subheadings', () => {
+    it('Should contain correct subheadings', () => {
         cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
         cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
         cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
@@ -109,10 +109,10 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
     });
 
-    it('should contain given service details', () => {
+    it('Should contain given service details', () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Name');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('test service');
+            .contains('Test Service');
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Support it offers');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
@@ -120,7 +120,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Description');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Test description');
+            .contains('Description of the Service');
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dt')
             .contains('Does support relate to children or young people?');
@@ -138,7 +138,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
             .contains("Yes - £2");
     });
 
-    it('should contain given details for using this service', () => {
+    it('Should contain given details for using this service', () => {
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dt')
             .contains('How this service is provided');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__value')
@@ -149,16 +149,13 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
             .contains('1 Location');
     });
 
-    it('should contain given details for location 1', () => {
+    it('Should contain given details for location 1', () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dt').contains('Address');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd')
             .contains('1 test 2603, test line 1, leeds, LS6 1LT'); // TODO: Get this during the beforeEach hook and use as a variable.
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2)').contains('Family hub');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd').contains('Yes');
-
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(3) > dt').contains('Location details');
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(3) > dd').contains('More location details'); // TODO: Fix
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dt')
             .contains('Days service is available');
@@ -168,6 +165,32 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dt')
             .contains('Extra availability details');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Extra Availability Description');
+    });
+
+    it('Should contain given details around In Person, Online and Telephone', () => {
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dt').contains('Days service is available');
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dt').contains('Extra availability details');
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains('More online & telephone details');
+    });
+
+    it('Should contain given details for Further Information', () => {
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dt').contains('Contact details');
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('test@email.com');
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('+44 128 256 0512');
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('www.service.com');
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('+44 192 384 0768');
+
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dt').contains('More details');
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Even more details about the Service');
     });
 })
