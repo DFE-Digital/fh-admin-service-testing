@@ -1,6 +1,6 @@
 // TODO: .contains('1 test 2603, test line 1, leeds, LS6 1LT'); <- Get this during the beforeEach hook and use as a variable.
-// TODO: Add tests for the Change buttons
 // TODO: Add test(s) for the Back button
+// TODO: Make a load of const for the text validation stuff
 
 describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: false }, () => {
     before(() => {
@@ -196,5 +196,99 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dt').contains('More details');
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains('Even more details about the Service');
+    });
+
+    it('Should allow content to be changed', () => {
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#textbox').clear().type('Test Service Changed');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('Test Service Changed');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.selectCheckBoxes('Activities, clubs and groups');
+        cy.selectCheckBoxes('Music, arts and dance');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains('Holiday clubs and schemes');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains('Music, arts and dance');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#textarea').clear().type('Description of the Service Changed');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Description of the Service Changed');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#ViewModel_FromAge').select('3 years old');
+        cy.get('#ViewModel_ToAge').select('4 years old');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
+            .contains('Yes - 3 years old to 4 years old');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.selectLanguage('#language-0', '#language-0__option--0', 'English');
+        cy.get('#main-content > div > div > div > form > button:nth-child(5)').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+            .contains('English');
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#text-area').clear().type('£5');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
+            .contains('Yes - £5');
+
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#checkbox-InPerson').uncheck();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(5) > div > dd.govuk-summary-list__value')
+            .contains('Online, Telephone');
+        cy.get('#main-content > div > div > h3').contains('Online, Telephone');
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#checkbox-SA').uncheck();
+        cy.get('#checkbox-SU').uncheck();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('Monday, Tuesday, Wednesday, Thursday, Friday');
+
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#text-area').clear().type('Changed When People can use the Service');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Changed When People can use the Service');
+
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#email-text-box').clear().type('email@changed.com');
+        cy.get('#telephone-text-box').clear().type("+44 123 456 0789");
+        cy.get('#website-text-box').clear().type('www.service-changed.co.uk');
+        cy.get('#text-message-text-box').clear().type('+44 700 900 0982');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('email@changed.com');
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('+44 123 456 0789');
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('www.service-changed.co.uk');
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('+44 700 900 0982');
+
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#textarea').clear().type('Changed further details about the Service');
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains('Changed further details about the Service');
     });
 })
