@@ -1,3 +1,7 @@
+// TODO: .contains('1 test 2603, test line 1, leeds, LS6 1LT'); <- Get this during the beforeEach hook and use as a variable.
+// TODO: Add tests for the Change buttons
+// TODO: Add tests for the Back buttons (probably part of Change button tests)
+
 describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: false }, () => {
     before(() => {
         const checkboxList = ['Activities, clubs and groups', 'Holiday clubs and schemes'];
@@ -152,7 +156,7 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
     it('Should contain given details for location 1', () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dt').contains('Address');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd')
-            .contains('1 test 2603, test line 1, leeds, LS6 1LT'); // TODO: Get this during the beforeEach hook and use as a variable.
+            .contains('1 test 2603, test line 1, leeds, LS6 1LT');
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2)').contains('Family hub');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd').contains('Yes');
