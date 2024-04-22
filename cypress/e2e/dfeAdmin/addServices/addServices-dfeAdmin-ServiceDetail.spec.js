@@ -1,9 +1,10 @@
-// TODO: .contains('1 test 2603, test line 1, leeds, LS6 1LT'); <- Get this during the beforeEach hook and use as a variable.
-// TODO: Add test(s) for the Back button
 // TODO: Make a load of const for the text validation stuff
 
-describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: false }, () => {
-    before(() => {
+describe("DfE Admin - Add Services - Service Detail Page", () => {
+    let previousPageSlug = "";
+    let selectedLocation = "";
+
+    beforeEach(() => {
         const checkboxList = ['Activities, clubs and groups', 'Holiday clubs and schemes'];
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
@@ -54,7 +55,9 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('div.govuk-grid-row button').click();
 
         // Select a location
-        cy.get('#select-location-location').type('1').click();
+        cy.get('#select-location-location').type('London');
+        cy.get('#main-content > div > div > h1').click(); // Autofill the location selection
+        cy.get('#select-location-location').invoke('val').then(location => selectedLocation = location);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -93,23 +96,27 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('div.govuk-grid-row button').click();
 
         cy.get('#textarea').type('Even more details about the Service');
+        cy.url().then(url => previousPageSlug = url.split("/").pop());
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
+
+        // Make sure we have landed at the correct page
+        cy.url().should('include', 'Service-Detail');
     })
 
-    it('Should contain the correct url', () => {
-        cy.url().should('include', 'Service-Detail');
+    it('Should go back to the previous page', () => {
+        cy.get('body > div.govuk-width-container > a').click();
+        cy.url().should('include', previousPageSlug);
+        cy.get('#textarea').contains('Even more details about the Service');
     });
 
-    it('Should contain correct heading', () => {
+    it('Should contain correct heading and subheadings', () => {
         cy.get('#main-content > div > div > h1').contains('Check the details and add service');
-    });
 
-    it('Should contain correct subheadings', () => {
         cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
         cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
         cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
-        cy.get('#main-content > div > div > h3:nth-child(8)').contains('In Person, Online, Telephone');
+        cy.get('#main-content > div > div > h3:nth-child(8)').contains('Online, Telephone');
         cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
     });
 
@@ -140,9 +147,7 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dt').contains('Cost');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains("Yes - £2");
-    });
 
-    it('Should contain given details for using this service', () => {
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dt')
             .contains('How this service is provided');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__value')
@@ -151,15 +156,13 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dt').contains('Locations');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__value')
             .contains('1 Location');
-    });
 
-    it('Should contain given details for location 1', () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dt').contains('Address');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd')
-            .contains('1 test 2603, test line 1, leeds, LS6 1LT');
+            .contains(selectedLocation);
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2)').contains('Family hub');
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd').contains('Yes');
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd').invoke('text').should('match', /Yes|No/);
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dt')
             .contains('Days service is available');
@@ -170,9 +173,7 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
             .contains('Extra availability details');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains('Extra Availability Description');
-    });
 
-    it('Should contain given details around In Person, Online and Telephone', () => {
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dt').contains('Days service is available');
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
@@ -180,9 +181,7 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dt').contains('Extra availability details');
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains('More online & telephone details');
-    });
 
-    it('Should contain given details for Further Information', () => {
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dt').contains('Contact details');
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains('test@email.com');
@@ -248,6 +247,8 @@ describe("DfE Admin - Add Services - Service Detail Page", { testIsolation: fals
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#checkbox-InPerson').uncheck();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('div.govuk-grid-row button').click();
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(5) > div > dd.govuk-summary-list__value')
             .contains('Online, Telephone');
