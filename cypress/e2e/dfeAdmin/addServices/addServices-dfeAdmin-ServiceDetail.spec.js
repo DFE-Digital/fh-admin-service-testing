@@ -116,7 +116,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
         cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
         cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
-        cy.get('#main-content > div > div > h3:nth-child(8)').contains('Online, Telephone');
+        cy.get('#main-content > div > div > h3:nth-child(8)').contains('In Person, Online, Telephone');
         cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
     });
 
