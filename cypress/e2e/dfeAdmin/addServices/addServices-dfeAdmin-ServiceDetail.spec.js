@@ -1,18 +1,29 @@
-// TODO: Make a load of const for the text validation stuff
-
 describe("DfE Admin - Add Services - Service Detail Page", () => {
+    const serviceName = "Test Service";
+    const mainSupportCategory = "Activities, clubs and groups";
+    const supportItOffers = "Holiday clubs and schemes";
+    const serviceDescription = "Description of the Service";
+    const extraAvailabilityDescription = "Extra Availability Description";
+    const moreOnlineTelephoneDetails = "More online & telephone details";
+    const contactEmail = "test@email.com";
+    const contactTelephone = "+44 128 256 0512";
+    const contactWebsite = "www.service.com";
+    const contactText = "+44 192 384 0768";
+    const evenMoreDetailsDescription = "Even more details about the Service";
+    const howServiceIsProvided = "In Person, Online, Telephone";
+
     let previousPageSlug = "";
     let selectedLocation = "";
 
     beforeEach(() => {
-        const checkboxList = ['Activities, clubs and groups', 'Holiday clubs and schemes'];
+        const checkboxList = [mainSupportCategory, supportItOffers];
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.contains('Add a service').click();
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
-        cy.enterTextAndContinue('.govuk-input', 'Test Service', 'div.govuk-grid-row button');
+        cy.enterTextAndContinue('.govuk-input', serviceName, 'div.govuk-grid-row button');
         //Select a category
         checkboxList.forEach((checkbox) => {
             cy.selectCheckBoxes(checkbox);
@@ -20,7 +31,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
         //Enter text in the reason text area
-        cy.get('#textarea').type('Description of the Service');
+        cy.get('#textarea').type(serviceDescription);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -68,7 +79,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
 
         // Select yes & type some details
         cy.get('#UserInput_HasDetails_Yes').click();
-        cy.get('#text-area').type('Extra Availability Description');
+        cy.get('#text-area').type(extraAvailabilityDescription);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -82,20 +93,20 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
 
         // Select yes & type some details
         cy.get('#UserInput_HasDetails_Yes').click();
-        cy.get('#text-area').type('More online & telephone details');
+        cy.get('#text-area').type(moreOnlineTelephoneDetails);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
         // Select all checkboxes for contact options
         cy.get('[type="checkbox"]').check();
-        cy.get('#email-text-box').type('test@email.com');
-        cy.get('#telephone-text-box').type("+44 128 256 0512");
-        cy.get('#website-text-box').type('www.service.com');
-        cy.get('#text-message-text-box').type('+44 192 384 0768');
+        cy.get('#email-text-box').type(contactEmail);
+        cy.get('#telephone-text-box').type(contactTelephone);
+        cy.get('#website-text-box').type(contactWebsite);
+        cy.get('#text-message-text-box').type(contactText);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        cy.get('#textarea').type('Even more details about the Service');
+        cy.get('#textarea').type(evenMoreDetailsDescription);
         cy.url().then(url => previousPageSlug = url.split("/").pop());
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
@@ -107,7 +118,6 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
     it('Should go back to the previous page', () => {
         cy.get('body > div.govuk-width-container > a').click();
         cy.url().should('include', previousPageSlug);
-        cy.get('#textarea').contains('Even more details about the Service');
     });
 
     it('Should contain correct heading and subheadings', () => {
@@ -116,22 +126,22 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
         cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
         cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
-        cy.get('#main-content > div > div > h3:nth-child(8)').contains('In Person, Online, Telephone');
+        cy.get('#main-content > div > div > h3:nth-child(8)').contains(howServiceIsProvided);
         cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
     });
 
     it('Should contain given service details', () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Name');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('Test Service');
+            .contains(serviceName);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Support it offers');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
-            .contains('Holiday clubs and schemes');
+            .contains(supportItOffers);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Description');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Description of the Service');
+            .contains(serviceDescription);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dt')
             .contains('Does support relate to children or young people?');
@@ -151,7 +161,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dt')
             .contains('How this service is provided');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('In Person, Online, Telephone');
+            .contains(howServiceIsProvided);
 
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dt').contains('Locations');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__value')
@@ -172,7 +182,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dt')
             .contains('Extra availability details');
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Extra Availability Description');
+            .contains(extraAvailabilityDescription);
 
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dt').contains('Days service is available');
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
@@ -180,47 +190,53 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
 
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dt').contains('Extra availability details');
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('More online & telephone details');
+            .contains(moreOnlineTelephoneDetails);
 
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dt').contains('Contact details');
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('test@email.com');
+            .contains(contactEmail);
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('+44 128 256 0512');
+            .contains(contactTelephone);
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('www.service.com');
+            .contains(contactWebsite);
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('+44 192 384 0768');
+            .contains(contactText);
 
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dt').contains('More details');
         cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Even more details about the Service');
+            .contains(evenMoreDetailsDescription);
     });
 
     it('Should allow content to be changed', () => {
+        let serviceNameChanged = "Test Service Changed";
+
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#textbox').clear().type('Test Service Changed');
+        cy.get('#textbox').clear().type(serviceNameChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('Test Service Changed');
+            .contains(serviceNameChanged);
+
+        let supportItOffersChanged = "Music, arts and dance"
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.selectCheckBoxes('Activities, clubs and groups');
-        cy.selectCheckBoxes('Music, arts and dance');
+        cy.selectCheckBoxes(mainSupportCategory);
+        cy.selectCheckBoxes(supportItOffersChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
-            .contains('Holiday clubs and schemes');
+            .contains(supportItOffers);
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
-            .contains('Music, arts and dance');
+            .contains(supportItOffersChanged);
+
+        let serviceDescriptionChanged = "Description of the Service Changed"
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#textarea').clear().type('Description of the Service Changed');
+        cy.get('#textarea').clear().type(serviceDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Description of the Service Changed');
+            .contains(serviceDescriptionChanged);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__actions > a')
             .click();
@@ -244,6 +260,8 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains('Yes - £5');
 
+        let howServiceIsProvidedChanged = "Online, Telephone";
+
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#checkbox-InPerson').uncheck();
@@ -251,8 +269,8 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('div.govuk-grid-row button').click();
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(5) > div > dd.govuk-summary-list__value')
-            .contains('Online, Telephone');
-        cy.get('#main-content > div > div > h3').contains('Online, Telephone');
+            .contains(howServiceIsProvidedChanged);
+        cy.get('#main-content > div > div > h3').contains(howServiceIsProvidedChanged);
 
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
@@ -262,34 +280,43 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains('Monday, Tuesday, Wednesday, Thursday, Friday');
 
+        let extraAvailabilityDescriptionChanged = "Changed When People can use the Service";
+
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#text-area').clear().type('Changed When People can use the Service');
+        cy.get('#text-area').clear().type(extraAvailabilityDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Changed When People can use the Service');
+            .contains(extraAvailabilityDescriptionChanged);
+
+        let contactEmailChanged = "email@changed.com";
+        let contactTelephoneChanged = "+44 123 456 0789";
+        let contactWebsiteChanged = "www.service-changed.co.uk";
+        let contactTextChanged = "+44 700 900 0982";
 
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#email-text-box').clear().type('email@changed.com');
-        cy.get('#telephone-text-box').clear().type("+44 123 456 0789");
-        cy.get('#website-text-box').clear().type('www.service-changed.co.uk');
-        cy.get('#text-message-text-box').clear().type('+44 700 900 0982');
+        cy.get('#email-text-box').clear().type(contactEmailChanged);
+        cy.get('#telephone-text-box').clear().type(contactTelephoneChanged);
+        cy.get('#website-text-box').clear().type(contactWebsiteChanged);
+        cy.get('#text-message-text-box').clear().type(contactTextChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('email@changed.com');
+            .contains(contactEmailChanged);
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('+44 123 456 0789');
+            .contains(contactTelephoneChanged);
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('www.service-changed.co.uk');
+            .contains(contactWebsiteChanged);
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('+44 700 900 0982');
+            .contains(contactTextChanged);
+
+        let evenMoreDetailsDescriptionChanged = "Changed further details about the Service";
 
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#textarea').clear().type('Changed further details about the Service');
+        cy.get('#textarea').clear().type(evenMoreDetailsDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
         cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
-            .contains('Changed further details about the Service');
+            .contains(evenMoreDetailsDescriptionChanged);
     });
 })
