@@ -126,7 +126,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > h2:nth-child(2)').contains('Service details');
         cy.get('#main-content > div > div > h2:nth-child(4)').contains('Using this service');
         cy.get('#main-content > div > div > h3:nth-child(6)').contains('Location 1');
-        cy.get('#main-content > div > div > h3:nth-child(8)').contains(howServiceIsProvided);
+        cy.get('#main-content > div > div > h3:nth-child(8)').contains("Online, Telephone");
         cy.get('#main-content > div > div > h2:nth-child(10)').contains('Further information');
     });
 
@@ -260,63 +260,95 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains('Yes - £5');
 
-        let howServiceIsProvidedChanged = "Online, Telephone";
-
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#checkbox-InPerson').uncheck();
-        cy.get('div.govuk-grid-row button').click();
-        cy.get('div.govuk-grid-row button').click();
-        cy.get('div.govuk-grid-row button').click();
+        cy.get('#checkbox-Online').uncheck();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
+        cy.contains('.govuk-button', 'Continue').click();
         cy.get('#main-content > div > div > dl:nth-child(5) > div > dd.govuk-summary-list__value')
-            .contains(howServiceIsProvidedChanged);
-        cy.get('#main-content > div > div > h3').contains(howServiceIsProvidedChanged);
+            .contains("In Person, Telephone");
+        cy.get('#main-content > div > div > h3').contains("Telephone");
 
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#checkbox-SA').uncheck();
         cy.get('#checkbox-SU').uncheck();
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(4) > dd.govuk-summary-list__value')
             .contains('Monday, Tuesday, Wednesday, Thursday, Friday');
 
         let extraAvailabilityDescriptionChanged = "Changed When People can use the Service";
 
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#text-area').clear().type(extraAvailabilityDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+        cy.get('#main-content > div > div > dl:nth-child(7) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains(extraAvailabilityDescriptionChanged);
+
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#checkbox-SA').uncheck();
+        cy.get('#checkbox-SU').uncheck();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains('Monday, Tuesday, Wednesday, Thursday, Friday');
+
+        let onlineTelephoneDetailsChanged = "Telephone Details Changed";
+
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#text-area').clear().type(onlineTelephoneDetailsChanged);
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+            .contains(onlineTelephoneDetailsChanged);
 
         let contactEmailChanged = "email@changed.com";
         let contactTelephoneChanged = "+44 123 456 0789";
         let contactWebsiteChanged = "www.service-changed.co.uk";
         let contactTextChanged = "+44 700 900 0982";
 
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#email-text-box').clear().type(contactEmailChanged);
         cy.get('#telephone-text-box').clear().type(contactTelephoneChanged);
         cy.get('#website-text-box').clear().type(contactWebsiteChanged);
         cy.get('#text-message-text-box').clear().type(contactTextChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains(contactEmailChanged);
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains(contactTelephoneChanged);
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains(contactWebsiteChanged);
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(1) > dd.govuk-summary-list__value')
             .contains(contactTextChanged);
 
         let evenMoreDetailsDescriptionChanged = "Changed further details about the Service";
 
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#textarea').clear().type(evenMoreDetailsDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(9) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
+        cy.get('#main-content > div > div > dl:nth-child(11) > div:nth-child(2) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains(evenMoreDetailsDescriptionChanged);
+    });
+
+    it('Should group In Person with Online, Telephone if location is removed', () => {
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#main-content > div > div > form > div.govuk-summary-card > div.govuk-summary-card__title-wrapper > ul > a')
+            .click();
+        cy.selectRadioButtonAndContinue('#radio-True', 'div.govuk-grid-row button');
+        cy.get('#main-content > div > div > form > div > button:nth-child(1)').click();
+        cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains('No locations');
+        cy.get('#main-content > div > div > h3').contains(howServiceIsProvided);
     });
 })
