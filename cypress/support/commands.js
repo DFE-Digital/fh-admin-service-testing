@@ -13,6 +13,10 @@ before(() => {
   })  
 
 });
+
+after(() => {
+  Cypress.session.clearAllSavedSessions();
+})
     
 // Tests FHG-1599
 Cypress.Commands.add('dfeAdminWelcomePage',()=>{
@@ -215,25 +219,11 @@ Cypress.Commands.add('connectlogin', (olusername, olpassword, id) => {
 Cypress.Commands.add('integrationLogin', (userType) => {  
   cy.session(userType,()=>{
       signIn(userType);
-    },
-    {
-      validate() {
-        cy.visit('/Welcome')
-        cy.contains('My account')
-        cy.visit('https://signin.integration.account.gov.uk', 
-        { 
-          auth: {
-            username: `${Cypress.env('username')}`,
-            password: `${Cypress.env('password')}`,
-          },
-          failOnStatusCode: false 
-        })
-      },
-      cacheAcrossSpecs: true
     }
   )
   cy.visit('/')
 })
+
 function signIn(userType){
   cy.visit('https://signin.integration.account.gov.uk', 
   { 
