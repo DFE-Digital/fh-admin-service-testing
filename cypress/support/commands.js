@@ -306,6 +306,14 @@ Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) =>
     })
 })
 
+// check page url
+Cypress.Commands.add('checkPageUrl', (expectedUrl) => {
+  cy.url().then((text) => {
+      const trimmedText = text.trim();
+      expect(trimmedText).to.equal(expectedUrl);
+  })
+})
+
 // get text of all service categories
 Cypress.Commands.add('getvisibleTextOfElements', (locator, actualList, expectedList) => {
     // Find visible elements with IDs starting with "category-"
@@ -673,7 +681,7 @@ Cypress.Commands.add('checkTextBoxContent', (expectedText, attribute) => {
 })
 
 //click on change link for service categories offered
-Cypress.Commands.add('clickChangeLinkForServiceCategory', (rowName) => {
+Cypress.Commands.add('clickChangeLink', (rowName) => {
     cy.get('.govuk-summary-list__key')
         .contains(rowName) 
         .siblings('.govuk-summary-list__actions') 
