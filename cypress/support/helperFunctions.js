@@ -4,3 +4,15 @@ export function getDateString(){
     var time = `t${currentDateTime.getHours()}${currentDateTime.getMinutes()}${currentDateTime.getSeconds()}${ currentDateTime.getMilliseconds()}`;
     return `${date}${time}`;
 }
+
+export function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+}
+
+export function getRandomLetter() {
+    const randomLetter = ('abcdefghijklmnopqrstuv').split('')[(Math.floor(Math.random() * 26 ))];
+
+    return randomLetter;
+}
