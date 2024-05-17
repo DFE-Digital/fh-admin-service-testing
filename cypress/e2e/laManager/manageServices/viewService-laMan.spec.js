@@ -57,7 +57,7 @@ describe('LA Man - manage services - view services list', () => {
 
     })
 
-    it('No results found page on filter', () => {
+    it('no results found page on filter', () => {
         const resultsHeading = 'No results found';
         let actualText = [];
         const expectedText = ['Try again by searching for another service.'];
@@ -76,7 +76,7 @@ describe('LA Man - manage services - view services list', () => {
         });
     })
 
-    it('Navigate to a page using Previous button', () => {
+    it('navigate to a page using previous button', () => {
 
         //click on 2nd page from pagination 
         cy.contains('li.govuk-pagination__item a', '2').click();
