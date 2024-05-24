@@ -20,7 +20,9 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.contains('Add a service').click();
-        //click on continue button
+        // Search and select a local authority, then continue
+        cy.get('#select').type("Salford City Council");
+        cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
         cy.enterTextAndContinue('.govuk-input', serviceName, 'div.govuk-grid-row button');
