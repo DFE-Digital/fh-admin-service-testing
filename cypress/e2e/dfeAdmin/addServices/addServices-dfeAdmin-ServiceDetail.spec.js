@@ -20,7 +20,9 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.contains('Add a service').click();
-        //click on continue button
+        // Search and select a local authority, then continue
+        cy.get('#select').type("Salford City Council");
+        cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
         cy.enterTextAndContinue('.govuk-input', serviceName, 'div.govuk-grid-row button');
@@ -65,10 +67,10 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        // Select a location
-        cy.get('#select-location-location').type('London');
-        cy.get('#main-content > div > div > h1').click(); // Autofill the location selection
-        cy.get('#select-location-location').invoke('val').then(location => selectedLocation = location);
+        // Select a location, store it and move on
+        cy.get('#main-content > div > div > form > div > div').type('London');
+        cy.get('#select__option--0').click(); // Autofill the location selection
+        cy.get('#main-content > div > div > form > div > div').invoke('val').then(location => selectedLocation = location);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -84,7 +86,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('div.govuk-grid-row button').click();
 
         //click on continue button
-        cy.get('#main-content > div > div > form > div.govuk-button-group > button:nth-child(1)').click();
+        cy.contains('Continue').click();
 
         // Select all checkboxes for 'on which days can people use this service online or by telephone'
         cy.get('[type="checkbox"]').check();
