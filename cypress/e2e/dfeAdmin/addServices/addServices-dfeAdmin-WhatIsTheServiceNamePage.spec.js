@@ -3,7 +3,10 @@ describe('DfE Admin - service name homepage', () => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         cy.contains('Add a service').click();
-        cy.get('form > .govuk-button').click();
+        // Search and select a local authority, then continue
+        cy.get('#select').type("Salford City Council");
+        cy.get('#select__option--0').click();
+        cy.get('div.govuk-grid-row button').click();
     })
 
     it('validate service name page content and back link', () => {
