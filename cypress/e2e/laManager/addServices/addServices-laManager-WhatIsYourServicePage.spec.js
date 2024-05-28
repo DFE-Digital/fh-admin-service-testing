@@ -1,11 +1,11 @@
-describe("LA Manager - backbutton Services - Service Added Page", () => {
+describe("LA Manager - Add Services - Service Added Page", () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('laman')
 
     })
 
-    it('Ensuring that clicking on the back button on the service page navigates back to the LA services page', () => {
+    it('Ensuring that clicking on the back button on the add service page', () => {
         cy.contains('Services').click();
         cy.get('a[href*="/manage-services/start-add-service"]').click();
         cy.clickBackLink();

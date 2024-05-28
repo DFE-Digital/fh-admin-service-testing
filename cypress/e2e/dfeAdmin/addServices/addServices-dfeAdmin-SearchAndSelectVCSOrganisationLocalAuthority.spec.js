@@ -1,4 +1,4 @@
-describe('DfE Admin - Search and Select the Local Authority Area', () => {
+describe('DfE Admin - Search and Select the VCS Organisation Area', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
