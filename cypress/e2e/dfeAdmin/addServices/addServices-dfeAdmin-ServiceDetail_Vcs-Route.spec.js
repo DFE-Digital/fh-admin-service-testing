@@ -1,5 +1,7 @@
 describe("DfE Admin - Add Services - VCS Service - Service Detail Page", () => {
     const serviceName = "Test Service";
+    const laServiceIsInName = "Bristol County Council";
+    const vcsOrganisationName = "Bristol Parent Carers";
     const mainSupportCategory = "Activities, clubs and groups";
     const supportItOffers = "Holiday clubs and schemes";
     const serviceDescription = "Description of the Service";
@@ -23,12 +25,12 @@ describe("DfE Admin - Add Services - VCS Service - Service Detail Page", () => {
         cy.get('a[href="/manage-services/start-add-service?servicetype=Vcs"]').click();
 
         // Search and select a local authority, then continue
-        cy.get('#select').type("Bristol County Council");
+        cy.get('#select').type(laServiceIsInName);
         cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
 
         // Search and select the VCS Org. that runs the service
-        cy.get('#select').type("Bristol Parent Carers");
+        cy.get('#select').type(vcsOrganisationName);
         cy.get('#select__option--0').click();
         cy.contains('Continue').click();
 
@@ -144,11 +146,11 @@ describe("DfE Admin - Add Services - VCS Service - Service Detail Page", () => {
     it('Should contain given service details', () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Local authority');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('Bristol County Council');
+            .contains(laServiceIsInName);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Organisation');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
-            .contains('Bristol Parent Carers');
+            .contains(vcsOrganisationName);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Name');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value')
@@ -228,13 +230,14 @@ describe("DfE Admin - Add Services - VCS Service - Service Detail Page", () => {
 
     it('Should allow content to be changed', () => {
         let laServiceIsInChanged = "London Borough of Redbridge";
+        let newVcsOrganisation = "Redbridge Carers Support Service"
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#select').type(laServiceIsInChanged);
         cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#select').type("Redbridge Carers Support Service");
+        cy.get('#select').type(newVcsOrganisation);
         cy.get('#select__option--0').click();
         cy.contains('Continue').click();
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')

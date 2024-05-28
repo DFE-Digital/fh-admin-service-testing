@@ -1,5 +1,6 @@
 describe("DfE Admin - Add Services - LA Service - Service Detail Page", () => {
     const serviceName = "Test Service";
+    const laServiceIsInName = "Salford City Council";
     const mainSupportCategory = "Activities, clubs and groups";
     const supportItOffers = "Holiday clubs and schemes";
     const serviceDescription = "Description of the Service";
@@ -22,7 +23,7 @@ describe("DfE Admin - Add Services - LA Service - Service Detail Page", () => {
         // Click the button to add a service, specifically for the LA service
         cy.get('a[href="/manage-services/start-add-service?servicetype=La"]').click();
         // Search and select a local authority, then continue
-        cy.get('#select').type("Salford City Council");
+        cy.get('#select').type(laServiceIsInName);
         cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
@@ -136,7 +137,7 @@ describe("DfE Admin - Add Services - LA Service - Service Detail Page", () => {
     it('Should contain given service details', () => {
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Local authority');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
-            .contains('Salford City Council');
+            .contains(laServiceIsInName);
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Name');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
