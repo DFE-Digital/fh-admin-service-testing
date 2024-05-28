@@ -25,13 +25,16 @@ describe('DfE Admin - Search and Select the VCS Organisation Area', () => {
     })
 
     it('should go to the manage LA services page when the back button is clicked', () => {
+        //Navigating to the What is the service name page
         cy.get('#select').type("Ark Tuition and Exam Centre");
         cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
         cy.title().should('eq', 'What is the service name? - Manage family support services and accounts - GOV.UK');
 
+        //Selecting the back button and verifying the Search and select VCS organisation page is displayed
         cy.clickBackLink();
         cy.title().should('eq', 'Search and select the VCS organisation that runs this service - Manage family support services and accounts - GOV.UK');
+        //Selecting the back button and verifying the Search and select local authority page is displayed
         cy.clickBackLink();
         cy.title().should('eq', 'Search and select the local authority area this service is in - Manage family support services and accounts - GOV.UK');
     })
@@ -46,10 +49,9 @@ describe('DfE Admin - Search and Select the VCS Organisation Area', () => {
         cy.checkErrorBannerAndMessages(errorHeading, errorMessages, actualBannerMessages, actualMessages);
     })
 
-    it('Add a service via the manage services page', () => {
-
+    it('Navigating to the add a service page via the manage services page and clicking on the back button', () => {
+        //Navigating to the 'what is the service name' page via the manage services page
         cy.get('a[aria-label=\'DfE homepage\']').click();
-
         cy.get('a[href=\'/manage-services?servicetype=Vcs\']').click();
         cy.get('a[href=\'/manage-services/start-add-service?serviceType=Vcs\']').click();
         cy.get('#select').type("London Borough of Redbridge");
@@ -61,8 +63,10 @@ describe('DfE Admin - Search and Select the VCS Organisation Area', () => {
         cy.get('div.govuk-grid-row button').click();
         cy.title().should('eq', 'What is the service name? - Manage family support services and accounts - GOV.UK');
 
+        //Selecting the back button and verifying the search and select VCS page is displayed
         cy.clickBackLink();
         cy.title().should('eq', 'Search and select the VCS organisation that runs this service - Manage family support services and accounts - GOV.UK');
+        //Selecting the back button and verifying the search and select LA are page is displayed.
         cy.clickBackLink();
         cy.title().should('eq', 'Search and select the local authority area this service is in - Manage family support services and accounts - GOV.UK');
     })

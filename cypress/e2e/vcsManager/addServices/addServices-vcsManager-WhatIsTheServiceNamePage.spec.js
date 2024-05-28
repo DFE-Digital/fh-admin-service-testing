@@ -1,4 +1,4 @@
-describe("LA Manager - Add Services - Service Added Page", () => {
+describe("VCS Manager - Add Services - What Is The Service Name Page", () => {
     beforeEach(() => {
         cy.visit('/')
         cy.integrationLogin('vcsman')
@@ -7,7 +7,7 @@ describe("LA Manager - Add Services - Service Added Page", () => {
         })
 
 
-    it('Ensuring that clicking on the back button on the ass service page', () => {
+    it('Clicking on the back button on the what is the service name page', () => {
         cy.clickBackLink();
         cy.title().should('include', 'Manage family support services and accounts - GOV.UK');
     });
