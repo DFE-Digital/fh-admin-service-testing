@@ -1,4 +1,4 @@
-describe("LA Manager - Add Services - Service Added Page", () => {
+describe("VCS Manager - Add Services - Service Added Page", () => {
     beforeEach(() => {
         const serviceName = "Test Service";
         const mainSupportCategory = "Activities, clubs and groups";

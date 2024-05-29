@@ -1,4 +1,4 @@
-describe("LA Manager - Add Services - Service Added Page", () => {
+describe("DfE Admin - Add Services - Service Added Page", () => {
     beforeEach(() => {
         const serviceName = "Test Service";
         const laServiceIsInName = "Salford City Council";
