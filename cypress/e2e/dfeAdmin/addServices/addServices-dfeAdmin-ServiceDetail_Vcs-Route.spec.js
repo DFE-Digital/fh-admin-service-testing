@@ -1,5 +1,7 @@
-describe("DfE Admin - Add Services - Service Detail Page", () => {
+describe("DfE Admin - Add Services - VCS Service - Service Detail Page", () => {
     const serviceName = "Test Service";
+    const laServiceIsInName = "Bristol County Council";
+    const vcsOrganisationName = "Bristol Parent Carers";
     const mainSupportCategory = "Activities, clubs and groups";
     const supportItOffers = "Holiday clubs and schemes";
     const serviceDescription = "Description of the Service";
@@ -19,13 +21,22 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         const checkboxList = [mainSupportCategory, supportItOffers];
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
-        cy.contains('Add a service').click();
+        // Click the button to add a service, specifically for the LA service
+        cy.get('a[href="/manage-services/start-add-service?servicetype=Vcs"]').click();
+
         // Search and select a local authority, then continue
-        cy.get('#select').type("Salford City Council");
+        cy.get('#select').type(laServiceIsInName);
         cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
+
+        // Search and select the VCS Org. that runs the service
+        cy.get('#select').type(vcsOrganisationName);
+        cy.get('#select__option--0').click();
+        cy.contains('Continue').click();
+
         //enter a service name
         cy.enterTextAndContinue('.govuk-input', serviceName, 'div.govuk-grid-row button');
+
         //Select a category
         checkboxList.forEach((checkbox) => {
             cy.selectCheckBoxes(checkbox);
@@ -67,10 +78,10 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        // Select a location
-        cy.get('#select-location-location').type('London');
-        cy.get('#main-content > div > div > h1').click(); // Autofill the location selection
-        cy.get('#select-location-location').invoke('val').then(location => selectedLocation = location);
+        // Select a location, store it and move on
+        cy.get('#select').type('London');
+        cy.get('#select__option--0').click(); // Autofill the location selection
+        cy.get('#select').invoke('val').then(location => selectedLocation = location);
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -86,7 +97,7 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
         cy.get('div.govuk-grid-row button').click();
 
         //click on continue button
-        cy.get('#main-content > div > div > form > div.govuk-button-group > button:nth-child(1)').click();
+        cy.contains('Continue').click();
 
         // Select all checkboxes for 'on which days can people use this service online or by telephone'
         cy.get('[type="checkbox"]').check();
@@ -133,31 +144,39 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
     });
 
     it('Should contain given service details', () => {
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Name');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dt').contains('Local authority');
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains(laServiceIsInName);
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Organisation');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains(vcsOrganisationName);
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Name');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value')
             .contains(serviceName);
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dt').contains('Support it offers');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dt').contains('Support it offers');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
             .contains(supportItOffers);
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dt').contains('Description');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dt').contains('Description');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains(serviceDescription);
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dt')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dt')
             .contains('Does support relate to children or young people?');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains('Yes - 0 years old to 1 years old');
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dt').contains('Languages');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(7) > dt').contains('Languages');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(7) > dd.govuk-summary-list__value')
             .contains('French');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(7) > dd.govuk-summary-list__value')
             .contains('British Sign Language and translation services available on request');
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dt').contains('Cost');
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(8) > dt').contains('Cost');
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(8) > dd.govuk-summary-list__value')
             .contains("Yes - £2");
 
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dt')
@@ -210,56 +229,80 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
     });
 
     it('Should allow content to be changed', () => {
-        let serviceNameChanged = "Test Service Changed";
+        let laServiceIsInChanged = "London Borough of Redbridge";
+        let newVcsOrganisation = "Redbridge Carers Support Service"
 
         cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
             .click();
+        cy.get('#select').type(laServiceIsInChanged);
+        cy.get('#select__option--0').click();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#select').type(newVcsOrganisation);
+        cy.get('#select__option--0').click();
+        cy.contains('Continue').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
+            .contains(laServiceIsInChanged);
+
+        let vcsOrganisationChanged = "Aldersbrook Lawn";
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+            .click();
+        cy.get('#select').type(vcsOrganisationChanged);
+        cy.get('#select__option--0').click();
+        cy.get('div.govuk-grid-row button').click();
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+            .contains(vcsOrganisationChanged);
+
+        let serviceNameChanged = "Test Service Changed";
+
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__actions > a')
+            .click();
         cy.get('#textbox').clear().type(serviceNameChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(1) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value')
             .contains(serviceNameChanged);
 
         let supportItOffersChanged = "Music, arts and dance"
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__actions > a')
             .click();
         cy.selectCheckBoxes(mainSupportCategory);
         cy.selectCheckBoxes(supportItOffersChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
             .contains(supportItOffers);
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(2) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
             .contains(supportItOffersChanged);
 
         let serviceDescriptionChanged = "Description of the Service Changed"
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#textarea').clear().type(serviceDescriptionChanged);
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(3) > dd.govuk-summary-list__value.fh-pre-wrap')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value.fh-pre-wrap')
             .contains(serviceDescriptionChanged);
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#ViewModel_FromAge').select('3 years old');
         cy.get('#ViewModel_ToAge').select('4 years old');
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(4) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
             .contains('Yes - 3 years old to 4 years old');
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(7) > dd.govuk-summary-list__actions > a')
             .click();
         cy.selectLanguage('#language-0', '#language-0__option--0', 'English');
         cy.get('#main-content > div > div > div > form > button:nth-child(5)').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(5) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(7) > dd.govuk-summary-list__value')
             .contains('English');
 
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__actions > a')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(8) > dd.govuk-summary-list__actions > a')
             .click();
         cy.get('#text-area').clear().type('£5');
         cy.get('div.govuk-grid-row button').click();
-        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(6) > dd.govuk-summary-list__value')
+        cy.get('#main-content > div > div > dl:nth-child(3) > div:nth-child(8) > dd.govuk-summary-list__value')
             .contains('Yes - £5');
 
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(1) > dd.govuk-summary-list__actions > a')
@@ -345,10 +388,10 @@ describe("DfE Admin - Add Services - Service Detail Page", () => {
     it('Should group In Person with Online, Telephone if location is removed', () => {
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__actions > a')
             .click();
-        cy.get('#main-content > div > div > form > div.govuk-summary-card > div.govuk-summary-card__title-wrapper > ul > a')
-            .click();
+        cy.contains('Remove location from this service').click();
         cy.selectRadioButtonAndContinue('#radio-True', 'div.govuk-grid-row button');
-        cy.get('#main-content > div > div > form > div > button:nth-child(1)').click();
+        cy.contains('Continue').click();
+        cy.selectRadioButtonAndContinue('#radio-False', 'div.govuk-grid-row button');
         cy.get('#main-content > div > div > dl:nth-child(5) > div:nth-child(2) > dd.govuk-summary-list__value')
             .contains('No locations');
         cy.get('#main-content > div > div > h3').contains(howServiceIsProvided);

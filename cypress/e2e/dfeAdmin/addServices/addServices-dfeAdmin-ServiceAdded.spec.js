@@ -1,6 +1,7 @@
-describe("VCS Manager - Add Services - Service Added Page", () => {
+describe("DfE Admin - Add Services - Service Added Page", () => {
     beforeEach(() => {
         const serviceName = "Test Service";
+        const laServiceIsInName = "Salford City Council";
         const mainSupportCategory = "Activities, clubs and groups";
         const supportItOffers = "Holiday clubs and schemes";
         const serviceDescription = "Description of the Service";
@@ -14,10 +15,12 @@ describe("VCS Manager - Add Services - Service Added Page", () => {
         const checkboxList = [mainSupportCategory, supportItOffers];
 
         cy.visit('/')
-        cy.integrationLogin('vcsman')
-        cy.contains('Services').click();
-        cy.get('a[href*="/manage-services/start-add-service"]').click();
-        //click on continue button
+        cy.integrationLogin('dfeadmin')
+        // Click the button to add a service, specifically for the LA service
+        cy.get('a[href="/manage-services/start-add-service?servicetype=La"]').click();
+        // Search and select a local authority, then continue
+        cy.get('#select').type(laServiceIsInName);
+        cy.get('#select__option--0').click();
         cy.get('div.govuk-grid-row button').click();
         //enter a service name
         cy.enterTextAndContinue('.govuk-input', serviceName, 'div.govuk-grid-row button');
@@ -62,9 +65,9 @@ describe("VCS Manager - Add Services - Service Added Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        // Select a location
-        cy.get('#select-location-location').type('A');
-        cy.get('#main-content > div > div > h1').click(); // Autofill the location selection
+        // Select a location, store it and move on
+        cy.get('#select').type('London');
+        cy.get('#select__option--0').click(); // Autofill the location selection
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
@@ -80,7 +83,7 @@ describe("VCS Manager - Add Services - Service Added Page", () => {
         cy.get('div.govuk-grid-row button').click();
 
         //click on continue button
-        cy.get('#main-content > div > div > form > div.govuk-button-group > button:nth-child(1)').click();
+        cy.contains('Continue').click();
 
         // Select all checkboxes for 'on which days can people use this service online or by telephone'
         cy.get('[type="checkbox"]').check();
@@ -106,11 +109,7 @@ describe("VCS Manager - Add Services - Service Added Page", () => {
         //click on continue button
         cy.get('div.govuk-grid-row button').click();
 
-        // Make sure we have landed at the service details page
-        cy.url().should('include', 'Service-Detail');
-
-        // click confirm button
-        cy.get('#main-content > div > div > form > button').click();
+        cy.contains('Confirm details').click();
 
         // Make sure we have landed at the correct page
         cy.url().should('include', 'Service-Add-Confirmation');
