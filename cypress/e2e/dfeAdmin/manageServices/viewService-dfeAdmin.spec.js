@@ -5,7 +5,7 @@ describe('DfE Admin - manage services - view services list', () => {
         cy.integrationLogin('dfeadmin')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToDfeAdminViewServicesPage()
 
     })
 
@@ -63,7 +63,7 @@ describe('DfE Admin - manage services - view services list', () => {
         //enter text in filter box and click on Apply filter button
         cy.enterTextAndContinue('#service-name', 'abcdef', '.moj-filter__selected > .govuk-button');
         //check the heading
-        cy.checkPageHeading('#results h2', resultsHeading);
+        cy.checkPageHeading('#results h1', resultsHeading);
         //check filtered pagination items
         cy.getTextOfElements('#results p', actualText, expectedText);
         //click on clear filter

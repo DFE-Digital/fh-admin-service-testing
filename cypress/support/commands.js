@@ -314,6 +314,14 @@ Cypress.Commands.add('checkPageUrl', (expectedUrl) => {
   })
 })
 
+// check page url contains
+Cypress.Commands.add('checkPageUrlContains', (expectedUrl) => {
+  cy.url().then((text) => {
+      const trimmedText = text.trim();
+      expect(trimmedText).to.contains(expectedUrl);
+  })
+})
+
 // get text of all service categories
 Cypress.Commands.add('getvisibleTextOfElements', (locator, actualList, expectedList) => {
     // Find visible elements with IDs starting with "category-"
