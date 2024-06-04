@@ -12,7 +12,7 @@ export function getRandomInt(min, max) {
 }
 
 export function getRandomLetter() {
-    const randomLetter = ('abcdefghijklmnopqrstuv').split('')[(Math.floor(Math.random() * 26 ))];
+    const randomLetter = ('abcdefghijklmnoprstuv').split('')[(Math.floor(Math.random() * 26 ))];
 
     return randomLetter;
 }

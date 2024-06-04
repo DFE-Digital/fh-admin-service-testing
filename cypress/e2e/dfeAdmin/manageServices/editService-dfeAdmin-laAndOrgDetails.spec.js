@@ -91,7 +91,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('[id="select"]').clear();
         cy.get('[id="select"]').type(getRandomLetter());
 
-        var vcsOption = "select__option--" + getRandomInt(0, 2).toString();
+        let vcsOption = "select__option--" + getRandomInt(0, 2).toString();
         cy.get(`[id=${vcsOption}]`).click();
 
         // And I click continue
@@ -127,7 +127,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('[id="select"]').clear();
         cy.get('[id="select"]').type(getRandomLetter());
 
-        var vcsOption = "select__option--" + getRandomInt(0, 2).toString();
+        let vcsOption = "select__option--" + getRandomInt(0, 2).toString();
         cy.get(`[id=${vcsOption}]`).click();
 
         // And I click continue
