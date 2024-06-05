@@ -1,7 +1,7 @@
 import { getRandomInt } from '../../../support/helperFunctions';
 import { getRandomLetter } from '../../../support/helperFunctions';
 
-const expectedEditServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Detail?";
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Detail?";
 
 const expectedOrganisationPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Vcs-Organisation?";         
 const expectedConfirmationPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
@@ -47,7 +47,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
@@ -98,7 +98,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
         
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
@@ -134,7 +134,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
         
         // And I click save
         cy.get('#main-content > div > div > form > button').click();

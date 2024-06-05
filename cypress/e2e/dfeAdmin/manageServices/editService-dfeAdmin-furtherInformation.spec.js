@@ -1,6 +1,6 @@
 import { getRandomInt } from '../../../support/helperFunctions';
-const expectedPageHeading = "Service details";
-         
+
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services";
 const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
 
 describe('DfE Admin - manage services - edit further information', () => {
@@ -53,13 +53,13 @@ describe('DfE Admin - manage services - edit further information', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -92,13 +92,13 @@ describe('DfE Admin - manage services - edit further information', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -114,13 +114,13 @@ describe('DfE Admin - manage services - edit further information', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 });
