@@ -108,7 +108,7 @@ describe('DfE Admin - manage services - edit further information', () => {
 
         // And I change the name
         cy.get('[id="textarea"]').clear();
-        cy.get('[id="textarea"]').type('More details' + getRandomInt(0, 100).toString())
+        cy.get('[id="textarea"]').type('More details' + getRandomInt(0, 10000).toString())
 
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();

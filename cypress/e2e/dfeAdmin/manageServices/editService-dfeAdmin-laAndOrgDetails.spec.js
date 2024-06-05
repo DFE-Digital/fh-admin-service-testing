@@ -57,6 +57,8 @@ describe('DfE Admin - manage services - edit service details', () => {
     })
 
     it('can edit associated LA for a VCS service', () => {
+
+
         // When I apply a filter
         cy.get('[id="service-name"]').type('Edit VCS Service');
         cy.get('[type="submit"]').contains('Apply filter').click();
@@ -69,19 +71,27 @@ describe('DfE Admin - manage services - edit service details', () => {
         // When I click the change link for Local authority
         cy.clickChangeLink('Local authority');
 
+        let organisation = "";
         // And I change the Local authority to a different one
         cy.get('[id="select__option--0"]').invoke('text').then(($value) => {
+
             if ($value === 'Tower Hamlets Council') {
+                organisation = "The Vench";
+
                 cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Bristol County');
+                cy.get('[id="select"]').type('Bristol County')
             }
             else {
+                organisation = "Elop Mentoring";
+
                 cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Tower Hamlets');
+                cy.get('[id="select"]').type('Tower Hamlets')
             }
         });
+        
+        cy.get('[id="select__option--0"]').click();
 
-        // And I click continue
+        //I click continue
         cy.get('#main-content > div > div > form > button').click();
 
         // Then which organisation page is displayed
@@ -89,10 +99,9 @@ describe('DfE Admin - manage services - edit service details', () => {
 
         // When I change the organisation
         cy.get('[id="select"]').clear();
-        cy.get('[id="select"]').type(getRandomLetter());
-
-        let vcsOption = "select__option--" + getRandomInt(0, 2).toString();
-        cy.get(`[id=${vcsOption}]`).click();
+        cy.get('[id="select"]').type(organisation);
+        
+        cy.get('[id=select__option--0]').click();
 
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
@@ -124,6 +133,17 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.checkPageUrlContains(expectedOrganisationPageUrl); 
 
         // When I change the organisation
+        cy.get('[id="select"]').invoke('text').then(($value) => {
+            if ($value === 'Tower Hamlets Council') {
+                cy.get('[id="select"]').clear();
+                cy.get('[id="select"]').type('Bristol County');
+            }
+            else {
+                cy.get('[id="select"]').clear();
+                cy.get('[id="select"]').type('Tower Hamlets');
+            }
+        });
+
         cy.get('[id="select"]').clear();
         cy.get('[id="select"]').type(getRandomLetter());
 
