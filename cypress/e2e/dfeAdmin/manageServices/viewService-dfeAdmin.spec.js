@@ -5,7 +5,7 @@ describe('DfE Admin - manage services - view services list', () => {
         cy.integrationLogin('dfeadmin')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToDfeAdminViewServicesPage()
 
     })
 

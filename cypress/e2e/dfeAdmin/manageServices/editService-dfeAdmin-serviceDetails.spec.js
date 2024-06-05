@@ -12,10 +12,10 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.integrationLogin('dfeadmin')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToDfeAdminViewServicesPage()
 
         // When I apply a filter
-        cy.get('[id="service-name"]').type('Edit');
+        cy.get('[id="service-name"]').type('Edit Automated');
         cy.get('[type="submit"]').contains('Apply filter').click();
 
         // And I click to view a service   
