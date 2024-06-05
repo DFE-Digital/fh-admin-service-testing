@@ -133,17 +133,6 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.checkPageUrlContains(expectedOrganisationPageUrl); 
 
         // When I change the organisation
-        cy.get('[id="select"]').invoke('text').then(($value) => {
-            if ($value === 'Tower Hamlets Council') {
-                cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Bristol County');
-            }
-            else {
-                cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Tower Hamlets');
-            }
-        });
-
         cy.get('[id="select"]').clear();
         cy.get('[id="select"]').type(getRandomLetter());
 
