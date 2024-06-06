@@ -7,3 +7,13 @@ Cypress.Commands.add('navigateToViewServicesPage',()=>{
 Cypress.Commands.add('navigateToDfeAdminViewServicesPage',()=>{
     cy.visit('/manage-services?servicetype=La')
  })
+ 
+ // Navigate to Find Reports Page
+ Cypress.Commands.add('navigateToViewFindReportsPage',()=>{
+    cy.visit('/performance-data/Find')
+ })
+
+// Navigate to Connect Reports Page
+Cypress.Commands.add('navigateToViewConnectReportsPage',()=>{
+    cy.visit('/performance-data/Connect')
+ })

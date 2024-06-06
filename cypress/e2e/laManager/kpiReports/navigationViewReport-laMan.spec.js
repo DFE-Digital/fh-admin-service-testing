@@ -26,11 +26,22 @@ describe('LA Man - performance data - navigate to view reports page', () => {
 
     })
 
-    it('user can navigate to Find report', () => {
+    it('user can navigate to Connect report via nav bar', () => {
+        const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/performance-data/Connect";
+
+        // When I click the Find report option
+        cy.get('[data-testid="nav-connect"]').click();
+
+        // Then the Find report page is displayed
+        cy.checkPageUrl(expectedPageUrl);
+
+    })
+
+    it('user can navigate to Find report via nav bar', () => {
         const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/performance-data/Find";
 
         // When I click the Find report option
-        cy.contains('Find support for your family').click();
+        cy.get('[data-testid="nav-find"]').click();
 
         // Then the Find report page is displayed
         cy.checkPageUrl(expectedPageUrl);
