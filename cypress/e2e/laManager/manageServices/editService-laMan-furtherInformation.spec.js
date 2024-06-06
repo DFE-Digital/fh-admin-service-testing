@@ -5,7 +5,7 @@ const expectedPageUrl = "https://test.manage-family-support-services-and-account
 
 describe('LA Man - manage services - edit further information', () => {
     beforeEach(() => {
-        // Given I am logged in as DFE admin
+        // Given I am logged in as LA admin
         cy.visit('/')
         cy.integrationLogin('laman')
 
