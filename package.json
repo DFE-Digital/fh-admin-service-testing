@@ -3,6 +3,7 @@
     "cypress": "^12.12.0",
     "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-multi-reporters": "^1.6.1",
+    "cypress-xpath": "^2.0.1",
     "eslint-plugin-cypress": "^2.12.1",
     "mocha": "^10.0.0",
     "mochawesome": "^7.1.3",
