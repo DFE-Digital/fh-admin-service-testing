@@ -305,7 +305,7 @@ Cypress.Commands.add('checkElementContainsText', (locator, expectedHeading) => {
 })
 
 
-Cypress.Commands.add('checkElementContainsTextxpath', (locator, expectedHeading) => {
+Cypress.Commands.add('checkElementContainsTextXpath', (locator, expectedHeading) => {
     cy.xpath(locator).then((e) => {
         //method text to obtain text content
         expect(e.text()).to.eq(expectedHeading)

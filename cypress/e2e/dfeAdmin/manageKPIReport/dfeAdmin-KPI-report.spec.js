@@ -4,7 +4,7 @@ describe("DfE Admin - KPI report for Find", () => {
         cy.visit('/')
         cy.integrationLogin('dfeadmin')
         // Clicking on the view performance data hyperlink
-        cy.get('a[href=\'/performance-data/Find\']').click();
+        cy.get('a[href=\'/performance-data/Connect\']').click();
         // Click to display the Find metrics page
         cy.xpath('//a[normalize-space()=\'Find support for your family\']').click();
     })
