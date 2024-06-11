@@ -6,7 +6,7 @@ describe("DfE Admin - KPI report for Find", () => {
         // Clicking on the view performance data hyperlink
         cy.get('a[href=\'/performance-data/Connect\']').click();
         // Click to display the Find metrics page
-        cy.xpath('//a[normalize-space()=\'Find support for your family\']').click();
+        cy.get('a[href=\'/performance-data/Find\']').click();
     })
 
 
@@ -31,11 +31,11 @@ describe("DfE Admin - KPI report for Find", () => {
         const searchesInTheLast4WeeksTitle = "Searches in the last 4 weeks";
 
         //verifying the overall total for find text
-        cy.checkElementContainsTextXpath('//h2[normalize-space()=\'Overall totals for Find\']', overallTotalsTitles);
+        cy.checkElementContainsText('[data-testid="h2-overall"]', overallTotalsTitles);
         //verifying the search in the last 7 days text
-        cy.checkElementContainsTextXpath('//th[normalize-space()=\'Searches in the last 7 days\']', inTheLast7DaysTitle);
+        cy.checkElementContainsText('[data-testid="recent-searches"]', inTheLast7DaysTitle);
         //verifying the search in the last 4 weeks text
-        cy.checkElementContainsTextXpath('//h2[normalize-space()=\'Searches in the last 4 weeks\']', searchesInTheLast4WeeksTitle);
+        cy.checkElementContainsText('[data-testid="h2-weekly"]', searchesInTheLast4WeeksTitle);
 
         // And verify the total number of searches
         cy.get('[data-testid="searches"]').should('exist');
@@ -54,15 +54,15 @@ describe("DfE Admin - KPI report for Find", () => {
 
 
     it('Clicking on the back button when on the find metrics page', () => {
-        //Clicking on the back button
-        cy.xpath('//a[normalize-space()=\'Back\']').click();
+        //Click on back link
+        cy.clickBackLink();
         //Verify the title of the manage account page
         cy.title().should('eq', 'DfE Admin - Manage family support services and accounts - GOV.UK')
     })
 
     it('Clicking on the connect metrics performance tab', () => {
         //Click to view the Performance data for Connect families to support
-        cy.xpath('//a[normalize-space()=\'Connect families to support\']').click();
+        cy.get('a[href=\'/performance-data/Connect\']').click();
         cy.title().should('eq', 'Performance data for Connect families to support - Manage family support services and accounts - GOV.UK')
     });
 
@@ -73,7 +73,7 @@ describe("DfE Admin - KPI report for Find", () => {
         const expectedFilterHeader = "Services performance";
 
         //Click to view the Performance data for Connect families to support
-        cy.xpath('//a[normalize-space()=\'Connect families to support\']').click();
+        cy.get('a[href=\'/performance-data/Connect\']').click();
 
         // Then the page heading for the Find report is displayed correctly
         cy.checkPageHeading("h1", expectedPageHeading);
@@ -92,13 +92,13 @@ describe("DfE Admin - KPI report for Find", () => {
             const searchesInTheLast4WeeksTitle = "Searches in the last 4 weeks";
 
         //Click to view the Performance data for Connect families to support
-        cy.xpath('//a[normalize-space()=\'Connect families to support\']').click();
+        cy.get('a[href=\'/performance-data/Connect\']').click();
         //verifying the overall total for find text
-        cy.checkElementContainsTextXpath('//h2[normalize-space()=\'Overall totals for Connect\']', overallTotalsTitles);
+        cy.checkElementContainsText('[data-testid="h2-overall"]', overallTotalsTitles);
         //verifying the search in the last 7 days text
-        cy.checkElementContainsTextXpath('//h2[normalize-space()=\'Totals for the last 7 days\']', totalsForTheLast7DaysTitle);
+        cy.checkElementContainsText('[data-testid="h2-daily"]', totalsForTheLast7DaysTitle);
         //verifying the search in the last 4 weeks text
-        cy.checkElementContainsTextXpath('//h2[normalize-space()=\'Searches in the last 4 weeks\']', searchesInTheLast4WeeksTitle);
+        cy.checkElementContainsText('[data-testid="h2-weekly"]', searchesInTheLast4WeeksTitle);
 
 
         // And the overall connect searches
@@ -118,9 +118,9 @@ describe("DfE Admin - KPI report for Find", () => {
 
     it('Clicking on the back button when on the connect metrics page', () => {
         //Click to view the Performance data for Connect families to support
-        cy.xpath('//a[normalize-space()=\'Connect families to support\']').click();
-        //Clicking on the back button
-        cy.xpath('//a[normalize-space()=\'Back\']').click();
+        cy.get('a[href=\'/performance-data/Connect\']').click();
+        //Click on back link
+        cy.clickBackLink();
         //Verify the title of the manage account page
         cy.title().should('eq', 'DfE Admin - Manage family support services and accounts - GOV.UK')
     })

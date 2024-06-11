@@ -1,6 +1,5 @@
 // ***********************************************
 /* eslint-disable max-len */
-require('cypress-xpath');
 
 // before each hook with clearing cookies + uncaught exception override
 before(() => {
@@ -304,13 +303,6 @@ Cypress.Commands.add('checkElementContainsText', (locator, expectedHeading) => {
     })
 })
 
-
-Cypress.Commands.add('checkElementContainsTextXpath', (locator, expectedHeading) => {
-    cy.xpath(locator).then((e) => {
-        //method text to obtain text content
-        expect(e.text()).to.eq(expectedHeading)
-    })
-})
 
 // check static text using locator
 Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) => {
