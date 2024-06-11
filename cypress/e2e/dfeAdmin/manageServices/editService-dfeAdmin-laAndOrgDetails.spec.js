@@ -1,7 +1,7 @@
 import { getRandomInt } from '../../../support/helperFunctions';
 import { getRandomLetter } from '../../../support/helperFunctions';
 
-const expectedEditServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Detail?";
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Detail?";
 
 const expectedOrganisationPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Vcs-Organisation?";         
 const expectedConfirmationPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
@@ -17,7 +17,7 @@ describe('DfE Admin - manage services - edit service details', () => {
     })
 
     it('can edit associated LA for a LA service', () => {
-                // When I apply a filter
+        // When I apply a filter
         cy.get('[id="service-name"]').type('Edit LA Service');
         cy.get('[type="submit"]').contains('Apply filter').click();
 
@@ -47,7 +47,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
@@ -69,19 +69,30 @@ describe('DfE Admin - manage services - edit service details', () => {
         // When I click the change link for Local authority
         cy.clickChangeLink('Local authority');
 
+        
         // And I change the Local authority to a different one
         cy.get('[id="select__option--0"]').invoke('text').then(($value) => {
+
+            let organisation = "";
             if ($value === 'Tower Hamlets Council') {
+                organisation = "The Vench";
+
                 cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Bristol County');
+                cy.get('[id="select"]').type('Bristol County')
             }
             else {
-                cy.get('[id="select"]').clear();
-                cy.get('[id="select"]').type('Tower Hamlets');
-            }
-        });
+                organisation = "Elop Mentoring";
 
-        // And I click continue
+                cy.get('[id="select"]').clear();
+                cy.get('[id="select"]').type('Tower Hamlets')
+            }
+
+            cy.wrap(organisation).as('organisation');
+        });
+        
+        cy.get('[id="select__option--0"]').click();
+
+        //I click continue
         cy.get('#main-content > div > div > form > button').click();
 
         // Then which organisation page is displayed
@@ -89,16 +100,18 @@ describe('DfE Admin - manage services - edit service details', () => {
 
         // When I change the organisation
         cy.get('[id="select"]').clear();
-        cy.get('[id="select"]').type(getRandomLetter());
 
-        let vcsOption = "select__option--" + getRandomInt(0, 2).toString();
-        cy.get(`[id=${vcsOption}]`).click();
+        cy.get('@organisation').then((organisation) => {
+            cy.get('[id="select"]').type(organisation);
+        });
+
+        cy.get('[id=select__option--0]').click();
 
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
         
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
@@ -123,18 +136,35 @@ describe('DfE Admin - manage services - edit service details', () => {
         // Then which organisation page is displayed
         cy.checkPageUrlContains(expectedOrganisationPageUrl); 
 
-        // When I change the organisation
-        cy.get('[id="select"]').clear();
-        cy.get('[id="select"]').type(getRandomLetter());
-
-        let vcsOption = "select__option--" + getRandomInt(0, 2).toString();
-        cy.get(`[id=${vcsOption}]`).click();
+        // When I change the organisation - chooses an organisation based on previous selection
+        cy.get('[id="select__option--0"]').invoke('text').then(($value) => {
+            switch($value.trim()) {
+                case "The Vench":
+                    cy.get('[id="select"]').clear();
+                    cy.get('[id="select"]').type('Bluebell Care')
+                break;
+                case "Bluebell Care":
+                    cy.get('[id="select"]').clear();
+                    cy.get('[id="select"]').type("The Vench")
+                break;
+                case "Elop Mentoring":
+                    cy.get('[id="select"]').clear();
+                    cy.get('[id="select"]').type("National Teaching And Advisory Service")
+                break;
+                case "National Teaching And Advisory Service":
+                    cy.get('[id="select"]').clear();
+                    cy.get('[id="select"]').type("Elop Mentoring")
+                break;
+                default:
+                    cy.log('preset value is not as expected' + $value)
+              }
+        });
 
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageUrlContains(expectedEditServicePageUrl);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
         
         // And I click save
         cy.get('#main-content > div > div > form > button').click();

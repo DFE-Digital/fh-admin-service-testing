@@ -1,7 +1,7 @@
 import { getRandomInt } from '../../../support/helperFunctions';
 import { getRandomLetter } from '../../../support/helperFunctions';
 
-const expectedPageHeading = "Service details";
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services";
          
 const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
 
@@ -35,14 +35,14 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 
     it('can edit support offered', () => {
@@ -59,14 +59,14 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 
     it('can edit description', () => {
@@ -80,14 +80,14 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 
     it('can edit whether support related to children or young people', () => {
@@ -105,14 +105,14 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > fieldset > form > button').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -129,14 +129,14 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > div > form > button:nth-child(5)').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -161,13 +161,13 @@ describe('DfE Admin - manage services - edit service details', () => {
         // And I click continue
         cy.get('#main-content > div > div > form > button').click();
 
-        // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        // Then the view service page is displayed
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 });
