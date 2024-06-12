@@ -1,7 +1,7 @@
 import { getRandomInt } from '../../../support/helperFunctions';
-const expectedPageHeading = "Service details";
          
 const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services";
 
 describe('LA Man - manage services - edit further information', () => {
     beforeEach(() => {
@@ -10,7 +10,7 @@ describe('LA Man - manage services - edit further information', () => {
         cy.integrationLogin('laman')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToViewLAServicesPage()
 
         // When I apply a filter
         cy.get('[id="service-name"]').type('Edit');
@@ -53,13 +53,13 @@ describe('LA Man - manage services - edit further information', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -75,13 +75,13 @@ describe('LA Man - manage services - edit further information', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 });

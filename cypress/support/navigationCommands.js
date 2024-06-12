@@ -4,6 +4,6 @@ Cypress.Commands.add('navigateToViewServicesPage',()=>{
  })
 
 // Navigate to Service List Page
-Cypress.Commands.add('navigateToDfeAdminViewServicesPage',()=>{
+Cypress.Commands.add('navigateToViewLAServicesPage',()=>{
     cy.visit('/manage-services?servicetype=La')
  })

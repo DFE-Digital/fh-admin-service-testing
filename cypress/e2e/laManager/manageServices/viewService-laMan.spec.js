@@ -5,7 +5,7 @@ describe('LA Man - manage services - view services list', () => {
         cy.integrationLogin('laman')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToViewLAServicesPage()
 
     })
 

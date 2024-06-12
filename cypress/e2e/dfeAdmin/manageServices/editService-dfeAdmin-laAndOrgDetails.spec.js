@@ -13,7 +13,7 @@ describe('DfE Admin - manage services - edit service details', () => {
         cy.integrationLogin('dfeadmin')
 
         // And I am on the view services page
-        cy.navigateToDfeAdminViewServicesPage()
+        cy.navigateToViewLAServicesPage()
     })
 
     it('can edit associated LA for a LA service', () => {

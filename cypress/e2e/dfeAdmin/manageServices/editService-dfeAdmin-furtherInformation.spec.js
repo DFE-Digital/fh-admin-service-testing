@@ -10,7 +10,7 @@ describe('DfE Admin - manage services - edit further information', () => {
         cy.integrationLogin('dfeadmin')
 
         // And I am on the view services page
-        cy.navigateToDfeAdminViewServicesPage()
+        cy.navigateToViewLAServicesPage()
 
         // When I apply a filter
         cy.get('[id="service-name"]').type('Edit');
