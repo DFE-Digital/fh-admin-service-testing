@@ -1,7 +1,6 @@
 // ***********************************************
 /* eslint-disable max-len */
 
-
 // before each hook with clearing cookies + uncaught exception override
 before(() => {
   
@@ -298,11 +297,12 @@ Cypress.Commands.add('checkPageHeading', (locator, expectedHeading) => {
 
 // check element contains test
 Cypress.Commands.add('checkElementContainsText', (locator, expectedHeading) => {
-  cy.get(locator).should('be.visible').invoke('text').then((text) => {
-      const trimmedText = text.trim();
-      expect(trimmedText).to.contains(expectedHeading);
-  })
+    cy.get(locator).should('be.visible').invoke('text').then((text) => {
+        const trimmedText = text.trim();
+        expect(trimmedText).to.contains(expectedHeading);
+    })
 })
+
 
 // check static text using locator
 Cypress.Commands.add('getTextOfElements', (locator, actualList, expectedList) => {
