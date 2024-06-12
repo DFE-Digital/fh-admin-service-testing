@@ -11,7 +11,7 @@ describe("DfE Admin - KPI report for Connect", () => {
 
 
     it('Verifying the default metrics performance report', () => {
-        //Verifying the default metrics page is connect
+        //Verifying the default metrics page is connect by checking page title
         cy.title().should('eq', 'Performance data for Connect families to support - Manage family support services and accounts - GOV.UK')
     });
 
