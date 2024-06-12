@@ -30,11 +30,11 @@ describe('LA Man - performance data - navigate to view reports page', () => {
         const expectedLast7DaysReportMetric =  "Searches in the last 7 days";
 
         // Then the page heading for the Find report is displayed correctly
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > h2:nth-child(1)', expectedSubHeading);
+        cy.checkPageHeading('[data-testid="h2-overall"]', expectedSubHeading);
 
         // And the expected table headers are displayed correctly
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > table:nth-child(2) > thead > tr > th:nth-child(1)', expectedTableHeaders[0]);
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > table:nth-child(2) > thead > tr > th:nth-child(2)', expectedTableHeaders[1]);
+        cy.checkPageHeading('[data-testid="th-measure-overall"]', expectedTableHeaders[0]);
+        cy.checkPageHeading('[data-testid="th-number-overall"]', expectedTableHeaders[1]);
 
         // And the searches metric is displayed
         cy.checkElementContainsText('[data-testid="searches"]', expectedSearchesReportMetric);
@@ -50,11 +50,11 @@ describe('LA Man - performance data - navigate to view reports page', () => {
         const expected4WeeksReportMetric =  "Total number of searches in the last 4 weeks";
 
         // Then the page heading for the Find report is displayed correctly
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > h2.govuk-heading-s.govuk-\\!-margin-top-9.govuk-\\!-margin-bottom-3', expectedSubHeading);
+        cy.checkPageHeading('[data-testid="h2-weekly"]', expectedSubHeading);
 
         // And the expected table headers are displayed correctly
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > table:nth-child(4) > thead > tr > th.govuk-table__header.govuk-\\!-width-one-half', expectedTableHeaders[0]);
-        cy.checkPageHeading('#main-content > div:nth-child(2) > div.govuk-grid-column-three-quarters > table:nth-child(4) > thead > tr > th:nth-child(2)', expectedTableHeaders[1]);
+        cy.checkPageHeading('[data-testid="th-week-weekly"]', expectedTableHeaders[0]);
+        cy.checkPageHeading('[data-testid="th-number-of-searches-weekly"]', expectedTableHeaders[1]);
 
 
         // And the week 1 searches result exists
