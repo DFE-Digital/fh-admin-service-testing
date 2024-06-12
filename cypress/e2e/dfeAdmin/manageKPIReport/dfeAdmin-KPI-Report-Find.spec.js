@@ -10,7 +10,7 @@ describe("DfE Admin - KPI report for Find", () => {
     })
 
 
-    it('correct page headings displayed for find metrics report', () => {
+    it('Correct page headings displayed for find metrics report', () => {
         const expectedPageHeading = "Performance data for Find support for your family";
         const expectedSubtext = "Data about local authority services for Find support for your family (Find).";
         const expectedFilterHeader = "Services performance";

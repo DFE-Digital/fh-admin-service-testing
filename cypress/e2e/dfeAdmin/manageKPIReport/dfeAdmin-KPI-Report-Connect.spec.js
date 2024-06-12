@@ -10,13 +10,13 @@ describe("DfE Admin - KPI report for Connect", () => {
 
 
 
-    it('Clicking on the connect metrics performance tab', () => {
+    it('Verifying the default metrics performance report', () => {
         //Verifying the default metrics page is connect
         cy.title().should('eq', 'Performance data for Connect families to support - Manage family support services and accounts - GOV.UK')
     });
 
 
-    it('correct page headings displayed for Connect report', () => {
+    it('Correct page headings displayed for Connect report', () => {
         const expectedPageHeading = "Performance data for Connect families to support";
         const expectedSubtext = "Data about local authority services for Connect families to support (Connect).";
         const expectedFilterHeader = "Services performance";
