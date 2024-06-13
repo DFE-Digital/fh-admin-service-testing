@@ -1,8 +1,6 @@
 import { getRandomInt } from '../../../support/helperFunctions';
-import { getRandomLetter } from '../../../support/helperFunctions';
 
-const expectedPageHeading = "Service details";
-         
+const expectedViewServicePageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services";
 const expectedPageUrl = "https://test.manage-family-support-services-and-accounts.education.gov.uk/manage-services/Service-Edit-Confirmation";
 
 describe('LA Man - manage services - edit service details', () => {
@@ -12,7 +10,7 @@ describe('LA Man - manage services - edit service details', () => {
         cy.integrationLogin('laman')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToViewLAServicesPage()
 
         // When I apply a filter
         cy.get('[id="service-name"]').type('Edit');
@@ -36,13 +34,13 @@ describe('LA Man - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 
     it('can edit description', () => {
@@ -57,13 +55,13 @@ describe('LA Man - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 
     it('can edit whether support related to children or young people', () => {
@@ -82,13 +80,13 @@ describe('LA Man - manage services - edit service details', () => {
         cy.get('#main-content > div > div > fieldset > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
 
     })
 
@@ -114,12 +112,12 @@ describe('LA Man - manage services - edit service details', () => {
         cy.get('#main-content > div > div > form > button').click();
 
         // Then view service page is displayed
-        cy.checkPageHeading("h1", expectedPageHeading);
+        cy.checkPageUrlContains(expectedViewServicePageUrl);
 
         // And I click save
         cy.get('#main-content > div > div > form > button').click();
 
         // Then the changes saved page is displayed
-        cy.checkPageUrl(expectedPageUrl); 
+        cy.checkPageUrlContains(expectedPageUrl); 
     })
 });

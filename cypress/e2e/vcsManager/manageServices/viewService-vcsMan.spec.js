@@ -5,7 +5,7 @@ describe('VCS Man - manage services - view services list', () => {
         cy.integrationLogin('vcsman')
 
         // And I am on the view services page
-        cy.navigateToViewServicesPage()
+        cy.navigateToViewVCSServicesPage()
 
     })
 
