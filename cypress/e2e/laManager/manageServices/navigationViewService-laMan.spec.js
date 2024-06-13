@@ -1,6 +1,6 @@
 describe('LA Man - manage services - navigate to view service page', () => {
     beforeEach(() => {
-        // Given I am logged in as DFE admin
+        // Given I am logged in as LA admin
         cy.visit('/')
         cy.integrationLogin('laman')
         // And I click the manage services link
