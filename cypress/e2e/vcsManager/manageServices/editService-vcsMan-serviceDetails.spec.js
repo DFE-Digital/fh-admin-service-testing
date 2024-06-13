@@ -11,7 +11,7 @@ describe('VCS Man - manage services - edit service details', () => {
         cy.integrationLogin('vcsman')
 
         // And I am on the view services page
-        cy.navigateToViewLAServicesPage()
+        cy.navigateToViewVCSServicesPage()
 
         // When I apply a filter
         cy.get('[id="service-name"]').type('Edit');

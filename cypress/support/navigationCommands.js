@@ -7,6 +7,11 @@ Cypress.Commands.add('navigateToViewServicesPage',()=>{
 Cypress.Commands.add('navigateToViewLAServicesPage',()=>{
     cy.visit('/manage-services?servicetype=La')
  })
+
+ // Navigate to Service List Page
+Cypress.Commands.add('navigateToViewVCSServicesPage',()=>{
+   cy.visit('/manage-services?servicetype=Vcs')
+})
  
  // Navigate to Find Reports Page
  Cypress.Commands.add('navigateToViewFindReportsPage',()=>{
