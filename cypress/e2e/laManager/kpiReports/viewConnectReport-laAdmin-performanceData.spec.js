@@ -1,4 +1,4 @@
-describe('VCS Man - performance data - navigate to view reports page', () => {
+describe('LA Man - performance data - navigate to view reports page', () => {
     beforeEach(() => {
         // Given I am logged in as VCS admin
         cy.visit('/')
