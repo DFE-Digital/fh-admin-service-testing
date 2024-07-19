@@ -38,6 +38,7 @@ describe("DfE Admin - KPI report for Connect", () => {
         let expectedTableHeaders = ["Measure", "Number"];
         const expectedSearchesReportMetric =  "Searches";
         const expectedConnectionRequestsReportMetric =  "Connection requests sent";
+        const expectedConnectionRequestsAcceptedReportMetric =  "Connection requests accepted";
 
         // Then the page heading for the Connect report is displayed correctly
         cy.checkPageHeading('[data-testid="h2-overall"]', expectedSubHeading);
@@ -49,6 +50,7 @@ describe("DfE Admin - KPI report for Connect", () => {
         // And the searches and connection request metrics are displayed
         cy.checkElementContainsText('[data-testid="overall-searches"]', expectedSearchesReportMetric);
         cy.checkElementContainsText('[data-testid="overall-requests-sent"]', expectedConnectionRequestsReportMetric);
+        cy.checkElementContainsText('[data-testid="overall-requests-accepted"]', expectedConnectionRequestsAcceptedReportMetric);
     })
 
     it('user can view number of searches and connections requests for an LA in past 7 days', () => {
@@ -56,6 +58,7 @@ describe("DfE Admin - KPI report for Connect", () => {
         let expectedTableHeaders = ["Measure", "Number"];
         const expectedSearchesReportMetric =  "Searches";
         const expectedConnectionRequestsReportMetric =  "Connection requests sent";
+        const expectedConnectionRequestsAcceptedReportMetric =  "Connection requests accepted";
 
         // Then the page heading for the Connect report is displayed correctly
         cy.checkPageHeading('[data-testid="h2-daily"]', expectedSubHeading);
@@ -67,12 +70,12 @@ describe("DfE Admin - KPI report for Connect", () => {
         // And the past 7 days searches and connection requests metrics are displayed
         cy.checkElementContainsText('[data-testid="recent-searches"]', expectedSearchesReportMetric);
         cy.checkElementContainsText('[data-testid="recent-requests-sent"]', expectedConnectionRequestsReportMetric);
-
+        cy.checkElementContainsText('[data-testid="recent-requests-accepted"]', expectedConnectionRequestsAcceptedReportMetric);
     })
 
     it('user can view number of searches and connections requests for an LA in the past 4 weeks', () => {
         const expectedSubHeading = "Searches and connection requests in the last 4 weeks";
-        let expectedTableHeaders = ["Week", "Number of searches", "Connection requests sent"];
+        let expectedTableHeaders = ["Week", "Number of searches", "Connection requests sent", "Connection requests accepted"];
         const expected4WeeksReportMetric =  "Total";
 
         // Then the page heading for the Connect report is displayed correctly
@@ -82,6 +85,7 @@ describe("DfE Admin - KPI report for Connect", () => {
         cy.checkPageHeading('[data-testid="th-week-weekly"]', expectedTableHeaders[0]);
         cy.checkPageHeading('[data-testid="th-number-of-searches-weekly"]', expectedTableHeaders[1]);
         cy.checkPageHeading('[data-testid="th-number-of-requests-made-weekly"]', expectedTableHeaders[2]);
+        cy.checkPageHeading('[data-testid="th-number-of-requests-accepted-weekly"]', expectedTableHeaders[3]);
 
 
         // And the week 1 searches result exists
