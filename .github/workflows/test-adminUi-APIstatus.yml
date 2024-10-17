@@ -1,39 +1,39 @@
-name: "| Test env - Health Check Status | Manage family support services and accounts |"
-
-on:
-  schedule:
-    - cron: "30 05 * * *"
-  workflow_dispatch:
-
-jobs:
-  cypress-run:
-    environment: Manage family support services and accounts - Health Status
-    env:
-      CYPRESS_BASE_URL: "https://test.manage-family-support-services-and-accounts.education.gov.uk/"
-    name: " API Health Check Status - Manage Service - Test Environment "
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-    steps:
-      - run: date
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v4
-        name: cypress
-        id: cypress
-        continue-on-error: true
-        with:
-          quiet: true
-          browser: chrome
-          headless: true
-          spec: "cypress/e2e/healthCheckManage.spec.js"
-        env:
-          DEBUG: '@cypress/github-action'   
-      - name: Set build status based on Cypress outcome
-        if: steps.cypress.outcome != 'success'
-        run: exit 1
-        
-
-      
-        
-
-     
+#name: "| Test env - Health Check Status | Manage family support services and accounts |"
+#
+#on:
+#  schedule:
+#    - cron: "30 05 * * *"
+#  workflow_dispatch:
+#
+#jobs:
+#  cypress-run:
+#    environment: Manage family support services and accounts - Health Status
+#    env:
+#      CYPRESS_BASE_URL: "https://test.manage-family-support-services-and-accounts.education.gov.uk/"
+#    name: " API Health Check Status - Manage Service - Test Environment "
+#    runs-on: ubuntu-22.04
+#    strategy:
+#      fail-fast: false
+#    steps:
+#      - run: date
+#      - uses: actions/checkout@v2
+#      - uses: cypress-io/github-action@v4
+#        name: cypress
+#        id: cypress
+#        continue-on-error: true
+#        with:
+#          quiet: true
+#          browser: chrome
+#          headless: true
+#          spec: "cypress/e2e/healthCheckManage.spec.js"
+#        env:
+#          DEBUG: '@cypress/github-action'   
+#      - name: Set build status based on Cypress outcome
+#        if: steps.cypress.outcome != 'success'
+#        run: exit 1
+#        
+#
+#      
+#        
+#
+#     
